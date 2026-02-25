@@ -1,0 +1,91 @@
+name: Alarm Sistemi (10:30 / 11:30 / 14:30 / 15:30 TR)
+
+on:
+  schedule:
+    - cron: '30 7  * * 1-5'  # 10:30 TR
+    - cron: '30 8  * * 1-5'  # 11:30 TR
+    - cron: '30 11 * * 1-5'  # 14:30 TR
+    - cron: '30 12 * * 1-5'  # 15:30 TR
+  workflow_dispatch:
+
+jobs:
+  alarm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Kodu çek (raporlar dahil)
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Bağımlılıkları yükle
+        run: |
+          pip install --quiet \
+            yfinance pandas numpy requests python-dotenv \
+            groq beautifulsoup4 rich
+
+      - name: Altın fiyatını logla (gold-api)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - << 'EOF'
+          import json, requests
+          from datetime import datetime
+          from pathlib import Path
+
+          Path("raporlar").mkdir(exist_ok=True)
+          log_dosya = Path("raporlar/altin_fiyat_log.json")
+
+          log = []
+          if log_dosya.exists():
+              try:
+                  log = json.loads(log_dosya.read_text())
+              except:
+                  pass
+
+          kayit = {"tarih": datetime.now().strftime("%Y-%m-%d %H:%M")}
+          for sembol, url in [("XAU", "https://api.gold-api.com/price/XAU"),
+                               ("XAG", "https://api.gold-api.com/price/XAG")]:
+              try:
+                  r = requests.get(url, timeout=6)
+                  if r.status_code == 200:
+                      kayit[sembol] = r.json().get("price")
+              except:
+                  pass
+
+          log.append(kayit)
+          log = log[-500:]  # Son 500 kayıt tut
+          log_dosya.write_text(json.dumps(log, ensure_ascii=False, indent=2))
+          print(f"Gold-API log: {kayit}")
+          EOF
+
+      - name: Birleşik alarm sistemi çalıştır
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python bist_sistem.py
+
+      - name: Denetçi çalıştır
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python bist_denetci.py --kural --backtest
+          mv denetim_raporu_*.json raporlar/ 2>/dev/null || true
+
+      - name: Altın fiyat logunu repoya kaydet
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add raporlar/altin_fiyat_log.json raporlar/denetim_raporu_*.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "📈 Alarm logu $(date +'%Y-%m-%d %H:%M')"
+          git push

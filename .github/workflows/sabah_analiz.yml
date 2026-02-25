@@ -1,0 +1,59 @@
+name: Sabah Analizi (09:00 TR)
+
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'   # 09:00 TR (UTC+3) = 06:00 UTC, Pazartesi-Cuma
+  workflow_dispatch:
+
+jobs:
+  sabah_analiz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30        # bist_agents LLM çağrıları için yeterli süre
+
+    steps:
+      - name: Kodu çek
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Bağımlılıkları yükle
+        run: |
+          pip install --quiet \
+            yfinance pandas numpy requests python-dotenv \
+            groq beautifulsoup4 feedparser rich
+
+      - name: raporlar/ klasörü oluştur
+        run: mkdir -p raporlar
+
+      - name: bist_agents.py çalıştır
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python bist_agents.py
+          # Üretilen raporları raporlar/ klasörüne taşı
+          mv bist_rapor_*.json raporlar/ 2>/dev/null || true
+
+      - name: bist_piyasa_sagligi.py çalıştır
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python bist_piyasa_sagligi.py
+          mv piyasa_sagligi_*.json raporlar/ 2>/dev/null || true
+
+      - name: Raporları repoya kaydet (commit)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add raporlar/
+          git diff --staged --quiet || git commit -m "📊 Sabah raporu $(date +'%Y-%m-%d')"
+          git push
