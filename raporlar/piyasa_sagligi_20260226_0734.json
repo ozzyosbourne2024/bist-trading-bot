@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-02-26T07:34:42.844611",
+  "genisl": {
+    "yukselenler": 6,
+    "dusenler": 24,
+    "breadth_skoru": 9.7,
+    "adl_oran": 0.25,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.35,
+    "bist_degisim_10g": -3.21,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 43.87770080566406,
+    "usdtry_aylik_pct": 0.97,
+    "tur_etf_degisim": 1.98,
+    "altin_degisim": 5.65,
+    "vix": 17.9
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13724.080078125,
+      "ort20": 13917,
+      "ort50": 12850,
+      "rsi": 54.8,
+      "macd_histo": -103.0,
+      "ay1_pct": -0.8,
+      "ay3_pct": 24.3,
+      "ay6_pct": 30.9,
+      "bb_pozisyon": 29.3,
+      "ust_band": 14382,
+      "alt_band": 13451
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %9.7 olarak düşük bir seviyede ve yükselen hisse sayısı sadece 6 iken, düşen hisse sayısı 24. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 33/100 olarak orta seviyede ve endeksin RSI değeri 54.8 olarak nötr bir seviyede. Ancak, breadth skorunun düşük olması ve aşırı alım sinyali veren hisse sayısının az olması, endeksin bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, global piyasalardaki dalgalanmalar veya makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks ve hisse seçimleri yapılırken, güçlü temel göstergelere sahip hisseler tercih edilmelidir.\n * Portföylerde risk yönetimi için stop-loss seviyeleri belirlenmeli ve takip edilmelidir.\n * Yatırım stratejileri, global piyasalardaki gelişmeleri ve makroekonomik faktörleri dikkate alarak esnek bir şekilde güncellenmelidir."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
