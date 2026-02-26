@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-02-26T07:12:20.240789",
+  "genisl": {
+    "yukselenler": 7,
+    "dusenler": 45,
+    "breadth_skoru": 11.3,
+    "adl_oran": 0.16,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.32,
+    "bist_degisim_10g": -2.61,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 43.86940002441406,
+    "usdtry_aylik_pct": 0.95,
+    "tur_etf_degisim": 1.98,
+    "altin_degisim": 2.74,
+    "vix": 17.9
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13809.900390625,
+      "ort20": 13922,
+      "ort50": 12802,
+      "rsi": 55.3,
+      "macd_histo": -87.0,
+      "ay1_pct": -0.2,
+      "ay3_pct": 24.2,
+      "ay6_pct": 32.2,
+      "bb_pozisyon": 37.8,
+      "ust_band": 14380,
+      "alt_band": 13464
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %11.3 olarak düşük bir seviyede ve yükselen hisse sayısı sadece 7 iken düşen hisse sayısı 45. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 28/100 olarak düşük bir seviyede değil, ancak RSI değeri 55.3 olarak nötr bir seviyede. BB%B değeri %37.8 olarak orta seviyede. VIX değeri 17.9 olarak nötr bir seviyede. Ancak, yükselen hisse sayısının düşük olması ve düşen hisse sayısının yüksek olması, endekste bir düzeltme olabileceğini gösteriyor. Tetikleyici, global piyasalardaki dalgalanmalar veya makroekonomik verilerdeki olumsuz gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- Endeksdeki zayıf genişlik nedeniyle, güçlü hisse senetlerine odaklanmak daha iyi olabilir.\n- RSI değeri 55.3 olarak nötr bir seviyede olduğu için, yatırımcılar endekste bir düzeltme olabileceğine karşı hazırlıklı olmalı ve stop-loss emirleri kullanabilir.\n- Yatırımcılar, global piyasalardaki gelişmeleri ve makroekonomik verileri yakından takip etmelidir. Olumsuz gelişmeler karşısında portföylerini güncellemeye hazır olmalıdırlar."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
