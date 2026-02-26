@@ -1249,6 +1249,37 @@ def portfoy_kurallari_uygula(portfoy: dict, hisseler: list, kor_df) -> dict:
             k["agirlik_pct"] = 0
             k["gerekce"] = f"Kural puanı {kural_map.get(t,0):.0f} < {min_kural} eşiği — BEKLE"
 
+    # ── Kural 1b: VETO — Kesin düşüş trendi (LOGO tipi hatayı önler) ─────────
+    #   SAR AŞAĞI + BULUT_ALTI → her iki gösterge düşüş diyor → VETO
+    #   Sharpe < -1.5 + teknik_puan < 65 → kötü risk/getiri + zayıf teknik → VETO
+    #   6ay < -%15 + SAR AŞAĞI → uzun süreli düşüş trendi → VETO
+    teknik_map = {h.ticker: (h.kural_sonuc.teknik_puan if h.kural_sonuc else 0) for h in hisseler}
+    altiay_map = {h.ticker: h.degisim_6ay for h in hisseler}
+
+    for k in kararlar:
+        if k.get("karar") != "AL":
+            continue
+        t   = k["ticker"]
+        ich = ich_map.get(t, "?")
+        sar = sar_map.get(t, "?")
+        sh  = sharpe_map.get(t) or 0
+        tek = teknik_map.get(t, 0)
+        alt = altiay_map.get(t) or 0
+
+        veto_sebebi = None
+
+        if sar == "ASAGI" and ich == "BULUT_ALTI":
+            veto_sebebi = f"VETO: SAR↓ + Bulut Altı — kesin düşüş trendi"
+        elif sh < -1.5 and tek < 65:
+            veto_sebebi = f"VETO: Sharpe:{sh:.2f} + Teknik:{tek:.0f} — kötü risk/getiri"
+        elif alt < -15 and sar == "ASAGI":
+            veto_sebebi = f"VETO: 6Ay:{alt:.1f}% + SAR↓ — uzun süreli düşüş"
+
+        if veto_sebebi:
+            k["karar"]      = "BEKLE"
+            k["agirlik_pct"] = 0
+            k["gerekce"]    = veto_sebebi
+
     # ── Kural 2: tek hisse max ────────────────────────────────────────────────
     for k in kararlar:
         if k["karar"] == "AL" and k.get("agirlik_pct", 0) > max_hisse:
