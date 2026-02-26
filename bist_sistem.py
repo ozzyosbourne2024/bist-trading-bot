@@ -188,7 +188,12 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         emoji_k  = s.get("emoji_k", "")
         spot     = s.get("spot_fiyat")
         enstruman_emoji = "🥇" if isim == "ALTIN" else "🥈"
-        fiyat_str = f" | {spot:.2f}" if spot else ""
+        futures = s.get("futures_fiyat")
+        spot_str = f"Spot:{spot:.2f}" if spot else ""
+        fut_str  = f"Fut:{futures:.2f}" if futures else ""
+        fiyat_str = " | ".join(filter(None, [spot_str, fut_str]))
+        if fiyat_str:
+            fiyat_str = f" | {fiyat_str}"
 
         satirlar.append(f"\n{enstruman_emoji} <b>{isim}{fiyat_str}</b>")
         satirlar.append(f"  {emoji_k} {skor}/5 → {karar}")
@@ -198,7 +203,7 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         for key, label in [
             ("S1_Momentum", "Momentum"),
             ("S2_Hacim",    "Hacim"),
-            ("S3_SpotFut",  "Spot/Fut"),
+            ("S3_RSI",      "RSI1H+4H"),
             ("S4_MACD",     "MACD"),
             ("S5_Makro",    "Makro"),
         ]:

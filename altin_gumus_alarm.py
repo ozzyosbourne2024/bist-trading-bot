@@ -6,7 +6,7 @@ RSI yerine daha güvenilir 5 sinyal:
 
   S1. Momentum Kırılması  — fiyat önceki 20G direncini geçti mi?
   S2. Hacim Artışı        — son 3 günde hacim ortalamanın üzerinde mi?
-  S3. Spot-Futures Farkı  — backwardation var mı? (güçlü fiziksel talep)
+  S3. RSI Çift Zaman      — 1H RSI + 4H RSI birlikte yükseliyor mu?
   S4. MACD Kesimi         — 1H MACD sinyal çizgisini yukarı kesti mi?
   S5. Makro / Dolar       — DXY zayıflıyor + VIX yüksek = altın için iyi
 
@@ -44,17 +44,16 @@ FIYAT_LOG        = "raporlar/altin_fiyat_log.json"  # GitHub Actions'ta biriken 
 
 ENSTRUMANLAR = {
     "ALTIN": {
-        "futures":  "GC=F",   # MACD/teknik için
-        "etf":      "GLD",    # S1 momentum + S2 hacim için
+        "futures":  "GC=F",
+        "stooq":    "xauusd",   # Stooq spot — S1 için temiz günlük veri
         "spot_url": "https://api.gold-api.com/price/XAU",
         "birim":    "$/oz",
         "emoji":    "🥇",
     },
     "GUMUS": {
-        "futures":  "SI=F",   # MACD/teknik için
-        "etf":      None,       # SLV verisi bozuk — gold-api log kullanılır
+        "futures":  "SI=F",
+        "stooq":    "xagusd",   # Stooq spot — S1 için temiz günlük veri
         "spot_url": "https://api.gold-api.com/price/XAG",
-        "log_sembol": "XAG",  # gold-api log anahtarı
         "birim":    "$/oz",
         "emoji":    "🥈",
     },
@@ -64,6 +63,24 @@ ENSTRUMANLAR = {
 # ════════════════════════════════════════════════════════════════════════════
 # YARDIMCI
 # ════════════════════════════════════════════════════════════════════════════
+
+def _stooq_gunluk(sembol: str, gun: int = 60) -> Optional[pd.DataFrame]:
+    """Stooq.com'dan temiz günlük spot veri çek (rollover yok)."""
+    from io import StringIO
+    try:
+        url = f"https://stooq.com/q/d/l/?s={sembol}&i=d"
+        r = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
+        if r.status_code != 200 or "Date" not in r.text:
+            return None
+        df = pd.read_csv(StringIO(r.text))
+        df["Date"] = pd.to_datetime(df["Date"])
+        df = df.sort_values("Date").tail(gun).reset_index(drop=True)
+        df.index = pd.DatetimeIndex(df["Date"])
+        return df
+    except:
+        return None
+
+
 
 def _indir(symbol: str, interval: str = "1h", period: str = "1mo",
            retries: int = 4) -> Optional[pd.DataFrame]:
@@ -126,27 +143,22 @@ def _log(kayit: dict):
 # 5 SİNYAL
 # ════════════════════════════════════════════════════════════════════════════
 
-def s1_momentum_kirilmasi(df_etf: pd.DataFrame) -> Tuple[bool, str]:
+def s1_momentum_kirilmasi(df_stooq: pd.DataFrame) -> Tuple[bool, str]:
     """
-    S1: ETF (GLD/SLV) ile momentum kırılması.
-    Rollover sorunu yok — kesintisiz fiyat serisi.
+    S1: Stooq spot veri ile momentum kırılması.
+    Rollover yok — gerçek spot fiyat serisi.
     """
-    if df_etf is None or len(df_etf) < 22:
-        return False, "ETF veri yetersiz"
+    if df_stooq is None or len(df_stooq) < 22:
+        return False, "Stooq veri yetersiz"
 
-    kapanis = df_etf["Close"]
+    kapanis = df_stooq["Close"]
     bugun   = float(kapanis.iloc[-1])
     dun     = float(kapanis.iloc[-2])
-
-    # Son 20 günün yüksek/düşük kapanışı (bugün hariç)
     max_20g = float(kapanis.iloc[-22:-2].max())
     min_20g = float(kapanis.iloc[-22:-2].min())
 
-    # Yukarı kırılma: bugün VE dün max üstünde (teyit)
     yukari_kirilma = bugun > max_20g and dun > max_20g * 0.99
-
-    # Aşağı kırılma
-    asagi_kirilma = bugun < min_20g
+    asagi_kirilma  = bugun < min_20g
 
     if yukari_kirilma:
         return True, f"↗ Kırıldı! {bugun:.2f} > Max20G:{max_20g:.2f}"
@@ -156,15 +168,15 @@ def s1_momentum_kirilmasi(df_etf: pd.DataFrame) -> Tuple[bool, str]:
         return False, f"Bugün:{bugun:.2f} | Max20G:{max_20g:.2f} | Fark:{((bugun/max_20g)-1)*100:.1f}%"
 
 
-def s2_hacim_artisi(df_etf: pd.DataFrame) -> Tuple[bool, str]:
+def s2_hacim_artisi(df_futures_gun: pd.DataFrame) -> Tuple[bool, str]:
     """
-    S2: ETF (GLD/SLV) hacim analizi.
-    Milyonlarca işlem/gün — güvenilir hacim verisi.
+    S2: Futures günlük hacim analizi (hacimde rollover etkisi yok).
+    GC=F / SI=F hacim verisi güvenilir.
     """
-    if df_etf is None or len(df_etf) < 22:
-        return False, "ETF veri yetersiz"
+    if df_futures_gun is None or len(df_futures_gun) < 22:
+        return False, "Futures hacim verisi yetersiz"
 
-    hacim = df_etf["Volume"]
+    hacim = df_futures_gun["Volume"]
     son3_ort = float(hacim.iloc[-3:].mean())
     ort20    = float(hacim.iloc[-22:-2].mean())
 
@@ -172,36 +184,70 @@ def s2_hacim_artisi(df_etf: pd.DataFrame) -> Tuple[bool, str]:
         return False, "Hacim verisi yok"
 
     oran = son3_ort / ort20
-
-    # ETF için eşik biraz daha düşük — normal hacim zaten yüksek
-    sinyal = oran >= 1.20
+    sinyal = oran >= 1.25
     detay  = f"Son3G:{son3_ort:,.0f} | Ort20G:{ort20:,.0f} | Oran:{oran:.2f}x"
     return sinyal, detay
 
 
-def s3_spot_futures_farki(futures_fiyat: float,
-                           spot_fiyat: Optional[float]) -> Tuple[bool, str]:
-    """
-    S3: Spot-Futures farkı analizi
-    Normal: Futures > Spot (contango) — taşıma maliyeti
-    Backwardation: Spot > Futures → fiziksel talep çok güçlü → bullish
-    Fark çok açılmış contango → zayıf fiziksel talep → dikkat
-    """
-    if spot_fiyat is None or futures_fiyat is None or futures_fiyat == 0:
-        return False, "Spot veri alınamadı"
+def _rsi(seri: pd.Series, period: int = 14) -> float:
+    """RSI hesapla, son değeri döndür."""
+    delta = seri.diff()
+    gain  = delta.clip(lower=0)
+    loss  = -delta.clip(upper=0)
+    avg_g = gain.ewm(alpha=1/period, adjust=False).mean()
+    avg_l = loss.ewm(alpha=1/period, adjust=False).mean()
+    rs    = avg_g / avg_l.replace(0, 1e-9)
+    rsi_s = 100 - (100 / (1 + rs))
+    return float(rsi_s.iloc[-1])
 
-    fark_pct = (futures_fiyat - spot_fiyat) / spot_fiyat * 100
 
-    if fark_pct < 0:
-        # Backwardation — çok güçlü fiziksel talep
-        return True, f"BACKWARDATION ✓ Spot:{spot_fiyat:.2f} > Fut:{futures_fiyat:.2f} ({fark_pct:.2f}%)"
-    elif fark_pct < 0.5:
-        # Minimal contango — nötr/hafif bullish
-        return True, f"Minimal contango ✓ Fark:{fark_pct:.2f}% (sağlıklı)"
-    elif fark_pct < 1.5:
-        return False, f"Normal contango Fark:{fark_pct:.2f}% | Spot:{spot_fiyat:.2f}"
-    else:
-        return False, f"Geniş contango ✗ Fark:{fark_pct:.2f}% — fiziksel talep zayıf"
+def s3_rsi_cift_zaman(sembol: str) -> Tuple[bool, str]:
+    """
+    S3: 1H + 4H RSI Trend Takibi
+    1H: yfinance interval="1h" direkt
+    4H: yfinance interval="30m" → resample("4h") ile OHLCV doğru birleştirme
+    Trend takibi: her iki zaman diliminde RSI > 50 ve yükseliyor
+    Aşırı alım kontrolü: RSI > 78 ise dur
+    """
+    # 1H veri — direkt
+    df_1h = _indir(sembol, interval="1h", period="7d")
+    if df_1h is None or len(df_1h) < 20:
+        return False, "1H veri yetersiz"
+    k_1h = pd.to_numeric(df_1h["Close"], errors="coerce").dropna()
+    rsi_1h_son = _rsi(k_1h)
+    rsi_1h_dun = _rsi(k_1h.iloc[:-3])
+
+    # 4H veri — 30 dakikadan OHLCV resample (daha doğru)
+    df_30m = _indir(sembol, interval="30m", period="60d")
+    if df_30m is None or len(df_30m) < 30:
+        return False, "30M veri yetersiz"
+    df_4h = df_30m.resample("4h").agg({
+        "Open":   "first",
+        "High":   "max",
+        "Low":    "min",
+        "Close":  "last",
+        "Volume": "sum"
+    }).dropna()
+    if len(df_4h) < 10:
+        return False, "4H resample yetersiz"
+    k_4h = pd.to_numeric(df_4h["Close"], errors="coerce").dropna()
+    rsi_4h_son = _rsi(k_4h)
+    rsi_4h_dun = _rsi(k_4h.iloc[:-2])
+
+    # Trend takibi: her ikisi >50 ve yükseliyor
+    trend_1h = rsi_1h_son > 50 and rsi_1h_son > rsi_1h_dun
+    trend_4h = rsi_4h_son > 50 and rsi_4h_son > rsi_4h_dun
+    asiri_alim = rsi_1h_son > 78 or rsi_4h_son > 78
+
+    sinyal = trend_1h and trend_4h and not asiri_alim
+
+    yon_1h = "↑" if rsi_1h_son > rsi_1h_dun else "↓"
+    yon_4h = "↑" if rsi_4h_son > rsi_4h_dun else "↓"
+    detay = (f"1H:{rsi_1h_son:.1f}{yon_1h} "
+             f"4H(30m→):{rsi_4h_son:.1f}{yon_4h} "
+             f"Trend:{'✓' if trend_1h and trend_4h else '✗'} "
+             f"{'⚠️AşırıAlım' if asiri_alim else ''}")
+    return sinyal, detay
 
 
 def s4_macd_kesimi(df_1h: pd.DataFrame) -> Tuple[bool, str]:
@@ -298,96 +344,61 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
 # ANA ALARM
 # ════════════════════════════════════════════════════════════════════════════
 
-def _log_fiyat_serisi(sembol: str) -> Optional[pd.Series]:
-    """gold-api log dosyasından fiyat serisi oluştur."""
-    try:
-        if not Path(FIYAT_LOG).exists():
-            return None
-        log = json.loads(Path(FIYAT_LOG).read_text(encoding="utf-8"))
-        kayitlar = [(k["tarih"], k[sembol]) for k in log
-                    if sembol in k and k[sembol] is not None]
-        if len(kayitlar) < 5:
-            return None
-        idx    = pd.to_datetime([k[0] for k in kayitlar])
-        values = [k[1] for k in kayitlar]
-        return pd.Series(values, index=idx)
-    except:
-        return None
 
-
-def s1_momentum_log(sembol: str, spot_bugun: Optional[float]) -> tuple[bool, str]:
-    """S1: gold-api log ile momentum kırılması (gümüş için)."""
-    seri = _log_fiyat_serisi(sembol)
-    if seri is None or len(seri) < 5:
-        return False, f"Log yetersiz ({len(seri) if seri is not None else 0} kayıt — birikiyor)"
-
-    bugun   = spot_bugun or float(seri.iloc[-1])
-    max_20  = float(seri.iloc[:-1].max())
-    min_20  = float(seri.iloc[:-1].min())
-
-    if bugun > max_20 * 0.998:
-        return True, f"↗ Kırıldı! {bugun:.2f} > Max:{max_20:.2f}"
-    elif bugun < min_20:
-        return False, f"↘ Dip kırıldı! {bugun:.2f} < Min:{min_20:.2f} ⚠️"
-    else:
-        return False, f"Bugün:{bugun:.2f} | Max:{max_20:.2f} | Fark:{((bugun/max_20)-1)*100:.1f}%"
-
-
-def s2_hacim_log(sembol: str) -> tuple[bool, str]:
-    """S2: gold-api log ile fiyat hızlanması (hacim proxy — gümüş için)."""
-    seri = _log_fiyat_serisi(sembol)
-    if seri is None or len(seri) < 6:
-        return False, f"Log yetersiz — hacim proxy henüz hazır değil"
-
-    # Fiyat değişim hızı: son 3 ölçüm vs önceki 3 ölçüm
-    son3_volatilite  = float(seri.iloc[-3:].pct_change().abs().mean()) * 100
-    once3_volatilite = float(seri.iloc[-6:-3].pct_change().abs().mean()) * 100
-
-    if once3_volatilite == 0:
-        return False, "Volatilite hesaplanamadı"
-
-    oran = son3_volatilite / once3_volatilite
-    sinyal = oran >= 1.3 and son3_volatilite > 0.3
-    detay  = f"Son volatilite:%{son3_volatilite:.2f} | Önceki:%{once3_volatilite:.2f} | Oran:{oran:.2f}x"
-    return sinyal, detay
 
 
 def enstruman_analiz(isim: str, cfg: dict) -> dict:
     print(f"\n  {'─'*40}")
     print(f"  {cfg['emoji']} {isim} analiz ediliyor...")
 
-    # Veri çek
-    etf_sembol = cfg.get("etf")
-    log_sembol = cfg.get("log_sembol")
-    df_etf = _indir(etf_sembol, interval="1d", period="3mo") if etf_sembol else None
-    df_gun = _indir(cfg["futures"], interval="1d", period="3mo")
-    df_1h  = _indir(etf_sembol or cfg["futures"], interval="1h", period="1mo")
-    spot   = _spot_fiyat(cfg["spot_url"])
+    futures_sym = cfg["futures"]
+
+    # Stooq: temiz spot günlük veri — S1 için
+    df_stooq = _stooq_gunluk(cfg["stooq"], gun=60)
+
+    # yfinance futures: S2 hacim + S3/S4 RSI/MACD + S5 makro
+    df_gun   = _indir(futures_sym, interval="1d", period="3mo")
+
+    # 4H: 30 dakikadan OHLCV resample
+    df_30m_fut = _indir(futures_sym, interval="30m", period="60d")
+    if df_30m_fut is not None:
+        df_4h_futures = df_30m_fut.resample("4h").agg({
+            "Open": "first", "High": "max",
+            "Low": "min", "Close": "last", "Volume": "sum"
+        }).dropna()
+    else:
+        df_4h_futures = None
+
+    # Anlık futures fiyatı — 1 dakikalık son bar
+    df_anlik = _indir(futures_sym, interval="1m", period="1d")
+    anlik_fiyat = float(df_anlik["Close"].iloc[-1]) if df_anlik is not None and not df_anlik.empty else None
+
+    # Gold-api spot
+    spot = _spot_fiyat(cfg["spot_url"])
     fut_fiyat = float(df_gun["Close"].iloc[-1]) if df_gun is not None else None
 
-    # Fiyat gösterimi: spot birincil
-    gosterim_fiyat = spot if spot else fut_fiyat
-    etf_fiyat = float(df_etf["Close"].iloc[-1]) if df_etf is not None else None
-    if gosterim_fiyat:
-        etf_str = f" | {etf_sembol}:{etf_fiyat:.2f}" if etf_fiyat and etf_sembol else ""
-        print(f"  Spot: {gosterim_fiyat:.2f} (gold-api.com){etf_str}")
+    # Fiyat gösterimi
+    if spot:
+        print(f"  Spot    : {spot:.2f} $/oz (gold-api.com)")
+    if anlik_fiyat:
+        print(f"  Futures : {anlik_fiyat:.2f} $/oz ({futures_sym} — anlık)")
+    elif fut_fiyat:
+        print(f"  Futures : {fut_fiyat:.2f} $/oz ({futures_sym})")
+    if df_stooq is not None:
+        stooq_son = float(df_stooq["Close"].iloc[-1])
+        print(f"  Stooq   : {stooq_son:.2f} $/oz (dün kapanış, S1 için)")
 
-    # 5 Sinyal — ETF varsa ETF, yoksa gold-api log kullan
-    if df_etf is not None:
-        s1, d1 = s1_momentum_kirilmasi(df_etf)
-        s2, d2 = s2_hacim_artisi(df_etf)
-    else:
-        # gold-api log bazlı (gümüş)
-        s1, d1 = s1_momentum_log(log_sembol or "XAG", spot)
-        s2, d2 = s2_hacim_log(log_sembol or "XAG")
-    s3, d3 = s3_spot_futures_farki(fut_fiyat, spot)
-    s4, d4 = s4_macd_kesimi(df_1h)
+    # 5 Sinyal
+    s1, d1 = s1_momentum_kirilmasi(df_stooq)
+    s2, d2 = s2_hacim_artisi(df_gun)
+    s3, d3 = s3_rsi_cift_zaman(futures_sym)
+    s4, d4 = s4_macd_kesimi(df_4h_futures)
     s5, d5 = s5_makro_dolar(df_gun)
 
     ACIKLAMALAR = {
         "S1": "Fiyat son 20 günün zirvesini kırdı mı? Kırarsa güçlü yukarı sinyal.",
         "S2": "Son 3 gün hacmi normalin kaç katı? 1.3x+ = gerçek alıcı var.",
-        "S3": "Spot fiyat futures fiyatından yüksekse (backwardation) fiziksel talep çok güçlü.",
+        "S3": "1H RSI + 4H RSI çift filtre: ikisi de yükseliyor + dip dönüşü = güçlü AL.",
         "S4": "MACD çizgisi sinyal çizgisini yukarı kesti mi? Kestiyse trend dönüyor.",
         "S5": "Dolar zayıf + korku yüksek + faiz düşük = altın/gümüş için olumlu ortam.",
     }
@@ -395,7 +406,7 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     print(f"     💡 {ACIKLAMALAR['S1']}")
     print(f"  {'✅' if s2 else '❌'} S2 Hacim Artışı       : {d2}")
     print(f"     💡 {ACIKLAMALAR['S2']}")
-    print(f"  {'✅' if s3 else '❌'} S3 Spot-Futures       : {d3}")
+    print(f"  {'✅' if s3 else '❌'} S3 RSI 1H+4H          : {d3}")
     print(f"     💡 {ACIKLAMALAR['S3']}")
     print(f"  {'✅' if s4 else '❌'} S4 MACD Kesimi        : {d4}")
     print(f"     💡 {ACIKLAMALAR['S4']}")
@@ -417,7 +428,7 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
 
     return {
         "isim": isim,
-        "futures_fiyat": fut_fiyat,
+        "futures_fiyat": anlik_fiyat or fut_fiyat,
         "spot_fiyat": spot,
         "skor": yesil,
         "karar": karar,
@@ -425,7 +436,7 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
         "sinyaller": {
             "S1_Momentum": {"sonuc": s1, "detay": d1},
             "S2_Hacim":    {"sonuc": s2, "detay": d2},
-            "S3_SpotFut":  {"sonuc": s3, "detay": d3},
+            "S3_RSI":      {"sonuc": s3, "detay": d3},
             "S4_MACD":     {"sonuc": s4, "detay": d4},
             "S5_Makro":    {"sonuc": s5, "detay": d5},
         }
@@ -437,12 +448,9 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
 
     for s in sonuclar:
         # Spot birincil, futures ikincil
-        if s['spot_fiyat']:
-            fiyat_str = f"{s['spot_fiyat']:.2f} (spot)"
-            if s['futures_fiyat']:
-                fiyat_str += f" / {s['futures_fiyat']:.2f} (fut)"
-        else:
-            fiyat_str = f"{s['futures_fiyat']:.2f} (fut)" if s['futures_fiyat'] else "?"
+        spot_str = f"{s['spot_fiyat']:.2f}" if s['spot_fiyat'] else "?"
+        fut_str  = f"{s['futures_fiyat']:.2f}" if s['futures_fiyat'] else "?"
+        fiyat_str = f"Spot:{spot_str} | Fut:{fut_str}"
 
         sig = s["sinyaller"]
         def _satir(ok, baslik, detay, acik):
@@ -452,7 +460,7 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
                    "20G zirvesi kırıldı mı? Kırarsa güçlü yukarı sinyal."),
             _satir(sig['S2_Hacim']['sonuc'], "Hacim", sig['S2_Hacim']['detay'],
                    "1.3x+ = gerçek alıcı var, yükseliş inandırıcı."),
-            _satir(sig['S3_SpotFut']['sonuc'], "Spot/Fut", sig['S3_SpotFut']['detay'],
+            _satir(sig['S3_RSI']['sonuc'], "RSI1H+4H", sig['S3_RSI']['detay'],
                    "Backwardation = fiziksel talep çok güçlü."),
             _satir(sig['S4_MACD']['sonuc'], "MACD", sig['S4_MACD']['detay'],
                    "Sinyal çizgisi kesildi mi? Kestiyse trend dönüyor."),
