@@ -290,6 +290,74 @@ def s5_makro_temizlendi() -> tuple[bool, str]:
     return sinyal, detay
 
 
+def s6_dip_alim_senaryosu(xu100: pd.DataFrame) -> tuple:
+    """
+    Senaryo A — Dip Alım:
+    BIST100 < 13.000 VE RSI < 38 VE 5+ hisse aşırı satımda
+    """
+    if xu100 is None or len(xu100) < 14:
+        return False, "Veri yetersiz"
+
+    son = float(xu100["Close"].iloc[-1])
+    rsi = _rsi(xu100["Close"])
+
+    asiri_satim = 0
+    for ticker in BIST_TICKERS[:20]:
+        h = _fiyat_cek(ticker, "1mo")
+        if h is not None and len(h) >= 14:
+            try:
+                if _rsi(h["Close"]) < 35:
+                    asiri_satim += 1
+            except:
+                pass
+
+    kosul1 = son < 13000
+    kosul2 = rsi < 38
+    kosul3 = asiri_satim >= 5
+
+    sinyal = kosul1 and kosul2 and kosul3
+    detay = (f"BIST:{son:,.0f}({'<13K ✓' if kosul1 else '>13K ✗'}) "
+             f"RSI:{rsi:.1f}({'<38 ✓' if kosul2 else '>38 ✗'}) "
+             f"AşırıSatım:{asiri_satim}/20({'✓' if kosul3 else '✗'})")
+    return sinyal, detay
+
+
+def s7_kirilma_senaryosu(xu100: pd.DataFrame) -> tuple:
+    """
+    Senaryo B — Kırılma Alımı:
+    BIST100 > 14.400 VE Breadth > %40 VE Hacim artışı > 1.3x
+    """
+    if xu100 is None or len(xu100) < 20:
+        return False, "Veri yetersiz"
+
+    son     = float(xu100["Close"].iloc[-1])
+    hacim   = xu100["Volume"]
+    son3_h  = float(hacim.iloc[-3:].mean())
+    ort20_h = float(hacim.iloc[-22:-2].mean())
+    hacim_oran = son3_h / ort20_h if ort20_h > 0 else 0
+
+    yukselen = 0
+    for ticker in BIST_TICKERS:
+        h = _fiyat_cek(ticker, "5d")
+        if h is not None and len(h) >= 2:
+            try:
+                if float(h["Close"].iloc[-1]) > float(h["Close"].iloc[-2]):
+                    yukselen += 1
+            except:
+                pass
+    breadth = yukselen / len(BIST_TICKERS) * 100
+
+    kosul1 = son > 14400
+    kosul2 = breadth > 40
+    kosul3 = hacim_oran > 1.3
+
+    sinyal = kosul1 and kosul2 and kosul3
+    detay = (f"BIST:{son:,.0f}({'>14.4K ✓' if kosul1 else '<14.4K ✗'}) "
+             f"Breadth:%{breadth:.0f}({'✓' if kosul2 else '✗'}) "
+             f"Hacim:{hacim_oran:.2f}x({'✓' if kosul3 else '✗'})")
+    return sinyal, detay
+
+
 # ════════════════════════════════════════════════════════════════════════════
 # ANA ALARM MOTORU
 # ════════════════════════════════════════════════════════════════════════════
@@ -329,11 +397,23 @@ def alarm_kontrol() -> dict:
     sinyaller["S5_Makro"] = {"sonuc": s5, "detay": d5}
     print(f"  {'✅' if s5 else '❌'} S5 Makro Temizlendi : {d5}")
 
+    s6, d6 = s6_dip_alim_senaryosu(xu100)
+    sinyaller["S6_Dip"] = {"sonuc": s6, "detay": d6}
+    print(f"  {'🚨' if s6 else '⚪'} S6 Senaryo A — Dip  : {d6}")
+
+    s7, d7 = s7_kirilma_senaryosu(xu100)
+    sinyaller["S7_Kirilma"] = {"sonuc": s7, "detay": d7}
+    print(f"  {'🚀' if s7 else '⚪'} S7 Senaryo B — Kırıl: {d7}")
+
     # Skor
     yesil = sum([s1, s2, s3, s4, s5])
 
     print(f"\n  {'─'*45}")
     print(f"  SKOR: {yesil}/5")
+    if s6:
+        print(f"  🚨 SENARYO A AKTİF: DİP ALIM FIRSATI!")
+    if s7:
+        print(f"  🚀 SENARYO B AKTİF: KIRILMA — MOMENTUM ALIMI!")
 
     # Karar
     if yesil >= 5:
@@ -372,6 +452,8 @@ def alarm_kontrol() -> dict:
         "skor": yesil,
         "karar": karar,
         "oncelik": oncelik,
+        "senaryo_a": s6,
+        "senaryo_b": s7,
         "sinyaller": sinyaller,
         "telegram_gonderildi": gonderildi,
     }

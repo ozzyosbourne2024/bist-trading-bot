@@ -231,6 +231,14 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
     if gumus_karar and "ALIM" in gumus_karar:
         satirlar.append(f"🥈 <b>GÜMÜŞ: {gumus_karar}</b>")
 
+    # Senaryo uyarıları
+    if bist.get("senaryo_a"):
+        satirlar.append(f"\n🚨 <b>SENARYO A: DİP ALIM FIRSATI!</b>")
+        satirlar.append(f"  BIST100 dip bölgesinde, hisseler aşırı satımda")
+    if bist.get("senaryo_b"):
+        satirlar.append(f"\n🚀 <b>SENARYO B: KIRILMA AKTİF!</b>")
+        satirlar.append(f"  14.400 direnci kırıldı, momentum alımı zamanı")
+
     return "\n".join(satirlar)
 
 
