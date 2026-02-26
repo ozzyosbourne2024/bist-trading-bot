@@ -13,7 +13,7 @@ Sabah 09:00 → bist_sabah.py (bu değil, ayrı workflow)
   5. Tek Telegram mesajı
 """
 
-import os, sys, json, subprocess, warnings
+import os, sys, json, subprocess, warnings, time
 from datetime import datetime
 from pathlib import Path
 
@@ -21,6 +21,8 @@ warnings.filterwarnings("ignore")
 
 try:
     import requests
+    import pandas as pd
+    import yfinance as yf
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError as e:
@@ -92,6 +94,114 @@ def _alarm_json_oku(dosya: str) -> dict:
 
 
 # ════════════════════════════════════════════════════════════════════════════
+# PİYASA VERİLERİ
+# ════════════════════════════════════════════════════════════════════════════
+
+def _yf_cek(ticker: str, period: str = "2d", interval: str = "1d"):
+    for _ in range(3):
+        try:
+            df = yf.Ticker(ticker).history(period=period, interval=interval, auto_adjust=True)
+            if not df.empty:
+                return df
+        except:
+            pass
+        time.sleep(1)
+    return None
+
+def nasdaq_ozet() -> dict:
+    """NASDAQ100 günlük özet."""
+    df = _yf_cek("^NDX", period="5d", interval="1d")
+    if df is None or len(df) < 2:
+        return {}
+    son   = float(df["Close"].iloc[-1])
+    dun   = float(df["Close"].iloc[-2])
+    acilis = float(df["Open"].iloc[-1])
+    degisim = (son / dun - 1) * 100
+    gun_degisim = (son / acilis - 1) * 100
+    return {
+        "son": son,
+        "degisim_dun": degisim,
+        "gun_degisim": gun_degisim,
+    }
+
+def _emtia_gun_ici(ticker: str) -> dict:
+    """Emtia gün içi hareket özeti (GC=F, SI=F vb.)"""
+    df_gun = _yf_cek(ticker, period="5d", interval="1d")
+    df_1h  = _yf_cek(ticker, period="2d", interval="1h")
+    if df_gun is None or len(df_gun) < 2:
+        return {}
+    son        = float(df_gun["Close"].iloc[-1])
+    dun        = float(df_gun["Close"].iloc[-2])
+    acilis     = float(df_gun["Open"].iloc[-1])
+    degisim_dun = (son / dun - 1) * 100
+    gun_degisim = (son / acilis - 1) * 100
+    gun_high   = float(df_gun["High"].iloc[-1])
+    gun_low    = float(df_gun["Low"].iloc[-1])
+    trend = "→"
+    if df_1h is not None and len(df_1h) >= 4:
+        son4 = df_1h["Close"].iloc[-4:]
+        if float(son4.iloc[-1]) > float(son4.iloc[0]):
+            trend = "↑"
+        elif float(son4.iloc[-1]) < float(son4.iloc[0]):
+            trend = "↓"
+    return {"son": son, "degisim_dun": degisim_dun, "gun_degisim": gun_degisim,
+            "gun_high": gun_high, "gun_low": gun_low, "trend_1h": trend}
+
+def altin_gun_ici() -> dict:
+    return _emtia_gun_ici("GC=F")
+
+def gumus_gun_ici() -> dict:
+    return _emtia_gun_ici("SI=F")
+
+def _yf_cek_endeks() -> dict:
+    """BIST100 günlük değişim."""
+    df = _yf_cek("XU100.IS", period="5d", interval="1d")
+    if df is None or len(df) < 2:
+        return None
+    son = float(df["Close"].iloc[-1])
+    dun = float(df["Close"].iloc[-2])
+    return {"son": son, "degisim": (son / dun - 1) * 100}
+
+def hisse_hareketleri() -> list:
+    """Sabah raporundaki önerilen hisselerin günlük hareketi."""
+    rapor = _son_rapor_oku("bist_rapor")
+
+    # Portföy ticker'larını çıkar — farklı JSON yapılarına uyum
+    portfoy = rapor.get("portfoy", [])
+    secimler = rapor.get("secimler", [])
+    tum_hisseler = portfoy or secimler
+
+    # Eğer rapor yoksa varsayılan izleme listesi
+    if not tum_hisseler:
+        tum_hisseler = [
+            {"ticker": "GARAN.IS"}, {"ticker": "ENKAI.IS"},
+            {"ticker": "TAVHL.IS"}, {"ticker": "ISCTR.IS"},
+            {"ticker": "THYAO.IS"}, {"ticker": "AKBNK.IS"},
+            {"ticker": "YKBNK.IS"},
+        ]
+
+    hareketler = []
+    for h in tum_hisseler[:8]:
+        ticker = h.get("ticker", h.get("sembol", h.get("hisse", "")))
+        if not ticker:
+            continue
+        if not ticker.endswith(".IS"):
+            ticker += ".IS"
+        df = _yf_cek(ticker, period="5d", interval="1d")
+        if df is None or len(df) < 2:
+            continue
+        son    = float(df["Close"].iloc[-1])
+        dun    = float(df["Close"].iloc[-2])
+        degisim = (son / dun - 1) * 100
+        hareketler.append({
+            "ticker": ticker.replace(".IS", ""),
+            "son": son,
+            "degisim": degisim,
+        })
+    return sorted(hareketler, key=lambda x: x["degisim"], reverse=True)
+
+
+# ════════════════════════════════════════════════════════════════════════════
 # MODÜL ÇALIŞTIR
 # ════════════════════════════════════════════════════════════════════════════
 
@@ -117,7 +227,8 @@ def denetci_calistir() -> dict:
 # ════════════════════════════════════════════════════════════════════════════
 
 def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
-                  piyasa: dict) -> str:
+                  piyasa: dict, nasdaq: dict = None, altin_gun: dict = None,
+                  gumus_gun: dict = None, hisse_hareketler: list = None) -> str:
 
     satirlar = [f"<b>📊 BIST SİSTEM RAPORU</b>"]
     satirlar.append(f"{tarih}")
@@ -239,6 +350,50 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         satirlar.append(f"\n🚀 <b>SENARYO B: KIRILMA AKTİF!</b>")
         satirlar.append(f"  14.400 direnci kırıldı, momentum alımı zamanı")
 
+    # ── NASDAQ100 ───────────────────────────────────────────────
+    if nasdaq:
+        yon = "↑" if nasdaq.get("degisim_dun", 0) > 0 else "↓"
+        renk = "🟢" if nasdaq.get("degisim_dun", 0) > 0 else "🔴"
+        satirlar.append(f"\n{'─'*30}")
+        satirlar.append(f"\n<b>📈 NASDAQ100</b>")
+        satirlar.append(f"  {renk} {nasdaq['son']:,.0f} | Dünden: {nasdaq['degisim_dun']:+.2f}% {yon}")
+        satirlar.append(f"  Gün içi: {nasdaq['gun_degisim']:+.2f}%")
+
+    # ── Altın & Gümüş Gün İçi ──────────────────────────────────
+    if altin_gun:
+        yon = "↑" if altin_gun.get("degisim_dun", 0) > 0 else "↓"
+        renk = "🟢" if altin_gun.get("degisim_dun", 0) > 0 else "🔴"
+        satirlar.append(f"\n<b>🥇 ALTIN GÜN İÇİ</b>")
+        satirlar.append(f"  {renk} {altin_gun['son']:,.0f} | Dünden: {altin_gun['degisim_dun']:+.2f}% {yon}")
+        satirlar.append(f"  Gün içi: {altin_gun['gun_degisim']:+.2f}% | 1H: {altin_gun['trend_1h']}")
+        satirlar.append(f"  H:{altin_gun['gun_high']:,.0f} L:{altin_gun['gun_low']:,.0f}")
+    if gumus_gun:
+        yon = "↑" if gumus_gun.get("degisim_dun", 0) > 0 else "↓"
+        renk = "🟢" if gumus_gun.get("degisim_dun", 0) > 0 else "🔴"
+        satirlar.append(f"\n<b>🥈 GÜMÜŞ GÜN İÇİ</b>")
+        satirlar.append(f"  {renk} {gumus_gun['son']:.2f} | Dünden: {gumus_gun['degisim_dun']:+.2f}% {yon}")
+        satirlar.append(f"  Gün içi: {gumus_gun['gun_degisim']:+.2f}% | 1H: {gumus_gun['trend_1h']}")
+        satirlar.append(f"  H:{gumus_gun['gun_high']:.2f} L:{gumus_gun['gun_low']:.2f}")
+
+    # ── Hisse Hareketleri ────────────────────────────────────────
+    if hisse_hareketler:
+        satirlar.append(f"\n<b>📊 HİSSE HAREKETLERİ</b>")
+        # BIST100 en üstte
+        bist_endeks = bist.get("endeks")
+        if bist_endeks:
+            bist_gun = _yf_cek_endeks()
+            if bist_gun:
+                yon = "↑" if bist_gun["degisim"] > 0 else "↓"
+                renk = "🟢" if bist_gun["degisim"] > 0 else "🔴"
+                satirlar.append(f"  {renk} <b>BIST100: {bist_endeks:,.0f} | {bist_gun['degisim']:+.1f}% {yon}</b>")
+            else:
+                satirlar.append(f"  📊 <b>BIST100: {bist_endeks:,.0f}</b>")
+        satirlar.append(f"  {'─'*25}")
+        for h in hisse_hareketler:
+            yon = "↑" if h["degisim"] > 0 else "↓"
+            renk = "🟢" if h["degisim"] > 0 else "🔴"
+            satirlar.append(f"  {renk} {h['ticker']}: {h['son']:.1f} | {h['degisim']:+.1f}% {yon}")
+
     return "\n".join(satirlar)
 
 
@@ -260,8 +415,15 @@ def main():
     # En son piyasa sağlığı raporunu oku (sabah çalışmasından)
     piyasa = _son_rapor_oku("piyasa_sagligi")
 
+    # Piyasa verileri
+    print("  [4/4] Piyasa verileri çekiliyor...")
+    ndx    = nasdaq_ozet()
+    au     = altin_gun_ici()
+    ag     = gumus_gun_ici()
+    hisse  = hisse_hareketleri()
+
     # Tek mesaj oluştur
-    mesaj = mesaj_olustur(tarih, bist, altin, denetci, piyasa)
+    mesaj = mesaj_olustur(tarih, bist, altin, denetci, piyasa, ndx, au, ag, hisse)
 
     # Gönder
     print("\n  Telegram mesajı gönderiliyor...")
