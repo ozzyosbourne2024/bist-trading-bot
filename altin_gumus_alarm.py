@@ -494,7 +494,7 @@ def alarm_calistir():
 
     # Telegram
     mesaj = telegram_mesaj_olustur(sonuclar, tarih)
-    _telegram(mesaj)
+    # _telegram(mesaj)  # bist_sistem.py üzerinden gönderiliyor
 
     # Log
     _log({

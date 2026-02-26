@@ -124,8 +124,9 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
     satirlar.append("─" * 30)
 
     # ── BIST Alarm ──────────────────────────────────────────────
-    bist_skor = bist.get("skor", "?")
+    bist_skor  = bist.get("skor", "?")
     bist_karar = bist.get("karar", "VERİ YOK")
+    bist_endeks = bist.get("endeks")
     bist_emoji = {
         "KESİN ALIM ZAMANI": "🟢🟢🟢",
         "KISMİ ALIM BAŞLA":  "🟡🟡",
@@ -133,22 +134,22 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         "BEKLE":             "🔴",
     }.get(bist_karar, "⚪")
 
-    satirlar.append(f"\n<b>🎯 BIST ALARM: {bist_skor}/5</b>")
-    satirlar.append(f"{bist_emoji} {bist_karar}")
+    endeks_str = f" | BIST100: {bist_endeks:,.0f}" if bist_endeks else ""
+    satirlar.append(f"\n<b>🎯 BIST: {bist_skor}/5 {bist_emoji} {bist_karar}</b>{endeks_str}")
 
-    # Sinyaller
+    # Sinyaller — sadece aktif olanlar + önemli detay
     sinyaller = bist.get("sinyaller", {})
     for key, label in [
         ("S1_Momentum", "Momentum"),
         ("S2_Breadth",  "Breadth"),
-        ("S3_RSI",      "RSI Dip"),
+        ("S3_RSI",      "RSI"),
         ("S4_Hisse",    "Hisseler"),
         ("S5_Makro",    "Makro"),
     ]:
         if key in sinyaller:
             s = sinyaller[key]
             icon = "✅" if s.get("sonuc") else "❌"
-            detay = s.get("detay", "")[:40]
+            detay = s.get("detay", "")[:45]
             satirlar.append(f"  {icon} {label}: {detay}")
 
     # ── Piyasa Sağlığı ──────────────────────────────────────────

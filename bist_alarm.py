@@ -364,7 +364,7 @@ def alarm_kontrol() -> dict:
 
     # Her zaman gönder (sadece BEKLE de olsa bilgi amaçlı)
     # Sadece sinyal varsa göndermek için: if yesil >= 2:
-    gonderildi = _telegram_gonder(mesaj)
+    gonderildi = False  # bist_sistem.py üzerinden gönderiliyor
 
     sonuc = {
         "tarih": tarih,
