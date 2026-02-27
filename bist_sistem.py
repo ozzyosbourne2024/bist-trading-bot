@@ -163,38 +163,43 @@ def _yf_cek_endeks() -> dict:
     return {"son": son, "degisim": (son / dun - 1) * 100}
 
 def hisse_hareketleri() -> list:
-    """Sabah raporundaki önerilen hisselerin günlük hareketi."""
-    rapor = _son_rapor_oku("bist_rapor")
+    """Portföy önerisindeki hisselerin günlük hareketi."""
+    tum_tickers = []
 
-    # Portföy ticker'larını çıkar — farklı JSON yapılarına uyum
-    portfoy = rapor.get("portfoy", [])
-    secimler = rapor.get("secimler", [])
-    tum_hisseler = portfoy or secimler
+    # 1. portfoy_pozisyonlar.json — {"tarih":..., "pozisyonlar": {"GLYHO": {...}}}
+    poz_dosya = Path("portfoy_pozisyonlar.json")
+    if poz_dosya.exists():
+        try:
+            veri = json.loads(poz_dosya.read_text(encoding="utf-8"))
+            pozisyonlar = veri.get("pozisyonlar", {})
+            tum_tickers = list(pozisyonlar.keys())  # ["GLYHO", "ENKAI", ...]
+        except:
+            pass
 
-    # Eğer rapor yoksa varsayılan izleme listesi
-    if not tum_hisseler:
-        tum_hisseler = [
-            {"ticker": "GARAN.IS"}, {"ticker": "ENKAI.IS"},
-            {"ticker": "TAVHL.IS"}, {"ticker": "ISCTR.IS"},
-            {"ticker": "THYAO.IS"}, {"ticker": "AKBNK.IS"},
-            {"ticker": "YKBNK.IS"},
-        ]
+    # 2. raporlar/ klasöründen bist_rapor JSON
+    if not tum_tickers:
+        rapor = _son_rapor_oku("bist_rapor")
+        for key in ["portfoy", "secimler", "kararlar"]:
+            liste = rapor.get(key, [])
+            if liste:
+                tum_tickers = [h.get("ticker","") for h in liste if h.get("karar","AL")=="AL"]
+                break
+
+    # 3. Yedek liste
+    if not tum_tickers:
+        tum_tickers = ["GLYHO","ENKAI","TAVHL","BIMAS","THYAO","TCELL","ISCTR"]
 
     hareketler = []
-    for h in tum_hisseler[:8]:
-        ticker = h.get("ticker", h.get("sembol", h.get("hisse", "")))
-        if not ticker:
-            continue
-        if not ticker.endswith(".IS"):
-            ticker += ".IS"
-        df = _yf_cek(ticker, period="5d", interval="1d")
+    for ticker in tum_tickers[:8]:
+        t = ticker if ticker.endswith(".IS") else ticker + ".IS"
+        df = _yf_cek(t, period="5d", interval="1d")
         if df is None or len(df) < 2:
             continue
-        son    = float(df["Close"].iloc[-1])
-        dun    = float(df["Close"].iloc[-2])
+        son     = float(df["Close"].iloc[-1])
+        dun     = float(df["Close"].iloc[-2])
         degisim = (son / dun - 1) * 100
         hareketler.append({
-            "ticker": ticker.replace(".IS", ""),
+            "ticker": ticker.replace(".IS",""),
             "son": son,
             "degisim": degisim,
         })
@@ -230,171 +235,119 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
                   piyasa: dict, nasdaq: dict = None, altin_gun: dict = None,
                   gumus_gun: dict = None, hisse_hareketler: list = None) -> str:
 
-    satirlar = [f"<b>📊 BIST SİSTEM RAPORU</b>"]
-    satirlar.append(f"{tarih}")
-    satirlar.append("─" * 30)
+    s = []
 
-    # ── BIST Alarm ──────────────────────────────────────────────
+    # ── Başlık ──────────────────────────────────────────────────
+    s.append(f"<b>📊 BIST SİSTEM — {tarih}</b>")
+
+    # ── BIST100 yön ─────────────────────────────────────────────
+    bist_endeks = bist.get("endeks")
+    bist_gun    = _yf_cek_endeks()
+    if bist_endeks and bist_gun:
+        deg = bist_gun.get("degisim", 0)
+        yon = "↑" if deg > 0 else "↓"
+        renk = "🟢" if deg > 0 else "🔴"
+        s.append(f"\n{renk} <b>BIST100: {bist_endeks:,.0f} | {deg:+.1f}% {yon}</b>")
+    elif bist_endeks:
+        s.append(f"\n<b>BIST100: {bist_endeks:,.0f}</b>")
+
+    # ── BIST Alarm sinyalleri ────────────────────────────────────
     bist_skor  = bist.get("skor", "?")
     bist_karar = bist.get("karar", "VERİ YOK")
-    bist_endeks = bist.get("endeks")
-    bist_emoji = {
-        "KESİN ALIM ZAMANI": "🟢🟢🟢",
-        "KISMİ ALIM BAŞLA":  "🟡🟡",
-        "YAKLAŞIYOR — İzle": "🟠",
-        "BEKLE":             "🔴",
-    }.get(bist_karar, "⚪")
+    bist_emoji = {"KESİN ALIM ZAMANI": "🟢🟢🟢", "KISMİ ALIM BAŞLA": "🟡🟡",
+                  "YAKLAŞIYOR — İzle": "🟠", "BEKLE": "🔴"}.get(bist_karar, "⚪")
+    s.append(f"\n🎯 <b>BIST: {bist_skor}/5 {bist_emoji} {bist_karar}</b>")
 
-    endeks_str = f" | BIST100: {bist_endeks:,.0f}" if bist_endeks else ""
-    satirlar.append(f"\n<b>🎯 BIST: {bist_skor}/5 {bist_emoji} {bist_karar}</b>{endeks_str}")
-
-    # Sinyaller — sadece aktif olanlar + önemli detay
     sinyaller = bist.get("sinyaller", {})
-    for key, label in [
-        ("S1_Momentum", "Momentum"),
-        ("S2_Breadth",  "Breadth"),
-        ("S3_RSI",      "RSI"),
-        ("S4_Hisse",    "Hisseler"),
-        ("S5_Makro",    "Makro"),
-    ]:
+    for key, label in [("S1_Momentum","Momentum"),("S2_Breadth","Breadth"),
+                       ("S3_RSI","RSI"),("S4_Hisse","Hisseler"),("S5_Makro","Makro")]:
         if key in sinyaller:
-            s = sinyaller[key]
-            icon = "✅" if s.get("sonuc") else "❌"
-            detay = s.get("detay", "")[:45]
-            satirlar.append(f"  {icon} {label}: {detay}")
-
-    # ── Piyasa Sağlığı ──────────────────────────────────────────
-    ps_skor  = piyasa.get("risk_skoru", "?")
-    ps_rejim = piyasa.get("rejim_adi", "VERİ YOK")
-    if ps_skor != "?":
-        ps_renk = "🔴" if ps_skor >= 65 else "🟡" if ps_skor >= 45 else "🟢"
-        satirlar.append(f"\n<b>🏥 PİYASA SAĞLIĞI: {ps_skor}/100</b>")
-        satirlar.append(f"{ps_renk} {ps_rejim}")
-
-    # ── Denetçi ─────────────────────────────────────────────────
-    ihlal = denetci.get("ihlal_sayisi", "?")
-    kod_test = denetci.get("kod_testleri", {})
-    gecen = kod_test.get("gecen", "?")
-    satirlar.append(f"\n<b>🔎 DENETÇİ</b>")
-    if ihlal == 0:
-        satirlar.append(f"  ✅ Kural ihlali yok")
-    elif ihlal != "?":
-        satirlar.append(f"  ⚠️ {ihlal} kural ihlali!")
-    if gecen != "?":
-        satirlar.append(f"  🧪 Kod testleri: {gecen}/8")
-
-    # Backtest özeti
-    bt = denetci.get("backtest", {})
-    if bt and bt.get("hedef_isabet_pct"):
-        satirlar.append(f"  📈 Backtest: Hedef isabet %{bt['hedef_isabet_pct']:.0f} | Ort getiri: %{bt.get('ort_getiri',0):.1f}")
-
-    satirlar.append("─" * 30)
-
-    # ── Altın / Gümüş ───────────────────────────────────────────
-    satirlar.append(f"\n<b>⚡ ALTIN & GÜMÜŞ</b>")
-    sonuclar = altin.get("sonuclar", [])
-    for s in sonuclar:
-        isim     = s.get("isim", "?")
-        skor     = s.get("skor", "?")
-        karar    = s.get("karar", "?")
-        emoji_k  = s.get("emoji_k", "")
-        spot     = s.get("spot_fiyat")
-        enstruman_emoji = "🥇" if isim == "ALTIN" else "🥈"
-        futures = s.get("futures_fiyat")
-        spot_str = f"Spot:{spot:.2f}" if spot else ""
-        fut_str  = f"Fut:{futures:.2f}" if futures else ""
-        fiyat_str = " | ".join(filter(None, [spot_str, fut_str]))
-        if fiyat_str:
-            fiyat_str = f" | {fiyat_str}"
-
-        satirlar.append(f"\n{enstruman_emoji} <b>{isim}{fiyat_str}</b>")
-        satirlar.append(f"  {emoji_k} {skor}/5 → {karar}")
-
-        # Alt sinyaller
-        sig = s.get("sinyaller", {})
-        for key, label in [
-            ("S1_Momentum", "Momentum"),
-            ("S2_Hacim",    "Hacim"),
-            ("S3_RSI",      "RSI1H+4H"),
-            ("S4_MACD",     "MACD"),
-            ("S5_Makro",    "Makro"),
-        ]:
-            if key in sig:
-                icon = "✅" if sig[key].get("sonuc") else "❌"
-                detay = sig[key].get("detay", "")[:35]
-                satirlar.append(f"  {icon} {label}: {detay}")
-
-    # ── Genel Tavsiye ───────────────────────────────────────────
-    satirlar.append(f"\n{'─'*30}")
-
-    # En önemli aksiyon
-    if bist_skor != "?" and bist_skor >= 5:
-        satirlar.append("⚡ <b>BIST: ALIM ZAMANI — bist_agents.py çalıştır!</b>")
-    elif bist_skor != "?" and bist_skor >= 3:
-        satirlar.append("⚠️ <b>BIST: Kısmi alım düşün</b>")
-    else:
-        satirlar.append("⏳ <b>BIST: Bekle</b>")
-
-    altin_karar = next((s.get("karar") for s in sonuclar if s.get("isim") == "ALTIN"), None)
-    gumus_karar = next((s.get("karar") for s in sonuclar if s.get("isim") == "GUMUS"), None)
-    if altin_karar and "ALIM" in altin_karar:
-        satirlar.append(f"🥇 <b>ALTIN: {altin_karar}</b>")
-    if gumus_karar and "ALIM" in gumus_karar:
-        satirlar.append(f"🥈 <b>GÜMÜŞ: {gumus_karar}</b>")
+            ok    = sinyaller[key].get("sonuc", False)
+            detay = sinyaller[key].get("detay", "")[:50]
+            s.append(f"  {'✅' if ok else '❌'} {label}: {detay}")
 
     # Senaryo uyarıları
     if bist.get("senaryo_a"):
-        satirlar.append(f"\n🚨 <b>SENARYO A: DİP ALIM FIRSATI!</b>")
-        satirlar.append(f"  BIST100 dip bölgesinde, hisseler aşırı satımda")
+        s.append(f"\n🚨 <b>SENARYO A: DİP ALIM FIRSATI!</b>")
     if bist.get("senaryo_b"):
-        satirlar.append(f"\n🚀 <b>SENARYO B: KIRILMA AKTİF!</b>")
-        satirlar.append(f"  14.400 direnci kırıldı, momentum alımı zamanı")
+        s.append(f"\n🚀 <b>SENARYO B: KIRILMA AKTİF!</b>")
 
-    # ── NASDAQ100 ───────────────────────────────────────────────
-    if nasdaq:
-        yon = "↑" if nasdaq.get("degisim_dun", 0) > 0 else "↓"
-        renk = "🟢" if nasdaq.get("degisim_dun", 0) > 0 else "🔴"
-        satirlar.append(f"\n{'─'*30}")
-        satirlar.append(f"\n<b>📈 NASDAQ100</b>")
-        satirlar.append(f"  {renk} {nasdaq['son']:,.0f} | Dünden: {nasdaq['degisim_dun']:+.2f}% {yon}")
-        satirlar.append(f"  Gün içi: {nasdaq['gun_degisim']:+.2f}%")
+    # ── Hisse Bazlı Giriş Sinyalleri ─────────────────────────────
+    hisse_sig = bist.get("hisse_sinyalleri", [])
+    if hisse_sig:
+        s.append(f"\n🔔 <b>GİRİŞ SİNYALLERİ</b>")
+        for hs in hisse_sig:
+            tip   = hs.get("tip", "")
+            isim  = hs.get("ticker", "")
+            fiyat = hs.get("fiyat", 0)
+            detay = hs.get("detay", "")
+            em    = {"DİP GİRİŞ": "📉➡️📈", "KIRILMA": "🚀", "MACD DÖNÜŞ": "🔄"}.get(tip, "⚡")
+            s.append(f"  {em} <b>{isim}</b> {fiyat:.1f} — {tip}")
+            s.append(f"     {detay}")
 
-    # ── Altın & Gümüş Gün İçi ──────────────────────────────────
-    if altin_gun:
-        yon = "↑" if altin_gun.get("degisim_dun", 0) > 0 else "↓"
-        renk = "🟢" if altin_gun.get("degisim_dun", 0) > 0 else "🔴"
-        satirlar.append(f"\n<b>🥇 ALTIN GÜN İÇİ</b>")
-        satirlar.append(f"  {renk} {altin_gun['son']:,.0f} | Dünden: {altin_gun['degisim_dun']:+.2f}% {yon}")
-        satirlar.append(f"  Gün içi: {altin_gun['gun_degisim']:+.2f}% | 1H: {altin_gun['trend_1h']}")
-        satirlar.append(f"  H:{altin_gun['gun_high']:,.0f} L:{altin_gun['gun_low']:,.0f}")
-    if gumus_gun:
-        yon = "↑" if gumus_gun.get("degisim_dun", 0) > 0 else "↓"
-        renk = "🟢" if gumus_gun.get("degisim_dun", 0) > 0 else "🔴"
-        satirlar.append(f"\n<b>🥈 GÜMÜŞ GÜN İÇİ</b>")
-        satirlar.append(f"  {renk} {gumus_gun['son']:.2f} | Dünden: {gumus_gun['degisim_dun']:+.2f}% {yon}")
-        satirlar.append(f"  Gün içi: {gumus_gun['gun_degisim']:+.2f}% | 1H: {gumus_gun['trend_1h']}")
-        satirlar.append(f"  H:{gumus_gun['gun_high']:.2f} L:{gumus_gun['gun_low']:.2f}")
+    # ── Piyasa Sağlığı ───────────────────────────────────────────
+    ps_skor  = piyasa.get("risk_skoru", "?")
+    ps_rejim = piyasa.get("rejim_adi", "")
+    if ps_skor != "?":
+        ps_renk = "🔴" if ps_skor >= 65 else "🟡" if ps_skor >= 45 else "🟢"
+        s.append(f"\n🏥 Piyasa: {ps_renk} {ps_skor}/100 {ps_rejim}")
 
-    # ── Hisse Hareketleri ────────────────────────────────────────
+    # ── Denetçi ──────────────────────────────────────────────────
+    ihlal = denetci.get("ihlal_sayisi", "?")
+    if ihlal == 0:
+        s.append(f"🔎 Denetçi: ✅ Temiz")
+    elif ihlal != "?":
+        s.append(f"🔎 Denetçi: ⚠️ {ihlal} ihlal!")
+
+    # ── Portföy Önerisi ──────────────────────────────────────────
     if hisse_hareketler:
-        satirlar.append(f"\n<b>📊 HİSSE HAREKETLERİ</b>")
-        # BIST100 en üstte
-        bist_endeks = bist.get("endeks")
-        if bist_endeks:
-            bist_gun = _yf_cek_endeks()
-            if bist_gun:
-                yon = "↑" if bist_gun["degisim"] > 0 else "↓"
-                renk = "🟢" if bist_gun["degisim"] > 0 else "🔴"
-                satirlar.append(f"  {renk} <b>BIST100: {bist_endeks:,.0f} | {bist_gun['degisim']:+.1f}% {yon}</b>")
-            else:
-                satirlar.append(f"  📊 <b>BIST100: {bist_endeks:,.0f}</b>")
-        satirlar.append(f"  {'─'*25}")
+        s.append(f"\n<b>💼 PORTFÖY ÖNERİSİ</b>")
         for h in hisse_hareketler:
-            yon = "↑" if h["degisim"] > 0 else "↓"
+            yon  = "↑" if h["degisim"] > 0 else "↓"
             renk = "🟢" if h["degisim"] > 0 else "🔴"
-            satirlar.append(f"  {renk} {h['ticker']}: {h['son']:.1f} | {h['degisim']:+.1f}% {yon}")
+            s.append(f"  {renk} {h['ticker']}: {h['son']:.1f} | {h['degisim']:+.1f}% {yon}")
 
-    return "\n".join(satirlar)
+    # ── Altın & Gümüş ────────────────────────────────────────────
+    s.append(f"\n<b>⚡ ALTIN & GÜMÜŞ</b>")
+    sonuclar = altin.get("sonuclar", [])
+    for enst in sonuclar:
+        isim    = enst.get("isim", "?")
+        skor    = enst.get("skor", "?")
+        karar   = enst.get("karar", "?")
+        emoji_k = enst.get("emoji_k", "")
+        # Tek fiyat — spot öncelikli
+        fiyat   = enst.get("fiyat") or enst.get("spot_fiyat") or enst.get("futures_fiyat")
+        em      = "🥇" if isim == "ALTIN" else "🥈"
+        fstr    = f" {fiyat:.0f}$" if fiyat else ""
+        s.append(f"\n{em} <b>{isim}{fstr}</b> | {emoji_k} {skor}/5 {karar}")
+        # Sinyal detayları
+        sig = enst.get("sinyaller", {})
+        for key, label in [("S1_Momentum","Momentum"),("S2_Hacim","Hacim"),
+                           ("S3_RSI","RSI 1H+4H"),("S4_MACD","MACD"),("S5_Makro","Makro")]:
+            if key in sig:
+                ok    = sig[key].get("sonuc", False)
+                detay = sig[key].get("detay", "")[:50]
+                s.append(f"  {'✅' if ok else '❌'} {label}: {detay}")
+
+    # ── Piyasa özeti ─────────────────────────────────────────────
+    s.append("")
+    if nasdaq:
+        deg  = nasdaq.get("degisim_dun", 0)
+        yon  = "↑" if deg > 0 else "↓"
+        renk = "🟢" if deg > 0 else "🔴"
+        s.append(f"📈 NASDAQ: {renk} {nasdaq['son']:,.0f} | {deg:+.1f}% {yon}")
+    if altin_gun:
+        deg  = altin_gun.get("degisim_dun", 0)
+        yon  = "↑" if deg > 0 else "↓"
+        renk = "🟢" if deg > 0 else "🔴"
+        s.append(f"🥇 Altın: {renk} {altin_gun['son']:,.0f}$ | {deg:+.1f}% {yon} | 1H:{altin_gun['trend_1h']}")
+    if gumus_gun:
+        deg  = gumus_gun.get("degisim_dun", 0)
+        yon  = "↑" if deg > 0 else "↓"
+        renk = "🟢" if deg > 0 else "🔴"
+        s.append(f"🥈 Gümüş: {renk} {gumus_gun['son']:.1f}$ | {deg:+.1f}% {yon} | 1H:{gumus_gun['trend_1h']}")
+
+    return "\n".join(s)
 
 
 # ════════════════════════════════════════════════════════════════════════════

@@ -143,18 +143,18 @@ def _log(kayit: dict):
 # 5 SİNYAL
 # ════════════════════════════════════════════════════════════════════════════
 
-def s1_momentum_kirilmasi(df_stooq: pd.DataFrame) -> Tuple[bool, str]:
+def s1_momentum_kirilmasi(df_stooq: pd.DataFrame, dun_kapanis: float = None) -> Tuple[bool, str]:
     """
     S1: Stooq spot veri ile momentum kirilmasi.
-    Erken sinyal: 10 gunluk yuksek kirildi mi? (20 gunluk beklemek gec kalabilir)
-    Rollover yok - gercek spot fiyat serisi.
+    Son bar = bugünkü anlık fiyat
+    dun_kapanis = bir önceki bar (gerçek dün kapanışı)
     """
     if df_stooq is None or len(df_stooq) < 22:
         return False, "Stooq veri yetersiz"
 
     kapanis = df_stooq["Close"]
-    bugun   = float(kapanis.iloc[-1])
-    dun     = float(kapanis.iloc[-2])
+    bugun   = float(kapanis.iloc[-1])   # anlık
+    dun     = dun_kapanis or float(kapanis.iloc[-2])  # gerçek dün
     max_20g = float(kapanis.iloc[-22:-2].max())
     max_10g = float(kapanis.iloc[-12:-2].max())
     min_20g = float(kapanis.iloc[-22:-2].min())
@@ -399,23 +399,22 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     df_anlik = _indir(futures_sym, interval="1m", period="1d")
     anlik_fiyat = float(df_anlik["Close"].iloc[-1]) if df_anlik is not None and not df_anlik.empty else None
 
-    # Gold-api spot
-    spot = _spot_fiyat(cfg["spot_url"])
+    # Stooq anlık fiyat — gün içi güncelleniyor, gold-api'ye gerek yok
+    spot = float(df_stooq["Close"].iloc[-1]) if df_stooq is not None else None
+    # S1 için dünkü kapanış = bir önceki bar
+    s1_ref = float(df_stooq["Close"].iloc[-2]) if df_stooq is not None and len(df_stooq) >= 2 else None
     fut_fiyat = float(df_gun["Close"].iloc[-1]) if df_gun is not None else None
 
-    # Fiyat gösterimi
+    # Fiyat gosterimi
     if spot:
-        print(f"  Spot    : {spot:.2f} $/oz (gold-api.com)")
-    if anlik_fiyat:
-        print(f"  Futures : {anlik_fiyat:.2f} $/oz ({futures_sym} — anlık)")
-    elif fut_fiyat:
-        print(f"  Futures : {fut_fiyat:.2f} $/oz ({futures_sym})")
-    if df_stooq is not None:
-        stooq_son = float(df_stooq["Close"].iloc[-1])
-        print(f"  Stooq   : {stooq_son:.2f} $/oz (dün kapanış, S1 için)")
+        print(f"  Fiyat   : {spot:.2f} $/oz (stooq anlık)")
+    elif anlik_fiyat:
+        print(f"  Fiyat   : {anlik_fiyat:.2f} $/oz (futures anlık)")
+    if s1_ref:
+        print(f"  S1 ref  : {s1_ref:.2f} (dun kapanis - S1 momentum icin)")
 
     # 5 Sinyal
-    s1, d1 = s1_momentum_kirilmasi(df_stooq)
+    s1, d1 = s1_momentum_kirilmasi(df_stooq, s1_ref)
     s2, d2 = s2_hacim_artisi(df_gun)
     s3, d3 = s3_rsi_cift_zaman(futures_sym)
     s4, d4 = s4_macd_kesimi(df_4h_futures)
@@ -454,8 +453,9 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
 
     return {
         "isim": isim,
-        "futures_fiyat": anlik_fiyat or fut_fiyat,
+        "fiyat": spot or anlik_fiyat or fut_fiyat,  # tek fiyat - spot oncelikli
         "spot_fiyat": spot,
+        "futures_fiyat": anlik_fiyat or fut_fiyat,
         "skor": yesil,
         "karar": karar,
         "emoji_k": emoji_k,

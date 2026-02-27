@@ -290,7 +290,106 @@ def s5_makro_temizlendi() -> tuple[bool, str]:
     return sinyal, detay
 
 
-def s6_dip_alim_senaryosu(xu100: pd.DataFrame) -> tuple:
+def s8_hisse_giris_sinyali() -> list:
+    """
+    S8: Portföy önerisindeki hisseler için bireysel giriş sinyali.
+    portfoy_pozisyonlar.json okur, AL kararı olan hisseleri tarar.
+    Her hisse için 3 koşul:
+      A) Dip Giriş: RSI 35-48 + destek yakın + toparlanıyor
+      B) Kırılma:   10G yüksek kırıldı + hacim 1.5x + RSI 50-65
+      C) MACD Dönüş: histogram negatiften pozitife + RSI 40+
+    """
+    import json as _json
+    from pathlib import Path as _Path
+
+    # Portföy listesini oku
+    tickers = []
+    poz_dosya = _Path("portfoy_pozisyonlar.json")
+    if poz_dosya.exists():
+        try:
+            pozlar = _json.loads(poz_dosya.read_text(encoding="utf-8"))
+            tickers = [p["ticker"] for p in pozlar if p.get("karar") == "AL" and p.get("ticker")]
+        except:
+            pass
+
+    if not tickers:
+        return []
+
+    sinyaller = []
+
+    for ticker in tickers[:8]:
+        h = _fiyat_cek(ticker, "3mo")
+        if h is None or len(h) < 20:
+            continue
+
+        try:
+            kapanis = h["Close"]
+            hacim   = h["Volume"]
+            son     = float(kapanis.iloc[-1])
+            dun     = float(kapanis.iloc[-2])
+            evvelsi = float(kapanis.iloc[-3])
+
+            rsi = _rsi(kapanis)
+            rsi_dun = _rsi(kapanis.iloc[:-1])
+
+            # Destek: son 20 günün en düşüğü
+            destek = float(kapanis.iloc[-20:].min())
+            destek_yakin = abs(son - destek) / destek < 0.04  # %4 içinde
+
+            # Hacim
+            son_hacim = float(hacim.iloc[-1])
+            ort_hacim = float(hacim.iloc[-20:-1].mean())
+            hacim_x = son_hacim / ort_hacim if ort_hacim > 0 else 0
+
+            # 10G yüksek
+            max_10g = float(kapanis.iloc[-12:-2].max())
+            kirilma = son > max_10g
+
+            # MACD
+            ema12 = kapanis.ewm(span=12).mean()
+            ema26 = kapanis.ewm(span=26).mean()
+            macd_line = ema12 - ema26
+            signal_line = macd_line.ewm(span=9).mean()
+            histo = macd_line - signal_line
+            histo_son = float(histo.iloc[-1])
+            histo_dun = float(histo.iloc[-2])
+
+            isim = ticker.replace(".IS", "")
+            tip = None
+            detay = ""
+
+            # A) Dip Giriş
+            if 35 <= rsi <= 48 and destek_yakin and son > dun and dun > evvelsi:
+                tip = "DİP GİRİŞ"
+                detay = f"RSI:{rsi:.0f} | Destek:{destek:.1f} | Toparlanıyor"
+
+            # B) Kırılma Girişi
+            elif kirilma and hacim_x >= 1.5 and 50 <= rsi <= 68:
+                tip = "KIRILMA"
+                detay = f"10G kırdı:{son:.1f}>{max_10g:.1f} | Hacim:{hacim_x:.1f}x | RSI:{rsi:.0f}"
+
+            # C) MACD Dönüş
+            elif histo_dun < 0 and histo_son > 0 and rsi >= 40:
+                tip = "MACD DÖNÜŞ"
+                detay = f"Histogram +{histo_son:.3f} | RSI:{rsi:.0f}"
+
+            if tip:
+                sinyaller.append({
+                    "ticker": isim,
+                    "tip": tip,
+                    "detay": detay,
+                    "fiyat": son,
+                    "rsi": rsi,
+                })
+                print(f"  🚀 {isim}: {tip} — {detay}")
+
+        except Exception as e:
+            continue
+
+    return sinyaller
+
+
+
     """
     Senaryo A — Dip Alım:
     BIST100 < 13.000 VE RSI < 38 VE 5+ hisse aşırı satımda
@@ -405,6 +504,12 @@ def alarm_kontrol() -> dict:
     sinyaller["S7_Kirilma"] = {"sonuc": s7, "detay": d7}
     print(f"  {'🚀' if s7 else '⚪'} S7 Senaryo B — Kırıl: {d7}")
 
+    # S8: Hisse bazlı giriş sinyalleri
+    print(f"\n  Hisse bazlı giriş sinyalleri kontrol ediliyor...")
+    hisse_sinyalleri = s8_hisse_giris_sinyali()
+    if not hisse_sinyalleri:
+        print(f"  ⚪ S8: Portföyde giriş sinyali yok")
+
     # Skor
     yesil = sum([s1, s2, s3, s4, s5])
 
@@ -454,6 +559,7 @@ def alarm_kontrol() -> dict:
         "oncelik": oncelik,
         "senaryo_a": s6,
         "senaryo_b": s7,
+        "hisse_sinyalleri": hisse_sinyalleri,
         "sinyaller": sinyaller,
         "telegram_gonderildi": gonderildi,
     }
