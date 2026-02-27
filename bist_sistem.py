@@ -346,16 +346,16 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         # Fiyat satırı: Dün:5185$ | Spot:5179$ -0.1%↓ | Fut:5182$ +0.2%↑
         fiyat_parca = []
         if dun_k:
-            fiyat_parca.append(f"Dün:{dun_k:.0f}$")
+            fiyat_parca.append(f"Dün:{dun_k:.2f}$")
         if anlik:
             yon = "↑" if (deg or 0) > 0 else "↓"
-            fiyat_parca.append(f"Spot:{anlik:.0f}$ {deg:+.1f}%{yon}" if deg is not None else f"Spot:{anlik:.0f}$")
+            fiyat_parca.append(f"Spot:{anlik:.2f}$ {deg:+.1f}%{yon}" if deg is not None else f"Spot:{anlik:.2f}$")
 
         fut     = enst.get("futures_fiyat")
         fut_deg = enst.get("futures_degisim_pct")
         if fut:
             yon_f = "↑" if (fut_deg or 0) > 0 else "↓"
-            fut_str = f"Fut:{fut:.0f}$ {fut_deg:+.1f}%{yon_f}" if fut_deg is not None else f"Fut:{fut:.0f}$"
+            fut_str = f"Fut:{fut:.2f}$ {fut_deg:+.1f}%{yon_f}" if fut_deg is not None else f"Fut:{fut:.2f}$"
             # Futures spot'tan güçlüyse vurgula
             if fut_deg and deg and fut_deg > deg + 0.3:
                 fut_str += " ⚡"
