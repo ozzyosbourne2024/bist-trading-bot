@@ -263,9 +263,13 @@ def s3_rsi_cift_zaman(sembol: str) -> Tuple[bool, str]:
     yon_1h = "↑" if rsi_1h_son > rsi_1h_dun else "↓"
     yon_4h = "↑" if rsi_4h_son > rsi_4h_dun else "↓"
     erken = not (trend_1h_guclu and trend_4h_guclu) and sinyal
+    if sinyal:
+        durum = "Erken sinyal" if erken else "Trend onaylı"
+    else:
+        durum = "Trend yok" if not (trend_1h_erken or trend_4h_erken) else "Zayıf"
     detay = (f"1H:{rsi_1h_son:.1f}{yon_1h} "
              f"4H:{rsi_4h_son:.1f}{yon_4h} "
-             f"{'Erken sinyal' if erken else 'Trend onaylı'} "
+             f"{durum} "
              f"{'AşırıAlım' if asiri_alim else ''}")
     return sinyal, detay
 
@@ -449,13 +453,32 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     else:
         karar = "BEKLE"; emoji_k = "🔴"
 
+    # Değişim hesapla — dünkü kapanışa göre
+    anlik  = spot or anlik_fiyat or fut_fiyat
+    dun_k  = s1_ref  # stooq iloc[-2]
+    degisim_pct = ((anlik / dun_k) - 1) * 100 if (anlik and dun_k and dun_k > 0) else None
+
+    # Futures vs spot farkı
+    fut_anlik = anlik_fiyat or fut_fiyat
+    fut_degisim_pct = None
+    if fut_anlik and dun_k and dun_k > 0:
+        # Futures dünkü kapanışına göre değişim (yfinance günlük)
+        if df_gun is not None and len(df_gun) >= 2:
+            fut_dun = float(df_gun["Close"].iloc[-2])
+            fut_degisim_pct = ((fut_anlik / fut_dun) - 1) * 100
+
     print(f"\n  SKOR: {yesil}/5 → {emoji_k} {karar}")
 
     return {
         "isim": isim,
-        "fiyat": spot or anlik_fiyat or fut_fiyat,  # tek fiyat - spot oncelikli
+        "anlik_fiyat": anlik,
+        "dun_kapanis": dun_k,
+        "degisim_pct": degisim_pct,
+        "futures_fiyat": fut_anlik,
+        "futures_degisim_pct": fut_degisim_pct,
+        # eski alanlar — geriye dönük uyumluluk
+        "fiyat": anlik,
         "spot_fiyat": spot,
-        "futures_fiyat": anlik_fiyat or fut_fiyat,
         "skor": yesil,
         "karar": karar,
         "emoji_k": emoji_k,

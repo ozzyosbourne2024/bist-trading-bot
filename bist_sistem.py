@@ -167,27 +167,36 @@ def hisse_hareketleri() -> list:
     tum_tickers = []
 
     # 1. portfoy_pozisyonlar.json — {"tarih":..., "pozisyonlar": {"GLYHO": {...}}}
-    poz_dosya = Path("portfoy_pozisyonlar.json")
-    if poz_dosya.exists():
-        try:
-            veri = json.loads(poz_dosya.read_text(encoding="utf-8"))
-            pozisyonlar = veri.get("pozisyonlar", {})
-            tum_tickers = list(pozisyonlar.keys())  # ["GLYHO", "ENKAI", ...]
-        except:
-            pass
+    for poz_yol in ["portfoy_pozisyonlar.json", "raporlar/portfoy_pozisyonlar.json"]:
+        if Path(poz_yol).exists():
+            try:
+                veri = json.loads(Path(poz_yol).read_text(encoding="utf-8"))
+                if isinstance(veri, list):
+                    tum_tickers = [p["ticker"] for p in veri if p.get("karar") == "AL" and p.get("ticker")]
+                elif isinstance(veri, dict):
+                    pozisyonlar = veri.get("pozisyonlar", {})
+                    # pozisyonlar = {"GLYHO": {"agirlik_pct":18,...}, ...} — hepsi AL
+                    tum_tickers = list(pozisyonlar.keys())
+                if tum_tickers:
+                    print(f"  Portföy: {tum_tickers} ({poz_yol})")
+                    break
+            except:
+                pass
 
     # 2. raporlar/ klasöründen bist_rapor JSON
     if not tum_tickers:
         rapor = _son_rapor_oku("bist_rapor")
-        for key in ["portfoy", "secimler", "kararlar"]:
+        for key in ["kararlar", "portfoy", "secimler"]:
             liste = rapor.get(key, [])
             if liste:
-                tum_tickers = [h.get("ticker","") for h in liste if h.get("karar","AL")=="AL"]
-                break
+                tum_tickers = [h.get("ticker","") for h in liste if h.get("karar") == "AL" and h.get("ticker")]
+                if tum_tickers:
+                    break
 
     # 3. Yedek liste
     if not tum_tickers:
-        tum_tickers = ["GLYHO","ENKAI","TAVHL","BIMAS","THYAO","TCELL","ISCTR"]
+        print("  ⚠️  Portföy dosyası bulunamadı, varsayılan liste")
+        tum_tickers = ["GLYHO","ENKAI","TAVHL","BIMAS","THYAO","TCELL","ASELS"]
 
     hareketler = []
     for ticker in tum_tickers[:8]:
@@ -212,8 +221,22 @@ def hisse_hareketleri() -> list:
 
 def bist_alarm_calistir() -> dict:
     print("  [1/3] BIST Alarm çalışıyor...")
-    _script_calistir("bist_alarm.py")
-    return _alarm_json_oku("bist_alarm_log.json")
+    r = _script_calistir("bist_alarm.py")
+    # Önce log dosyasını dene
+    sonuc = _alarm_json_oku("bist_alarm_log.json")
+    if sonuc:
+        return sonuc
+    # Log yoksa stdout'tan JSON parse et
+    try:
+        for satir in reversed(r.get("stdout", "").splitlines()):
+            satir = satir.strip()
+            if satir.startswith("{"):
+                return json.loads(satir)
+    except:
+        pass
+    if r.get("stderr"):
+        print(f"  BIST Alarm hata: {r['stderr'][:200]}")
+    return {}
 
 def altin_alarm_calistir() -> dict:
     print("  [2/3] Altın/Gümüş Alarm çalışıyor...")
@@ -311,15 +334,36 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
     s.append(f"\n<b>⚡ ALTIN & GÜMÜŞ</b>")
     sonuclar = altin.get("sonuclar", [])
     for enst in sonuclar:
-        isim    = enst.get("isim", "?")
-        skor    = enst.get("skor", "?")
-        karar   = enst.get("karar", "?")
-        emoji_k = enst.get("emoji_k", "")
-        # Tek fiyat — spot öncelikli
-        fiyat   = enst.get("fiyat") or enst.get("spot_fiyat") or enst.get("futures_fiyat")
-        em      = "🥇" if isim == "ALTIN" else "🥈"
-        fstr    = f" {fiyat:.0f}$" if fiyat else ""
-        s.append(f"\n{em} <b>{isim}{fstr}</b> | {emoji_k} {skor}/5 {karar}")
+        isim      = enst.get("isim", "?")
+        skor      = enst.get("skor", "?")
+        karar     = enst.get("karar", "?")
+        emoji_k   = enst.get("emoji_k", "")
+        anlik     = enst.get("anlik_fiyat") or enst.get("fiyat")
+        dun_k     = enst.get("dun_kapanis")
+        deg       = enst.get("degisim_pct")
+        em        = "🥇" if isim == "ALTIN" else "🥈"
+
+        # Fiyat satırı: Dün:5185$ | Spot:5179$ -0.1%↓ | Fut:5182$ +0.2%↑
+        fiyat_parca = []
+        if dun_k:
+            fiyat_parca.append(f"Dün:{dun_k:.0f}$")
+        if anlik:
+            yon = "↑" if (deg or 0) > 0 else "↓"
+            fiyat_parca.append(f"Spot:{anlik:.0f}$ {deg:+.1f}%{yon}" if deg is not None else f"Spot:{anlik:.0f}$")
+
+        fut     = enst.get("futures_fiyat")
+        fut_deg = enst.get("futures_degisim_pct")
+        if fut:
+            yon_f = "↑" if (fut_deg or 0) > 0 else "↓"
+            fut_str = f"Fut:{fut:.0f}$ {fut_deg:+.1f}%{yon_f}" if fut_deg is not None else f"Fut:{fut:.0f}$"
+            # Futures spot'tan güçlüyse vurgula
+            if fut_deg and deg and fut_deg > deg + 0.3:
+                fut_str += " ⚡"
+            fiyat_parca.append(fut_str)
+        fiyat_str = " | ".join(fiyat_parca)
+
+        s.append(f"\n{em} <b>{isim}</b> — {fiyat_str}")
+        s.append(f"  {emoji_k} {skor}/5 → {karar}")
         # Sinyal detayları
         sig = enst.get("sinyaller", {})
         for key, label in [("S1_Momentum","Momentum"),("S2_Hacim","Hacim"),
@@ -336,16 +380,6 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
         yon  = "↑" if deg > 0 else "↓"
         renk = "🟢" if deg > 0 else "🔴"
         s.append(f"📈 NASDAQ: {renk} {nasdaq['son']:,.0f} | {deg:+.1f}% {yon}")
-    if altin_gun:
-        deg  = altin_gun.get("degisim_dun", 0)
-        yon  = "↑" if deg > 0 else "↓"
-        renk = "🟢" if deg > 0 else "🔴"
-        s.append(f"🥇 Altın: {renk} {altin_gun['son']:,.0f}$ | {deg:+.1f}% {yon} | 1H:{altin_gun['trend_1h']}")
-    if gumus_gun:
-        deg  = gumus_gun.get("degisim_dun", 0)
-        yon  = "↑" if deg > 0 else "↓"
-        renk = "🟢" if deg > 0 else "🔴"
-        s.append(f"🥈 Gümüş: {renk} {gumus_gun['son']:.1f}$ | {deg:+.1f}% {yon} | 1H:{gumus_gun['trend_1h']}")
 
     return "\n".join(s)
 
