@@ -2,7 +2,7 @@ name: Sabah Analizi
 
 on:
   schedule:
-    - cron: '30 6 * * 1-5'
+    - cron: '0 4 * * 1-5'
   workflow_dispatch:
 
 jobs:

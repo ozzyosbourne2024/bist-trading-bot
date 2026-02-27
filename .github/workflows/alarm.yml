@@ -2,9 +2,10 @@ name: Alarm Sistemi
 
 on:
   schedule:
+    - cron: '45 6  * * 1-5'
     - cron: '30 7  * * 1-5'
-    - cron: '15 11 * * 1-5'
-    - cron: '15 12 * * 1-5'
+    - cron: '45 10 * * 1-5'
+    - cron: '45 11 * * 1-5'
     - cron: '45 14 * * 1-5'
   workflow_dispatch:
 
