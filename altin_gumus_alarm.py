@@ -145,8 +145,9 @@ def _log(kayit: dict):
 
 def s1_momentum_kirilmasi(df_stooq: pd.DataFrame) -> Tuple[bool, str]:
     """
-    S1: Stooq spot veri ile momentum kırılması.
-    Rollover yok — gerçek spot fiyat serisi.
+    S1: Stooq spot veri ile momentum kirilmasi.
+    Erken sinyal: 10 gunluk yuksek kirildi mi? (20 gunluk beklemek gec kalabilir)
+    Rollover yok - gercek spot fiyat serisi.
     """
     if df_stooq is None or len(df_stooq) < 22:
         return False, "Stooq veri yetersiz"
@@ -155,17 +156,27 @@ def s1_momentum_kirilmasi(df_stooq: pd.DataFrame) -> Tuple[bool, str]:
     bugun   = float(kapanis.iloc[-1])
     dun     = float(kapanis.iloc[-2])
     max_20g = float(kapanis.iloc[-22:-2].max())
+    max_10g = float(kapanis.iloc[-12:-2].max())
     min_20g = float(kapanis.iloc[-22:-2].min())
 
-    yukari_kirilma = bugun > max_20g and dun > max_20g * 0.99
-    asagi_kirilma  = bugun < min_20g
+    # Guclu kirilma: 20 gunluk yuksek gecildi
+    yukari_kirilma_20 = bugun > max_20g and dun > max_20g * 0.99
 
-    if yukari_kirilma:
-        return True, f"↗ Kırıldı! {bugun:.2f} > Max20G:{max_20g:.2f}"
+    # Erken sinyal: 10 gunluk yuksek gecildi + 2 gun ust uste yukselis
+    yukari_kirilma_10 = (bugun > max_10g and dun > float(kapanis.iloc[-3]))
+
+    asagi_kirilma = bugun < min_20g
+
+    if yukari_kirilma_20:
+        return True, f"Guclu kirilma! {bugun:.2f} > Max20G:{max_20g:.2f}"
+    elif yukari_kirilma_10:
+        return True, f"Erken sinyal: {bugun:.2f} > Max10G:{max_10g:.2f} (momentum var)"
     elif asagi_kirilma:
-        return False, f"↘ Aşağı kırıldı! {bugun:.2f} < Min20G:{min_20g:.2f} ⚠️"
+        return False, f"Asagi kirildi! {bugun:.2f} < Min20G:{min_20g:.2f}"
     else:
-        return False, f"Bugün:{bugun:.2f} | Max20G:{max_20g:.2f} | Fark:{((bugun/max_20g)-1)*100:.1f}%"
+        fark_20 = ((bugun / max_20g) - 1) * 100
+        fark_10 = ((bugun / max_10g) - 1) * 100
+        return False, f"Bugun:{bugun:.2f} | 10G:{fark_10:.1f}% | 20G:{fark_20:.1f}%"
 
 
 def s2_hacim_artisi(df_futures_gun: pd.DataFrame) -> Tuple[bool, str]:
@@ -234,19 +245,28 @@ def s3_rsi_cift_zaman(sembol: str) -> Tuple[bool, str]:
     rsi_4h_son = _rsi(k_4h)
     rsi_4h_dun = _rsi(k_4h.iloc[:-2])
 
-    # Trend takibi: her ikisi >50 ve yükseliyor
-    trend_1h = rsi_1h_son > 50 and rsi_1h_son > rsi_1h_dun
-    trend_4h = rsi_4h_son > 50 and rsi_4h_son > rsi_4h_dun
+    # Trend takibi: her ikisi >45 ve yukseliyor (50 beklemek gec olabilir)
+    # Guclu sinyal: ikisi de >50
+    # Erken sinyal: ikisi de >45 ve 3 bar ust uste yukseliyor
+    trend_1h_guclu = rsi_1h_son > 50 and rsi_1h_son > rsi_1h_dun
+    trend_4h_guclu = rsi_4h_son > 50 and rsi_4h_son > rsi_4h_dun
+
+    rsi_1h_3bar = _rsi(k_1h.iloc[:-5]) if len(k_1h) > 5 else rsi_1h_dun
+    trend_1h_erken = rsi_1h_son > 45 and rsi_1h_son > rsi_1h_dun > rsi_1h_3bar
+    trend_4h_erken = rsi_4h_son > 45 and rsi_4h_son > rsi_4h_dun
+
     asiri_alim = rsi_1h_son > 78 or rsi_4h_son > 78
 
-    sinyal = trend_1h and trend_4h and not asiri_alim
+    sinyal = (trend_1h_guclu and trend_4h_guclu and not asiri_alim) or \
+             (trend_1h_erken and trend_4h_erken and not asiri_alim)
 
     yon_1h = "↑" if rsi_1h_son > rsi_1h_dun else "↓"
     yon_4h = "↑" if rsi_4h_son > rsi_4h_dun else "↓"
+    erken = not (trend_1h_guclu and trend_4h_guclu) and sinyal
     detay = (f"1H:{rsi_1h_son:.1f}{yon_1h} "
-             f"4H(30m→):{rsi_4h_son:.1f}{yon_4h} "
-             f"Trend:{'✓' if trend_1h and trend_4h else '✗'} "
-             f"{'⚠️AşırıAlım' if asiri_alim else ''}")
+             f"4H:{rsi_4h_son:.1f}{yon_4h} "
+             f"{'Erken sinyal' if erken else 'Trend onaylı'} "
+             f"{'AşırıAlım' if asiri_alim else ''}")
     return sinyal, detay
 
 
@@ -261,24 +281,30 @@ def s4_macd_kesimi(df_1h: pd.DataFrame) -> Tuple[bool, str]:
     kapanis = pd.to_numeric(df_1h["Close"], errors="coerce").dropna()
     macd_h, sinyal, histo = _macd(kapanis)
 
-    histo_son  = float(histo.iloc[-1])
-    histo_dun  = float(histo.iloc[-2])
+    histo_son     = float(histo.iloc[-1])
+    histo_dun     = float(histo.iloc[-2])
     histo_evvelsi = float(histo.iloc[-3])
+    histo_3oncesi = float(histo.iloc[-4])
 
     macd_son   = float(macd_h.iloc[-1])
     sinyal_son = float(sinyal.iloc[-1])
 
-    # Kesim: önceki histogram negatif, şimdi pozitife döndü
+    # Guclu kesim: negatiften pozitife dondu
     kesim = histo_dun <= 0 and histo_son > 0
 
-    # Momentum artıyor: histogram büyüyor
-    momentum_yukseliyor = histo_son > histo_dun > histo_evvelsi
+    # Momentum yukseliyor: histogram buyuyor (pozitif bolgede)
+    momentum_yukseliyor = histo_son > histo_dun > histo_evvelsi and histo_son > 0
 
-    sinyal_var = kesim or (histo_son > 0 and momentum_yukseliyor)
-    detay = (f"MACD:{macd_son:.3f} Sinyal:{sinyal_son:.3f} "
-             f"Histo:{histo_son:.3f} "
-             f"Kesim:{'✓' if kesim else '✗'} "
-             f"Mom:{'↑' if momentum_yukseliyor else '→'}")
+    # Erken sinyal: histogram 3 bar ust uste yukseliyor (hala negatif olsa da)
+    erken_donus = (histo_son > histo_dun > histo_evvelsi > histo_3oncesi and
+                   histo_son > histo_3oncesi * 0.3)  # ciddi yukselis
+
+    sinyal_var = kesim or momentum_yukseliyor or erken_donus
+    detay = (f"MACD:{macd_son:.3f} Histo:{histo_son:.3f} "
+             f"{'Kesim✓' if kesim else ''}"
+             f"{'Mom↑' if momentum_yukseliyor else ''}"
+             f"{'Erken↑' if erken_donus and not kesim else ''}"
+             f"{'Bekle' if not sinyal_var else ''}")
     return sinyal_var, detay
 
 

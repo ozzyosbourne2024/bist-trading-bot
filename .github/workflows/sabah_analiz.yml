@@ -48,6 +48,13 @@ jobs:
           python bist_piyasa_sagligi.py
           mv piyasa_sagligi_*.json raporlar/ 2>/dev/null || true
 
+      - name: Run bist_sistem (Telegram sabah raporu)
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python bist_sistem.py
+
       - name: Commit reports
         run: |
           git config user.name  "github-actions[bot]"
