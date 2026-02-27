@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-02-27T07:29:16.600859",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 8,
+    "breadth_skoru": 21.0,
+    "adl_oran": 1.62,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 8,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.61,
+    "bist_degisim_10g": -3.36,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 43.958099365234375,
+    "usdtry_aylik_pct": 1.09,
+    "tur_etf_degisim": -0.84,
+    "altin_degisim": 3.5,
+    "vix": 18.6
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13856.6298828125,
+      "ort20": 13925,
+      "ort50": 12904,
+      "rsi": 50.5,
+      "macd_histo": -97.0,
+      "ay1_pct": 1.7,
+      "ay3_pct": 26.9,
+      "ay6_pct": 30.9,
+      "bb_pozisyon": 42.5,
+      "ust_band": 14382,
+      "alt_band": 13469
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak düşük bir seviyede ve yükselen hisse sayısı (13) düşen hisse sayısından (8) fazla, ancak toplam hisse sayısına göre düşük bir oran. Bu, endeksin birkaç güçlü hisse tarafından taşınabileceğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 33/100 olarak orta seviyede ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. RSI (50.5) ve BB%B (42.5) değerleri de aşırı alım veya satım sinyali vermiyor, ancak endeksin bir süredir yükseliyor olması ve bazı hisse senetlerinin aşırı alım bölgesine yaklaşması (3 hisse RSI>70) düzeltme olasılığını artırabilir. Tetikleyici, global piyasalardaki dalgalanmalar, makroekonomik veriler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Endeks hisse dağılımını gözden geçirin**: Portföyünüzdeki hisse dağılımını gözden geçirerek, aşırı bağımlı olduğunuz hisseleri azaltabilirsiniz.\n- **Stop-loss seviyelerini güncelleyin**: Portföyünüzdeki hisselerin stop-loss seviyelerini güncelleyerek, olası bir düzeltme durumunda kayıplarınızı sınırlayabilirsiniz.\n- **Nakit oranını artırın**: Portföyünüzdeki nakit oranını artırarak, olası bir düzeltme sırasında yeni fırsatları değerlendirebilirsiniz."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
