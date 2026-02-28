@@ -1,0 +1,44 @@
+name: Haftalik Rapor
+
+on:
+  schedule:
+    - cron: '0 5 * * 6'   # Cumartesi 08:00 TR (UTC+3 = 05:00 UTC)
+  workflow_dispatch:
+
+jobs:
+  haftalik:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet \
+            yfinance pandas numpy requests python-dotenv
+
+      - name: Create raporlar dir
+        run: mkdir -p raporlar
+
+      - name: Run haftalik rapor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python haftalik_rapor.py
+
+      - name: Commit rapor
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add raporlar/
+          git diff --staged --quiet || git commit -m "haftalik rapor $(date +'%Y-%m-%d')"
+          git push
