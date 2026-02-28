@@ -55,6 +55,12 @@ jobs:
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python bist_sistem.py
 
+      - name: Eski raporları temizle
+        run: |
+          ls -t raporlar/bist_rapor_*.json     2>/dev/null | tail -n +31 | xargs rm -f || true
+          ls -t raporlar/piyasa_sagligi_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
+          ls -t raporlar/denetim_raporu_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
+
       - name: Commit reports
         run: |
           git config user.name  "github-actions[bot]"
