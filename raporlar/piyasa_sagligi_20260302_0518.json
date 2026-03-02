@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-02T05:18:57.369606",
+  "genisl": {
+    "yukselenler": 8,
+    "dusenler": 47,
+    "breadth_skoru": 12.9,
+    "adl_oran": 0.17,
+    "rsi_asiri_yuksel_sayi": 0,
+    "rsi_asiri_dusuk_sayi": 9,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.56,
+    "bist_degisim_10g": -4.33,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 43.965999603271484,
+    "usdtry_aylik_pct": 1.13,
+    "tur_etf_degisim": -1.5,
+    "altin_degisim": 9.81,
+    "vix": 19.9
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13717.7998046875,
+      "ort20": 13918,
+      "ort50": 12902,
+      "rsi": 46.9,
+      "macd_histo": -106.0,
+      "ay1_pct": 0.7,
+      "ay3_pct": 25.6,
+      "ay6_pct": 29.6,
+      "bb_pozisyon": 28.4,
+      "ust_band": 14383,
+      "alt_band": 13453
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %12.9 olarak hesaplandı, bu da endeksin yalnızca az sayıda hisse tarafından taşınmakta olduğunu gösteriyor. Yükselen hisse sayısı 8, düşen hisse sayısı 47 olarak kaydedildi, bu da piyasanın genişlik açısından zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 33/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Bu, piyasanın bir düzeltme yaşama olasılığının yüksek olduğunu gösteriyor. Tetikleyici, RSI seviyesinin 46.9 olarak hesaplanması ve BB%B'nin 28.4 olması olabilir. Bu göstergeler, piyasanın aşırı satım bölgesine yaklaştığını ve bir düzeltme yaşayabileceğini gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasanın zayıf genişlik ve düşük RSI seviyesi nedeniyle, yatırımcılar bir düzeltme yaşama olasılığını göz önünde bulundurmalıdır.\n * Yatırımcılar, aşırı satım bölgesine yaklaştığı için seçilmiş hisselere yönelik alım fırsatları arayabilirler.\n * Piyasanın nötr makro ve yabancı yatırım ortamı nedeniyle, yatırımcılar uzun vadeli yatırım stratejilerine odaklanmalı ve kısa vadeli dalgalanmalardan etkilenmemelidir."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
