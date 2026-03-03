@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-03T05:17:59.127962",
+  "genisl": {
+    "yukselenler": 7,
+    "dusenler": 50,
+    "breadth_skoru": 11.3,
+    "adl_oran": 0.14,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.52,
+    "bist_degisim_10g": -6.19,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 10,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 43.963600158691406,
+    "usdtry_aylik_pct": 1.09,
+    "tur_etf_degisim": -3.77,
+    "altin_degisim": 7.78,
+    "vix": 21.4
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 38,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13346.400390625,
+      "ort20": 13905,
+      "ort50": 12942,
+      "rsi": 40.1,
+      "macd_histo": -135.0,
+      "ay1_pct": -3.8,
+      "ay3_pct": 21.2,
+      "ay6_pct": 28.5,
+      "bb_pozisyon": -4.2,
+      "ust_band": 14420,
+      "alt_band": 13389
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %11.3 olarak düşük bir seviyede ve yükselen hisse sayısı sadece 7 iken, düşen hisse sayısı 50. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 38/100 olarak \"TEMKİNLİ TREND\" olarak belirlenmiştir. Ayrıca, RSI değeri 40.1 olarak orta seviyededir ve son 1 ayda endeks %3.8 oranında düşmüştür. VIX değeri 21.4 olarak slightly yüksek bir seviyededir. Bu veriler, piyasada bir miktar temkinlilik olduğunu ve düzeltme olasılığını artırıyor. Tetikleyici, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Temanın takip edilmesi**: Piyasada temkinlilik hakim olduğuna göre, yatırımcıların pozisyonlarını gözden geçirmeleri ve risklerini yönetmeleri önemlidir.\n- **Hisse seçiminin dikkatli yapılması**: Az sayıda hisse endeksi taşıdığından, yatırımcıların güçlü ve temel olarak sağlam hisseleri tercih etmeleri önerilir.\n- **Stop-loss seviyelerinin belirlenmesi**: Düzeltme riski yüksek olduğundan, yatırımcıların pozisyonlarını korumak için stop-loss seviyelerini belirlemeleri ve takip etmeleri önemlidir."
+  },
+  "risk_skoru": 38,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
