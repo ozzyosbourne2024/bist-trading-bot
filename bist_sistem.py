@@ -222,10 +222,13 @@ def hisse_hareketleri() -> list:
 def bist_alarm_calistir() -> dict:
     print("  [1/3] BIST Alarm çalışıyor...")
     r = _script_calistir("bist_alarm.py")
+
     # Önce log dosyasını dene
-    sonuc = _alarm_json_oku("bist_alarm_log.json")
-    if sonuc:
-        return sonuc
+    for log_yol in ["bist_alarm_log.json", "raporlar/bist_alarm_log.json"]:
+        sonuc = _alarm_json_oku(log_yol)
+        if sonuc:
+            return sonuc
+
     # Log yoksa stdout'tan JSON parse et
     try:
         for satir in reversed(r.get("stdout", "").splitlines()):
@@ -234,8 +237,12 @@ def bist_alarm_calistir() -> dict:
                 return json.loads(satir)
     except:
         pass
+
+    # Hata varsa göster
     if r.get("stderr"):
-        print(f"  BIST Alarm hata: {r['stderr'][:200]}")
+        print(f"  BIST Alarm stderr: {r['stderr'][:300]}")
+    if not r.get("ok"):
+        print(f"  BIST Alarm çalışmadı — stdout: {r.get('stdout','')[:200]}")
     return {}
 
 def altin_alarm_calistir() -> dict:

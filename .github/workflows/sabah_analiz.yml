@@ -60,11 +60,10 @@ jobs:
           ls -t raporlar/bist_rapor_*.json     2>/dev/null | tail -n +31 | xargs rm -f || true
           ls -t raporlar/piyasa_sagligi_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
           ls -t raporlar/denetim_raporu_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
-
       - name: Commit reports
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add raporlar/
+          git add raporlar/ bist_alarm_log.json gelistirme_log.json
           git diff --staged --quiet || git commit -m "sabah raporu $(date +'%Y-%m-%d')"
           git push
