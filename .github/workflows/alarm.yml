@@ -65,6 +65,48 @@ jobs:
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python bist_sistem.py
 
+      - name: AL sinyali varsa portfoy olustur
+        env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - << 'PYEOF'
+          import json, subprocess, sys
+          from pathlib import Path
+
+          # bist_alarm_log.json oku — son kayit
+          log_yol = Path("bist_alarm_log.json")
+          if not log_yol.exists():
+              print("bist_alarm_log.json yok, atlanıyor")
+              sys.exit(0)
+
+          try:
+              log = json.loads(log_yol.read_text(encoding="utf-8"))
+              son = log[-1] if isinstance(log, list) else log
+              skor = son.get("skor", 0)
+              karar = son.get("karar", "")
+          except Exception as e:
+              print(f"Log okuma hatasi: {e}")
+              sys.exit(0)
+
+          print(f"BIST skor: {skor}/5 — {karar}")
+
+          # Skor 3+ ise portfoy olustur
+          if skor >= 3:
+              print(f"AL sinyali! ({skor}/5) — bist_agents.py calistiriliyor...")
+              r = subprocess.run(
+                  ["python", "bist_agents.py"],
+                  capture_output=True, text=True, timeout=300
+              )
+              if r.returncode == 0:
+                  print("bist_agents.py tamamlandi")
+              else:
+                  print(f"bist_agents.py hata: {r.stderr[:200]}")
+          else:
+              print(f"Sinyal yok ({skor}/5), bist_agents atlanıyor")
+          PYEOF
+
       - name: Run denetci
         env:
           GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
