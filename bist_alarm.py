@@ -389,7 +389,7 @@ def s8_hisse_giris_sinyali() -> list:
     return sinyaller
 
 
-
+def s6_dip_alim_senaryosu(xu100) -> tuple:
     """
     Senaryo A — Dip Alım:
     BIST100 < 13.000 VE RSI < 38 VE 5+ hisse aşırı satımda
