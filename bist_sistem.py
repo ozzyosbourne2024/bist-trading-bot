@@ -162,11 +162,93 @@ def _yf_cek_endeks() -> dict:
     dun = float(df["Close"].iloc[-2])
     return {"son": son, "degisim": (son / dun - 1) * 100}
 
-def hisse_hareketleri() -> list:
-    """Portföy önerisindeki hisselerin günlük hareketi."""
-    tum_tickers = []
+def _rsi(seri, period=14):
+    delta  = seri.diff()
+    kazan  = delta.clip(lower=0).rolling(period).mean()
+    kayip  = (-delta).clip(lower=0).rolling(period).mean()
+    rs     = kazan / kayip
+    return float(100 - (100 / (1 + rs)).iloc[-1])
 
-    # 1. portfoy_pozisyonlar.json — {"tarih":..., "pozisyonlar": {"GLYHO": {...}}}
+
+def _teknik_durum(ticker: str, giris: float = None, hedef: float = None, stop: float = None) -> dict:
+    """Her hisse için RSI, MA, MACD, destek/direnç, uyarı hesapla."""
+    t = ticker if ticker.endswith(".IS") else ticker + ".IS"
+    df = _yf_cek(t, period="3mo", interval="1d")
+    if df is None or len(df) < 20:
+        return {}
+
+    kapanis = df["Close"]
+    son     = float(kapanis.iloc[-1])
+    dun     = float(kapanis.iloc[-2])
+    degisim = (son / dun - 1) * 100
+
+    # RSI
+    try:
+        rsi     = _rsi(kapanis)
+        rsi_dun = _rsi(kapanis.iloc[:-1])
+        rsi_yon = "↑" if rsi > rsi_dun else "↓"
+    except:
+        rsi, rsi_yon = 50, "?"
+
+    # MA
+    ma20 = float(kapanis.rolling(20).mean().iloc[-1])
+    ma50 = float(kapanis.rolling(50).mean().iloc[-1]) if len(kapanis) >= 50 else None
+
+    # MACD
+    ema12  = kapanis.ewm(span=12).mean()
+    ema26  = kapanis.ewm(span=26).mean()
+    macd   = ema12 - ema26
+    sinyal = macd.ewm(span=9).mean()
+    histo  = macd - sinyal
+    macd_yon = "↑" if float(histo.iloc[-1]) > float(histo.iloc[-2]) else "↓"
+
+    # Destek / direnç (son 2 ay)
+    son2ay  = kapanis.iloc[-44:] if len(kapanis) >= 44 else kapanis
+    destek  = float(son2ay.min())
+    direnc  = float(son2ay.max())
+
+    # Trend
+    if son > ma20 > ma50 if ma50 else son > ma20:
+        trend = "YUKARI ↑"
+    elif son < ma20:
+        trend = "ASAGI ↓"
+    else:
+        trend = "YATAY →"
+
+    # Uyarılar
+    uyarilar = []
+    if hedef and son >= hedef * 0.95:
+        uyarilar.append(f"🎯 Hedefe yakın! ({son:.2f}/{hedef:.2f}) — kısmi satış düşün")
+    if stop and son <= stop * 1.03:
+        uyarilar.append(f"🛑 Stop yakın! ({son:.2f}/{stop:.2f}) — dikkat")
+    if rsi > 75:
+        uyarilar.append(f"📈 RSI:{rsi:.0f} — aşırı alım, balon riski")
+    if rsi < 30:
+        uyarilar.append(f"📉 RSI:{rsi:.0f} — aşırı satım, dip olabilir")
+    if giris and son >= giris * 1.15:
+        kar_pct = (son / giris - 1) * 100
+        uyarilar.append(f"💰 Giriş üstünde +{kar_pct:.1f}% — kâr realizasyonu?")
+
+    return {
+        "son":      son,
+        "degisim":  degisim,
+        "rsi":      rsi,
+        "rsi_yon":  rsi_yon,
+        "ma20_pos": son > ma20,
+        "macd_yon": macd_yon,
+        "trend":    trend,
+        "destek":   destek,
+        "direnc":   direnc,
+        "uyarilar": uyarilar,
+    }
+
+
+def hisse_hareketleri() -> list:
+    """Portföy hisselerinin günlük hareketi + teknik durum."""
+    tum_tickers  = []
+    pozisyonlar  = {}
+
+    # 1. portfoy_pozisyonlar.json
     for poz_yol in ["portfoy_pozisyonlar.json", "raporlar/portfoy_pozisyonlar.json"]:
         if Path(poz_yol).exists():
             try:
@@ -175,7 +257,6 @@ def hisse_hareketleri() -> list:
                     tum_tickers = [p["ticker"] for p in veri if p.get("karar") == "AL" and p.get("ticker")]
                 elif isinstance(veri, dict):
                     pozisyonlar = veri.get("pozisyonlar", {})
-                    # pozisyonlar = {"GLYHO": {"agirlik_pct":18,...}, ...} — hepsi AL
                     tum_tickers = list(pozisyonlar.keys())
                 if tum_tickers:
                     print(f"  Portföy: {tum_tickers} ({poz_yol})")
@@ -199,19 +280,33 @@ def hisse_hareketleri() -> list:
         tum_tickers = ["GLYHO","ENKAI","TAVHL","BIMAS","THYAO","TCELL","ASELS"]
 
     hareketler = []
-    for ticker in tum_tickers[:8]:
-        t = ticker if ticker.endswith(".IS") else ticker + ".IS"
-        df = _yf_cek(t, period="5d", interval="1d")
-        if df is None or len(df) < 2:
+    for ticker in tum_tickers[:12]:
+        poz   = pozisyonlar.get(ticker, {})
+        giris = poz.get("giris_fiyati")
+        hedef = poz.get("hedef")
+        stop  = poz.get("stop")
+
+        t = _teknik_durum(ticker, giris, hedef, stop)
+        if not t:
             continue
-        son     = float(df["Close"].iloc[-1])
-        dun     = float(df["Close"].iloc[-2])
-        degisim = (son / dun - 1) * 100
+
         hareketler.append({
-            "ticker": ticker.replace(".IS",""),
-            "son": son,
-            "degisim": degisim,
+            "ticker":   ticker.replace(".IS",""),
+            "son":      t["son"],
+            "degisim":  t["degisim"],
+            "rsi":      t.get("rsi"),
+            "rsi_yon":  t.get("rsi_yon","?"),
+            "ma20_pos": t.get("ma20_pos"),
+            "macd_yon": t.get("macd_yon","?"),
+            "trend":    t.get("trend","?"),
+            "destek":   t.get("destek"),
+            "direnc":   t.get("direnc"),
+            "giris":    giris,
+            "hedef":    hedef,
+            "stop":     stop,
+            "uyarilar": t.get("uyarilar", []),
         })
+
     return sorted(hareketler, key=lambda x: x["degisim"], reverse=True)
 
 
@@ -222,13 +317,10 @@ def hisse_hareketleri() -> list:
 def bist_alarm_calistir() -> dict:
     print("  [1/3] BIST Alarm çalışıyor...")
     r = _script_calistir("bist_alarm.py")
-
     # Önce log dosyasını dene
-    for log_yol in ["bist_alarm_log.json", "raporlar/bist_alarm_log.json"]:
-        sonuc = _alarm_json_oku(log_yol)
-        if sonuc:
-            return sonuc
-
+    sonuc = _alarm_json_oku("bist_alarm_log.json")
+    if sonuc:
+        return sonuc
     # Log yoksa stdout'tan JSON parse et
     try:
         for satir in reversed(r.get("stdout", "").splitlines()):
@@ -237,12 +329,8 @@ def bist_alarm_calistir() -> dict:
                 return json.loads(satir)
     except:
         pass
-
-    # Hata varsa göster
     if r.get("stderr"):
-        print(f"  BIST Alarm stderr: {r['stderr'][:300]}")
-    if not r.get("ok"):
-        print(f"  BIST Alarm çalışmadı — stdout: {r.get('stdout','')[:200]}")
+        print(f"  BIST Alarm hata: {r['stderr'][:200]}")
     return {}
 
 def altin_alarm_calistir() -> dict:
@@ -331,11 +419,26 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
 
     # ── Portföy Önerisi ──────────────────────────────────────────
     if hisse_hareketler:
-        s.append(f"\n<b>💼 PORTFÖY ÖNERİSİ</b>")
+        s.append(f"\n<b>💼 PORTFÖY TAKİP</b>")
         for h in hisse_hareketler:
             yon  = "↑" if h["degisim"] > 0 else "↓"
             renk = "🟢" if h["degisim"] > 0 else "🔴"
-            s.append(f"  {renk} {h['ticker']}: {h['son']:.1f} | {h['degisim']:+.1f}% {yon}")
+            # Ana satır
+            s.append(f"  {renk} <b>{h['ticker']}</b>: {h['son']:.2f} | {h['degisim']:+.1f}% {yon}")
+            # Teknik satır
+            ma_em  = "✅" if h.get("ma20_pos") else "❌"
+            s.append(
+                f"    RSI:{h['rsi']:.0f}{h['rsi_yon']} | MA20:{ma_em} | "
+                f"MACD:{h['macd_yon']} | {h['trend']}"
+            )
+            # Seviyeler
+            if h.get("destek") and h.get("direnc"):
+                hedef_str = f" | 🎯Hedef:{h['hedef']:.2f}" if h.get("hedef") else ""
+                stop_str  = f" | 🛑Stop:{h['stop']:.2f}"   if h.get("stop")  else ""
+                s.append(f"    Des:{h['destek']:.2f} | Dir:{h['direnc']:.2f}{hedef_str}{stop_str}")
+            # Uyarılar
+            for u in h.get("uyarilar", []):
+                s.append(f"    {u}")
 
     # ── Altın & Gümüş ────────────────────────────────────────────
     s.append(f"\n<b>⚡ ALTIN & GÜMÜŞ</b>")
@@ -423,6 +526,12 @@ def main():
     print("\n  Telegram mesajı gönderiliyor...")
     ok = _telegram(mesaj)
     print(f"  {'✓ Gönderildi' if ok else '✗ Gönderilemedi'}")
+
+    # Son mesajı kaydet — mesaj_degerlendirici.py okuyacak
+    try:
+        Path("son_mesaj.txt").write_text(mesaj, encoding="utf-8")
+    except:
+        pass
 
     print(f"\n{'='*55}")
 
