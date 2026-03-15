@@ -10,13 +10,38 @@
     "id": "G20260307_002",
     "tarih": "2026-03-07",
     "oneri": "Stop-loss seviyeleri daha sıkı bir şekilde belirlenmeli.",
-    "durum": "BEKLIYOR",
-    "uygulama_tarihi": null
+    "durum": "YAPILDI",
+    "uygulama_tarihi": "2026-03-14",
+    "uygulama_notu": "ATR x2 → ATR x1.5, fallback %93, tavan %88"
   },
   {
     "id": "G20260307_003",
     "tarih": "2026-03-07",
     "oneri": "Momentum filtresi daha kısa vadeli olarak ayarlanmalı.",
+    "durum": "BEKLIYOR",
+    "uygulama_tarihi": null
+  },
+  {
+    "id": "D20260315_001",
+    "tarih": "2026-03-15",
+    "kaynak": "kullanici_analiz",
+    "oneri": "KAP entegrasyonu: bilanço, temettü, önemli sözleşme haberlerini otomatik çek ve hisse bazlı sentiment'e ekle",
+    "durum": "BEKLIYOR",
+    "uygulama_tarihi": null
+  },
+  {
+    "id": "D20260315_002",
+    "tarih": "2026-03-15",
+    "kaynak": "kullanici_analiz",
+    "oneri": "Haber-hisse eşleştirme iyileştirmesi: Agent3 haber gerekçelerini boş bırakıyor, LLM prompt'u güçlendir",
+    "durum": "BEKLIYOR",
+    "uygulama_tarihi": null
+  },
+  {
+    "id": "D20260315_003",
+    "tarih": "2026-03-15",
+    "kaynak": "kullanici_analiz",
+    "oneri": "Altın-DXY ters korelasyon takibi: DXY trendi (yükselen/düşen) altın alarm sinyaline ek faktör olarak ekle",
     "durum": "BEKLIYOR",
     "uygulama_tarihi": null
   }

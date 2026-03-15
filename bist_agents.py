@@ -51,42 +51,69 @@ console = Console()
 # KONFİGÜRASYON
 # ════════════════════════════════════════════════════════════════
 
-BIST100_TICKERS = [
-    # Büyük bankalar
-    "GARAN.IS","AKBNK.IS","YKBNK.IS","ISCTR.IS","HALKB.IS","VAKBN.IS",
+def bist100_tickers_cek() -> list:
+    """
+    XU100 endeks bileşenlerini yfinance'tan dinamik çek.
+    Başarısız olursa statik listeye dön.
+    """
+    try:
+        import yfinance as yf
+        xu100 = yf.Ticker("XU100.IS")
+        components = xu100.components
+        if components is not None and len(components) > 50:
+            tickers = [t if t.endswith(".IS") else t + ".IS" for t in components.index.tolist()]
+            print(f"  XU100 bileşenleri dinamik çekildi: {len(tickers)} hisse")
+            return tickers
+    except:
+        pass
+    # Statik liste — fallback
+    return BIST100_TICKERS_STATIK
+
+
+BIST100_TICKERS_STATIK = [
+    # Resmi BIST100 listesi — Mart 2026
+    # Bankalar
+    "AKBNK.IS","GARAN.IS","HALKB.IS","ISCTR.IS","SKBNK.IS","TSKB.IS","VAKBN.IS","YKBNK.IS",
     # Holdingler
-    "KCHOL.IS","SAHOL.IS","AGHOL.IS","DOHOL.IS","GLYHO.IS",
+    "AGHOL.IS","ALARK.IS","BRYAT.IS","DOHOL.IS","KCHOL.IS","KLRHO.IS","KUYAS.IS","RALYH.IS","SAHOL.IS",
     # Sanayi / Otomotiv
-    "FROTO.IS","TOASO.IS","EREGL.IS","ARCLK.IS","VESTL.IS","VESBE.IS","OTKAR.IS",
+    "ARCLK.IS","DOAS.IS","FROTO.IS","OTKAR.IS","TOASO.IS","TTRAK.IS","VESTL.IS",
     # Savunma / Teknoloji
-    "ASELS.IS","LOGO.IS","NETAS.IS","KAREL.IS","INDES.IS",
-    # Enerji / Kimya
-    "TUPRS.IS","PETKM.IS","GUBRF.IS","ODAS.IS",
+    "ALTNY.IS","ASELS.IS","MIATK.IS","REEDR.IS",
+    # Enerji / Elektrik
+    "AKSA.IS","AKSEN.IS","ASTOR.IS","CANTE.IS","CWENE.IS","ENJSA.IS","ENERY.IS","EUPWR.IS",
+    "IZENR.IS","MAGEN.IS","ODAS.IS","TRALT.IS","TRENJ.IS","TUREX.IS","YEOTK.IS","ZOREN.IS",
+    # Petrol / Petrokimya
+    "PETKM.IS","TUPRS.IS",
     # Havacılık / Ulaşım
-    "THYAO.IS","PGSUS.IS","TAVHL.IS",
-    # Telecom / Medya
+    "GRSEL.IS","PGSUS.IS","TAVHL.IS","THYAO.IS",
+    # Telecom
     "TCELL.IS","TTKOM.IS",
     # Perakende / Gıda
-    "BIMAS.IS","MGROS.IS","SOKM.IS","ULKER.IS","CCOLA.IS","AEFES.IS",
-    "MAVI.IS","TATGD.IS","MERKO.IS","BANVT.IS","PENGD.IS",
+    "AEFES.IS","BALSU.IS","BIMAS.IS","CCOLA.IS","MGROS.IS","MAVI.IS","OBAMS.IS",
+    "SOKM.IS","TABGD.IS","TUKAS.IS","ULKER.IS",
     # GYO / İnşaat
-    "EKGYO.IS","ISGYO.IS","KLGYO.IS","ENKAI.IS","TKFEN.IS","AKCNS.IS","CIMSA.IS",
+    "DAPGM.IS","EKGYO.IS","ENKAI.IS","GLRMK.IS","TKFEN.IS",
+    # Çimento / İnşaat malzemeleri
+    "BSOKE.IS","BTCIM.IS","CIMSA.IS","OYAKC.IS",
     # Cam / Kimya
-    "SISE.IS",
+    "SISE.IS","SASA.IS","AKSA.IS","HEKTS.IS",
     # Demir Çelik / Maden
-    "ISDMR.IS","KRDMD.IS","KRSTL.IS",
-    # Finans / Sigorta
-    "ISFIN.IS","ISMEN.IS","ALARK.IS",
-    # Diğer sanayi
-    "BRISA.IS","KORDS.IS","DOAS.IS","FROTO.IS","JANTS.IS",
-    "GESAN.IS","ATAGY.IS","PRKME.IS","SELEC.IS","MERCN.IS",
-    "KATMR.IS","KLMSN.IS","KONTR.IS","KONYA.IS",
-    "MAALT.IS","MAGEN.IS","METRO.IS","KMPUR.IS",
-    "HURGZ.IS","KARTN.IS","ISDMR.IS",
+    "BRSAN.IS","EREGL.IS","KCAER.IS","KRDMD.IS","TRMET.IS",
+    # Finans / Sigorta / Faktoring
+    "ANSGR.IS","DSTKF.IS","ECILC.IS","EGEEN.IS","ISMEN.IS","KTLEV.IS","TURSG.IS",
+    # Sağlık
+    "GENIL.IS","MPARK.IS",
+    # Tarım / Gübre
+    "GUBRF.IS","GRTHO.IS",
+    # Diğer / Karma
+    "BRYAT.IS","DAPGM.IS","EFOR.IS","FENER.IS","GESAN.IS","GSRAY.IS","KONTR.IS",
+    "MAGEN.IS","PASEU.IS","PATEK.IS","QUAGR.IS","TSPOR.IS",
 ]
 # Tekrar edenleri temizle
-# Tekrar edenleri temizle (liste tanımında duplikasyon olabilir)
-BIST100_TICKERS = list(dict.fromkeys(BIST100_TICKERS))
+BIST100_TICKERS_STATIK = list(dict.fromkeys(BIST100_TICKERS_STATIK))
+# Dinamik çekmeyi dene, olmadı statik kullan
+BIST100_TICKERS = BIST100_TICKERS_STATIK  # main'de güncellenir
 
 PORTFOY_BUYUKLUGU   = 100_000   # TL
 MODEL               = "llama-3.3-70b-versatile"
@@ -599,7 +626,32 @@ def kural_motoru_hesapla(h) -> KuralMotorSonuc:
     temel_puan = max(0, min(100, t_puan))
     acik.extend(t_acik)
 
-    toplam = round((teknik_puan * 0.6 + temel_puan * 0.4), 1)
+    # ── Sektör bazlı ağırlık ─────────────────────────────────────────────────
+    # Bankacılık/Finans → temel kritik (bilanço takibi)
+    # İnşaat/Enerji/Ham → teknik ağır (proje döngüsü, negatif FCF normal)
+    # Diğer → dengeli
+    ticker_kisa = h.ticker.replace(".IS","")
+    SEKTOR_AGIRLIK = {
+        # Bankacılık — temel %50
+        "GARAN":0.50,"AKBNK":0.50,"YKBNK":0.50,"ISCTR":0.50,
+        "HALKB":0.50,"VAKBN":0.50,"SKBNK":0.50,"TSKB":0.50,
+        # Finans/Sigorta/Faktoring — temel %45
+        "ISMEN":0.45,"DSTKF":0.45,"SAHOL":0.45,"KCHOL":0.45,
+        "ALARK":0.45,"ANSGR":0.45,"TURSG":0.45,"KTLEV":0.45,"ECILC":0.45,
+        # İnşaat/GYO/Enerji/Petrokimya — temel %20 (proje döngüsü)
+        "ENKAI":0.20,"TKFEN":0.20,"EKGYO":0.20,"GLRMK":0.20,"DAPGM":0.20,
+        "TUPRS":0.20,"PETKM":0.20,"ODAS":0.20,"AKSEN":0.20,"ENJSA":0.20,
+        "ENERY":0.20,"CWENE":0.20,"CANTE":0.20,"IZENR":0.20,"ZOREN":0.20,
+        "KRDMD":0.20,"EREGL":0.20,"GUBRF":0.20,"BRSAN":0.20,"KCAER":0.20,
+        "TRMET":0.20,"EUPWR":0.20,"ASTOR":0.20,"MAGEN":0.20,"YEOTK":0.20,
+        "TRENJ":0.20,"TRALT":0.20,
+        # Savunma/Teknoloji — temel %30 (büyüme hissesi)
+        "ASELS":0.30,"ALTNY":0.30,"MIATK":0.30,"REEDR":0.30,"PATEK":0.30,
+    }
+    temel_agirlik = SEKTOR_AGIRLIK.get(ticker_kisa, 0.40)  # varsayılan %40
+    teknik_agirlik = 1.0 - temel_agirlik
+
+    toplam = round((teknik_puan * teknik_agirlik + temel_puan * temel_agirlik), 1)
 
     return KuralMotorSonuc(
         ticker=h.ticker,
@@ -877,26 +929,23 @@ def korelasyon_matrisi_hesapla(hisseler: list) -> pd.DataFrame:
     df = pd.DataFrame(veriler).dropna()
     return df.corr().round(2)
 
-def piyasa_ozeti_olustur(hisseler: list) -> str:
+def piyasa_ozeti_olustur(hisseler: list, limit: int = 12) -> str:
+    """Token tasarrufu için sadece top hisselerin özetini döndür."""
     satirlar = []
-    for h in hisseler:
+    # Kural puanına göre sırala, sadece top limit kadar al
+    sirali = sorted(hisseler, key=lambda h: h.kural_sonuc.toplam_puan if h.kural_sonuc else 0, reverse=True)
+    for h in sirali[:limit]:
         kr = h.kural_sonuc
         ich = h.ichimoku or {}
-        formlar = ", ".join(h.mum_formasyonlari[:3]) if h.mum_formasyonlari else "Yok"
+        formlar = ", ".join(h.mum_formasyonlari[:2]) if h.mum_formasyonlari else "-"
         satirlar.append(
-            f"--- {h.ticker} ({h.isim}) | {h.sektor} ---\n"
-            f"  Fiyat:{h.fiyat:.2f}TL 1G:{h.degisim_1g:+.1f}% 6Ay:{h.degisim_6ay:+.1f}%\n"
-            f"  KURAL MOTORU: TeknikPuan:{kr.teknik_puan} TemelPuan:{kr.temel_puan} TOPLAM:{kr.toplam_puan}/100\n"
-            f"  TREND: {kr.golden_cross} | ADX:{_fmt(h.adx,'{:.1f}')} | Ichimoku:{ich.get('durum','?')} | SAR:{h.sar_yon}\n"
-            f"  MUM FORMASYONLARI: {formlar}\n"
-            f"  IRAKSAMA: RSI:{h.rsi_iraksama} MACD:{h.macd_iraksama} OBV:{h.obv_iraksama}\n"
-            f"  MOMENTUM: RSI:{h.rsi_14} Stoch:{_fmt(h.stoch_k,'{:.1f}')} MACD:{_fmt(h.macd_hist,'{:.4f}')}\n"
-            f"  BAND/SEVİYE: BB%:{_fmt(h.bb_pct,'{:.2f}')} Destek:{_fmt(h.destek,'{:.2f}')} Direnc:{_fmt(h.direnc,'{:.2f}')}\n"
-            f"  Fib618:{_fmt(h.fib.get('0.618') if h.fib else None,'{:.2f}')}\n"
-            f"  PORTFÖY: Sharpe:{_fmt(h.sharpe,'{:.2f}')} MaxDD:{_fmt(h.max_drawdown,'{:.1f}')}% Kelly:{_fmt(h.kelly_f,'{:.3f}')}\n"
-            f"  TEMEL: FK:{_fmt(h.fk_orani,'{:.1f}')} PDDD:{_fmt(h.pd_dd,'{:.2f}')} ROE:{_fmt(h.roe,'{:.1f}')}% "
-            f"ROA:{_fmt(h.roa,'{:.1f}')}% DE:{_fmt(h.borc_ozsermaye,'{:.2f}')} "
-            f"FCF:{_fmt(h.fcf_m,'{:.0f}')}M YoY:{_fmt(h.gelir_buyume_yoy,'{:.1f}')}%"
+            f"{h.ticker}|KP:{kr.toplam_puan}|{h.sektor}|"
+            f"F:{h.fiyat:.2f}|6Ay:{h.degisim_6ay:+.1f}%|"
+            f"RSI:{h.rsi_14}|ADX:{_fmt(h.adx,'{:.0f}')}|"
+            f"Ich:{ich.get('durum','?')}|SAR:{h.sar_yon}|"
+            f"FK:{_fmt(h.fk_orani,'{:.1f}')}|ROE:{_fmt(h.roe,'{:.1f}')}%|"
+            f"Sharpe:{_fmt(h.sharpe,'{:.2f}')}|Kelly:{_fmt(h.kelly_f,'{:.3f}')}|"
+            f"Form:{formlar}"
         )
     return "\n".join(satirlar)
 
@@ -1062,11 +1111,12 @@ Görev:
 7. Genel görünüm: GUCLU_BULLISH/BULLISH/NOTR/BEARISH/GUCLU_BEARISH
 Türkçe, profesyonel yaz."""
         mesaj=(f"BIST100 GENEL:\n{bist_ozet}\n\n"
-               f"KOReLASYON ÖZETİ:\n{kor_ozet}\n\n"
-               f"ELİNEN:{', '.join([e['ticker'] for e in elinen[:15]])}\n\n"
-               f"SEÇİLEN HİSSELER:\n{piyasa_oz}\n\n"
-               f"SENTIMENT:\n{json.dumps(sentiment,ensure_ascii=False,indent=2)}")
-        yanit=self._llm(sistem,mesaj,0.3,3000)
+               f"KORELASYON: {kor_ozet}\n\n"
+               f"ELİNEN:{', '.join([e['ticker'] for e in elinen[:10]])}\n\n"
+               f"TOP HİSSELER (kural puanı sıralı):\n{piyasa_oz}\n\n"
+               f"PIYASA DURUMU:{sentiment.get('genel_durum','?')} | "
+               f"KRİTİK:{' | '.join(sentiment.get('kritik',[])[:2])}")
+        yanit=self._llm(sistem,mesaj,0.3,1500)
         self.hafiza.append({"agent":"Agent1","icerik":yanit}); return yanit
 
     def agent2(self, analiz: str, sentiment: dict,
@@ -1241,7 +1291,30 @@ def portfoy_kurallari_uygula(portfoy: dict, hisseler: list, kor_df) -> dict:
                     fib127 = h_obj.fib.get("1.272") if h_obj.fib else None
                     k["hedef_fiyat"] = fib127 if (fib127 and fib127 > fiyat) else round(fiyat * 1.08, 2)
 
-    # ── Kural 1: kural puanı < eşik → BEKLE ─────────────────────────────────
+    # ── Kural 0b: Stop-loss düzelt — AI genellikle giriş fiyatını yazıyor ──────
+    #   Gerçek stop = fiyat - 2×ATR (yoksa fiyat × 0.92, max -%10)
+    atr_map = {h.ticker.replace(".IS",""): h.atr for h in hisseler if hasattr(h, "atr") and h.atr}
+    for k in kararlar:
+        if k.get("karar") != "AL":
+            continue
+        t     = k["ticker"]
+        h_obj = hisse_map.get(t)
+        if not h_obj:
+            continue
+        fiyat = h_obj.fiyat or 0
+        stop  = k.get("stop_loss") or 0
+        if fiyat <= 0:
+            continue
+        # Stop yanlışsa düzelt: stop >= fiyat×0.99 (giriş fiyatına eşit veya yakın)
+        if stop >= fiyat * 0.99:
+            atr = atr_map.get(t)
+            if atr and atr > 0:
+                stop_yeni = round(fiyat - 1.5 * atr, 2)
+            else:
+                stop_yeni = round(fiyat * 0.93, 2)  # -%7 varsayılan (ATR×1.5 yerine)
+            # Stop en fazla -%12 olsun
+            stop_yeni = max(stop_yeni, round(fiyat * 0.88, 2))
+            k["stop_loss"] = stop_yeni
     for k in kararlar:
         t = k["ticker"]
         if kural_map.get(t, 0) < min_kural and k["karar"] == "AL":
@@ -1459,6 +1532,21 @@ def portfoy_kaydet(portfoy: dict, hisseler: list):
         "tarih": datetime.now().isoformat(),
         "pozisyonlar": {}
     }
+
+    # Mevcut portföyü oku — elle eklenen pozisyonları koru
+    if os.path.exists(PORTFOY_KAYIT_DOSYA):
+        try:
+            import json as _json
+            mevcut = _json.loads(open(PORTFOY_KAYIT_DOSYA, encoding="utf-8").read())
+            mevcut_poz = mevcut.get("pozisyonlar", {})
+            # Elle eklenmiş pozisyonları koru (agents listesinde olmayan)
+            agents_tickers = {k["ticker"] for k in portfoy.get("kararlar", []) if k["karar"] == "AL"}
+            for ticker, poz in mevcut_poz.items():
+                if ticker not in agents_tickers:
+                    kayit["pozisyonlar"][ticker] = poz  # Koru
+        except:
+            pass
+
     for k in portfoy.get("kararlar", []):
         if k["karar"] == "AL":
             ticker = k["ticker"]
@@ -1466,9 +1554,11 @@ def portfoy_kaydet(portfoy: dict, hisseler: list):
             fiyat = fiyat_map.get(ticker, 0)
             tutar = PORTFOY_BUYUKLUGU * agirlik / 100
             adet = round(tutar / fiyat, 2) if fiyat > 0 else 0
+            # Mevcut pozisyon varsa giriş fiyatını koru
+            mevcut_giris = kayit["pozisyonlar"].get(ticker, {}).get("giris_fiyati", fiyat)
             kayit["pozisyonlar"][ticker] = {
                 "agirlik_pct": agirlik,
-                "giris_fiyati": fiyat,
+                "giris_fiyati": mevcut_giris,
                 "guncel_fiyat": fiyat,
                 "adet": adet,
                 "tutar_tl": round(tutar, 2),
@@ -1537,11 +1627,12 @@ def pnl_hesapla_goster(hisseler: list):
 
     toplam_giris = 0; toplam_guncel = 0; toplam_pnl = 0
     for ticker, poz in kayit["pozisyonlar"].items():
-        giris  = poz["giris_fiyati"]
-        adet   = poz["adet"]
+        giris  = poz.get("giris_fiyati") or poz.get("guncel_fiyat") or 0
+        tutar  = poz.get("tutar_tl") or (PORTFOY_BUYUKLUGU * poz.get("agirlik_pct", 5) / 100)
+        adet   = poz.get("adet") or (round(tutar / giris, 2) if giris > 0 else 0)
         hedef  = poz.get("hedef")
         stop   = poz.get("stop")
-        guncel = fiyat_map.get(ticker, giris)  # güncel fiyat yoksa giriş fiyatı
+        guncel = fiyat_map.get(ticker, giris)
 
         giris_tutar  = giris * adet
         guncel_tutar = guncel * adet
@@ -1653,7 +1744,14 @@ def portfoy_goster(portfoy, hisseler, sentiment):
 # ════════════════════════════════════════════════════════════════
 
 def main():
+    global BIST100_TICKERS
     console.rule("[bold blue]BIST100 AI AJAN SİSTEMİ v4.0[/bold blue]")
+
+    # Dinamik hisse listesi — yfinance'tan çek, olmadı statik kullan
+    dinamik = bist100_tickers_cek()
+    if len(dinamik) > len(BIST100_TICKERS):
+        BIST100_TICKERS = dinamik
+
     console.print(f"Tarih:{datetime.now().strftime('%Y-%m-%d %H:%M')} | "
                   f"Model:{MODEL} | Hisse:{len(BIST100_TICKERS)}")
     risk_profili_goster()
