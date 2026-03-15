@@ -316,23 +316,57 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
     """
     S5: Makro ortam altın/gümüş için uygun mu?
     DXY (dolar endeksi) zayıflıyor + VIX yüksek = altın için pozitif
+
+    Altın-DXY ters korelasyon: DXY yükselince altın düşer (r ≈ -0.8)
+    Hem kısa vadeli trend hem korelasyon gücü takip edilir.
     """
     puan   = 0
     notlar = []
 
     # DXY — dolar zayıflıyorsa altın güçlenir
+    # Ters korelasyon: DXY↑ = altın için negatif, DXY↓ = pozitif
     try:
-        dxy = _indir("DX-Y.NYB", interval="1d", period="1mo")
-        if dxy is not None and len(dxy) >= 10:
-            dxy_degisim = (float(dxy["Close"].iloc[-1]) / float(dxy["Close"].iloc[-10]) - 1) * 100
-            if dxy_degisim < -1.5:
-                puan += 2
-                notlar.append(f"DXY:{dxy_degisim:.1f}%↓✓✓")
-            elif dxy_degisim < 0:
-                puan += 1
-                notlar.append(f"DXY:{dxy_degisim:.1f}%↓✓")
+        dxy = _indir("DX-Y.NYB", interval="1d", period="3mo")
+        if dxy is not None and len(dxy) >= 20:
+            dxy_son    = float(dxy["Close"].iloc[-1])
+            dxy_10g    = float(dxy["Close"].iloc[-10])
+            dxy_30g    = float(dxy["Close"].iloc[-22]) if len(dxy) >= 22 else float(dxy["Close"].iloc[0])
+            dxy_kisa   = (dxy_son / dxy_10g  - 1) * 100   # 10 günlük
+            dxy_uzun   = (dxy_son / dxy_30g  - 1) * 100   # 1 aylık
+
+            # Korelasyon katsayısı: altın ile DXY (son 30 gün)
+            if df_gunluk is not None and len(df_gunluk) >= 20:
+                try:
+                    altin_k = df_gunluk["Close"].iloc[-22:].reset_index(drop=True)
+                    dxy_k   = dxy["Close"].iloc[-22:].reset_index(drop=True)
+                    min_len = min(len(altin_k), len(dxy_k))
+                    if min_len >= 10:
+                        kor = float(altin_k.iloc[:min_len].corr(dxy_k.iloc[:min_len]))
+                        kor_str = f" Kor:{kor:.2f}"
+                    else:
+                        kor_str = ""
+                except:
+                    kor_str = ""
             else:
-                notlar.append(f"DXY:{dxy_degisim:.1f}%↑✗")
+                kor_str = ""
+
+            # Trend değerlendirme
+            if dxy_kisa < -1.5 and dxy_uzun < -2.0:
+                puan += 3
+                notlar.append(f"DXY:{dxy_kisa:.1f}%↓↓✓✓✓{kor_str}")
+            elif dxy_kisa < -1.0:
+                puan += 2
+                notlar.append(f"DXY:{dxy_kisa:.1f}%↓✓✓{kor_str}")
+            elif dxy_kisa < 0:
+                puan += 1
+                notlar.append(f"DXY:{dxy_kisa:.1f}%↓✓{kor_str}")
+            elif dxy_kisa > 1.5:
+                puan -= 1  # Güçlü dolar = altın için belirgin baskı
+                notlar.append(f"DXY:{dxy_kisa:.1f}%↑↑✗✗{kor_str}")
+            else:
+                notlar.append(f"DXY:{dxy_kisa:.1f}%↑✗{kor_str}")
+        else:
+            notlar.append("DXY:?")
     except:
         notlar.append("DXY:?")
 
@@ -366,7 +400,7 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
         notlar.append("10Y:?")
 
     sinyal = puan >= 3
-    detay  = " | ".join(notlar) + f" (Puan:{puan}/5)"
+    detay  = " | ".join(notlar) + f" (Puan:{puan}/6)"
     return sinyal, detay
 
 
@@ -399,23 +433,26 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     else:
         df_4h_futures = None
 
-    # Anlık futures fiyatı — 1 dakikalık son bar
+    # Anlık SPOT fiyat — gold-api.com (gerçek zamanlı)
+    spot_goldapi = _spot_fiyat(cfg["spot_url"])
+
+    # Anlık futures — yfinance 1m (ikincil kontrol)
     df_anlik = _indir(futures_sym, interval="1m", period="1d")
     anlik_fiyat = float(df_anlik["Close"].iloc[-1]) if df_anlik is not None and not df_anlik.empty else None
 
-    # Stooq anlık fiyat — gün içi güncelleniyor, gold-api'ye gerek yok
-    spot = float(df_stooq["Close"].iloc[-1]) if df_stooq is not None else None
-    # S1 için dünkü kapanış = bir önceki bar
-    s1_ref = float(df_stooq["Close"].iloc[-2]) if df_stooq is not None and len(df_stooq) >= 2 else None
+    # Stooq günlük CSV — SADECE S1 momentum referansı (dün kapanış)
+    s1_ref = float(df_stooq["Close"].iloc[-1]) if df_stooq is not None else None
     fut_fiyat = float(df_gun["Close"].iloc[-1]) if df_gun is not None else None
 
-    # Fiyat gosterimi
-    if spot:
-        print(f"  Fiyat   : {spot:.2f} $/oz (stooq anlık)")
-    elif anlik_fiyat:
-        print(f"  Fiyat   : {anlik_fiyat:.2f} $/oz (futures anlık)")
+    # Anlık gösterim: gold-api öncelikli
+    spot = spot_goldapi or anlik_fiyat or fut_fiyat
+
+    if spot_goldapi:
+        print(f"  Spot    : {spot_goldapi:.2f} $/oz (gold-api anlık)")
+    if anlik_fiyat:
+        print(f"  Futures : {anlik_fiyat:.2f} $/oz ({futures_sym} yfinance 1m)")
     if s1_ref:
-        print(f"  S1 ref  : {s1_ref:.2f} (dun kapanis - S1 momentum icin)")
+        print(f"  S1 ref  : {s1_ref:.2f} (stooq dün kapanış)")
 
     # 5 Sinyal
     s1, d1 = s1_momentum_kirilmasi(df_stooq, s1_ref)
@@ -453,9 +490,9 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     else:
         karar = "BEKLE"; emoji_k = "🔴"
 
-    # Değişim hesapla — dünkü kapanışa göre
-    anlik  = spot or anlik_fiyat or fut_fiyat
-    dun_k  = s1_ref  # stooq iloc[-2]
+    # Değişim hesapla — stooq dün kapanışına göre
+    anlik  = spot  # yfinance 1m anlık
+    dun_k  = s1_ref  # stooq dün kapanış
     degisim_pct = ((anlik / dun_k) - 1) * 100 if (anlik and dun_k and dun_k > 0) else None
 
     # Futures vs spot farkı
@@ -525,7 +562,8 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
             f"{'─'*30}\n"
         )
 
-    # Ortak makro notu
+    # Ortak makro notu — DXY korelasyon açıklaması
+    mesaj += "\n<i>📊 Altın-DXY ters korelasyon (r≈-0.8): DXY↓ = Altın↑ | DXY↑ = Altın↓</i>"
     mesaj += "\n<i>DXY↓ + VIX↑ + 10Y↓ = Altın/Gümüş için olumlu ortam</i>"
     return mesaj
 
