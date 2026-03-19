@@ -44,7 +44,6 @@ def _telegram(mesaj: str, parse_mode: str = "HTML") -> bool:
         print(mesaj)
         return False
     try:
-        # Telegram mesaj limiti 4096 karakter
         if len(mesaj) > 4096:
             mesaj = mesaj[:4090] + "..."
         r = requests.post(
@@ -52,7 +51,24 @@ def _telegram(mesaj: str, parse_mode: str = "HTML") -> bool:
             json={"chat_id": TELEGRAM_CHAT_ID, "text": mesaj, "parse_mode": parse_mode},
             timeout=15,
         )
-        return r.status_code == 200
+        if r.status_code == 200:
+            return True
+        # HTML parse hatası → tag'leri temizle, düz metin olarak tekrar dene
+        if r.status_code == 400 and "parse" in r.text.lower():
+            print(f"  HTML parse hatası, düz metin deneniyor...")
+            import re
+            temiz = re.sub(r"<[^>]+>", "", mesaj)
+            r2 = requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage",
+                json={"chat_id": TELEGRAM_CHAT_ID, "text": temiz},
+                timeout=15,
+            )
+            if r2.status_code == 200:
+                return True
+            print(f"  Telegram HTTP {r2.status_code}: {r2.text[:200]}")
+        else:
+            print(f"  Telegram HTTP {r.status_code}: {r.text[:200]}")
+        return False
     except Exception as e:
         print(f"Telegram hata: {e}")
         return False
@@ -531,6 +547,28 @@ def main():
 
     # Tek mesaj oluştur
     mesaj = mesaj_olustur(tarih, bist, altin, denetci, piyasa, ndx, au, ag, hisse)
+
+    # HTML güvenlik: izin verilen tag'ler dışındaki < > karakterlerini temizle
+    import re
+    IZINLI = re.compile(r'<(/?(b|i|u|s|code|pre|a|em|strong|blockquote|br))(\s[^>]*)?>',
+                        re.IGNORECASE)
+    def html_temizle(m: str) -> str:
+        # İzinli tag'leri koru, diğer < > işaretlerini escape et
+        parcalar = []
+        pos = 0
+        for mat in IZINLI.finditer(m):
+            # mat öncesi kısmı escape et
+            oncesi = m[pos:mat.start()]
+            oncesi = oncesi.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            parcalar.append(oncesi)
+            parcalar.append(mat.group(0))
+            pos = mat.end()
+        son = m[pos:]
+        son = son.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        parcalar.append(son)
+        return "".join(parcalar)
+
+    mesaj = html_temizle(mesaj)
 
     # Gönder
     print("\n  Telegram mesajı gönderiliyor...")
