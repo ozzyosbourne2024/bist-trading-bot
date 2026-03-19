@@ -1,45 +1,47 @@
-name: Sabah Analizi
+name: Sabah Analizi (09:00 TR)
 
 on:
   schedule:
-    - cron: '0 4 * * 1-5'
+    - cron: '0 6 * * 1-5'   # 09:00 TR (UTC+3) = 06:00 UTC, Pazartesi-Cuma
   workflow_dispatch:
 
 jobs:
-  sabah:
+  sabah_analiz:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 30        # bist_agents LLM çağrıları için yeterli süre
 
     steps:
-      - name: Checkout
+      - name: Kodu çek
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Python
+      - name: Python kur
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
-      - name: Install dependencies
+      - name: Bağımlılıkları yükle
         run: |
           pip install --quiet \
             yfinance pandas numpy requests python-dotenv \
             groq beautifulsoup4 feedparser rich
 
-      - name: Create raporlar dir
+      - name: raporlar/ klasörü oluştur
         run: mkdir -p raporlar
 
-      - name: Run bist_agents
+      - name: bist_agents.py çalıştır
         env:
           GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python bist_agents.py
+          # Üretilen raporları raporlar/ klasörüne taşı
           mv bist_rapor_*.json raporlar/ 2>/dev/null || true
 
-      - name: Run piyasa sagligi
+      - name: bist_piyasa_sagligi.py çalıştır
         env:
           GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -48,22 +50,10 @@ jobs:
           python bist_piyasa_sagligi.py
           mv piyasa_sagligi_*.json raporlar/ 2>/dev/null || true
 
-      - name: Run bist_sistem (Telegram sabah raporu)
-        env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python bist_sistem.py
-
-      - name: Eski raporları temizle
-        run: |
-          ls -t raporlar/bist_rapor_*.json     2>/dev/null | tail -n +31 | xargs rm -f || true
-          ls -t raporlar/piyasa_sagligi_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
-          ls -t raporlar/denetim_raporu_*.json 2>/dev/null | tail -n +31 | xargs rm -f || true
-      - name: Commit reports
+      - name: Raporları repoya kaydet (commit)
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add raporlar/ bist_alarm_log.json gelistirme_log.json
-          git diff --staged --quiet || git commit -m "sabah raporu $(date +'%Y-%m-%d')"
+          git add raporlar/
+          git diff --staged --quiet || git commit -m "📊 Sabah raporu $(date +'%Y-%m-%d')"
           git push
