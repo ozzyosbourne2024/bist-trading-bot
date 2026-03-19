@@ -437,13 +437,31 @@ def golden_death_cross(c: pd.Series):
     """
     Golden Cross: SMA50 SMA200'ü yukarı keser → güçlü AL sinyali
     Death Cross:  SMA50 SMA200'ü aşağı keser → güçlü SAT sinyali
+    200 gün veri yoksa SMA20/SMA50 kesişimine düşer (daha kısa vadeli).
     """
-    if len(c) < 200: return "VERI_YOK", 0, 0
+    if len(c) < 50:
+        return "VERI_YOK", 0, 0
+
+    # 200 gün yok → SMA20/SMA50 kullan
+    if len(c) < 200:
+        sma20 = c.rolling(20).mean()
+        sma50 = c.rolling(50).mean()
+        son20 = round(sma20.iloc[-1], 2)
+        son50 = round(sma50.iloc[-1], 2)
+        for i in range(2, min(6, len(c))):
+            prev_diff = sma20.iloc[-i] - sma50.iloc[-i]
+            curr_diff = sma20.iloc[-1] - sma50.iloc[-1]
+            if prev_diff < 0 and curr_diff > 0:
+                return "GOLDEN_CROSS(20/50)", son20, son50
+            if prev_diff > 0 and curr_diff < 0:
+                return "DEATH_CROSS(20/50)", son20, son50
+        if son20 > son50: return "SMA20_USTUNDE", son20, son50
+        return "SMA20_ALTINDA", son20, son50
+
     sma50  = c.rolling(50).mean()
     sma200 = c.rolling(200).mean()
     son50  = round(sma50.iloc[-1], 2)
     son200 = round(sma200.iloc[-1], 2)
-    # Önceki 5 gün içinde kesişim var mıydı?
     for i in range(2, min(6, len(c))):
         prev_diff = sma50.iloc[-i] - sma200.iloc[-i]
         curr_diff = sma50.iloc[-1] - sma200.iloc[-1]
@@ -975,6 +993,87 @@ def rss_cek() -> list:
         except: pass
     return haberler
 
+def kap_bildirim_cek(portfoy_tickers: list = None) -> list:
+    """
+    KAP JSON API'den son bildirimleri çek.
+    Bilanço, temettü, önemli sözleşme, pay geri alım gibi kritik bildirimleri filtrele.
+    """
+    haberler = []
+    # KAP public JSON endpoint
+    url = "https://www.kap.org.tr/tr/api/disclosureQuery"
+    params = {
+        "page": 0,
+        "disclosureClass": "FR",   # Finansal raporlar
+    }
+    # Kritik bildirim türleri
+    KRITIK_TIPLER = {
+        "FR":  "Finansal Rapor",
+        "DD":  "Özel Durum",
+        "DUYURU": "Duyuru",
+        "DP":  "Temettü",
+        "GG":  "Genel Kurul",
+        "PA":  "Pay Alım",
+        "SR":  "Sözleşme",
+    }
+
+    try:
+        # Son 50 bildirimi çek
+        r = requests.get(
+            "https://www.kap.org.tr/tr/api/disclosureQuery",
+            headers={**HEADERS, "Accept": "application/json"},
+            timeout=10,
+        )
+        if r.status_code == 200:
+            veri = r.json()
+            bildirimler = veri if isinstance(veri, list) else veri.get("data", [])
+            for b in bildirimler[:50]:
+                baslik  = b.get("headline","") or b.get("title","") or b.get("disclosureType","")
+                ticker  = b.get("stockCode","") or b.get("companyCode","")
+                tur     = b.get("disclosureClass","") or b.get("type","")
+                tarih   = str(b.get("disclosureDate",""))[:10] or datetime.now().strftime("%Y-%m-%d")
+                ozet    = b.get("summary","") or baslik
+
+                if not baslik:
+                    continue
+
+                # Portföy filtresi: sadece portföydeki hisselerin bildirimleri
+                if portfoy_tickers:
+                    if ticker and ticker not in portfoy_tickers:
+                        continue
+
+                tur_str = KRITIK_TIPLER.get(tur[:2], tur) if tur else ""
+                tam_baslik = f"[{ticker}] {tur_str}: {baslik}" if ticker else baslik
+
+                haberler.append(Haber(
+                    baslik=tam_baslik[:200],
+                    kaynak="KAP",
+                    tarih=tarih,
+                    ozet=ozet[:300],
+                    ilgili_hisseler=[ticker] if ticker else ticker_tespit(baslik),
+                ))
+    except Exception as e:
+        # Fallback: scraping yöntemi
+        try:
+            r = requests.get(
+                "https://www.kap.org.tr/tr/bildirim-sorgu",
+                headers=HEADERS, timeout=12
+            )
+            soup = BeautifulSoup(r.text, "html.parser")
+            for satir in soup.select("div.w-clearfix.w-inline-block.comp-row")[:20]:
+                metin = satir.get_text(" ", strip=True)
+                if len(metin) > 20:
+                    haberler.append(Haber(
+                        baslik=metin[:150], kaynak="KAP",
+                        tarih=datetime.now().strftime("%Y-%m-%d"),
+                        ozet=metin[:300],
+                        ilgili_hisseler=ticker_tespit(metin)
+                    ))
+        except:
+            pass
+
+    return haberler
+
+
 def resmi_cek() -> list:
     haberler=[]
     for k in RESMI_KAYNAKLAR:
@@ -992,17 +1091,25 @@ def resmi_cek() -> list:
 
 def haber_ozeti(haberler: list, secili: list) -> str:
     satirlar=[]
+
+    # KAP bildirimleri — en kritik, öne al
+    kap_h = [h for h in haberler if h.kaynak == "KAP"]
+    if kap_h:
+        satirlar.append("[KAP BİLDİRİMLERİ]")
+        for h in kap_h[:10]:
+            satirlar.append(f"  {h.baslik} | {h.tarih}")
+
     for ticker in secili:
-        ilgili=[h for h in haberler if ticker in h.ilgili_hisseler]
+        ilgili=[h for h in haberler if ticker in h.ilgili_hisseler and h.kaynak != "KAP"]
         if ilgili:
             satirlar.append(f"\n[{ticker}]")
-            for h in ilgili[:4]:
+            for h in ilgili[:3]:
                 satirlar.append(f"  [{h.kaynak}] {h.baslik} | {h.tarih}")
-    resmi=[h for h in haberler if not h.ilgili_hisseler and h.kaynak in ("BDDK","Hazine","EPDK","KAP")]
-    genel=[h for h in haberler if not h.ilgili_hisseler and h not in resmi][:8]
+    resmi=[h for h in haberler if not h.ilgili_hisseler and h.kaynak in ("BDDK","Hazine","EPDK")]
+    genel=[h for h in haberler if not h.ilgili_hisseler and h not in resmi][:6]
     if resmi:
         satirlar.append("\n[RESMİ KURUM]")
-        for h in resmi[:8]: satirlar.append(f"  [{h.kaynak}] {h.baslik}")
+        for h in resmi[:6]: satirlar.append(f"  [{h.kaynak}] {h.baslik}")
     if genel:
         satirlar.append("\n[GENEL]")
         for h in genel: satirlar.append(f"  [{h.kaynak}] {h.baslik}")
@@ -1554,8 +1661,9 @@ def portfoy_kaydet(portfoy: dict, hisseler: list):
             fiyat = fiyat_map.get(ticker, 0)
             tutar = PORTFOY_BUYUKLUGU * agirlik / 100
             adet = round(tutar / fiyat, 2) if fiyat > 0 else 0
-            # Mevcut pozisyon varsa giriş fiyatını koru
             mevcut_giris = kayit["pozisyonlar"].get(ticker, {}).get("giris_fiyati", fiyat)
+            # Bileşik skoru hesapla
+            bilsik = bilsik_skor_hesapla(k, hisseler)
             kayit["pozisyonlar"][ticker] = {
                 "agirlik_pct": agirlik,
                 "giris_fiyati": mevcut_giris,
@@ -1564,6 +1672,8 @@ def portfoy_kaydet(portfoy: dict, hisseler: list):
                 "tutar_tl": round(tutar, 2),
                 "hedef": k.get("hedef_fiyat"),
                 "stop": k.get("stop_loss"),
+                "bilsik_skor": bilsik,
+                "kural_puan": k.get("kural_puan"),
                 "tarih": datetime.now().strftime("%Y-%m-%d"),
             }
     # Mevcut dosyayı önceki gün olarak sakla
@@ -1705,32 +1815,74 @@ def risk_profili_goster():
            f"Max tek hisse: %{profil['max_tek_hisse']} | "
            f"Min nakit: %{profil['min_nakit']}")
 
+def bilsik_skor_hesapla(k: dict, hisseler: list) -> float:
+    """
+    Bileşik potansiyel skoru — portföy sıralaması için.
+    Kural puanı %40 + Upside %25 + Sharpe %20 + Kelly %15
+    """
+    ticker  = k.get("ticker","")
+    h_obj   = next((h for h in hisseler if h.ticker == ticker or h.ticker == ticker+".IS"), None)
+
+    kural   = float(k.get("kural_puan", 0) or 0)
+    kelly   = float(k.get("kelly_f",   0) or 0)
+    hedef   = k.get("hedef_fiyat")
+    fiyat   = h_obj.fiyat if h_obj else 0
+    sharpe  = float(h_obj.sharpe or 0) if h_obj else 0
+
+    upside  = ((hedef / fiyat - 1) * 100) if hedef and fiyat else 0
+    upside  = max(0, min(upside, 50))  # 0-50 arası normalize et
+
+    # Normalize 0-100 aralığına
+    kural_n  = kural                         # zaten 0-100
+    upside_n = upside * 2                    # 0-50 → 0-100
+    sharpe_n = max(0, min(sharpe * 30, 100)) # -3/+3 → 0-100
+    kelly_n  = kelly * 400                   # 0-0.25 → 0-100
+
+    skor = (kural_n * 0.40 + upside_n * 0.25 + sharpe_n * 0.20 + kelly_n * 0.15)
+    return round(skor, 1)
+
+
 def portfoy_goster(portfoy, hisseler, sentiment):
     fiyat_map={h.ticker:h.fiyat for h in hisseler}
     emo={"POZITIF":"🟢","NEGATIF":"🔴","NOTR":"🟡","POZİTİF":"🟢","NEGATİF":"🔴","NÖTR":"🟡"}
     hs=sentiment.get("hisse_sentiment",{})
     kr={"AL":"bold green","SAT":"bold red","TUT":"bold yellow","BEKLE":"bold dim"}
     t=Table(title=f"💼 Portföy — {PORTFOY_BUYUKLUGU:,} TL",border_style="gold1",show_lines=True)
-    for col,kw in [("Hisse",{"style":"bold"}),("Karar",{"justify":"center"}),
+    for col,kw in [("Sıra",{"justify":"center"}),("Hisse",{"style":"bold"}),("Karar",{"justify":"center"}),
                    ("Sent.",{"justify":"center"}),("Ağırlık",{"justify":"right"}),
                    ("Tutar ₺",{"justify":"right"}),("Hedef ₺",{"justify":"right"}),
                    ("Stop-Loss",{"justify":"right"}),("Upside",{"justify":"right"}),
                    ("Kelly",{"justify":"right"}),("Kural",{"justify":"right"}),
-                   ("Gerekçe",{"max_width":28})]:
+                   ("Potansiyel",{"justify":"right"}),("Gerekçe",{"max_width":25})]:
         t.add_column(col,**kw)
-    for k in sorted(portfoy.get("kararlar",[]),key=lambda x:x.get("agirlik_pct",0),reverse=True):
+
+    # AL kararlarını bileşik skora göre sırala, BEKLE/SAT sona
+    al_list    = [k for k in portfoy.get("kararlar",[]) if k.get("karar") == "AL"]
+    diger_list = [k for k in portfoy.get("kararlar",[]) if k.get("karar") != "AL"]
+
+    for k in al_list:
+        k["_bilsik_skor"] = bilsik_skor_hesapla(k, hisseler)
+    al_list.sort(key=lambda x: x.get("_bilsik_skor", 0), reverse=True)
+
+    sirali = al_list + diger_list
+    madalya = ["🥇","🥈","🥉"]
+
+    for i, k in enumerate(sirali):
         ticker=k["ticker"]; karar=k["karar"]; ag=k.get("agirlik_pct",0)
         guncel=fiyat_map.get(ticker,0); hedef=k.get("hedef_fiyat"); stop=k.get("stop_loss")
         upside=round((hedef/guncel-1)*100,1) if hedef and guncel else None
         sv=hs.get(ticker,{}).get("sentiment","NOTR")
+        bilsik = k.get("_bilsik_skor","—")
+        sira_str = madalya[i] if i < 3 and karar == "AL" else (f"{i+1}" if karar == "AL" else "—")
         t.add_row(
-            ticker,f"[{kr.get(karar,'white')}]{karar}[/]",emo.get(sv,"🟡"),
+            sira_str, ticker, f"[{kr.get(karar,'white')}]{karar}[/]", emo.get(sv,"🟡"),
             f"%{ag}" if ag else "—",
             f"{PORTFOY_BUYUKLUGU*ag/100:,.0f}" if ag else "—",
-            f"{hedef:.2f}" if hedef else "—",f"{stop:.2f}" if stop else "—",
+            f"{hedef:.2f}" if hedef else "—", f"{stop:.2f}" if stop else "—",
             (f"[green]+{upside}%[/]" if upside and upside>0 else f"[red]{upside}%[/]" if upside else "—"),
             f"{k.get('kelly_f','—')}",f"{k.get('kural_puan','—')}",
-            k.get("gerekce","")[:55])
+            f"[cyan]{bilsik}[/]" if isinstance(bilsik, float) else "—",
+            k.get("gerekce","")[:50])
     console.print(t)
     toplam_al=sum(k.get("agirlik_pct",0) for k in portfoy.get("kararlar",[]) if k["karar"]=="AL")
     nakit=portfoy.get("nakit_orani_pct",100-toplam_al)
@@ -1826,9 +1978,12 @@ def main():
 
     # ── 3. Agent 3 ───────────────────────────────────────────
     console.print("\n"); console.rule("[bold magenta]🔴 AGENT 3 — Haber & Sentiment[/bold magenta]")
-    with console.status("[magenta]Haberler...[/magenta]"):
-        tum_h=rss_cek()+resmi_cek()
-    console.print(f"[green]✓ {len(tum_h)} haber[/green]")
+    portfoy_tickers = [h.ticker.replace(".IS","") for h in derin]
+    with console.status("[magenta]Haberler + KAP bildirimleri...[/magenta]"):
+        kap_h = kap_bildirim_cek(portfoy_tickers)
+        tum_h = rss_cek() + resmi_cek() + kap_h
+    kap_sayisi = len(kap_h)
+    console.print(f"[green]✓ {len(tum_h)} haber ({kap_sayisi} KAP bildirimi)[/green]")
     secili=[h.ticker for h in derin]
     haber_oz=haber_ozeti(tum_h,secili)
     ajanlar=FinansalAjanlar()
@@ -1844,7 +1999,8 @@ def main():
             return f"Manipülasyon şüphesi (hacim anomalisi:{o.hacim_anomali:.1f}x, RSI:{o.rsi_14:.0f}, 1ay:{o.degisim_1ay:+.0f}%)"
         if o.balon_skoru >= BALON_ESIK:
             fk = _to_float(o.fk_orani)
-            return f"Balon şüphesi (FK:{fk:.0f if fk else 'N/A'}, balon_puan:{o.balon_skoru:.0f})"
+            fk_str = f"{fk:.0f}" if fk else "N/A"
+            return f"Balon şüphesi (FK:{fk_str}, balon_puan:{o.balon_skoru:.0f})"
         return f"Filtre limit ({FILTRE_LIMIT}) aşıldı — kalite_puan:{o.kalite_skoru:.0f}"
 
     elinen_bilgi=[{
