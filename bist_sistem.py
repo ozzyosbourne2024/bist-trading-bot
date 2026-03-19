@@ -307,6 +307,17 @@ def hisse_hareketleri() -> list:
             "uyarilar": t.get("uyarilar", []),
         })
 
+    # Bileşik skora göre sırala (JSON'dan), yoksa günlük değişime göre
+    try:
+        poz_dosya = next((y for y in ["portfoy_pozisyonlar.json","raporlar/portfoy_pozisyonlar.json"] if Path(y).exists()), None)
+        if poz_dosya:
+            poz_json = json.loads(Path(poz_dosya).read_text(encoding="utf-8"))
+            poz_map  = poz_json.get("pozisyonlar", {})
+            for h in hareketler:
+                h["bilsik_skor"] = poz_map.get(h["ticker"], {}).get("bilsik_skor", 0) or 0
+            return sorted(hareketler, key=lambda x: x.get("bilsik_skor", 0), reverse=True)
+    except:
+        pass
     return sorted(hareketler, key=lambda x: x["degisim"], reverse=True)
 
 
@@ -420,23 +431,22 @@ def mesaj_olustur(tarih: str, bist: dict, altin: dict, denetci: dict,
     # ── Portföy Önerisi ──────────────────────────────────────────
     if hisse_hareketler:
         s.append(f"\n<b>💼 PORTFÖY TAKİP</b>")
-        for h in hisse_hareketler:
+        madalya = ["🥇","🥈","🥉"]
+        for i, h in enumerate(hisse_hareketler):
             yon  = "↑" if h["degisim"] > 0 else "↓"
             renk = "🟢" if h["degisim"] > 0 else "🔴"
-            # Ana satır
-            s.append(f"  {renk} <b>{h['ticker']}</b>: {h['son']:.2f} | {h['degisim']:+.1f}% {yon}")
-            # Teknik satır
+            sira = madalya[i] if i < 3 else f"{i+1}."
+            bilsik_str = f" 〔{h['bilsik_skor']:.0f}〕" if h.get("bilsik_skor") else ""
+            s.append(f"  {sira} {renk} <b>{h['ticker']}</b>{bilsik_str}: {h['son']:.2f} | {h['degisim']:+.1f}% {yon}")
             ma_em  = "✅" if h.get("ma20_pos") else "❌"
             s.append(
                 f"    RSI:{h['rsi']:.0f}{h['rsi_yon']} | MA20:{ma_em} | "
                 f"MACD:{h['macd_yon']} | {h['trend']}"
             )
-            # Seviyeler
             if h.get("destek") and h.get("direnc"):
-                hedef_str = f" | 🎯Hedef:{h['hedef']:.2f}" if h.get("hedef") else ""
-                stop_str  = f" | 🛑Stop:{h['stop']:.2f}"   if h.get("stop")  else ""
+                hedef_str = f" | 🎯{h['hedef']:.2f}" if h.get("hedef") else ""
+                stop_str  = f" | 🛑{h['stop']:.2f}"  if h.get("stop")  else ""
                 s.append(f"    Des:{h['destek']:.2f} | Dir:{h['direnc']:.2f}{hedef_str}{stop_str}")
-            # Uyarılar
             for u in h.get("uyarilar", []):
                 s.append(f"    {u}")
 
