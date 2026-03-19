@@ -483,7 +483,7 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     print(f"  {'✅' if s4 else '❌'} S4 MACD Kesimi        : {d4}")
     print(f"     💡 {ACIKLAMALAR['S4']}")
     print(f"  {'✅' if s5 else '❌'} S5 Makro/Dolar        : {d5}")
-    print(f"     💡 {ACIKLAMALAR['S5']}")
+    print(f"     💡 {_s5_aciklama(d5)}")
 
     yesil = sum([s1, s2, s3, s4, s5])
 
@@ -535,6 +535,110 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     }
 
 
+def makro_yorum_uret(sonuclar: list) -> str:
+    """
+    Mevcut makro verilere göre kısa yorum satırı üret.
+    Petrol, DXY, VIX durumuna göre otomatik yorumlar.
+    """
+    yorumlar = []
+    try:
+        # Petrol fiyatı
+        brent = yf.Ticker("BZ=F").history(period="5d", interval="1d")
+        if brent is not None and len(brent) >= 2:
+            brent_son  = float(brent["Close"].iloc[-1])
+            brent_prev = float(brent["Close"].iloc[-2])
+            brent_pct  = (brent_son / brent_prev - 1) * 100
+            if brent_pct > 2:
+                yorumlar.append(f"🛢️ Petrol +{brent_pct:.1f}% → enerji enflasyonu riski, Fed faiz kesimi gecikebilir → altın için baskı")
+            elif brent_pct < -2:
+                yorumlar.append(f"🛢️ Petrol {brent_pct:.1f}% → deflasyon sinyali, Fed yumuşayabilir → altın için olumlu")
+            else:
+                yorumlar.append(f"🛢️ Petrol {brent_pct:+.1f}% (nötr)")
+    except:
+        pass
+
+    try:
+        # DXY
+        for dxy_t in ["DX=F", "DX-Y.NYB"]:
+            dxy = yf.Ticker(dxy_t).history(period="5d", interval="1d")
+            if dxy is not None and len(dxy) >= 2:
+                dxy_pct = (float(dxy["Close"].iloc[-1]) / float(dxy["Close"].iloc[-2]) - 1) * 100
+                if abs(dxy_pct) > 0.3:
+                    if dxy_pct > 0:
+                        yorumlar.append(f"💵 DXY +{dxy_pct:.1f}% (güçlü dolar) → altın/gümüş üzerinde baskı devam eder")
+                    else:
+                        yorumlar.append(f"💵 DXY {dxy_pct:.1f}% (zayıf dolar) → altın için destek")
+                break
+    except:
+        pass
+
+    try:
+        # VIX
+        vix_data = yf.Ticker("^VIX").history(period="3d", interval="1d")
+        if vix_data is not None and len(vix_data) >= 1:
+            vix = float(vix_data["Close"].iloc[-1])
+            if vix > 25:
+                yorumlar.append(f"😱 VIX {vix:.1f} (yüksek korku) → güvenli liman talebi altını destekler")
+            elif vix < 15:
+                yorumlar.append(f"😴 VIX {vix:.1f} (düşük korku) → riskli varlıklara geçiş, altın baskı altında")
+    except:
+        pass
+
+    # S/D skoru yorumu
+    for s in sonuclar:
+        if s["skor"] == 0:
+            yorumlar.append(f"⚠️ {s['isim']}: Tüm sinyaller negatif — hem teknik hem makro baskı var, BEKLE")
+        elif s["skor"] >= 4:
+            yorumlar.append(f"🚀 {s['isim']}: Güçlü alım sinyali ({s['skor']}/5) — momentum ve makro uyumlu")
+
+    return "\n".join(yorumlar) if yorumlar else ""
+
+
+def _s5_aciklama(detay: str) -> str:
+    """S5 detay string'inden DXY/VIX durumunu okuyup dinamik açıklama üret."""
+    detay = detay.upper()
+    parcalar = []
+
+    # DXY yönü
+    if "DXY:" in detay:
+        if "↓↓" in detay or ("↓" in detay and "✓✓✓" in detay):
+            parcalar.append("DXY güçlü düşüş → altın için belirgin destek")
+        elif "↓" in detay and "✓" in detay:
+            parcalar.append("DXY zayıflıyor → altın için olumlu")
+        elif "↑↑" in detay or ("↑" in detay and "✗✗" in detay):
+            parcalar.append("DXY güçlü yükseliş → altın üzerinde baskı var")
+        elif "↑" in detay:
+            parcalar.append("DXY yükseliyor → altın için hafif baskı")
+
+    # Korelasyon yorumu
+    if "KOR:" in detay:
+        try:
+            kor_idx = detay.index("KOR:") + 4
+            kor_val = float(detay[kor_idx:kor_idx+6].split()[0].split("|")[0])
+            if kor_val < -0.6:
+                parcalar.append(f"ters korelasyon güçlü (r={kor_val:.2f})")
+            elif kor_val > 0.3:
+                parcalar.append(f"⚠️ korelasyon pozitife döndü (r={kor_val:.2f}) — jeopolitik etki")
+        except:
+            pass
+
+    # VIX
+    if "VIX:" in detay:
+        if "↑✓✓" in detay:
+            parcalar.append("VIX yüksek → güvenli liman talebi altını destekler")
+        elif "↓✗" in detay:
+            parcalar.append("VIX düşük → risk iştahı var, altın baskı altında")
+
+    # 10Y faiz
+    if "10Y:" in detay:
+        if "✓" in detay[detay.index("10Y:"):detay.index("10Y:")+12]:
+            parcalar.append("faiz düşüyor → altın cazip")
+        else:
+            parcalar.append("faiz yükseliyor → altın için maliyet artar")
+
+    return " | ".join(parcalar) if parcalar else "Makro veriler değerlendiriliyor."
+
+
 def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
     mesaj = f"<b>⚡ ALTIN & GÜMÜŞ ALARM</b>\n{tarih}\n{'─'*30}\n"
 
@@ -556,8 +660,8 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
                    "Backwardation = fiziksel talep çok güçlü."),
             _satir(sig['S4_MACD']['sonuc'], "MACD", sig['S4_MACD']['detay'],
                    "Sinyal çizgisi kesildi mi? Kestiyse trend dönüyor."),
-            _satir(sig['S5_Makro']['sonuc'], "Makro", sig['S5_Makro']['detay'],
-                   "Dolar zayıf + korku yüksek = altın için olumlu."),
+            _satir(sig['S5_Makro']['sonuc'], "Makro/Dolar", sig['S5_Makro']['detay'],
+                   _s5_aciklama(sig['S5_Makro']['detay'])),
         ])
 
         mesaj += (
@@ -568,8 +672,13 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
             f"{'─'*30}\n"
         )
 
+    # Makro yorum
+    makro = makro_yorum_uret(sonuclar)
+    if makro:
+        mesaj += f"\n\n<b>📌 Makro Yorum:</b>\n{makro}"
+
     # Ortak makro notu — DXY korelasyon açıklaması
-    mesaj += "\n<i>📊 Altın-DXY ters korelasyon (r≈-0.8): DXY↓ = Altın↑ | DXY↑ = Altın↓</i>"
+    mesaj += "\n\n<i>📊 Altın-DXY ters korelasyon (r≈-0.8): DXY↓ = Altın↑ | DXY↑ = Altın↓</i>"
     mesaj += "\n<i>DXY↓ + VIX↑ + 10Y↓ = Altın/Gümüş için olumlu ortam</i>"
     return mesaj
 
