@@ -325,16 +325,27 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
 
     # DXY — dolar zayıflıyorsa altın güçlenir
     # Ters korelasyon: DXY↑ = altın için negatif, DXY↓ = pozitif
-    try:
-        dxy = _indir("DX-Y.NYB", interval="1d", period="3mo")
-        if dxy is not None and len(dxy) >= 20:
+    # Alternatif tickerlar: DX=F → DX-Y.NYB → UUP (ETF)
+    dxy = None
+    for dxy_ticker in ["DX=F", "DX-Y.NYB", "UUP"]:
+        try:
+            dxy = _indir(dxy_ticker, interval="1d", period="3mo")
+            if dxy is not None and len(dxy) >= 20:
+                break
+            dxy = None
+        except:
+            continue
+
+    if dxy is not None and len(dxy) >= 20:
+        try:
             dxy_son    = float(dxy["Close"].iloc[-1])
             dxy_10g    = float(dxy["Close"].iloc[-10])
             dxy_30g    = float(dxy["Close"].iloc[-22]) if len(dxy) >= 22 else float(dxy["Close"].iloc[0])
-            dxy_kisa   = (dxy_son / dxy_10g  - 1) * 100   # 10 günlük
-            dxy_uzun   = (dxy_son / dxy_30g  - 1) * 100   # 1 aylık
+            dxy_kisa   = (dxy_son / dxy_10g  - 1) * 100
+            dxy_uzun   = (dxy_son / dxy_30g  - 1) * 100
 
             # Korelasyon katsayısı: altın ile DXY (son 30 gün)
+            kor_str = ""
             if df_gunluk is not None and len(df_gunluk) >= 20:
                 try:
                     altin_k = df_gunluk["Close"].iloc[-22:].reset_index(drop=True)
@@ -343,14 +354,9 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
                     if min_len >= 10:
                         kor = float(altin_k.iloc[:min_len].corr(dxy_k.iloc[:min_len]))
                         kor_str = f" Kor:{kor:.2f}"
-                    else:
-                        kor_str = ""
                 except:
-                    kor_str = ""
-            else:
-                kor_str = ""
+                    pass
 
-            # Trend değerlendirme
             if dxy_kisa < -1.5 and dxy_uzun < -2.0:
                 puan += 3
                 notlar.append(f"DXY:{dxy_kisa:.1f}%↓↓✓✓✓{kor_str}")
@@ -361,13 +367,13 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
                 puan += 1
                 notlar.append(f"DXY:{dxy_kisa:.1f}%↓✓{kor_str}")
             elif dxy_kisa > 1.5:
-                puan -= 1  # Güçlü dolar = altın için belirgin baskı
+                puan -= 1
                 notlar.append(f"DXY:{dxy_kisa:.1f}%↑↑✗✗{kor_str}")
             else:
                 notlar.append(f"DXY:{dxy_kisa:.1f}%↑✗{kor_str}")
-        else:
+        except:
             notlar.append("DXY:?")
-    except:
+    else:
         notlar.append("DXY:?")
 
     # VIX — korku yüksekse altın güvenli liman
