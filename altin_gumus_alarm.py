@@ -74,7 +74,11 @@ def _stooq_gunluk(sembol: str, gun: int = 60) -> Optional[pd.DataFrame]:
             return None
         df = pd.read_csv(StringIO(r.text))
         df["Date"] = pd.to_datetime(df["Date"])
-        df = df.sort_values("Date").tail(gun).reset_index(drop=True)
+        df = df.sort_values("Date").reset_index(drop=True)
+
+        # Bugünün kısmi barını çıkar — sadece dün ve öncesi tam kapanışlar
+        bugun = pd.Timestamp.now().normalize()
+        df = df[df["Date"] < bugun].tail(gun).reset_index(drop=True)
         df.index = pd.DatetimeIndex(df["Date"])
         return df
     except:
@@ -344,8 +348,7 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
             dxy_kisa   = (dxy_son / dxy_10g  - 1) * 100
             dxy_uzun   = (dxy_son / dxy_30g  - 1) * 100
 
-            # Korelasyon katsayısı: altın ile DXY (son 30 gün)
-            kor_str = ""
+            kor_yorum = ""
             if df_gunluk is not None and len(df_gunluk) >= 20:
                 try:
                     altin_k = df_gunluk["Close"].iloc[-22:].reset_index(drop=True)
@@ -353,24 +356,27 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
                     min_len = min(len(altin_k), len(dxy_k))
                     if min_len >= 10:
                         kor = float(altin_k.iloc[:min_len].corr(dxy_k.iloc[:min_len]))
-                        kor_str = f" Kor:{kor:.2f}"
+                        if kor < -0.6:
+                            kor_yorum = f" [dolar-altın ters ilişkisi güçlü]"
+                        elif kor > 0.3:
+                            kor_yorum = f" [⚠️ jeopolitik: dolar ve altın birlikte yükseliyor]"
                 except:
                     pass
 
             if dxy_kisa < -1.5 and dxy_uzun < -2.0:
                 puan += 3
-                notlar.append(f"DXY:{dxy_kisa:.1f}%↓↓✓✓✓{kor_str}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — güçlü düşüş %{dxy_kisa:.1f}✓✓✓{kor_yorum}")
             elif dxy_kisa < -1.0:
                 puan += 2
-                notlar.append(f"DXY:{dxy_kisa:.1f}%↓✓✓{kor_str}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — zayıflıyor %{dxy_kisa:.1f}✓✓{kor_yorum}")
             elif dxy_kisa < 0:
                 puan += 1
-                notlar.append(f"DXY:{dxy_kisa:.1f}%↓✓{kor_str}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — hafif zayıf %{dxy_kisa:.1f}✓{kor_yorum}")
             elif dxy_kisa > 1.5:
                 puan -= 1
-                notlar.append(f"DXY:{dxy_kisa:.1f}%↑↑✗✗{kor_str}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — güçlü yükseliş %{dxy_kisa:.1f}✗✗{kor_yorum}")
             else:
-                notlar.append(f"DXY:{dxy_kisa:.1f}%↑✗{kor_str}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — hafif yükseliş %{dxy_kisa:.1f}✗{kor_yorum}")
         except:
             notlar.append("DXY:?")
     else:
@@ -383,12 +389,12 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
             vix = float(vix_data["Close"].iloc[-1])
             if vix > 22:
                 puan += 2
-                notlar.append(f"VIX:{vix:.1f}↑✓✓")
+                notlar.append(f"Korku endeksi(VIX):{vix:.0f} YÜKSEK✓✓")
             elif vix > 18:
                 puan += 1
-                notlar.append(f"VIX:{vix:.1f}~✓")
+                notlar.append(f"Korku endeksi(VIX):{vix:.0f} orta✓")
             else:
-                notlar.append(f"VIX:{vix:.1f}↓✗")
+                notlar.append(f"Korku endeksi(VIX):{vix:.0f} düşük✗")
     except:
         notlar.append("VIX:?")
 
@@ -396,14 +402,15 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
     try:
         tnx = _indir("^TNX", interval="1d", period="1mo")
         if tnx is not None and len(tnx) >= 10:
-            faiz_degisim = float(tnx["Close"].iloc[-1]) - float(tnx["Close"].iloc[-10])
+            faiz_son   = float(tnx["Close"].iloc[-1])
+            faiz_degisim = faiz_son - float(tnx["Close"].iloc[-10])
             if faiz_degisim < -0.1:
                 puan += 1
-                notlar.append(f"10Y:{faiz_degisim:+.2f}✓")
+                notlar.append(f"ABD tahvil faizi:%{faiz_son:.2f}↓✓")
             else:
-                notlar.append(f"10Y:{faiz_degisim:+.2f}✗")
+                notlar.append(f"ABD tahvil faizi:%{faiz_son:.2f}↑✗")
     except:
-        notlar.append("10Y:?")
+        notlar.append("Tahvil:?")
 
     sinyal = puan >= 3
     detay  = " | ".join(notlar) + f" (Puan:{puan}/6)"
@@ -458,7 +465,8 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     if anlik_fiyat:
         print(f"  Futures : {anlik_fiyat:.2f} $/oz ({futures_sym} yfinance 1m)")
     if s1_ref:
-        print(f"  S1 ref  : {s1_ref:.2f} (stooq dün kapanış)")
+        s1_tarih = df_stooq.index[-1].strftime("%Y-%m-%d") if df_stooq is not None else "?"
+        print(f"  S1 ref  : {s1_ref:.2f} (stooq kapanış: {s1_tarih})")
 
     # 5 Sinyal
     s1, d1 = s1_momentum_kirilmasi(df_stooq, s1_ref)
@@ -483,7 +491,9 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     print(f"  {'✅' if s4 else '❌'} S4 MACD Kesimi        : {d4}")
     print(f"     💡 {ACIKLAMALAR['S4']}")
     print(f"  {'✅' if s5 else '❌'} S5 Makro/Dolar        : {d5}")
-    print(f"     💡 {_s5_aciklama(d5)}")
+    aciklama = _s5_aciklama(d5, isim)
+    for satir in aciklama.split("\n     "):
+        print(f"     {satir}")
 
     yesil = sum([s1, s2, s3, s4, s5])
 
@@ -594,49 +604,99 @@ def makro_yorum_uret(sonuclar: list) -> str:
     return "\n".join(yorumlar) if yorumlar else ""
 
 
-def _s5_aciklama(detay: str) -> str:
-    """S5 detay string'inden DXY/VIX durumunu okuyup dinamik açıklama üret."""
-    detay = detay.upper()
-    parcalar = []
+def _s5_aciklama(detay: str, isim: str = "ALTIN") -> str:
+    """S5 durumunu doğru yorumla + gelecek beklentisi ekle."""
+    gumus = "GUM" in isim.upper() or "SILVER" in isim.upper()
+    hedef = "gümüş" if gumus else "altın"
 
-    # DXY yönü
-    if "DXY:" in detay:
-        if "↓↓" in detay or ("↓" in detay and "✓✓✓" in detay):
-            parcalar.append("DXY güçlü düşüş → altın için belirgin destek")
-        elif "↓" in detay and "✓" in detay:
-            parcalar.append("DXY zayıflıyor → altın için olumlu")
-        elif "↑↑" in detay or ("↑" in detay and "✗✗" in detay):
-            parcalar.append("DXY güçlü yükseliş → altın üzerinde baskı var")
-        elif "↑" in detay:
-            parcalar.append("DXY yükseliyor → altın için hafif baskı")
+    # Detayı bölümlere ayır
+    bolumler = detay.split("|")
+    dxy_b  = next((b for b in bolumler if "DXY"   in b.upper()), "")
+    vix_b  = next((b for b in bolumler if "VIX"   in b.upper() or "KORKU" in b.upper()), "")
+    faiz_b = next((b for b in bolumler if "FAİZ"  in b.upper() or "TAHVİL" in b.upper()
+                                       or "FAIZ"  in b.upper() or "10Y"    in b.upper()), "")
 
-    # Korelasyon yorumu
-    if "KOR:" in detay:
-        try:
-            kor_idx = detay.index("KOR:") + 4
-            kor_val = float(detay[kor_idx:kor_idx+6].split()[0].split("|")[0])
-            if kor_val < -0.6:
-                parcalar.append(f"ters korelasyon güçlü (r={kor_val:.2f})")
-            elif kor_val > 0.3:
-                parcalar.append(f"⚠️ korelasyon pozitife döndü (r={kor_val:.2f}) — jeopolitik etki")
-        except:
-            pass
+    # DXY skoru: +2 güçlü düşüş, +1 düşüş, 0 yatay, -1 yükseliş, -2 güçlü yükseliş
+    dxy_skor = 0
+    dxy_yorum = ""
+    if dxy_b:
+        d = dxy_b.upper()
+        if "GÜÇLÜ DÜŞÜŞ" in d or "✓✓✓" in dxy_b:
+            dxy_skor = 2
+            dxy_yorum = f"💵 Dolar hızla düşüyor → {hedef} için güçlü destek"
+        elif "ZAYIFLIY" in d or ("✓✓" in dxy_b and "✓✓✓" not in dxy_b):
+            dxy_skor = 1
+            dxy_yorum = f"💵 Dolar zayıflıyor → {hedef} için olumlu"
+        elif "HAFİF ZAYIF" in d or ("✓" in dxy_b and "✓✓" not in dxy_b):
+            dxy_skor = 1
+            dxy_yorum = f"💵 Dolar biraz zayıfladı → {hedef} için hafif destek"
+        elif "GÜÇLÜ YÜKSELİŞ" in d or "✗✗" in dxy_b:
+            dxy_skor = -2
+            dxy_yorum = f"💵 Dolar güçlü yükseliyor → {hedef} satılıyor, düşüş baskısı sert"
+        elif "YÜKSELİŞ" in d or "✗" in dxy_b:
+            dxy_skor = -1
+            dxy_yorum = f"💵 Dolar yükseliyor → {hedef} baskı altında, alım için erken"
 
-    # VIX
-    if "VIX:" in detay:
-        if "↑✓✓" in detay:
-            parcalar.append("VIX yüksek → güvenli liman talebi altını destekler")
-        elif "↓✗" in detay:
-            parcalar.append("VIX düşük → risk iştahı var, altın baskı altında")
+    # VIX skoru: +1 yüksek, -1 düşük
+    vix_skor = 0
+    vix_yorum = ""
+    if vix_b:
+        v = vix_b.upper()
+        if "YÜKSEK" in v or "✓✓" in vix_b:
+            vix_skor = 1
+            if gumus:
+                vix_yorum = "😰 Piyasa korkusu yüksek → güvenli liman talebi var ama gümüş altın kadar koruma sağlamıyor"
+            else:
+                vix_yorum = "😰 Piyasa korkusu yüksek → güvenli liman talebi altını bir miktar tutuyor"
+        elif "DÜŞÜK" in v or "✗" in vix_b:
+            vix_skor = -1
+            vix_yorum = f"😌 Piyasalar sakin → yatırımcılar riskli varlıklara geçiyor, {hedef} talebi azalıyor"
 
-    # 10Y faiz
-    if "10Y:" in detay:
-        if "✓" in detay[detay.index("10Y:"):detay.index("10Y:")+12]:
-            parcalar.append("faiz düşüyor → altın cazip")
+    # Faiz skoru
+    faiz_skor = 0
+    faiz_yorum = ""
+    if faiz_b:
+        if ("↑" in faiz_b or "YÜKSELİ" in faiz_b.upper()) and "✗" in faiz_b:
+            faiz_skor = -1
+            faiz_yorum = "📈 Faiz yükseliyor → tahvil/banka cazip, yatırımcı altından çıkıyor"
+        elif ("↓" in faiz_b or "DÜŞÜ" in faiz_b.upper()) and "✓" in faiz_b:
+            faiz_skor = 1
+            faiz_yorum = f"📉 Faiz düşüyor → bankada tutmak yerine {hedef} daha mantıklı"
+
+    # Net skor ve gelecek yorumu
+    net = dxy_skor + vix_skor + faiz_skor
+    satirlar = []
+    if dxy_yorum:  satirlar.append(dxy_yorum)
+    if vix_yorum:  satirlar.append(vix_yorum)
+    if faiz_yorum: satirlar.append(faiz_yorum)
+
+    # Gümüş için ek sanayi baskısı notu
+    if gumus and net < 0:
+        satirlar.append("🏭 Gümüş aynı zamanda sanayi metali — ekonomi yavaşlama endişesi sanayi talebini de düşürüyor, çift baskı var")
+
+    # Net değerlendirme + gelecek beklentisi
+    if gumus:
+        if net <= -2:
+            satirlar.append("⚠️  NET SONUÇ (GÜMÜŞ): Dolar baskısı + sanayi talebi endişesi çift etki yapıyor → gümüş altından daha sert düşüyor, alım için altın stabilize olana kadar bekle")
+        elif net == -1:
+            satirlar.append("⚠️  NET SONUÇ (GÜMÜŞ): Baskı faktörleri ağır basıyor → gümüş kısa vadede zayıf, dolar yönü ve sanayi haberleri izle")
+        elif net == 0:
+            satirlar.append("⚖️  NET SONUÇ (GÜMÜŞ): Faktörler dengede ama gümüş sanayi hassasiyeti yüzünden altından daha oynak — net sinyal için bekle")
+        elif net >= 1:
+            satirlar.append("✅ NET SONUÇ (GÜMÜŞ): Makro destekleyici + sanayi talebi canlanıyorsa gümüş altından daha hızlı toparlanabilir")
+    else:
+        if net <= -2:
+            satirlar.append("⚠️  NET SONUÇ: Birden fazla baskı faktörü var → altın düşüşü devam edebilir, alım için dolar zirve yapana kadar bekle")
+        elif net == -1:
+            satirlar.append("⚠️  NET SONUÇ: Baskı faktörleri lehte olanlardan ağır basıyor → altın kısa vadede zayıf kalabilir, dolar yönü izle")
+        elif net == 0:
+            satirlar.append("⚖️  NET SONUÇ: Baskı ve destek faktörleri dengede → altın yatay seyredebilir, net sinyal için bekle")
+        elif net == 1:
+            satirlar.append("✅ NET SONUÇ: Makro hafif destekleyici → dolar zirve yaparsa altın toparlanabilir")
         else:
-            parcalar.append("faiz yükseliyor → altın için maliyet artar")
+            satirlar.append("✅ NET SONUÇ: Makro altın için olumlu → güçlü alım fırsatı yaklaşıyor olabilir")
 
-    return " | ".join(parcalar) if parcalar else "Makro veriler değerlendiriliyor."
+    return "\n     ".join(satirlar) if satirlar else "Makro veri işlenemedi."
 
 
 def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
@@ -661,7 +721,7 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
             _satir(sig['S4_MACD']['sonuc'], "MACD", sig['S4_MACD']['detay'],
                    "Sinyal çizgisi kesildi mi? Kestiyse trend dönüyor."),
             _satir(sig['S5_Makro']['sonuc'], "Makro/Dolar", sig['S5_Makro']['detay'],
-                   _s5_aciklama(sig['S5_Makro']['detay'])),
+                   _s5_aciklama(sig['S5_Makro']['detay'], s['isim'])),
         ])
 
         mesaj += (

@@ -995,81 +995,108 @@ def rss_cek() -> list:
 
 def kap_bildirim_cek(portfoy_tickers: list = None) -> list:
     """
-    KAP JSON API'den son bildirimleri çek.
-    Bilanço, temettü, önemli sözleşme, pay geri alım gibi kritik bildirimleri filtrele.
+    KAP'tan son bildirimleri çek.
+    Önce JSON API dene, olmadı RSS dene, olmadı scraping yap.
     """
     haberler = []
-    # KAP public JSON endpoint
-    url = "https://www.kap.org.tr/tr/api/disclosureQuery"
-    params = {
-        "page": 0,
-        "disclosureClass": "FR",   # Finansal raporlar
-    }
-    # Kritik bildirim türleri
     KRITIK_TIPLER = {
-        "FR":  "Finansal Rapor",
-        "DD":  "Özel Durum",
-        "DUYURU": "Duyuru",
-        "DP":  "Temettü",
-        "GG":  "Genel Kurul",
-        "PA":  "Pay Alım",
-        "SR":  "Sözleşme",
+        "FR": "Finansal Rapor", "DD": "Özel Durum",
+        "DP": "Temettü",       "GG": "Genel Kurul",
+        "PA": "Pay Alım",      "SR": "Sözleşme",
+        "BF": "Bilanço",       "MK": "Önemli Gelişme",
     }
 
-    try:
-        # Son 50 bildirimi çek
-        r = requests.get(
-            "https://www.kap.org.tr/tr/api/disclosureQuery",
-            headers={**HEADERS, "Accept": "application/json"},
-            timeout=10,
-        )
-        if r.status_code == 200:
-            veri = r.json()
-            bildirimler = veri if isinstance(veri, list) else veri.get("data", [])
-            for b in bildirimler[:50]:
-                baslik  = b.get("headline","") or b.get("title","") or b.get("disclosureType","")
-                ticker  = b.get("stockCode","") or b.get("companyCode","")
-                tur     = b.get("disclosureClass","") or b.get("type","")
-                tarih   = str(b.get("disclosureDate",""))[:10] or datetime.now().strftime("%Y-%m-%d")
-                ozet    = b.get("summary","") or baslik
+    # 1. KAP JSON API — gerçek endpoint
+    kap_endpoints = [
+        "https://www.kap.org.tr/tr/api/disclosureQuery?startFrom=0&take=50",
+        "https://www.kap.org.tr/tr/api/disclosure?index=0&count=50",
+    ]
+    for endpoint in kap_endpoints:
+        try:
+            r = requests.get(endpoint,
+                headers={**HEADERS,
+                         "Accept": "application/json, text/plain, */*",
+                         "Referer": "https://www.kap.org.tr/tr/bildirim-sorgu"},
+                timeout=12)
+            if r.status_code == 200 and r.text.strip().startswith("["):
+                bildirimler = r.json()
+                for b in bildirimler[:60]:
+                    baslik  = (b.get("headline") or b.get("title") or
+                               b.get("disclosureClass") or "")[:200]
+                    ticker  = (b.get("stockCode") or b.get("memberCode") or "").strip()
+                    tur     = b.get("disclosureClass","")
+                    tarih   = str(b.get("publishDate") or b.get("disclosureDate",""))[:10]
+                    ozet    = b.get("summary","") or baslik
 
-                if not baslik:
-                    continue
-
-                # Portföy filtresi: sadece portföydeki hisselerin bildirimleri
-                if portfoy_tickers:
-                    if ticker and ticker not in portfoy_tickers:
+                    if not baslik or len(baslik) < 3:
+                        continue
+                    if portfoy_tickers and ticker and ticker not in portfoy_tickers:
                         continue
 
-                tur_str = KRITIK_TIPLER.get(tur[:2], tur) if tur else ""
-                tam_baslik = f"[{ticker}] {tur_str}: {baslik}" if ticker else baslik
-
-                haberler.append(Haber(
-                    baslik=tam_baslik[:200],
-                    kaynak="KAP",
-                    tarih=tarih,
-                    ozet=ozet[:300],
-                    ilgili_hisseler=[ticker] if ticker else ticker_tespit(baslik),
-                ))
-    except Exception as e:
-        # Fallback: scraping yöntemi
-        try:
-            r = requests.get(
-                "https://www.kap.org.tr/tr/bildirim-sorgu",
-                headers=HEADERS, timeout=12
-            )
-            soup = BeautifulSoup(r.text, "html.parser")
-            for satir in soup.select("div.w-clearfix.w-inline-block.comp-row")[:20]:
-                metin = satir.get_text(" ", strip=True)
-                if len(metin) > 20:
+                    tur_str    = KRITIK_TIPLER.get(tur[:2], tur)
+                    tam_baslik = f"[{ticker}] {tur_str}: {baslik}" if ticker else baslik
                     haberler.append(Haber(
-                        baslik=metin[:150], kaynak="KAP",
-                        tarih=datetime.now().strftime("%Y-%m-%d"),
-                        ozet=metin[:300],
-                        ilgili_hisseler=ticker_tespit(metin)
+                        baslik=tam_baslik[:200], kaynak="KAP",
+                        tarih=tarih or datetime.now().strftime("%Y-%m-%d"),
+                        ozet=ozet[:300],
+                        ilgili_hisseler=[ticker] if ticker else ticker_tespit(baslik),
                     ))
+                if haberler:
+                    return haberler
         except:
-            pass
+            continue
+
+    # 2. KAP RSS (varsa)
+    kap_rss_urls = [
+        "https://www.kap.org.tr/tr/rss/ozel-durum",
+        "https://www.kap.org.tr/tr/rss/finansal-rapor",
+    ]
+    for rss_url in kap_rss_urls:
+        try:
+            feed = feedparser.parse(rss_url)
+            for e in feed.entries[:30]:
+                baslik = e.get("title","")
+                ozet   = BeautifulSoup(e.get("summary",e.get("description","")),"html.parser").get_text()[:300]
+                if not baslik:
+                    continue
+                ticker_list = ticker_tespit(baslik + " " + ozet)
+                if portfoy_tickers and ticker_list:
+                    ticker_list = [t for t in ticker_list if t in portfoy_tickers]
+                    if not ticker_list:
+                        continue
+                haberler.append(Haber(
+                    baslik=baslik[:200], kaynak="KAP",
+                    tarih=e.get("published","")[:10] or datetime.now().strftime("%Y-%m-%d"),
+                    ozet=ozet, ilgili_hisseler=ticker_list,
+                ))
+        except:
+            continue
+    if haberler:
+        return haberler
+
+    # 3. Scraping fallback
+    try:
+        r = requests.get("https://www.kap.org.tr/tr/bildirim-sorgu",
+                         headers=HEADERS, timeout=12)
+        soup = BeautifulSoup(r.text, "html.parser")
+        # Farklı selector'lar dene
+        for sel in ["div.comp-row", "div.w-clearfix.w-inline-block", "tr.disclosure-row"]:
+            satirlar = soup.select(sel)[:25]
+            if satirlar:
+                for satir in satirlar:
+                    metin = satir.get_text(" ", strip=True)
+                    if len(metin) > 15:
+                        tickers = ticker_tespit(metin)
+                        if portfoy_tickers and tickers:
+                            tickers = [t for t in tickers if t in portfoy_tickers]
+                        haberler.append(Haber(
+                            baslik=metin[:150], kaynak="KAP",
+                            tarih=datetime.now().strftime("%Y-%m-%d"),
+                            ozet=metin[:300], ilgili_hisseler=tickers,
+                        ))
+                break
+    except:
+        pass
 
     return haberler
 
@@ -1227,8 +1254,19 @@ Türkçe, profesyonel yaz."""
         self.hafiza.append({"agent":"Agent1","icerik":yanit}); return yanit
 
     def agent2(self, analiz: str, sentiment: dict,
-               hisseler: list, kor_df: pd.DataFrame) -> dict:
+               hisseler: list, kor_df: pd.DataFrame,
+               kap_haberler: list = None) -> dict:
         profil = RISK_PROFIL[RISK_MODU]
+
+        # KAP haberlerini özet string'e çevir
+        kap_ozet = ""
+        if kap_haberler:
+            kap_satirlar = []
+            for h in kap_haberler[:15]:
+                kap_satirlar.append(f"  {h.tarih} {h.baslik[:100]}")
+            if kap_satirlar:
+                kap_ozet = "KAP BİLDİRİMLERİ (son):\n" + "\n".join(kap_satirlar) + "\n\n"
+
         sistem=f"""SEN BİR JSON API'SİN. YANIT OLARAK SADECE HAM JSON VER. AÇIKLAMA, GİRİŞ METNİ, MARKDOWN, NUMARA LİSTESİ YAZMA. İLK KARAKTER {{ OLMALI.
 
 Sen deneyimli portföy yöneticisisin. Portföy: {PORTFOY_BUYUKLUGU:,} TL
@@ -1237,19 +1275,21 @@ Risk Modu: {RISK_MODU.upper()} — {profil['aciklama']}
 KARAR KURALLARI ({RISK_MODU.upper()} MOD):
 1. Kural motoru puanı < {profil['min_kural_puan']} → BEKLE/SAT (kesinlikle AL deme)
 2. Stop-loss = fiyat - (2 × ATR)
-3. Hedef fiyat = Fibonacci 1.272 veya 1.618 UZANTI seviyesi (HER ZAMAN giriş fiyatının ÜSTÜNDE olmalı — altında hedef koymak yasaktır)
+3. Hedef fiyat = Fibonacci 1.272 veya 1.618 UZANTI seviyesi (HER ZAMAN giriş fiyatının ÜSTÜNDE olmalı)
 4. Tek hisse max %{profil['max_tek_hisse']} (Kelly × {profil['kelly_carpan']:.1f})
 5. Tek sektöre max %{MAX_SEKTOR_AGIRLIK}
 6. Yüksek korelasyon (>0.85) olan hisseleri birlikte alma
 6.5. En az 5 hisse AL kararı ver (çeşitlendirme zorunlu)
 7. AL ağırlıklar toplamı MAX %{profil['max_toplam_yatirim']}
+8. KAP bildirimi varsa (temettü, bilanço, özel durum) gerekçeye yansıt
+9. Pozitif KAP bildirimi (temettü/güçlü bilanço) → ağırlığı artır. Negatif → azalt veya BEKLE
 10. BANKACILIK TOPLAM MAX %30: GARAN+AKBNK+YKBNK+ISCTR ağırlıkları toplamı %30 geçemez
 11. KORELASYON: 0.85+ korelasyonlu çiftlerde her birine max %12
-12. GEREKCE: Her hisse için ADX değeri, Ichimoku, iraksama, formasyon yaz. 'Kural puanı yüksek' YAZMA
+12. GEREKCE: ADX değeri, Ichimoku, iraksama, formasyon + varsa KAP bildirimi yaz
 {"10. AGRESİF MOD: Momentum güçlü (ADX>40, SAR YUKARI) hisseler için ağırlığı Kelly maksimuma çek." if RISK_MODU=="agresif" else ""}
 {"10. MUHAFAZAKÂR MOD: Sadece Ichimoku BULUT_USTU + Golden/SMA50_USTUNDE hisseler." if RISK_MODU=="muhafazakar" else ""}
 
-YANIT SADECE JSON OLMALI, BAŞKA HİÇBİR ŞEY YAZMA:
+YANIT SADECE JSON OLMALI:
 {{
   "strateji": "...",
   "risk_seviyesi": "ORTA",
@@ -1312,7 +1352,8 @@ YANIT SADECE JSON OLMALI, BAŞKA HİÇBİR ŞEY YAZMA:
         sent_str=json.dumps(
             {k:v.get("sentiment","N/A") for k,v in sentiment.get("hisse_sentiment",{}).items()},
             ensure_ascii=False)
-        mesaj=(f"AGENT 1 ANALIZI:\n{analiz}\n\n"
+        mesaj=(f"{kap_ozet}"
+               f"AGENT 1 ANALIZI:\n{analiz}\n\n"
                f"SENTIMENT: {sent_str}\n"
                f"Piyasa: {sentiment.get('piyasa_duyarliligi','NOTR')}\n\n"
                f"KOReLASYON: {kor_str}\n\n"
@@ -2016,7 +2057,7 @@ def main():
     # ── 5. Agent 2 ───────────────────────────────────────────
     console.print("\n"); console.rule("[bold gold1]🟡 AGENT 2 — Portföy Yöneticisi[/bold gold1]")
     with console.status("[gold1]Agent 2...[/gold1]"):
-        portfoy=ajanlar.agent2(analiz,sentiment,derin,kor_df)
+        portfoy=ajanlar.agent2(analiz,sentiment,derin,kor_df,kap_haberler=kap_h)
     portfoy_goster(portfoy,derin,sentiment)
 
     # ── 5b. Portföy pozisyonlarını kaydet ────────────────────
