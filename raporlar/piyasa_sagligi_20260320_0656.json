@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-20T06:56:16.652915",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 28,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.46,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.49,
+    "bist_degisim_10g": 1.99,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 13,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.298301696777344,
+    "usdtry_aylik_pct": 1.12,
+    "tur_etf_degisim": -6.89,
+    "altin_degisim": -8.22,
+    "vix": 24.1
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 41,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13047.7197265625,
+      "ort20": 13317,
+      "ort50": 13342,
+      "rsi": 37.4,
+      "macd_histo": -34.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": 15.1,
+      "ay6_pct": 18.5,
+      "bb_pozisyon": 34.4,
+      "ust_band": 14179,
+      "alt_band": 12455
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21,0 ile düşük seviyede ve yükselen hisse sayısı (13) düşen hisse sayısından (28) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 41/100 ile \"TEMKİNLİ TREND\" olarak belirlenmiştir. Ayrıca, RSI değeri 37,4 ile aşırı satım bölgesine yaklaşıyor. Tetikleyici olarak, VIX endeksinin 24,1 seviyesinde olması ve TUR ETF'nin 20 günlük değişiminin -6,89% olması gibi makroekonomik faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Endeks trendini takip edin ve güçlü hisselere odaklanın. Zayıf hisselerin satış baskısına maruz kalabileceği dikkate alınmalıdır.\n- **Stop-loss kullanın**: Pozisyonlarınıza stop-loss seviyeleri belirleyin ve risklerinizi yönetin. Bu, olası düzeltme durumunda kayıplarınızı sınırlamanıza yardımcı olabilir.\n- **Hisse seçimi yapın**: Endeksin güçlü hisselerine odaklanın ve zayıf hisselerden uzak durun. Breadth skoru düşük olduğu için, endeksin birkaç güçlü hisse tarafından taşınmakta olduğu unutulmamalıdır."
+  },
+  "risk_skoru": 41,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
