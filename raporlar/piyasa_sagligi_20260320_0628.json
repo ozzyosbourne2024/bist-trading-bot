@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-20T06:28:59.772898",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 28,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.46,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.49,
+    "bist_degisim_10g": 1.99,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 13,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.30039978027344,
+    "usdtry_aylik_pct": 1.12,
+    "tur_etf_degisim": -6.89,
+    "altin_degisim": -7.89,
+    "vix": 24.1
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 41,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13047.7197265625,
+      "ort20": 13317,
+      "ort50": 13342,
+      "rsi": 37.4,
+      "macd_histo": -34.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": 15.1,
+      "ay6_pct": 18.5,
+      "bb_pozisyon": 34.4,
+      "ust_band": 14179,
+      "alt_band": 12455
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak hesaplandı, bu da endeksin yalnızca az sayıda hisse tarafından taşınmakta olduğunu gösteriyor. Yükselen hisse sayısı (13) düşen hisse sayısından (28) daha az, bu da piyasanın genişlik açısından zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 41/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. RSI değeri (37.4) aşırı satım bölgesine yaklaştı, bu da bir düzeltme olasılığını artırabilir. VIX değeri (24.1) ve TUR ETF 20G'nin negatif performansı (-%6.89) da piyasada temkinli bir atmosferin olduğunu gösteriyor. Tetikleyici olarak, global ekonomik gelişmeler, faiz oranları veya jeopolitik olaylar gibi dış faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasa koşullarını yakından takip edin ve temkinli bir yatırım stratejisi uygulayın.\n * Aşırı satım bölgesine yakın RSI değerini dikkate alın ve olası bir düzeltme için pozisyonlarınızı gözden geçirin.\n * Portföyünüzü çeşitlendirmek için farklı varlık sınıflarına yatırım yapmayı düşünün, böylece piyasa dalgalanmalarına karşı daha dayanıklı olabilirsiniz."
+  },
+  "risk_skoru": 41,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
