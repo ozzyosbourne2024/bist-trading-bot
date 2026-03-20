@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-20T06:44:21.406715",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 28,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.46,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.5,
+    "bist_degisim_10g": 1.99,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 13,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.303199768066406,
+    "usdtry_aylik_pct": 1.13,
+    "tur_etf_degisim": -6.89,
+    "altin_degisim": -7.97,
+    "vix": 24.1
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 41,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13047.7197265625,
+      "ort20": 13317,
+      "ort50": 13342,
+      "rsi": 37.4,
+      "macd_histo": -34.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": 15.1,
+      "ay6_pct": 18.5,
+      "bb_pozisyon": 34.4,
+      "ust_band": 14179,
+      "alt_band": 12455
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak düşük bir seviyede ve yükselen hisse sayısı (13) düşen hisse sayısından (28) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 41/100 olarak orta seviyede ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. Ayrıca, RSI değeri (37.4) aşırı satım bölgesine yaklaşıyor. Tetikleyici olarak, VIX endeksinin yüksek seviyede olması (24.1) ve TUR ETF'nin 20 günlük performansı (-6.89%) gibi makroekonomik faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Endeks trendini takip edin ve güçlü hisselere odaklanın. Zayıf hisselerden uzak durun.\n- **Stop-loss kullanın**: Pozisyonlarınızı korumak için stop-loss seviyeleri belirleyin. Bu, olası düzeltme durumunda kayıplarınızı sınırlamanıza yardımcı olabilir.\n- **Risk yönetimi uygulayın**: Portföyünüzü çeşitlendirin ve riskinizi yönetmek için farklı varlık sınıflarına yatırım yapın. Bu, olası piyasa dalgalanmalarına karşı sizi daha iyi hazırlayacaktır."
+  },
+  "risk_skoru": 41,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
