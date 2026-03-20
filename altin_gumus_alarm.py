@@ -36,11 +36,18 @@ except ImportError as e:
     print(f"Eksik: {e}\npip install yfinance pandas numpy requests python-dotenv")
     sys.exit(1)
 
+try:
+    from groq import Groq
+    GROQ_AKTIF = True
+except ImportError:
+    GROQ_AKTIF = False
+
 # ── Sabitler ────────────────────────────────────────────────────────────────
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+GROQ_API_KEY     = os.getenv("GROQ_API_KEY", "")
 ALARM_LOG        = "altin_alarm_log.json"
-FIYAT_LOG        = "raporlar/altin_fiyat_log.json"  # GitHub Actions'ta biriken log
+FIYAT_LOG        = "raporlar/altin_fiyat_log.json"
 
 ENSTRUMANLAR = {
     "ALTIN": {
@@ -327,14 +334,12 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
     puan   = 0
     notlar = []
 
-    # DXY — dolar zayıflıyorsa altın güçlenir
-    # Ters korelasyon: DXY↑ = altın için negatif, DXY↓ = pozitif
-    # Alternatif tickerlar: DX=F → DX-Y.NYB → UUP (ETF)
+    # DXY — stooq'tan çek (semboller: dxy, usdx, usdidx)
     dxy = None
-    for dxy_ticker in ["DX=F", "DX-Y.NYB", "UUP"]:
+    for dxy_sym in ["dxy", "usdx", "dx.f"]:
         try:
-            dxy = _indir(dxy_ticker, interval="1d", period="3mo")
-            if dxy is not None and len(dxy) >= 20:
+            dxy = _stooq_gunluk(dxy_sym, gun=30)
+            if dxy is not None and len(dxy) >= 5:
                 break
             dxy = None
         except:
@@ -541,7 +546,8 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
             "S3_RSI":      {"sonuc": s3, "detay": d3},
             "S4_MACD":     {"sonuc": s4, "detay": d4},
             "S5_Makro":    {"sonuc": s5, "detay": d5},
-        }
+        },
+        "sinyaller_ozet": f"S1:{'✅' if s1 else '❌'} S2:{'✅' if s2 else '❌'} S3:{'✅' if s3 else '❌'} S4:{'✅' if s4 else '❌'} S5:{'✅' if s5 else '❌'} | {d5[:60]}"
     }
 
 
@@ -568,17 +574,20 @@ def makro_yorum_uret(sonuclar: list) -> str:
         pass
 
     try:
-        # DXY
-        for dxy_t in ["DX=F", "DX-Y.NYB"]:
-            dxy = yf.Ticker(dxy_t).history(period="5d", interval="1d")
+        # DXY — stooq
+        dxy = None
+        for sym in ["dxy", "usdx", "dx.f"]:
+            dxy = _stooq_gunluk(sym, gun=5)
             if dxy is not None and len(dxy) >= 2:
-                dxy_pct = (float(dxy["Close"].iloc[-1]) / float(dxy["Close"].iloc[-2]) - 1) * 100
-                if abs(dxy_pct) > 0.3:
-                    if dxy_pct > 0:
-                        yorumlar.append(f"💵 DXY +{dxy_pct:.1f}% (güçlü dolar) → altın/gümüş üzerinde baskı devam eder")
-                    else:
-                        yorumlar.append(f"💵 DXY {dxy_pct:.1f}% (zayıf dolar) → altın için destek")
                 break
+            dxy = None
+        if dxy is not None and len(dxy) >= 2:
+            dxy_pct = (float(dxy["Close"].iloc[-1]) / float(dxy["Close"].iloc[-2]) - 1) * 100
+            if abs(dxy_pct) > 0.3:
+                if dxy_pct > 0:
+                    yorumlar.append(f"💵 DXY +{dxy_pct:.1f}% (güçlü dolar) → altın/gümüş üzerinde baskı devam eder")
+                else:
+                    yorumlar.append(f"💵 DXY {dxy_pct:.1f}% (zayıf dolar) → altın için destek")
     except:
         pass
 
@@ -699,7 +708,9 @@ def _s5_aciklama(detay: str, isim: str = "ALTIN") -> str:
     return "\n     ".join(satirlar) if satirlar else "Makro veri işlenemedi."
 
 
-def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
+def telegram_mesaj_olustur(sonuclar: list, tarih: str,
+                           takvim: list = None, haberler: list = None,
+                           ai_tahmin: str = None) -> str:
     mesaj = f"<b>⚡ ALTIN & GÜMÜŞ ALARM</b>\n{tarih}\n{'─'*30}\n"
 
     for s in sonuclar:
@@ -737,10 +748,213 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str) -> str:
     if makro:
         mesaj += f"\n\n<b>📌 Makro Yorum:</b>\n{makro}"
 
-    # Ortak makro notu — DXY korelasyon açıklaması
+    # AI Tahmin
+    if ai_tahmin:
+        mesaj += f"\n\n🤖 <b>AI Kısa Vadeli Tahmin:</b>\n{ai_tahmin}"
+
+    # Ekonomik takvim + haberler
+    haber_yorumu = haber_yorumu_uret(haberler or [], takvim or [])
+    if haber_yorumu:
+        mesaj += f"\n\n{haber_yorumu}"
+
+    # Ortak makro notu
     mesaj += "\n\n<i>📊 Altın-DXY ters korelasyon (r≈-0.8): DXY↓ = Altın↑ | DXY↑ = Altın↓</i>"
     mesaj += "\n<i>DXY↓ + VIX↑ + 10Y↓ = Altın/Gümüş için olumlu ortam</i>"
     return mesaj
+
+
+def ekonomik_takvim_cek() -> list:
+    """
+    Kritik ekonomik olayları çek.
+    Fed, ECB, TCMB toplantıları + CPI, NFP, PCE gibi veriler.
+    """
+    olaylar = []
+    bugun = datetime.now()
+
+    # Investing.com ekonomik takvim RSS
+    takvim_kaynaklar = [
+        "https://tr.investing.com/rss/economic_calendar.rss",
+        "https://www.investing.com/rss/economic_calendar.rss",
+    ]
+
+    for url in takvim_kaynaklar:
+        try:
+            import feedparser
+            feed = feedparser.parse(url)
+            for e in feed.entries[:20]:
+                baslik = e.get("title", "")
+                ozet   = e.get("summary", "")
+                tarih  = e.get("published", "")
+                if any(k in baslik.upper() for k in [
+                    "FED", "FOMC", "ECB", "TCMB", "CPI", "NFP",
+                    "PCE", "GDP", "BÜYÜME", "ENFLASYON", "İSTİHDAM",
+                    "FAİZ", "INTEREST RATE", "INFLATION"
+                ]):
+                    olaylar.append({"baslik": baslik, "tarih": tarih[:10], "ozet": ozet[:100]})
+            if olaylar:
+                break
+        except:
+            continue
+
+    # Manuel kritik tarihler — Fed 2026 takvimi
+    # Yaklaşan Fed toplantıları (2026)
+    fed_toplantilari = [
+        ("2026-01-28", "FOMC Faiz Kararı"),
+        ("2026-03-18", "FOMC Faiz Kararı"),
+        ("2026-05-06", "FOMC Faiz Kararı"),
+        ("2026-06-17", "FOMC Faiz Kararı"),
+        ("2026-07-29", "FOMC Faiz Kararı"),
+        ("2026-09-16", "FOMC Faiz Kararı"),
+        ("2026-11-04", "FOMC Faiz Kararı"),
+        ("2026-12-16", "FOMC Faiz Kararı"),
+    ]
+
+    for tarih_str, isim in fed_toplantilari:
+        try:
+            etkinlik = datetime.strptime(tarih_str, "%Y-%m-%d")
+            fark = (etkinlik - bugun).days
+            if 0 <= fark <= 7:
+                olaylar.insert(0, {
+                    "baslik": f"🏦 {isim}",
+                    "tarih": tarih_str,
+                    "ozet": f"{fark} gün sonra" if fark > 0 else "BUGÜN",
+                    "oncelik": "KRITIK"
+                })
+        except:
+            continue
+
+    return olaylar
+
+
+def metal_haber_cek() -> list:
+    """Metal piyasaları için özel haber kaynakları."""
+    haberler = []
+    kaynaklar = [
+        {"isim": "AA Ekonomi",    "url": "https://www.aa.com.tr/tr/rss/default?cat=ekonomi"},
+        {"isim": "Reuters",       "url": "https://feeds.reuters.com/reuters/businessNews"},
+        {"isim": "Borsa Gündem",  "url": "https://www.borsagundem.com/feed"},
+        {"isim": "Para Analiz",   "url": "https://www.paraanaliz.com/feed/"},
+        {"isim": "Ekonomim",      "url": "https://www.ekonomim.com/rss/son-dakika-haberleri.xml"},
+    ]
+
+    METAL_ANAHTAR = [
+        "ALTIN", "GÜMÜŞ", "GOLD", "SILVER", "METAL", "EMTIA",
+        "FED", "FOMC", "FAİZ", "INTEREST", "ENFLASYON", "INFLATION",
+        "DOLAR", "DOLLAR", "DXY", "TAHVIL", "BOND",
+        "PETROL", "OIL", "BRENT", "ENERJI",
+        "SAVAŞ", "ATEŞKES", "GEOPOLİTİK", "IRAN", "UKRAYNA",
+        "ÇİN", "CHINA", "TALEP", "DEMAND",
+    ]
+
+    for kaynak in kaynaklar:
+        try:
+            import feedparser
+            feed = feedparser.parse(kaynak["url"])
+            for e in feed.entries[:20]:
+                baslik = e.get("title", "")
+                ozet   = e.get("summary", "")[:150]
+                metin  = (baslik + " " + ozet).upper()
+                if any(k in metin for k in METAL_ANAHTAR):
+                    haberler.append({
+                        "kaynak": kaynak["isim"],
+                        "baslik": baslik[:120],
+                        "ozet":   ozet,
+                        "tarih":  e.get("published", "")[:10],
+                    })
+            if len(haberler) >= 6:
+                break
+        except:
+            continue
+
+    return haberler[:6]
+
+
+def haber_yorumu_uret(haberler: list, takvim: list) -> str:
+    """Haber ve takvim verilerinden özet yorum üret."""
+    satirlar = []
+
+    # Kritik takvim olayları
+    kritik = [t for t in takvim if t.get("oncelik") == "KRITIK"]
+    for k in kritik:
+        satirlar.append(f"📅 <b>{k['baslik']}</b> — {k['ozet']}")
+
+    # Önemli haberler
+    if haberler:
+        satirlar.append("\n📰 <b>Güncel Metal Haberleri:</b>")
+        for h in haberler[:4]:
+            satirlar.append(f"  [{h['kaynak']}] {h['baslik']}")
+
+    return "\n".join(satirlar) if satirlar else ""
+
+
+def ai_tahmin_uret(sonuclar: list, takvim: list, haberler: list) -> str:
+    """
+    Tüm veriyi Groq LLM'e ver, kısa vadeli tahmin üret.
+    Altın, gümüş, BIST100, petrol için yön tahmini.
+    """
+    if not GROQ_AKTIF or not GROQ_API_KEY:
+        return ""
+
+    try:
+        client = Groq(api_key=GROQ_API_KEY)
+
+        # Mevcut fiyat ve skor özeti
+        ozet_satirlar = []
+        for s in sonuclar:
+            ozet_satirlar.append(
+                f"{s['isim']}: {s.get('spot_fiyat','?')} $/oz | Skor:{s['skor']}/5 | {s['karar']}\n"
+                f"  Sinyaller: {s.get('sinyaller_ozet','')}"
+            )
+        fiyat_ozet = "\n".join(ozet_satirlar)
+
+        # Takvim özeti
+        takvim_ozet = "\n".join([
+            f"  {t['baslik']} — {t['ozet']}"
+            for t in (takvim or [])[:5]
+        ]) or "Kritik takvim olayı yok"
+
+        # Haber özeti
+        haber_ozet = "\n".join([
+            f"  [{h['kaynak']}] {h['baslik']}"
+            for h in (haberler or [])[:5]
+        ]) or "Metal haberi bulunamadı"
+
+        sistem = """Sen deneyimli bir emtia ve piyasa analistisin.
+Verilen fiyat, teknik sinyal, ekonomik takvim ve haberlere bakarak
+ALTIN, GÜMÜŞ, BIST100 ve PETROL için kısa vadeli (1-3 gün) tahmin yap.
+
+KURALLAR:
+- Kesin ve net yaz: YUKSELIR / DUSER / YATAY / BELIRSIZ
+- Sebebini 1 cümle ile açıkla
+- Önemli risk faktörlerini belirt
+- Türkçe yaz, maksimum 150 kelime"""
+
+        mesaj = f"""MEVCUT DURUM:
+{fiyat_ozet}
+
+EKONOMİK TAKVİM:
+{takvim_ozet}
+
+GÜNCEL HABERLER:
+{haber_ozet}
+
+Yukarıdaki verilere göre kısa vadeli tahmin yap."""
+
+        r = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": sistem},
+                {"role": "user",   "content": mesaj}
+            ],
+            temperature=0.3,
+            max_tokens=300,
+        )
+        tahmin = r.choices[0].message.content.strip()
+        return tahmin
+
+    except Exception as e:
+        print(f"  AI tahmin hatası: {e}")
+        return ""
 
 
 def alarm_calistir():
@@ -749,19 +963,39 @@ def alarm_calistir():
     print(f"  ALTIN & GÜMÜŞ ALARM — {tarih}")
     print(f"{'='*55}")
 
+    # Ekonomik takvim + metal haberleri
+    print("  📅 Ekonomik takvim çekiliyor...")
+    takvim  = ekonomik_takvim_cek()
+    print(f"  📰 Metal haberleri çekiliyor...")
+    haberler = metal_haber_cek()
+
+    kritik_takvim = [t for t in takvim if t.get("oncelik") == "KRITIK"]
+    if kritik_takvim:
+        for k in kritik_takvim:
+            print(f"  ⚠️  {k['baslik']} — {k['ozet']}")
+    print(f"  {len(haberler)} metal haberi bulundu")
+
     sonuclar = []
     for isim, cfg in ENSTRUMANLAR.items():
         sonuc = enstruman_analiz(isim, cfg)
         sonuclar.append(sonuc)
 
+    # AI tahmin
+    print("  🤖 AI tahmin üretiliyor...")
+    ai_tahmin = ai_tahmin_uret(sonuclar, takvim, haberler)
+    if ai_tahmin:
+        print(f"  AI: {ai_tahmin[:100]}...")
+
     # Telegram
-    mesaj = telegram_mesaj_olustur(sonuclar, tarih)
+    mesaj = telegram_mesaj_olustur(sonuclar, tarih, takvim, haberler, ai_tahmin)
     # _telegram(mesaj)  # bist_sistem.py üzerinden gönderiliyor
 
     # Log
     _log({
-        "tarih": tarih,
+        "tarih":    tarih,
         "sonuclar": sonuclar,
+        "takvim":   takvim[:5],
+        "haberler": haberler[:5],
     })
 
     # Özet
