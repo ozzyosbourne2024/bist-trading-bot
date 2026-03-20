@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-20T07:04:07.489148",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 28,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.46,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.5,
+    "bist_degisim_10g": 1.99,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.30165100097656,
+    "usdtry_aylik_pct": 1.13,
+    "tur_etf_degisim": -6.89,
+    "altin_degisim": -8.3,
+    "vix": 25.1
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 13047.7197265625,
+      "ort20": 13317,
+      "ort50": 13342,
+      "rsi": 37.4,
+      "macd_histo": -34.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": 15.1,
+      "ay6_pct": 18.5,
+      "bb_pozisyon": 34.4,
+      "ust_band": 14179,
+      "alt_band": 12455
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak düşük görünüyor ve yükselen hisse sayısı (13) düşen hisse sayısından (28) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 46/100 olarak yüksek görünüyor ve RSI değeri (37.4) hala aşırı satım bölgesinde değil, ancak endeksin son 1 aydaki performansı (-6.4%) ve TUR ETF 20G'nin (-6.89%) negatif olması, bir düzeltme olasılığını artırıyor. Tetikleyici, VIX'in yüksek olması (25.1) ve makroekonomik belirsizlik olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks ve hisse seçimleri yapılırken, güçlü temel göstergeleri olan ve düşük RSI değerlerine sahip hisseler tercih edilebilir.\n * Portföylerde risk yönetimi için stop-loss seviyeleri belirlenmeli ve olası bir düzeltme durumunda pozisyonlar gözden geçirilmelidir.\n * Yatırım stratejileri, makroekonomik gelişmeleri ve piyasa sentimentini yakından takip ederek, gerekli durumlarda pozisyonlarda ayarlamalar yapılmalıdır."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
