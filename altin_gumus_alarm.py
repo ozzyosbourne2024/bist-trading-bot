@@ -42,6 +42,12 @@ try:
 except ImportError:
     GROQ_AKTIF = False
 
+try:
+    from cerebras.cloud.sdk import Cerebras as CerebrasClient
+    CEREBRAS_AKTIF = True
+except ImportError:
+    CEREBRAS_AKTIF = False
+
 # ── Sabitler ────────────────────────────────────────────────────────────────
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
@@ -525,6 +531,79 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
             fut_dun = float(df_gun["Close"].iloc[-2])
             fut_degisim_pct = ((fut_anlik / fut_dun) - 1) * 100
 
+    # ── Destek / Direnç Seviyeleri ─────────────────────────────
+    destek1 = destek2 = direnc1 = direnc2 = None
+    if df_stooq is not None and len(df_stooq) >= 20:
+        kapanislar = df_stooq["Close"].iloc[-20:]
+        dusukler   = df_stooq["Low"].iloc[-20:]
+        yuksekler  = df_stooq["High"].iloc[-20:]
+
+        son20_dusuk  = float(dusukler.min())
+        son20_yuksek = float(yuksekler.max())
+        # 10G ile 20G arasındaki bölüm
+        son10_20_dusuk  = float(dusukler.iloc[:10].min())  # 10-20 gün arası taban
+        son5_dusuk      = float(dusukler.iloc[-5:].min())  # son 5 gün taban
+        son5_yuksek     = float(yuksekler.iloc[-5:].max()) # son 5 gün zirve
+        son10_yuksek    = float(yuksekler.iloc[-10:].max())
+
+        destek1 = round(son5_dusuk, 1)          # Yakın destek (5G)
+        destek2 = round(son10_20_dusuk, 1)       # Uzak destek (10-20G arası)
+        direnc1 = round(son5_yuksek, 1)          # Yakın direnç (5G)
+        direnc2 = round(son20_yuksek, 1)         # Uzak direnç (20G zirvesi)
+
+        # Destek1 ve destek2 çok yakınsa destek2'yi biraz aşağı al
+        if destek2 >= destek1 * 0.99:
+            destek2 = round(son20_dusuk * 0.98, 1)
+
+    # Fibonacci seviyeleri (20 günlük swing)
+    fib382 = fib500 = fib618 = None
+    if destek2 and direnc2 and direnc2 > destek2:
+        aralik = direnc2 - destek2
+        fib618 = round(direnc2 - aralik * 0.618, 1)
+        fib500 = round(direnc2 - aralik * 0.500, 1)
+        fib382 = round(direnc2 - aralik * 0.382, 1)
+
+    # Senaryo yorumu — "şunu kırarsa şuraya gider"
+    senaryo = ""
+    if spot and destek1 and destek2 and direnc1 and fib618:
+        gumus_ek = "\n   🏭 Gümüş sanayi metali — sanayi talebi canlanırsa toparlanma daha hızlı olabilir." if "GUM" in isim.upper() else ""
+
+        if spot < fib618:
+            # Fib %61.8 altındayız — düşüş bölgesinde
+            senaryo = (
+                f"📍 Mevcut fiyat ({spot:.1f}) Fib %61.8 ({fib618}) altında — düşüş bölgesi\n"
+                f"   🔼 {fib618} kırılırsa: {fib500} hedef, ardından {direnc1}\n"
+                f"   🔽 {destek1} kırılırsa: {destek2} test edilir"
+                f"{gumus_ek}"
+            )
+        elif spot < fib500:
+            # Fib %50 altındayız
+            senaryo = (
+                f"📍 Mevcut fiyat ({spot:.1f}) — Fib %50 ({fib500}) altında, toparlanma sınırlı\n"
+                f"   🔼 {fib500} kırılırsa: {fib382} hedef, ardından {direnc1}\n"
+                f"   🔽 {fib618} kırılırsa: {destek1} test edilir"
+                f"{gumus_ek}"
+            )
+        elif spot < fib382:
+            # Fib %38.2 altındayız — kritik bölge
+            senaryo = (
+                f"📍 Mevcut fiyat ({spot:.1f}) — Fib %38.2 ({fib382}) altında, kritik bölge\n"
+                f"   🔼 {fib382} kırılırsa: {direnc1} hedef, trend dönüşü güçlenir\n"
+                f"   🔽 {fib500} kırılırsa: {fib618} destek test edilir"
+                f"{gumus_ek}"
+            )
+        else:
+            # Fib %38.2 üzerindeyiz — güçlü bölge
+            senaryo = (
+                f"📍 Mevcut fiyat ({spot:.1f}) — Fib %38.2 ({fib382}) üzerinde, güçlü bölge\n"
+                f"   🔼 {direnc1} kırılırsa: {direnc2} hedef\n"
+                f"   🔽 {fib382} kırılırsa: {fib500} test edilir"
+                f"{gumus_ek}"
+            )
+
+    if senaryo:
+        print(f"\n  📊 Teknik Senaryo:\n  {senaryo.replace(chr(10), chr(10)+'  ')}")
+
     print(f"\n  SKOR: {yesil}/5 → {emoji_k} {karar}")
 
     return {
@@ -534,12 +613,19 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
         "degisim_pct": degisim_pct,
         "futures_fiyat": fut_anlik,
         "futures_degisim_pct": fut_degisim_pct,
-        # eski alanlar — geriye dönük uyumluluk
         "fiyat": anlik,
         "spot_fiyat": spot,
         "skor": yesil,
         "karar": karar,
         "emoji_k": emoji_k,
+        "destek1": destek1,
+        "destek2": destek2,
+        "direnc1": direnc1,
+        "direnc2": direnc2,
+        "fib382": fib382,
+        "fib500": fib500,
+        "fib618": fib618,
+        "senaryo": senaryo,
         "sinyaller": {
             "S1_Momentum": {"sonuc": s1, "detay": d1},
             "S2_Hacim":    {"sonuc": s2, "detay": d2},
@@ -740,8 +826,13 @@ def telegram_mesaj_olustur(sonuclar: list, tarih: str,
             f"Fiyat: <b>{fiyat_str}</b> $/oz\n"
             f"{satir}\n"
             f"<b>Skor: {s['skor']}/5 → {s['karar']}</b>\n"
-            f"{'─'*30}\n"
         )
+
+        # Teknik senaryo — destek/direnç
+        if s.get("senaryo"):
+            mesaj += f"\n📊 <b>Teknik Senaryo:</b>\n{s['senaryo']}\n"
+
+        mesaj += f"{'─'*30}\n"
 
     # Makro yorum
     makro = makro_yorum_uret(sonuclar)
@@ -889,47 +980,87 @@ def haber_yorumu_uret(haberler: list, takvim: list) -> str:
 
 def ai_tahmin_uret(sonuclar: list, takvim: list, haberler: list) -> str:
     """
-    Tüm veriyi Groq LLM'e ver, kısa vadeli tahmin üret.
-    Altın, gümüş, BIST100, petrol için yön tahmini.
+    Groq önce dene, limit aşılınca Cerebras'a geç.
     """
-    if not GROQ_AKTIF or not GROQ_API_KEY:
+    cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
+
+    # Client seç — AI tahmin için Cerebras öncelikli (token limiti yok)
+    client = None
+    model_adi = None
+    cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
+    if CEREBRAS_AKTIF and cerebras_key:
+        try:
+            client   = CerebrasClient(api_key=cerebras_key)
+            model_adi = "llama-3.3-70b"
+        except:
+            client = None
+    if client is None and GROQ_AKTIF and GROQ_API_KEY:
+        try:
+            client   = Groq(api_key=GROQ_API_KEY)
+            model_adi = "llama-3.3-70b-versatile"
+        except:
+            pass
+    if client is None:
         return ""
 
-    try:
-        client = Groq(api_key=GROQ_API_KEY)
+    # Her enstrüman için detaylı veri hazırla
+    enstruman_detay = []
+    for s in sonuclar:
+        spot   = s.get("spot_fiyat") or s.get("fiyat") or 0
+        dun    = s.get("dun_kapanis") or spot
+        skor   = s.get("skor", 0)
+        isim   = s.get("isim", "")
 
-        # Mevcut fiyat ve skor özeti
-        ozet_satirlar = []
-        for s in sonuclar:
-            ozet_satirlar.append(
-                f"{s['isim']}: {s.get('spot_fiyat','?')} $/oz | Skor:{s['skor']}/5 | {s['karar']}\n"
-                f"  Sinyaller: {s.get('sinyaller_ozet','')}"
-            )
-        fiyat_ozet = "\n".join(ozet_satirlar)
+        d1 = s.get("destek1") or round(spot * 0.97, 1)
+        d2 = s.get("destek2") or round(spot * 0.94, 1)
+        r1 = s.get("direnc1") or round(spot * 1.03, 1)
+        r2 = s.get("direnc2") or round(spot * 1.06, 1)
+        f618 = s.get("fib618") or round(spot * 1.04, 1)
+        f382 = s.get("fib382") or round(spot * 1.08, 1)
 
-        # Takvim özeti
-        takvim_ozet = "\n".join([
-            f"  {t['baslik']} — {t['ozet']}"
-            for t in (takvim or [])[:5]
-        ]) or "Kritik takvim olayı yok"
+        gumus_notu = ""
+        if "GUM" in isim.upper():
+            gumus_notu = "\n  NOT: Gümüş hem güvenli liman hem sanayi metali — büyüme/sanayi talebi haberleri kritik"
 
-        # Haber özeti
-        haber_ozet = "\n".join([
-            f"  [{h['kaynak']}] {h['baslik']}"
-            for h in (haberler or [])[:5]
-        ]) or "Metal haberi bulunamadı"
+        enstruman_detay.append(
+            f"{isim}: {spot:.1f} $/oz (dün: {dun:.1f}, değişim: {((spot/dun-1)*100) if dun else 0:+.1f}%)\n"
+            f"  Teknik skor: {skor}/5 | Durum: {s.get('karar','?')}\n"
+            f"  Sinyaller: {s.get('sinyaller_ozet','')}\n"
+            f"  Destek: {d1} (yakın) / {d2} (güçlü)\n"
+            f"  Direnç: {r1} (yakın) / {r2} (güçlü)\n"
+            f"  Fib %61.8: {f618} | Fib %38.2: {f382}"
+            f"{gumus_notu}"
+        )
 
-        sistem = """Sen deneyimli bir emtia ve piyasa analistisin.
-Verilen fiyat, teknik sinyal, ekonomik takvim ve haberlere bakarak
-ALTIN, GÜMÜŞ, BIST100 ve PETROL için kısa vadeli (1-3 gün) tahmin yap.
+    fiyat_ozet = "\n\n".join(enstruman_detay)
 
-KURALLAR:
-- Kesin ve net yaz: YUKSELIR / DUSER / YATAY / BELIRSIZ
-- Sebebini 1 cümle ile açıkla
-- Önemli risk faktörlerini belirt
-- Türkçe yaz, maksimum 150 kelime"""
+    takvim_ozet = "\n".join([
+        f"  {t['baslik']} — {t['ozet']}"
+        for t in (takvim or [])[:4]
+    ]) or "Kritik takvim olayı yok"
 
-        mesaj = f"""MEVCUT DURUM:
+    haber_ozet = "\n".join([
+        f"  [{h['kaynak']}] {h['baslik']}"
+        for h in (haberler or [])[:5]
+    ]) or "Haber bulunamadı"
+
+    sistem = """Sen emtia analistisin. SADECE şu formatta yaz, HER İKİ metali de zorunlu yaz:
+
+🥇 ALTIN: [YÜKSELIR/DÜŞER/YATAY]
+Sebep: [1 cümle]
+🔼 [direnc] geçilirse: [hedef]
+🔽 [destek] kırılırsa: [hedef]
+
+🥈 GÜMÜŞ: [YÜKSELIR/DÜŞER/YATAY]
+Sebep: [altından FARKLI sebep - sanayi talebi, büyüme odaklı]
+🔼 [direnc] geçilirse: [hedef]
+🔽 [destek] kırılırsa: [hedef]
+
+⚠️ Ana Risk: [1 cümle]
+
+Türkçe. Kısa. HER İKİ metal zorunlu."""
+
+    mesaj = f"""MEVCUT DURUM:
 {fiyat_ozet}
 
 EKONOMİK TAKVİM:
@@ -938,26 +1069,43 @@ EKONOMİK TAKVİM:
 GÜNCEL HABERLER:
 {haber_ozet}
 
-Yukarıdaki verilere göre kısa vadeli tahmin yap."""
+Her enstrüman için ayrı koşullu tahmin yap."""
 
+    try:
         r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model=model_adi,
             messages=[
                 {"role": "system", "content": sistem},
                 {"role": "user",   "content": mesaj}
             ],
             temperature=0.3,
-            max_tokens=300,
+            max_tokens=800,
         )
-        tahmin = r.choices[0].message.content.strip()
-        return tahmin
+        return r.choices[0].message.content.strip()
 
     except Exception as e:
-        print(f"  AI tahmin hatası: {e}")
+        hata = str(e)
+        # Groq rate limit → Cerebras ile tekrar dene
+        if ("rate_limit" in hata.lower() or "429" in hata) and CEREBRAS_AKTIF:
+            cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
+            if cerebras_key:
+                print("  ⚠️  Groq limit → Cerebras'a geçiliyor...")
+                try:
+                    c2 = CerebrasClient(api_key=cerebras_key)
+                    r2 = c2.chat.completions.create(
+                        model="llama-3.3-70b",
+                        messages=[{"role":"system","content":sistem},
+                                  {"role":"user","content":mesaj}],
+                        temperature=0.3, max_tokens=800,
+                    )
+                    return r2.choices[0].message.content.strip()
+                except Exception as e2:
+                    print(f"  Cerebras hata: {e2}")
+        print(f"  AI tahmin hatası: {hata[:100]}")
         return ""
 
 
-def alarm_calistir():
+def alarm_calistir(ai_aktif: bool = False):
     tarih = datetime.now().strftime("%Y-%m-%d %H:%M TR")
     print(f"\n{'='*55}")
     print(f"  ALTIN & GÜMÜŞ ALARM — {tarih}")
@@ -980,11 +1128,17 @@ def alarm_calistir():
         sonuc = enstruman_analiz(isim, cfg)
         sonuclar.append(sonuc)
 
-    # AI tahmin
-    print("  🤖 AI tahmin üretiliyor...")
-    ai_tahmin = ai_tahmin_uret(sonuclar, takvim, haberler)
-    if ai_tahmin:
-        print(f"  AI: {ai_tahmin[:100]}...")
+    # AI tahmin — sadece sabah alarmında (token tasarrufu)
+    ai_tahmin = ""
+    if ai_aktif:
+        print("  🤖 AI tahmin üretiliyor...")
+        ai_tahmin = ai_tahmin_uret(sonuclar, takvim, haberler)
+        if ai_tahmin:
+            print("  AI Tahmin:")
+            for satir in ai_tahmin.split("\n"):
+                print(f"    {satir}")
+    else:
+        print("  🤖 AI tahmin: atlandı (token tasarrufu)")
 
     # Telegram
     mesaj = telegram_mesaj_olustur(sonuclar, tarih, takvim, haberler, ai_tahmin)
@@ -1006,4 +1160,6 @@ def alarm_calistir():
 
 
 if __name__ == "__main__":
-    alarm_calistir()
+    import sys
+    ai_aktif = "--ai" in sys.argv
+    alarm_calistir(ai_aktif=ai_aktif)

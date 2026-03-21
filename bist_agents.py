@@ -35,7 +35,11 @@ warnings.filterwarnings("ignore")
 
 import pandas as pd
 import yfinance as yf
-from groq import Groq
+try:
+    from cerebras.cloud.sdk import Cerebras as CerebrasClient
+    CEREBRAS_AKTIF = True
+except ImportError:
+    CEREBRAS_AKTIF = False
 from bs4 import BeautifulSoup
 from rich.console import Console
 from rich.panel import Panel
@@ -1148,15 +1152,61 @@ def haber_ozeti(haberler: list, secili: list) -> str:
 
 class FinansalAjanlar:
     def __init__(self):
-        key=os.getenv("GROQ_API_KEY")
-        if not key: raise EnvironmentError("GROQ_API_KEY bulunamadi.")
-        self.client=Groq(api_key=key); self.hafiza=[]
+        groq_key     = os.getenv("GROQ_API_KEY","")
+        cerebras_key = os.getenv("CEREBRAS_API_KEY","")
 
-    def _llm(self, sistem, mesaj, sicaklik=0.3, max_token=2500):
-        r=self.client.chat.completions.create(
-            model=MODEL,temperature=sicaklik,max_tokens=max_token,
-            messages=[{"role":"system","content":sistem},{"role":"user","content":mesaj}])
-        return r.choices[0].message.content.strip()
+        self.groq_client     = None
+        self.cerebras_client = None
+
+        if groq_key:
+            try:
+                from groq import Groq
+                self.groq_client = Groq(api_key=groq_key)
+                console.print("[dim]LLM: Groq aktif[/dim]")
+            except Exception as e:
+                console.print(f"[yellow]Groq başlatılamadı: {e}[/yellow]")
+
+        if cerebras_key and CEREBRAS_AKTIF:
+            try:
+                self.cerebras_client = CerebrasClient(api_key=cerebras_key)
+                console.print("[dim]LLM: Cerebras aktif[/dim]")
+            except Exception as e:
+                console.print(f"[yellow]Cerebras başlatılamadı: {e}[/yellow]")
+
+        if not self.groq_client and not self.cerebras_client:
+            raise EnvironmentError("Ne GROQ_API_KEY ne de CEREBRAS_API_KEY bulunamadı.")
+
+        self.hafiza = []
+
+    def _llm(self, sistem, mesaj, sicaklik=0.3, max_token=1500):
+        # Önce Groq dene
+        if self.groq_client:
+            try:
+                r = self.groq_client.chat.completions.create(
+                    model=MODEL, temperature=sicaklik, max_tokens=max_token,
+                    messages=[{"role":"system","content":sistem},
+                              {"role":"user","content":mesaj}])
+                return r.choices[0].message.content.strip()
+            except Exception as e:
+                hata = str(e)
+                if "rate_limit" in hata.lower() or "429" in hata:
+                    console.print("[yellow]⚠️  Groq limit aşıldı → Cerebras'a geçiliyor...[/yellow]")
+                else:
+                    console.print(f"[yellow]Groq hata: {hata[:80]}[/yellow]")
+
+        # Groq başarısız → Cerebras
+        if self.cerebras_client:
+            try:
+                r = self.cerebras_client.chat.completions.create(
+                    model="llama-3.3-70b",
+                    temperature=sicaklik, max_tokens=max_token,
+                    messages=[{"role":"system","content":sistem},
+                              {"role":"user","content":mesaj}])
+                return r.choices[0].message.content.strip()
+            except Exception as e:
+                console.print(f"[red]Cerebras hata: {e}[/red]")
+
+        return ""
 
     def _json(self, raw):
         if not raw: return {}
