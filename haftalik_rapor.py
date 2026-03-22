@@ -31,6 +31,13 @@ load_dotenv()
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
 GROQ_API_KEY     = os.getenv("GROQ_API_KEY", "")
+CEREBRAS_API_KEY = os.getenv("CEREBRAS_API_KEY", "")
+
+try:
+    from cerebras.cloud.sdk import Cerebras as CerebrasClient
+    CEREBRAS_AKTIF = True
+except ImportError:
+    CEREBRAS_AKTIF = False
 PORTFOY_DOSYA    = "portfoy_pozisyonlar.json"
 
 GELISTIRME_LOG = "gelistirme_log.json"
@@ -63,7 +70,7 @@ def gelistirme_log_kaydet(yeni_oneriler: list):
         if not oneri_metni:
             continue
         # Aynı öneri tekrar eklenmesin (benzerlik kontrolü)
-        tekrar = any(oneri_metni[:40] in g["oneri"] for g in log if g["durum"] == "BEKLIYOR")
+        tekrar = any(oneri_metni[:40] in g.get("oneri", "") for g in log if g.get("durum") == "BEKLIYOR")
         if tekrar:
             continue
         yeni_id = f"G{datetime.now().strftime('%Y%m%d')}_{len(log)+1:03d}"
@@ -105,8 +112,8 @@ def ai_onerilerini_parse(yorum: str) -> list:
 def bekleyen_oneriler_ozet() -> str:
     """Bekleyen geliştirme önerilerini mesaj formatında döndür."""
     log = gelistirme_log_oku()
-    bekleyenler = [g for g in log if g["durum"] == "BEKLIYOR"]
-    yapilanlar  = [g for g in log if g["durum"] == "YAPILDI"]
+    bekleyenler = [g for g in log if g.get("durum","") == "BEKLIYOR"]
+    yapilanlar  = [g for g in log if g.get("durum","") == "YAPILDI"]
 
     if not bekleyenler and not yapilanlar:
         return ""
@@ -115,14 +122,16 @@ def bekleyen_oneriler_ozet() -> str:
 
     if bekleyenler:
         satirlar.append(f"  Bekleyen: {len(bekleyenler)} öneri")
-        for g in bekleyenler[-5:]:  # Son 5 bekleyen
-            satirlar.append(f"  ⏳ [{g['id']}] {g['oneri'][:70]}")
+        for g in bekleyenler[-5:]:
+            metin = g.get('oneri') or g.get('aciklama') or g.get('description') or str(g)
+            satirlar.append(f"  ⏳ [{g.get('id','?')}] {metin[:70]}")
 
     if yapilanlar:
         son_yapilan = sorted(yapilanlar, key=lambda x: x.get("uygulama_tarihi",""), reverse=True)[:3]
         satirlar.append(f"  Son uygulananlar:")
         for g in son_yapilan:
-            satirlar.append(f"  ✅ [{g['id']}] {g['oneri'][:60]}")
+            metin = g.get('oneri') or g.get('aciklama') or g.get('uygulama_notu') or g.get('id') or '?'
+            satirlar.append(f"  ✅ [{g.get('id','?')}] {str(metin)[:60]}")
 
     return "\n".join(satirlar)
 
@@ -320,7 +329,7 @@ def mesaj_olustur(
 
     # ── Portföy ──────────────────────────────────────────────────
     if portfoy.get("hisseler"):
-        s.append(f"\n<b>💼 PORTFÖYÜMܠ</b>")
+        s.append(f"\n<b>💼 PORTFÖYÜM</b>")
         for h in portfoy["hisseler"]:
             deg = h["degisim"]
             if deg is None:
@@ -384,15 +393,47 @@ def alim_firsatlari_analiz(bist_sirali: list, portfoy: dict) -> list:
     return kacirildi[:10]
 
 
-def ai_yorum(bist_deg: float, portfoy: dict, ag: dict, bist_sirali: list) -> str:
-    """Groq ile haftalık performans analizi, eleştiri, kod geliştirme önerileri."""
-    if not GROQ_API_KEY:
-        return ""
+def _llm_cagir(prompt: str, max_tokens: int = 700) -> str:
+    """Groq → Cerebras fallback ile LLM çağrısı."""
+    # 1. Groq
+    if GROQ_API_KEY:
+        try:
+            from groq import Groq
+            client = Groq(api_key=GROQ_API_KEY)
+            r = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.3,
+            )
+            return r.choices[0].message.content.strip()
+        except Exception as e:
+            hata = str(e)
+            if "rate_limit" in hata.lower() or "429" in hata:
+                print("  ⚠️  Groq limit → Cerebras deneniyor...")
+            else:
+                print(f"  Groq hata: {hata[:80]}")
 
-    try:
-        from groq import Groq
-        client = Groq(api_key=GROQ_API_KEY)
-    except ImportError:
+    # 2. Cerebras
+    if CEREBRAS_API_KEY and CEREBRAS_AKTIF:
+        try:
+            client = CerebrasClient(api_key=CEREBRAS_API_KEY)
+            r = client.chat.completions.create(
+                model="llama-3.3-70b",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.3,
+            )
+            return r.choices[0].message.content.strip()
+        except Exception as e:
+            print(f"  Cerebras hata: {e}")
+
+    return ""
+
+
+def ai_yorum(bist_deg: float, portfoy: dict, ag: dict, bist_sirali: list) -> str:
+    """Groq/Cerebras ile haftalık performans analizi, eleştiri, kod geliştirme önerileri."""
+    if not GROQ_API_KEY and not CEREBRAS_API_KEY:
         return ""
 
     hisseler   = portfoy.get("hisseler", [])
@@ -402,7 +443,6 @@ def ai_yorum(bist_deg: float, portfoy: dict, ag: dict, bist_sirali: list) -> str
     portfoy_t  = {h["ticker"] for h in hisseler}
     isabet     = portfoy_t & en_iyi_10
 
-    # Kaybeden pozisyonlar — stop tetiklenmeli miydi?
     kaybedenler = [h for h in hisseler if (h["degisim"] or 0) < -5]
 
     ozet = f"""
@@ -410,7 +450,7 @@ HAFTALIK VERİ:
 - BIST100: {bist_deg:+.1f}% | Portföy: {pg:+.1f}% | Fark: {pg - bist_deg:+.1f}%
 - ALTIN: {ag.get('ALTIN',{}).get('degisim',0):+.1f}% | GÜMÜŞ: {ag.get('GUMUS',{}).get('degisim',0):+.1f}%
 
-PORTFÖYÜMܠ:
+PORTFÖYÜM:
 {chr(10).join(f"  {h['ticker']}: {h['degisim']:+.1f}% (giriş:{h['giris']}, hedef:{h['hedef']}, stop:{h['stop']})" for h in hisseler if h['degisim'] is not None)}
 
 KAÇIRILAN FIRSATLAR (portföyde yoktu, +3%+ yaptı):
@@ -431,27 +471,17 @@ AĞIR KAYBEDENLER (>-%5): {', '.join(f"{h['ticker']}:{h['degisim']:+.1f}%" for h
 
 2. ✅ NE İYİ GİTTİ (2 cümle): Hangi kararlar doğruydu?
 
-3. ❌ HATALAR & ELEŞTİRİ (3 cümle): Açık sözlü ol. Hangi hisseler hayal kırıklığı yarattı? Stop-loss çalışmalı mıydı? Seçim kriterleri yeterli miydi?
+3. ❌ HATALAR & ELEŞTİRİ (3 cümle): Açık sözlü ol. Hangi hisseler hayal kırıklığı yarattı? Stop-loss çalışmalı mıydı?
 
-4. 🔍 KAÇIRILAN FIRSATLAR (2 cümle): Yukarıdaki listedeki hisseler neden seçilmedi? Filtreleme sistemi bu hisseleri neden eledi?
+4. 🔍 KAÇIRILAN FIRSATLAR (2 cümle): Yukarıdaki listedeki hisseler neden seçilmedi?
 
-5. 🛠️ KOD & SİSTEM GELİŞTİRME (3-4 madde): Mevcut algoritmada hangi somut değişiklikler yapılmalı? Örnek: "RSI filtresi çok katı, 45→50 yükseltilmeli", "Stop-loss ATR x2 yerine x1.5 olmalı", "Momentum filtresi haftalık yerine 3 günlük bakmalı" gibi spesifik öneriler.
+5. 🛠️ KOD & SİSTEM GELİŞTİRME (3-4 madde): Mevcut algoritmada hangi somut değişiklikler yapılmalı?
 
 6. 📅 ÖNÜMÜZDEK HAFTA (2 cümle): Dikkat edilmesi gereken sektörler veya hisseler.
 
 Toplam max 250 kelime. Gerçekten eleştirel ve teknik ol."""
 
-    try:
-        r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=700,
-            temperature=0.3,
-        )
-        return r.choices[0].message.content.strip()
-    except Exception as e:
-        print(f"  AI yorum hata: {e}")
-        return ""
+    return _llm_cagir(prompt, max_tokens=700)
 
 
 
