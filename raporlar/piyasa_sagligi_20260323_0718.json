@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-23T07:18:04.534283",
+  "genisl": {
+    "yukselenler": 5,
+    "dusenler": 47,
+    "breadth_skoru": 8.1,
+    "adl_oran": 0.11,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 12,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.56,
+    "bist_degisim_10g": 1.08,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.324729919433594,
+    "usdtry_aylik_pct": 1.09,
+    "tur_etf_degisim": -8.09,
+    "altin_degisim": -20.39,
+    "vix": 26.8
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 12836.5,
+      "ort20": 13262,
+      "ort50": 13354,
+      "rsi": 39.8,
+      "macd_histo": -42.0,
+      "ay1_pct": -8.7,
+      "ay3_pct": 13.7,
+      "ay6_pct": 14.4,
+      "bb_pozisyon": 24.5,
+      "ust_band": 14098,
+      "alt_band": 12426
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %8.1 olarak çok düşük bir seviyede ve yükselen hisse sayısı sadece 5 iken, düşen hisse sayısı 47. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu ve genel piyasa sağlığının zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 46/100 olarak yüksek bir seviyede ve RSI (39.8) masih orta seviyede. VIX (26.8) ve TUR ETF 20G (-8.09%) gibi makro göstergeler de temkinli bir yaklaşımı desteklemekte. Tetikleyici, global piyasalardaki dalgalanmalar veya yerel ekonomideki gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin ve olası düzeltme karşısında kayıplarınızı sınırlayın.\n * Piyasa genelinde zayıf bir görünüm olduğundan, yeni alım yapmaktan kaçının ve mevcut portföyünüzü gözden geçirin.\n * Risk yönetimine odaklanın ve olası bir düzeltme karşısında likiditeye sahip olun, böylece fırsatları değerlendirebilecek konuma gelebilirsiniz."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
