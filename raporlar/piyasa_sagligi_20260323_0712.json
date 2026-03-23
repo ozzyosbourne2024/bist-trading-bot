@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-23T07:12:27.019410",
+  "genisl": {
+    "yukselenler": 3,
+    "dusenler": 43,
+    "breadth_skoru": 4.8,
+    "adl_oran": 0.07,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 12,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.53,
+    "bist_degisim_10g": 1.19,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.32699966430664,
+    "usdtry_aylik_pct": 1.1,
+    "tur_etf_degisim": -8.09,
+    "altin_degisim": -19.7,
+    "vix": 26.8
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 12853.0498046875,
+      "ort20": 13263,
+      "ort50": 13355,
+      "rsi": 40.0,
+      "macd_histo": -41.0,
+      "ay1_pct": -8.6,
+      "ay3_pct": 13.8,
+      "ay6_pct": 14.6,
+      "bb_pozisyon": 25.4,
+      "ust_band": 14097,
+      "alt_band": 12429
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. GENIŞLIK verilerine göre, yükselen hisse sayısı sadece 3, düşen hisse sayısı ise 43. Breadth skoru da %4.8 olarak çok düşük bir seviyede. Bu, endeksin birkaç hisse tarafından taşınmakta olduğunu ve genel piyasa sağlığının zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. DÜZELTMERİSK SKORU 46/100 olarak yüksek bir seviyede ve \"DÜZELTME RİSKİ YÜKSEK\" olarak işaretlenmiş durumda. Ayrıca, RSI değeri 40.0 olarak orta seviyede, ancak son 1 ayda endeksin %8.6 oranında düştüğü görülüyor. Bu, piyasanın already bir düzeltme sürecinde olabileceğini ve yakın vadede daha fazla düşüş yaşanabileceğini gösteriyor. Tetikleyici olarak, makroekonomik gelişmeler, siyasi belirsizlikler veya global piyasalardaki dalgalanmalar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * **Risk yönetimi**: Piyasa koşullarının zayıf olduğu bu dönemde, yatırımcıların risklerini yönetmek için dikkatli olmaları gerekiyor. Bu, pozisyonlarını azaltmak, stop-loss seviyelerini güncellemek veya hedge işlemleri yapmak olabilir.\n * **Defansif stratejiler**: Yatırımcılar, defansif stratejilere yönelerek daha az riskli varlıklara yatırım yapabilirler. Bu, tahvil, bono veya diğer sabit getirili yatırım araçlarına yönelmek olabilir.\n * **Piyasa takibi**: Yatırımcılar, piyasa gelişmelerini yakından takip etmelidir. Makroekonomik veriler, siyasi gelişmeler ve global piyasalardaki dalgalanmalar, piyasa trendini etkileyebilir. Bu nedenle, yatırımcıların güncel bilgiye sahip olmak ve stratejilerini buna göre güncellemek önemlidir."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
