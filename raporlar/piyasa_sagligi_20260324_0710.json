@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-24T07:10:58.002750",
+  "genisl": {
+    "yukselenler": 4,
+    "dusenler": 27,
+    "breadth_skoru": 6.5,
+    "adl_oran": 0.15,
+    "rsi_asiri_yuksel_sayi": 5,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.58,
+    "bist_degisim_10g": -0.54,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.34270095825195,
+    "usdtry_aylik_pct": 1.11,
+    "tur_etf_degisim": -7.04,
+    "altin_degisim": -14.58,
+    "vix": 26.1
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 13104.58984375,
+      "ort20": 13231,
+      "ort50": 13378,
+      "rsi": 54.2,
+      "macd_histo": -15.0,
+      "ay1_pct": -6.7,
+      "ay3_pct": 17.5,
+      "ay6_pct": 18.2,
+      "bb_pozisyon": 41.3,
+      "ust_band": 13958,
+      "alt_band": 12504
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %6.5 ve yükselen hisse sayısı sadece 4 iken, düşen hisse sayısı 27. Bu, endeksin dar bir hisse grubu tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 46/100 ile yüksek olarak belirlenmiştir. Ayrıca, RSI değeri 54.2 ve BB%B değeri 41.3, endeksin aşırı alım bölgesine yaklaştığını gösteriyor. Tetikleyici olarak, VIX endeksinin 26.1 seviyesinde olması ve TUR ETF 20G'nin -7.04% olması, yatırımcıların riskten kaçınmaya başladığını gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, portföylerini korumak için stop-loss seviyelerini güncellemelidir.\n * Riskten kaçının: Yatırımcılar, riskten kaçınmak için pozisyonlarını azaltabilir veya daha güvenli yatırım araçlarına yönelebilir.\n * Kısa vadeli alım-satım stratejilerini gözden geçirin: Yatırımcılar, kısa vadeli alım-satım stratejilerini gözden geçirerek, olası düzeltme hareketine karşı hazırlıklı olmalıdır."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
