@@ -48,6 +48,12 @@ try:
 except ImportError:
     CEREBRAS_AKTIF = False
 
+try:
+    import google.generativeai as genai
+    GEMINI_AKTIF = True
+except ImportError:
+    GEMINI_AKTIF = False
+
 # ── Sabitler ────────────────────────────────────────────────────────────────
 TELEGRAM_TOKEN   = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
@@ -329,18 +335,58 @@ def s4_macd_kesimi(df_1h: pd.DataFrame) -> Tuple[bool, str]:
     return sinyal_var, detay
 
 
+def _dxy_cek() -> Optional[float]:
+    """
+    DXY değerini çeşitli kaynaklardan çekmeyi dene.
+    1. exchangerate-api (USD basket)
+    2. yfinance UUP ETF (DXY proxy)
+    3. Stooq fallback
+    """
+    # Yöntem 1: exchangerate-api — EUR/USD üzerinden DXY tahmini
+    # DXY = %57.6 EUR + %13.6 JPY + %11.9 GBP + %9.1 CAD + %4.2 SEK + %3.6 CHF
+    try:
+        r = requests.get(
+            "https://open.er-api.com/v6/latest/USD",
+            timeout=6
+        )
+        if r.status_code == 200:
+            data = r.json()
+            rates = data.get("rates", {})
+            eur = rates.get("EUR", 0)
+            jpy = rates.get("JPY", 0)
+            gbp = rates.get("GBP", 0)
+            cad = rates.get("CAD", 0)
+            if eur and jpy and gbp and cad:
+                # DXY proxy hesapla (basitleştirilmiş)
+                # Güçlü dolar = EUR düşük, JPY yüksek
+                # EUR/USD referans: 0.92 = DXY ~100
+                dxy_proxy = round((0.92 / eur) * 100, 1)
+                return dxy_proxy
+    except:
+        pass
+
+    # Yöntem 2: yfinance UUP ETF (DXY ETF proxy)
+    try:
+        uup = _indir("UUP", interval="1d", period="5d")
+        if uup is not None and len(uup) >= 2:
+            # UUP ~= DXY / 4.3 (ampirik oran)
+            uup_son = float(uup["Close"].iloc[-1])
+            return round(uup_son * 3.85, 1)
+    except:
+        pass
+
+    return None
+
+
 def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
     """
     S5: Makro ortam altın/gümüş için uygun mu?
     DXY (dolar endeksi) zayıflıyor + VIX yüksek = altın için pozitif
-
-    Altın-DXY ters korelasyon: DXY yükselince altın düşer (r ≈ -0.8)
-    Hem kısa vadeli trend hem korelasyon gücü takip edilir.
     """
     puan   = 0
     notlar = []
 
-    # DXY — stooq'tan çek (semboller: dxy, usdx, usdidx)
+    # DXY — önce stooq, olmadı UUP ETF ile geçmiş veri
     dxy = None
     for dxy_sym in ["dxy", "usdx", "dx.f"]:
         try:
@@ -350,6 +396,24 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
             dxy = None
         except:
             continue
+
+    # Stooq çalışmadıysa UUP ETF'den geçmiş veri al
+    if dxy is None:
+        try:
+            uup = _indir("UUP", interval="1d", period="3mo")
+            if uup is not None and len(uup) >= 20:
+                # UUP → DXY dönüşüm (ampirik: DXY ≈ UUP × 3.85)
+                dxy = uup.copy()
+                dxy["Close"] = dxy["Close"] * 3.85
+                dxy["High"]  = dxy["High"]  * 3.85
+                dxy["Low"]   = dxy["Low"]   * 3.85
+        except:
+            pass
+
+    # Hâlâ yoksa anlık değer al
+    dxy_anlık = None
+    if dxy is None:
+        dxy_anlık = _dxy_cek()
 
     if dxy is not None and len(dxy) >= 20:
         try:
@@ -390,6 +454,9 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
                 notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — hafif yükseliş %{dxy_kisa:.1f}✗{kor_yorum}")
         except:
             notlar.append("DXY:?")
+    elif dxy_anlık:
+        # Sadece anlık değer var, trend yok — nötr say
+        notlar.append(f"Dolar endeksi(DXY):{dxy_anlık:.1f} (anlık, trend yok)")
     else:
         notlar.append("DXY:?")
 
@@ -660,7 +727,7 @@ def makro_yorum_uret(sonuclar: list) -> str:
         pass
 
     try:
-        # DXY — stooq
+        # DXY — önce stooq, olmadı alternatif
         dxy = None
         for sym in ["dxy", "usdx", "dx.f"]:
             dxy = _stooq_gunluk(sym, gun=5)
@@ -980,87 +1047,131 @@ def haber_yorumu_uret(haberler: list, takvim: list) -> str:
 
 def ai_tahmin_uret(sonuclar: list, takvim: list, haberler: list) -> str:
     """
-    Groq önce dene, limit aşılınca Cerebras'a geç.
+    3 katmanlı derin analiz:
+    1. NEDEN — bugün ne oldu
+    2. BAĞLAM — büyük resim
+    3. SENARYO — önümüzdeki 1-3 gün
     """
     cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
 
-    # Client seç — AI tahmin için Cerebras öncelikli (token limiti yok)
+    # Client seç — Cerebras öncelikli
     client = None
     model_adi = None
-    cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
     if CEREBRAS_AKTIF and cerebras_key:
         try:
-            client   = CerebrasClient(api_key=cerebras_key)
+            client    = CerebrasClient(api_key=cerebras_key)
             model_adi = "llama-3.3-70b"
         except:
             client = None
     if client is None and GROQ_AKTIF and GROQ_API_KEY:
         try:
-            client   = Groq(api_key=GROQ_API_KEY)
+            client    = Groq(api_key=GROQ_API_KEY)
             model_adi = "llama-3.3-70b-versatile"
         except:
             pass
     if client is None:
         return ""
 
-    # Her enstrüman için detaylı veri hazırla
+    # ── Veri hazırla ────────────────────────────────────────────
     enstruman_detay = []
     for s in sonuclar:
-        spot   = s.get("spot_fiyat") or s.get("fiyat") or 0
-        dun    = s.get("dun_kapanis") or spot
-        skor   = s.get("skor", 0)
-        isim   = s.get("isim", "")
+        spot  = s.get("spot_fiyat") or s.get("fiyat") or 0
+        dun   = s.get("dun_kapanis") or spot
+        skor  = s.get("skor", 0)
+        isim  = s.get("isim", "")
+        degisim = ((spot / dun - 1) * 100) if dun else 0
+        yon   = "📈 yükseldi" if degisim > 0.5 else ("📉 düştü" if degisim < -0.5 else "➡️ yatay")
 
-        d1 = s.get("destek1") or round(spot * 0.97, 1)
-        d2 = s.get("destek2") or round(spot * 0.94, 1)
-        r1 = s.get("direnc1") or round(spot * 1.03, 1)
-        r2 = s.get("direnc2") or round(spot * 1.06, 1)
-        f618 = s.get("fib618") or round(spot * 1.04, 1)
-        f382 = s.get("fib382") or round(spot * 1.08, 1)
+        d1   = s.get("destek1")  or round(spot * 0.97, 1)
+        d2   = s.get("destek2")  or round(spot * 0.94, 1)
+        r1   = s.get("direnc1")  or round(spot * 1.03, 1)
+        r2   = s.get("direnc2")  or round(spot * 1.06, 1)
+        f618 = s.get("fib618")   or round(spot * 1.04, 1)
+        f500 = s.get("fib500")   or round(spot * 1.05, 1)
+        f382 = s.get("fib382")   or round(spot * 1.08, 1)
+
+        sig  = s.get("sinyaller", {})
+        s5_detay = sig.get("S5_Makro", {}).get("detay", "")
 
         gumus_notu = ""
         if "GUM" in isim.upper():
-            gumus_notu = "\n  NOT: Gümüş hem güvenli liman hem sanayi metali — büyüme/sanayi talebi haberleri kritik"
+            gumus_notu = "\n  ⚡ Gümüş = Güvenli liman + Sanayi metali (çift hassasiyet)"
 
         enstruman_detay.append(
-            f"{isim}: {spot:.1f} $/oz (dün: {dun:.1f}, değişim: {((spot/dun-1)*100) if dun else 0:+.1f}%)\n"
-            f"  Teknik skor: {skor}/5 | Durum: {s.get('karar','?')}\n"
-            f"  Sinyaller: {s.get('sinyaller_ozet','')}\n"
-            f"  Destek: {d1} (yakın) / {d2} (güçlü)\n"
-            f"  Direnç: {r1} (yakın) / {r2} (güçlü)\n"
-            f"  Fib %61.8: {f618} | Fib %38.2: {f382}"
+            f"━━━ {isim} ━━━\n"
+            f"  Fiyat: {spot:.1f} $/oz | Dün: {dun:.1f} | Değişim: {degisim:+.1f}% {yon}\n"
+            f"  Teknik skor: {skor}/5 — {s.get('karar','?')}\n"
+            f"  RSI: {sig.get('S3_RSI',{}).get('detay','?')[:30]}\n"
+            f"  MACD: {sig.get('S4_MACD',{}).get('detay','?')[:30]}\n"
+            f"  Makro: {s5_detay[:80]}\n"
+            f"  Destek: {d1} / {d2} | Direnç: {r1} / {r2}\n"
+            f"  Fibonacci: %61.8={f618} | %50={f500} | %38.2={f382}"
             f"{gumus_notu}"
         )
 
     fiyat_ozet = "\n\n".join(enstruman_detay)
 
     takvim_ozet = "\n".join([
-        f"  {t['baslik']} — {t['ozet']}"
-        for t in (takvim or [])[:4]
-    ]) or "Kritik takvim olayı yok"
+        f"  📅 {t['baslik']} — {t['ozet']}"
+        for t in (takvim or [])[:5]
+    ]) or "  Kritik takvim olayı yok"
 
     haber_ozet = "\n".join([
         f"  [{h['kaynak']}] {h['baslik']}"
-        for h in (haberler or [])[:5]
-    ]) or "Haber bulunamadı"
+        for h in (haberler or [])[:6]
+    ]) or "  Haber bulunamadı"
 
-    sistem = """Sen emtia analistisin. SADECE şu formatta yaz, HER İKİ metali de zorunlu yaz:
+    sistem = """Sen kıdemli bir emtia ve makro ekonomi analistisin.
+Verilen fiyat hareketi, teknik göstergeler, haberler ve ekonomik takvime bakarak
+ALTIN ve GÜMÜŞ için derinlemesine analiz yap.
 
-🥇 ALTIN: [YÜKSELIR/DÜŞER/YATAY]
-Sebep: [1 cümle]
-🔼 [direnc] geçilirse: [hedef]
-🔽 [destek] kırılırsa: [hedef]
+ZORUNLU FORMAT (her metal için ayrı, sırayla yaz):
 
-🥈 GÜMÜŞ: [YÜKSELIR/DÜŞER/YATAY]
-Sebep: [altından FARKLI sebep - sanayi talebi, büyüme odaklı]
-🔼 [direnc] geçilirse: [hedef]
-🔽 [destek] kırılırsa: [hedef]
+━━━━━━━━━━━━━━━━━━━━
+🥇 ALTIN ANALİZİ
+━━━━━━━━━━━━━━━━━━━━
+📉 NEDEN DÜŞTÜ / 📈 NEDEN YÜKSELDİ:
+• [Ana sebep — makro, teknik veya haber bazlı]
+• [İkinci sebep]
+• [Varsa üçüncü sebep]
 
-⚠️ Ana Risk: [1 cümle]
+🌍 BÜYÜK RESİM:
+• [Fed/merkez bankası beklentisi ve altına etkisi]
+• [Jeopolitik durum ve güvenli liman talebi]
+• [Dolar/faiz ortamı]
 
-Türkçe. Kısa. HER İKİ metal zorunlu."""
+🔮 1-3 GÜN SENARYO:
+• Beklenti: [YÜKSELIR / DÜŞER / YATAY] — [kısa sebep]
+• 🔼 [direnç seviyesi] geçilirse: [hedef ve ne anlama gelir]
+• 🔽 [destek seviyesi] kırılırsa: [hedef ve ne anlama gelir]
+• ⚠️ Risk: [dikkat edilmesi gereken faktör]
 
-    mesaj = f"""MEVCUT DURUM:
+━━━━━━━━━━━━━━━━━━━━
+🥈 GÜMÜŞ ANALİZİ
+━━━━━━━━━━━━━━━━━━━━
+📉 NEDEN DÜŞTÜ / 📈 NEDEN YÜKSELDİ:
+• [Altından FARKLI sebep — sanayi talebi, imalat, büyüme]
+• [İkinci sebep]
+• [Neden altından daha sert/zayıf hareket etti?]
+
+🌍 BÜYÜK RESİM:
+• [Sanayi talebi ve imalat sektörü durumu]
+• [Çin ekonomisi ve sanayi beklentisi]
+• [Altın/gümüş oranı — hangisi daha ucuz kalmış?]
+
+🔮 1-3 GÜN SENARYO:
+• Beklenti: [YÜKSELIR / DÜŞER / YATAY] — [kısa sebep]
+• 🔼 [direnç] geçilirse: [hedef]
+• 🔽 [destek] kırılırsa: [hedef]
+• ⚠️ Risk: [dikkat faktörü]
+
+KURALLAR:
+- Her iki metali MUTLAKA yaz
+- Gümüş için altından farklı sebepler kullan
+- Seviyeler gerçekçi ve verideki rakamlara dayalı olsun
+- Türkçe yaz"""
+
+    kullanici_mesaji = f"""GÜNCEL VERİLER:
 {fiyat_ozet}
 
 EKONOMİK TAKVİM:
@@ -1069,39 +1180,50 @@ EKONOMİK TAKVİM:
 GÜNCEL HABERLER:
 {haber_ozet}
 
-Her enstrüman için ayrı koşullu tahmin yap."""
+Yukarıdaki verilere dayanarak her iki metal için derinlemesine analiz yap."""
 
     try:
         r = client.chat.completions.create(
             model=model_adi,
             messages=[
                 {"role": "system", "content": sistem},
-                {"role": "user",   "content": mesaj}
+                {"role": "user",   "content": kullanici_mesaji}
             ],
-            temperature=0.3,
-            max_tokens=800,
+            temperature=0.4,
+            max_tokens=1200,
         )
         return r.choices[0].message.content.strip()
 
     except Exception as e:
         hata = str(e)
-        # Groq rate limit → Cerebras ile tekrar dene
-        if ("rate_limit" in hata.lower() or "429" in hata) and CEREBRAS_AKTIF:
-            cerebras_key = os.getenv("CEREBRAS_API_KEY", "")
-            if cerebras_key:
-                print("  ⚠️  Groq limit → Cerebras'a geçiliyor...")
+        if "rate_limit" in hata.lower() or "429" in hata:
+            # Diğer client ile tekrar dene
+            diger_client = None
+            diger_model  = None
+            if model_adi == "llama-3.3-70b" and GROQ_AKTIF and GROQ_API_KEY:
                 try:
-                    c2 = CerebrasClient(api_key=cerebras_key)
-                    r2 = c2.chat.completions.create(
-                        model="llama-3.3-70b",
+                    diger_client = Groq(api_key=GROQ_API_KEY)
+                    diger_model  = "llama-3.3-70b-versatile"
+                    print("  ⚠️  Cerebras limit → Groq deneniyor...")
+                except: pass
+            elif CEREBRAS_AKTIF and cerebras_key:
+                try:
+                    diger_client = CerebrasClient(api_key=cerebras_key)
+                    diger_model  = "llama-3.3-70b"
+                    print("  ⚠️  Groq limit → Cerebras deneniyor...")
+                except: pass
+            if diger_client:
+                try:
+                    r2 = diger_client.chat.completions.create(
+                        model=diger_model,
                         messages=[{"role":"system","content":sistem},
-                                  {"role":"user","content":mesaj}],
-                        temperature=0.3, max_tokens=800,
+                                  {"role":"user","content":kullanici_mesaji}],
+                        temperature=0.4, max_tokens=1200,
                     )
                     return r2.choices[0].message.content.strip()
                 except Exception as e2:
-                    print(f"  Cerebras hata: {e2}")
-        print(f"  AI tahmin hatası: {hata[:100]}")
+                    print(f"  Yedek LLM hata: {e2}")
+        print(f"  AI analiz hatası: {hata[:100]}")
         return ""
 
 
