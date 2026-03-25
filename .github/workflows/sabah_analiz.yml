@@ -26,7 +26,7 @@ jobs:
         run: |
           pip install --quiet \
             yfinance pandas numpy requests python-dotenv \
-            groq beautifulsoup4 feedparser rich
+             groq cerebras-cloud-sdk beautifulsoup4 feedparser rich
 
       - name: raporlar/ klasörü oluştur
         run: mkdir -p raporlar
@@ -34,6 +34,7 @@ jobs:
       - name: bist_agents.py çalıştır
         env:
           GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -43,15 +44,24 @@ jobs:
 
       - name: bist_piyasa_sagligi.py çalıştır
         env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}   
+          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python bist_piyasa_sagligi.py
           mv piyasa_sagligi_*.json raporlar/ 2>/dev/null || true
+       - name: altin_gumus_alarm.py calistir (AI tahmin)
+         env:
+          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+         run: python altin_gumus_alarm.py --ai
       - name: bist_sistem.py calistir
         env:
           GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python bist_sistem.py
