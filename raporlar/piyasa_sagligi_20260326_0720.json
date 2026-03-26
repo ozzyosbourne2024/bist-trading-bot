@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-26T07:20:35.033759",
+  "genisl": {
+    "yukselenler": 11,
+    "dusenler": 11,
+    "breadth_skoru": 17.7,
+    "adl_oran": 1.0,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 4,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.4,
+    "bist_degisim_10g": -2.64,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.36240005493164,
+    "usdtry_aylik_pct": 0.93,
+    "tur_etf_degisim": -6.45,
+    "altin_degisim": -12.05,
+    "vix": 25.3
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 12934.8203125,
+      "ort20": 13124,
+      "ort50": 13397,
+      "rsi": 46.6,
+      "macd_histo": -24.0,
+      "ay1_pct": -6.8,
+      "ay3_pct": 14.9,
+      "ay6_pct": 20.5,
+      "bb_pozisyon": 33.2,
+      "ust_band": 13688,
+      "alt_band": 12560
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %17.7 olarak düşük bir seviyede ve yükselen hisse sayısı düşen hisse sayısına eşit (11/11). Bu, endeksin birkaç hisse tarafından taşınabileceğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 46/100 olarak yüksek bir seviyede ve RSI (46.6) henüz aşırı satım bölgesine ulaşmış değil. VIX endeksi (25.3) ve TUR ETF 20G (-6.45%) de temkinli bir yaklaşımı destekler nitelikte. Tetikleyici, global piyasalardaki dalgalanmalar veya yerel makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Risk yönetimi**: Portföyünüzü gözden geçirin ve yüksek riskli varlıklarınızı azaltın.\n- **Defansif pozisyonlar**: Daha istikrarlı ve düşük volatiliteye sahip hisseleri tercih edin.\n- **Stop-loss seviyeleri**: Varlıklarınız için stop-loss seviyeleri belirleyin ve piyasa koşullarına göre güncelleyin."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
