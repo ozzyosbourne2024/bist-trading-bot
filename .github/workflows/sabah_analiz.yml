@@ -8,7 +8,7 @@ on:
 jobs:
   sabah_analiz:
     runs-on: ubuntu-latest
-    timeout-minutes: 30        # bist_agents LLM çağrıları için yeterli süre
+    timeout-minutes: 30
 
     steps:
       - name: Kodu çek
@@ -26,45 +26,47 @@ jobs:
         run: |
           pip install --quiet \
             yfinance pandas numpy requests python-dotenv \
-             groq cerebras-cloud-sdk beautifulsoup4 feedparser rich
+            groq cerebras-cloud-sdk beautifulsoup4 feedparser rich
 
       - name: raporlar/ klasörü oluştur
         run: mkdir -p raporlar
 
       - name: bist_agents.py çalıştır
         env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
-          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python bist_agents.py
-          # Üretilen raporları raporlar/ klasörüne taşı
           mv bist_rapor_*.json raporlar/ 2>/dev/null || true
 
       - name: bist_piyasa_sagligi.py çalıştır
         env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}   
-          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python bist_piyasa_sagligi.py
           mv piyasa_sagligi_*.json raporlar/ 2>/dev/null || true
-       - name: altin_gumus_alarm.py calistir (AI tahmin)
-         env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
-          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
+
+      - name: altin_gumus_alarm.py calistir (AI tahmin)
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
-         run: python altin_gumus_alarm.py --ai
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python altin_gumus_alarm.py --ai
+
       - name: bist_sistem.py calistir
         env:
-          GROQ_API_KEY:       ${{ secrets.GROQ_API_KEY }}
-          CEREBRAS_API_KEY:   ${{ secrets.CEREBRAS_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python bist_sistem.py
+
       - name: Raporları repoya kaydet (commit)
         run: |
           git config user.name  "github-actions[bot]"
