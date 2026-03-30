@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-30T07:22:45.768907",
+  "genisl": {
+    "yukselenler": 9,
+    "dusenler": 33,
+    "breadth_skoru": 14.5,
+    "adl_oran": 0.27,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 6,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.64,
+    "bist_degisim_10g": -2.07,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 18,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.46329879760742,
+    "usdtry_aylik_pct": 1.13,
+    "tur_etf_degisim": -5.0,
+    "altin_degisim": -8.83,
+    "vix": 31.0
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 46,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 12686.26953125,
+      "ort20": 13003,
+      "ort50": 13398,
+      "rsi": 49.6,
+      "macd_histo": -45.0,
+      "ay1_pct": -4.9,
+      "ay3_pct": 8.4,
+      "ay6_pct": 17.9,
+      "bb_pozisyon": 11.2,
+      "ust_band": 13411,
+      "alt_band": 12595
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %14.5 olarak hesaplandı ve bu, endeksin yalnızca birkaç hisse tarafından taşınabileceğini gösteriyor. Yükselen hisse sayısı (9) düşen hisse sayısından (33) daha az, bu da endeksin genel olarak zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 46/100 olarak hesaplandı ve bu, yüksek bir düzeltme riski olduğunu gösteriyor. RSI değeri (49.6) masih nötr bir seviyede, ancak BB%B değeri (11.2) endeksin alt bantta olduğunu gösteriyor. Bu, endeksin bir düzeltme yaşayabileceğini işaret ediyor. Tetikleyici, VIX'in yüksek seviyesi (31.0) ve TUR ETF'nin 20 günlük değişiminin negatif olması (-5.0%) olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endekslerin zayıf olduğu bir dönemde, yatırımcılar daha savunmacı bir strateji izlemeli ve risklerini azaltmalıdır.\n * Yatırımcılar, aşırı alım sinyali veren hisselerden (RSI>70) uzak durmalı ve daha düşük RSI değerlerine sahip hisseleri tercih etmelidir.\n * Yatırımcılar, olası bir düzeltme döneminde, likiditeyi yüksek tutmalı ve pozisyonlarını azaltmalıdır. Ayrıca, VIX'in yüksek seviyesi ve makroekonomik belirsizlikler nedeniyle, yatırımcılar daha temkinli bir yaklaşım izlemelidir."
+  },
+  "risk_skoru": 46,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
