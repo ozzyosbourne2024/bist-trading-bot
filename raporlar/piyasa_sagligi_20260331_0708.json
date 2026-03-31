@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-03-31T07:08:36.110289",
+  "genisl": {
+    "yukselenler": 16,
+    "dusenler": 37,
+    "breadth_skoru": 25.8,
+    "adl_oran": 0.43,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.59,
+    "bist_degisim_10g": -2.55,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 10,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.47549819946289,
+    "usdtry_aylik_pct": 1.2,
+    "tur_etf_degisim": -3.69,
+    "altin_degisim": -6.21,
+    "vix": 30.6
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 38,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 12626.400390625,
+      "ort20": 13000,
+      "ort50": 13397,
+      "rsi": 48.2,
+      "macd_histo": -49.0,
+      "ay1_pct": -5.4,
+      "ay3_pct": 7.9,
+      "ay6_pct": 17.4,
+      "bb_pozisyon": 5.3,
+      "ust_band": 13419,
+      "alt_band": 12582
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %25.8 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini ve çoğunluğunun düştüğünü gösteriyor. Ayrıca, yükselen hisse sayısı (16) düşen hisse sayısından (37) daha az.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 38/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 48.2 olarak hesaplandı, bu da endeksin aşırı alım veya aşırı satım bölgesinde olmadığını gösteriyor. Ancak, VIX değeri 30.6 olarak hesaplandı, bu da piyasanın hala temkinli olduğunu gösteriyor. Tetikleyici olarak, makroekonomik gelişmeler, siyasi olaylar veya küresel piyasalardaki değişimler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Temkinli bir yaklaşım benimseyin ve portföyünüzü dengeli tutun.\n * Endekslerin ve hisse senetlerinin teknik analizlerini yakından takip edin ve olası düzeltme fırsatlarını değerlendirin.\n * Risk yönetimine dikkat edin ve olası kayıpları sınırlamak için stop-loss emirleri gibi araçları kullanın."
+  },
+  "risk_skoru": 38,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
