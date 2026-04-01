@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-01T07:15:12.349073",
+  "genisl": {
+    "yukselenler": 57,
+    "dusenler": 2,
+    "breadth_skoru": 91.9,
+    "adl_oran": 28.5,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 6,
+    "ust_20_gun_sayi": 3,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.35,
+    "bist_degisim_10g": -0.8,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.4718017578125,
+    "usdtry_aylik_pct": 1.21,
+    "tur_etf_degisim": -0.8,
+    "altin_degisim": 3.21,
+    "vix": 25.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 23,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13012.0595703125,
+      "ort20": 12976,
+      "ort50": 13402,
+      "rsi": 45.2,
+      "macd_histo": -14.0,
+      "ay1_pct": 0.5,
+      "ay3_pct": 8.2,
+      "ay6_pct": 21.4,
+      "bb_pozisyon": 54.5,
+      "ust_band": 13371,
+      "alt_band": 12582
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. GENIŞLIK verileri, yükselen hisse sayısının 57, düşen hisse sayısının 2 olduğunu gösteriyor. Breadth skoru %91.9 olarak hesaplandı. Bu, endeksin geniş bir tabana sahip olduğunu ve birçok hissenin yükseldiğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. DÜZELTMERİSK SKORU 23/100 olarak hesaplandı ve bu skor \"SAĞLIKLI TREND\" olarak yorumlanıyor. Ayrıca, RSI değeri 45.2 olarak hesaplandı ve bu değer aşırı alım veya aşırı satım bölgesinde değil. Ancak, VIX değeri 25.2 olarak hesaplandı ve bu değer slightly yüksek. Bu, yatırımcıların biraz temkinli olduğunu gösteriyor. Tetikleyici olarak, makroekonomik gelişmeler veya global piyasalardaki dalgalanmalar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Trendin sağlıklı olduğunu dikkate alarak, mevcut pozisyonlarını korumaya devam edebilirler.\n * RSI değeri 45.2 olarak hesaplandığı için, aşırı alım veya aşırı satım bölgesinde değil. Bu nedenle, yatırımcılar yeni alım fırsatlarını değerlendirebilirler.\n * VIX değeri slightly yüksek olduğu için, yatırımcılar portföylerini slightly daha savunmacı bir şekilde yönetebilirler. Örneğin, bazı pozisyonlarını azaltabilir veya stop-loss seviyelerini güncelleyebilirler."
+  },
+  "risk_skoru": 23,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
