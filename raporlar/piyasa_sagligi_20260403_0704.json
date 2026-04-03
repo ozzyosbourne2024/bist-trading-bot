@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-03T07:04:00.689117",
+  "genisl": {
+    "yukselenler": 26,
+    "dusenler": 18,
+    "breadth_skoru": 41.9,
+    "adl_oran": 1.44,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 3,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": true,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.66,
+    "bist_degisim_10g": 0.03,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.58679962158203,
+    "usdtry_aylik_pct": 1.14,
+    "tur_etf_degisim": 4.65,
+    "altin_degisim": 1.77,
+    "vix": 23.9
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 35,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13051.7001953125,
+      "ort20": 12978,
+      "ort50": 13407,
+      "rsi": 43.9,
+      "macd_histo": 2.0,
+      "ay1_pct": -0.2,
+      "ay3_pct": 8.0,
+      "ay6_pct": 23.6,
+      "bb_pozisyon": 59.3,
+      "ust_band": 13374,
+      "alt_band": 12582
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %41.9 olarak hesaplandı ve bu, endeksin yalnızca bir kısmının yükseldiğini gösteriyor. Ayrıca, \"Ağır hisse taşıyor mu\" sorusuna \"True\" cevabı verildi, bu da birkaç büyük hissenin endeksi taşıdığı anlamına geliyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzelme riski skoru 35/100 olarak hesaplandı ve bu, \"TEMKİNLİ TREND\" olarak yorumlanıyor. Bu, piyasanın dengesizlik içinde olduğunu ve bir düzeltme olasılığını gösteriyor. Tetikleyici olarak, RSI değeri 43.9 olarak hesaplandı, bu da aşırı satım bölgesine yaklaştığını gösteriyor. Ancak, VIX değeri 23.9 olarak hesaplandı, bu da piyasanın hala bir miktar riskli olduğunu gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Piyasanın trendini takip edin ve büyük hisse hareketlerine dikkat edin. Ağır hisse taşıyan hisselerin performansını izleyin.\n- **Risk yönetimine dikkat edin**: Piyasanın dengesizlik içinde olduğunu unutmayın ve risk yönetimine dikkat edin. Portföyünüzü düzenli olarak gözden geçirin ve gerektiğinde pozisyonlarınızı ayarlayın.\n- **Aşırı satım bölgesini izleyin**: RSI değeri 43.9 olarak hesaplandı, bu da aşırı satım bölgesine yaklaştığını gösteriyor. Bu bölgede alımlar yapmak için uygun bir zaman olabilir, ancak risk yönetimine dikkat edin."
+  },
+  "risk_skoru": 35,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
