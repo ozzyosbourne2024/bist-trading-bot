@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-06T07:24:07.963254",
+  "genisl": {
+    "yukselenler": 31,
+    "dusenler": 3,
+    "breadth_skoru": 50.0,
+    "adl_oran": 10.33,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.58,
+    "bist_degisim_10g": 0.61,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 10,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.596099853515625,
+    "usdtry_aylik_pct": 1.17,
+    "tur_etf_degisim": 4.65,
+    "altin_degisim": 6.18,
+    "vix": 23.9
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 15,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13011.2802734375,
+      "ort20": 12982,
+      "ort50": 13409,
+      "rsi": 51.5,
+      "macd_histo": 20.0,
+      "ay1_pct": 2.4,
+      "ay3_pct": 6.2,
+      "ay6_pct": 24.3,
+      "bb_pozisyon": 53.8,
+      "ust_band": 13366,
+      "alt_band": 12597
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor mu? \nHayır, bu hipotez doğrulanmıyor. GENIŞLIK verisine göre yükselen 31 hisse ve düşen 3 hisse var. Bu, endeksin geniş bir tabana sahip olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? Tetikleyici ne olabilir?\nDÜZELTMERİSK SKORU 15/100 ile sağlıklı trend devam ediyor. Ancak, RSI=51.5 ve BB%B=53.8 değerleri, endeksin biraz yükselme eğiliminde olduğunu gösteriyor. Yakın vadede bir düzeltme beklenmez, ancak VIX'in 23.9 olması ve TUR ETF 20G'nin 4.65% olması, makro düzeyde bir miktar temkinlilik gerektiğini gösteriyor. Tetikleyici, global piyasalardaki gelişmeler veya makroekonomik veriler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- Endeks geniş bir tabana sahip olduğu için, yatırımcılar endeks fonlarına veya geniş tabanlı hisse senetlerine yatırım yapabilirler.\n- RSI ve BB%B değerleri, endeksin biraz yükselme eğiliminde olduğunu gösteriyor. Bu nedenle, yatırımcılar uzun vadeli yatırım stratejilerini gözden geçirebilirler.\n- Makro düzeyde temkinlilik nedeniyle, yatırımcılar portföylerini çeşitlendirmeli ve risklerini yönetmelidirler."
+  },
+  "risk_skoru": 15,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
