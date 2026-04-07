@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-07T07:10:30.386216",
+  "genisl": {
+    "yukselenler": 37,
+    "dusenler": 6,
+    "breadth_skoru": 59.7,
+    "adl_oran": 6.17,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.6,
+    "bist_degisim_10g": 1.14,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 10,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.60219955444336,
+    "usdtry_aylik_pct": 1.17,
+    "tur_etf_degisim": 1.03,
+    "altin_degisim": 6.39,
+    "vix": 24.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 15,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13108.4501953125,
+      "ort20": 13007,
+      "ort50": 13410,
+      "rsi": 46.6,
+      "macd_histo": 36.0,
+      "ay1_pct": -0.5,
+      "ay3_pct": 5.8,
+      "ay6_pct": 26.4,
+      "bb_pozisyon": 63.8,
+      "ust_band": 13375,
+      "alt_band": 12639
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünmüyor. Breadth skoru %59.7 olarak hesaplandı ve yükselen hisse sayısı (37) düşen hisse sayısından (6) daha fazla. Bu, endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımakta olmadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor gibi görünüyor. Düzeltme riski skoru 15/100 olarak hesaplandı ve bu skor çok düşük. Ayrıca, RSI değeri 46.6 olarak hesaplandı ve bu değer aşırı alım veya aşırı satım bölgesinde değil. Ancak, VIX değeri 24.2 olarak hesaplandı ve bu değer slightly yüksek. Bu, yatırımcıların biraz temkinli olduğunu gösteriyor. Tetikleyici olarak, global ekonomik gelişmeler, faiz oranları veya jeopolitik olaylar gibi faktörler dikkate alınabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Düzeltme riski skoru düşük olduğu için, mevcut trendi takip etmek ve uzun vadeli yatırım stratejilerine odaklanmak olabilir.\n- **Risk yönetimi uygulayın**: VIX değeri slightly yüksek olduğu için, yatırımcılar portföylerini çeşitlendirmeli ve risk yönetim stratejilerini uygulamalıdır.\n- **Teknik analizleri izleyin**: RSI, BB ve diğer teknik analiz araçlarını izleyerek, olası trend değişikliklerine karşı hazırlıklı olunabilir."
+  },
+  "risk_skoru": 15,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
