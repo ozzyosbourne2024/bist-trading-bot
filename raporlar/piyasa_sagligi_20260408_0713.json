@@ -1,0 +1,54 @@
+{
+  "tarih": "2026-04-08T07:13:01.333160",
+  "genisl": {
+    "yukselenler": 58,
+    "dusenler": 2,
+    "breadth_skoru": 93.5,
+    "adl_oran": 29.0,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 8,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.43,
+    "bist_degisim_10g": 3.0,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.54880142211914,
+    "usdtry_aylik_pct": 1.02,
+    "tur_etf_degisim": NaN,
+    "altin_degisim": 6.39
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 17,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13353.4296875,
+      "ort20": 13019,
+      "ort50": 13415,
+      "rsi": 53.7,
+      "macd_histo": 52.0,
+      "ay1_pct": 1.3,
+      "ay3_pct": 7.8,
+      "ay6_pct": 28.8,
+      "bb_pozisyon": 92.0,
+      "ust_band": 13417,
+      "alt_band": 12622
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %93.5 olarak belirtilmiş, bu da piyasanın geniş bir tabana sahip olduğunu ve birçok hissenin yükseldiğini gösteriyor. Yükselen hisse sayısı (58) düşen hisse sayısından (2) çok daha fazla, bu da piyasanın güçlü bir trend içinde olduğunu işaret ediyor.\n\n2. Yakın vadede düzeltme beklenmiyor gibi görünüyor. Düzeltme skoru 17/100 olarak belirtilmiş ve \"sağlıklı trend\" olarak yorumlanıyor. RSI değeri (53.7) aşırı alım veya aşırı satım bölgesinde değil, bu da piyasanın aşırı bir durumda olmadığını gösteriyor. Ancak, BB%B değeri (92.0) yüksek, bu da piyasanın biraz overbought durumda olabileceğini ve kısa vadeli bir düzeltme görme olasılığının olduğunu işaret ediyor. Tetikleyici olarak, makroekonomik veriler, global piyasalardaki gelişmeler veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasanın güçlü trendine katılmak için güçlü ve yükselen hisseleri takip edin.\n * Portföyünüzü çeşitlendirmek için farklı sektörlerdeki hisseleri ekleyin, böylece riskinizi dağıtabilirsiniz.\n * Kısa vadeli bir düzeltme görme olasılığına karşı, stop-loss emirleri kullanın veya pozisyonlarınızı kısmen kapatın, böylece olası kayıplarınızı sınırlayabilirsiniz."
+  },
+  "risk_skoru": 17,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
