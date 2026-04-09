@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-09T07:17:04.343988",
+  "genisl": {
+    "yukselenler": 9,
+    "dusenler": 19,
+    "breadth_skoru": 14.5,
+    "adl_oran": 0.47,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.25,
+    "bist_degisim_10g": 6.46,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.579139709472656,
+    "usdtry_aylik_pct": 0.89,
+    "tur_etf_degisim": NaN,
+    "altin_degisim": 8.44,
+    "vix": 25.8
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 47,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 13545.01953125,
+      "ort20": 13016,
+      "ort50": 13415,
+      "rsi": 59.2,
+      "macd_histo": 62.0,
+      "ay1_pct": 2.6,
+      "ay3_pct": 9.5,
+      "ay6_pct": 32.7,
+      "bb_pozisyon": 110.7,
+      "ust_band": 13452,
+      "alt_band": 12581
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %14.5 olarak düşük bir seviyede ve yükselen hisse sayısı (9) düşen hisse sayısından (19) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme bekleniyor. Düzelme riski skoru 47/100 olarak yüksek bir seviyede ve RSI (59.2) masih orta seviyede ancak BB%B (110.7) değerinin yüksek olması, endeksin aşırı alım bölgesinde olduğunu gösteriyor. VIX (25.8) değerinin de yüksek olması, piyasadaki belirsizliği ve endişeyi yansıtıyor. Tetikleyici, global ekonomik gelişmeler, siyasi olaylar veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin ve pozisyonlarını koruyun.\n * Risklerini dağıtmak için farklı varlık sınıflarına yatırım yapın.\n * Piyasa koşullarını yakından takip edin ve düzeltme fırsatlarını değerlendirmek için hazırlıklı olun."
+  },
+  "risk_skoru": 47,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
