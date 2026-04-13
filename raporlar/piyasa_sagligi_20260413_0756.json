@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-13T07:56:42.577506",
+  "genisl": {
+    "yukselenler": 5,
+    "dusenler": 51,
+    "breadth_skoru": 8.1,
+    "adl_oran": 0.1,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.55,
+    "bist_degisim_10g": 8.6,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 10,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 44.71870040893555,
+    "usdtry_aylik_pct": 1.21,
+    "tur_etf_degisim": 8.85,
+    "altin_degisim": 5.1,
+    "vix": 21.1
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 42,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13893.919921875,
+      "ort20": 13120,
+      "ort50": 13426,
+      "rsi": 68.5,
+      "macd_histo": 140.0,
+      "ay1_pct": 7.2,
+      "ay3_pct": 9.0,
+      "ay6_pct": 31.7,
+      "bb_pozisyon": 99.5,
+      "ust_band": 13902,
+      "alt_band": 12338
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %8.1 olarak hesaplandı, bu da endeksin yalnızca birkaç hisse tarafından taşınmakta olduğunu gösteriyor. Yükselen hisse sayısı 5, düşen hisse sayısı 51 olarak kaydedildi, bu da piyasanın genişlik açısından zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmektedir. Düzelme riski skoru 42/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 68.5 olarak kaydedildi, bu da aşırı alım bölgesine yaklaşıldığını gösteriyor. VIX değeri 21.1 olarak hesaplandı, bu da yatırımcıların temkinli olduğunu gösteriyor. Tetikleyici olarak, aşırı alım bölgesine ulaşılması ve ardından bir düzeltme olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasa genişliği zayıf olduğu için, endeks yerine belirli hisseleri takip etmek daha doğru olabilir.\n * Aşırı alım bölgesine yaklaşıldığı için, pozisyonların bir kısmının azaltılması veya stop-loss seviyelerinin güncellenmesi düşünülebilir.\n * Temkinli bir yaklaşım benimsemek ve olası bir düzeltme için hazırlıklı olmak, yatırımcıların risklerini yönetmelerine yardımcı olabilir."
+  },
+  "risk_skoru": 42,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
