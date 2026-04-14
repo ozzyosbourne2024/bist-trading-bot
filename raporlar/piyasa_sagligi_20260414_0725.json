@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-14T07:25:01.963680",
+  "genisl": {
+    "yukselenler": 56,
+    "dusenler": 0,
+    "breadth_skoru": 90.3,
+    "adl_oran": 56.0,
+    "rsi_asiri_yuksel_sayi": 12,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 16,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.62,
+    "bist_degisim_10g": 9.97,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.72917175292969,
+    "usdtry_aylik_pct": 1.16,
+    "tur_etf_degisim": 8.64,
+    "altin_degisim": 3.57,
+    "vix": 19.1
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 21,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14230.400390625,
+      "ort20": 13192,
+      "ort50": 13442,
+      "rsi": 74.5,
+      "macd_histo": 165.0,
+      "ay1_pct": 7.7,
+      "ay3_pct": 11.1,
+      "ay6_pct": 34.1,
+      "bb_pozisyon": 104.6,
+      "ust_band": 14142,
+      "alt_band": 12241
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %90.3 olarak yüksek görünüyor ve yükselen hisse sayısı (56) düşen hisse sayısından (0) çok daha fazla. Bu, endeksin geniş tabanlı bir yükseliş içinde olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru (21/100) düşük ve endeksin RSI değeri (74.5) yüksek, ancak bu durum aşırı alım sinyali olarak yorumlanabilir. Ancak, VIX değeri (19.1) ve TUR ETF 20G değeri (8.64%) nötr görünüyor. Tetikleyici olarak, global piyasalardaki gelişmeler veya makroekonomik verilerdeki değişimler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksin güçlü yükseliş trendini dikkate alarak, uzun vadeli yatırım stratejilerini gözden geçirin.\n * Aşırı alım sinyallerine dikkat edin ve pozisyonlarınıza göre risk yönetimini uygulayın.\n * Global piyasalardaki gelişmeleri ve makroekonomik verileri yakından takip edin, olası değişimlere karşı hazırlıklı olun."
+  },
+  "risk_skoru": 21,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
