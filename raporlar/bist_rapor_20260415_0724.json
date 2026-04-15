@@ -1,0 +1,409 @@
+{
+  "tarih": "2026-04-15T07:24:39.584021",
+  "bist_ozet": "BIST100 Özet (1 hisse tarandı):\n- Pozitif 3Ay: 0/1 (%0)\n- Ort 3Ay getiri: %-9.6\n- Manipülasyon şüphesi: 0\n- Balon şüphesi: 0\n- Derin analize: 1",
+  "kural_motoru": [],
+  "hisseler": [],
+  "agent3": {
+    "piyasa_duyarliligi": "NOTR",
+    "kritik_gelismeler": [
+      "Türkiye ile Dünya Bankası İstanbul Kuzey Demir Yolu Geçişi Projesi'nin finansman anlaşması imzalandı",
+      "Türkiye ile Kazakistan arasında 14. Dönem KEK Protokolü imzalandı"
+    ],
+    "sektor_haberleri": {
+      "Bankacılık": "Borsa güne yükselişle başladı"
+    },
+    "hisse_sentiment": {
+      "THYAO": {
+        "sentiment": "NOTR",
+        "gerekce": "Haberde geen",
+        "etki": "DÜŞÜK"
+      }
+    },
+    "makro_riskler": [
+      "Reklam Kurulundan tüketiciyi aldatan reklamlara yaklaşık 49,9 milyon lira ceza"
+    ],
+    "firsatlar": [
+      "Çevre, Şehircilik ve İklim Değişikliği Bakanlığı 135 milli emlak uzman yardımcısı alacak"
+    ]
+  },
+  "agent1": "**BIST100 Genel Değerlendirmesi**\n\nBIST100 endeksinin genel görünümü, son 3 ayda %-9.6'lık bir kayıp ile negatif bir trendi işaret etmektedir. Pozitif 3 aylık getiri gösteren hisse sayısı 0'dır, bu da endeksin genel olarak zayıf bir performans sergilediğini göstermektedir. Manipülasyon veya balon şüphesi bulunmamaktadır, ancak derin analize ihtiyaç duyulan 1 hisse bulunmaktadır.\n\n**Sektör Analizi + Korelasyon Yorumu**\n\nMaalesef, korelasyon hesaplanamadığı için sektörler arası ilişki ve etkileşimleri değerlendirememekteyiz. Bu, daha详lı bir analiz için eksik bir veri noktası olarak görülebilir.\n\n**Elinen Hisselerin Kısa Notu**\n\nElinen hisseler hakkında yeterli bilgi bulunmamaktadır. Daha fazla veri ve analiz gereklidir.\n\n**Kural Motoru Puanı Yüksek Hisseler için Detaylı Analiz**\n\nKural motoru puanı yüksek hisseler listelenmemiştir. Bu nedenle, bu hisselerin teknik ve temel analizini gerçekleştirememekteyiz.\n\n**TOP 8 Hisse (Kural Motoru Puanı + Sentiment Birlikte)**\n\nTOP 8 hisse listesi sağlanmamıştır. Bu, en güçlü ve en zayıfların belirlenmesi için kritik bir adımdır.\n\n**Önerilen Kelly Criterion Ağırlıkları**\n\nKelly Criterion ağırlıkları hesaplanmamıştır. Bu, portföy optimizasyonu için önemli bir adımdır.\n\n**Genel Görünüm**\n\nGenel görünüm, BIST100'ün zayıf bir performans sergilediğini ve %-9.6'lık bir kayıp ile negatif bir trendi işaret etmektedir. **BEARISH** bir görünüm hakimdir. Piyasa durumunun kritik olduğu ve dikkatli bir yaklaşımın gerekli olduğu söylenebilir.",
+  "agent2": {
+    "strateji": "DENGELI",
+    "risk_seviyesi": "ORTA",
+    "piyasa_gorusu": "BEARISH",
+    "nakit_orani_pct": 100,
+    "kararlar": [
+      {
+        "ticker": "THYAO",
+        "karar": "BEKLE",
+        "agirlik_pct": 0,
+        "hedef_fiyat": 0.0,
+        "stop_loss": 0.0,
+        "kural_puan": 0,
+        "kelly_f": 0,
+        "gerekce": "Piyasa görünümü BEARISH, yeterli veri bulunmamaktadır."
+      }
+    ]
+  },
+  "elinen": [],
+  "haberler": [
+    {
+      "baslik": "Borsa güne yükselişle başladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Borsa İstanbul'da BIST 100 endeksi, güne yüzde 0,24 artışla 14.236,21 puandan başladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türkiye ile Dünya Bankası İstanbul Kuzey Demir Yolu Geçişi Projesi'nin finansman anlaşmasını imzaladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Hazine ve Maliye Bakanı Mehmet Şimşek, İstanbul Kuzey Demir Yolu Geçişi Projesi (İstanbul North Rail Crossing Project-INRAIL) kapsamında Dünya Bankasından temin edilen 1,67 milyar avroluk finansmana yönelik anlaşmaya imza attı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türkiye ile Kazakistan arasında 14. Dönem KEK Protokolü imzalandı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Kazakistan'ın başkenti Astana'da düzenlenen Kazakistan-Türkiye Karma Ekonomik Komisyonu (KEK) Heyetler Arası 14. Dönem Toplantısı'nın ardından, 14. Dönem KEK Protokolü ve bu kapsamdaki 67 maddelik eylem planı imzalandı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Çevre, Şehircilik ve İklim Değişikliği Bakanlığı 135 milli emlak uzman yardımcısı alacak",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Özel yarışma sınavıyla alınacak milli emlak uzman yardımcıları, taşra teşkilatı kadrolarında istihdam edilecek.  Başvurular, 20 Nisan'da başlayacak ve 26 Nisan saat 23.59'a kadar e-Devlet üzerinden yapılabilecek.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Reklam Kurulundan tüketiciyi aldatan reklamlara yaklaşık 49,9 milyon lira ceza",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Reklam Kurulu, yılın ilk 4 ayında aldatıcı reklam veya haksız ticari uygulama olduğu tespit edilen 117 ayrı dosyada, toplam 49 milyon 874 bin 780 lira idari para cezası uygulanmasını kararlaştırdı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bakan Yumaklı: Son yılların en verimli hamsi sezonlarından birini geride bıraktık",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Bakan Yumaklı, yaklaşık 245 bin ton avlanma ile son yılların en verimli hamsi sezonlarından birini yaşandığını belirterek, \"Kaynaklarımızı koruyarak yürüttüğümüz bu süreçle hem balıkçımız kazandı hem de sofralarımız bereketlendi.\" ifadesini kullandı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Elektrikli skuterlerin yerlilik esaslarının belirlenmesine ilişkin kriterler tespit edildi",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Elektrikli skuterlerin üretiminde uygulanacak yerlilik kriterleri ile bunların belgelendirilmesine ilişkin usul ve esaslar belirlendi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Küresel piyasalarda \"barış\" zilleri çalıyor",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Küresel piyasalarda, ABD ile İran'ın uzlaşı sağlanabileceğine yönelik artan umutlarla pozitif bir seyir öne çıkarken, ABD'de üretici enflasyonundaki hızlanma, savaşın olumsuz etkilerinin makroekonomik verilere yansımaya devam ettiğini gösterdi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bakan Kacır: Küresel ekonomideki zorluklara rağmen yatırımları hızlandırmayı ve üretimi büyütmeyi sürdüreceğiz",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır, küresel ekonomide yaşanan tüm zorluklara rağmen yatırımları hızlandırmayı ve üretimi büyütmeyi sürdüreceklerini bildirdi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Kanada'da petrol yakıtları üzerindeki vergiler geçici süreliğine kaldırıldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Kanada Başbakanı Mark Carney, benzin, dizel ve havacılık yakıtı üzerindeki federal vergiyi, geçici olarak askıya aldığını duyurdu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Borsa günü yükselişle tamamladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Borsa İstanbul'da BIST 100 endeksi, günü yüzde 1,02 değer kazanarak 14.202,24 puandan tamamladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "MÜSİAD ve JPMorgan Chase işbirliğinde New York'ta yatırım konferansı düzenlendi",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Müstakil Sanayici ve İşadamları Derneği (MÜSİAD) ile JPMorgan Chase işbirliğinde, ABD'nin New York şehrinde yatırım konferansı ve sektör odaklı yatırımcı-firma buluşmaları organize edildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "60 saniyede ekonomide bugün (14 Nisan 2026)",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Bir bakışta ekonomide günün gelişmeleri. Halkbank'ın katkılarıyla…",
+      "ilgili_hisseler": [
+        "HALKB"
+      ]
+    },
+    {
+      "baslik": "IMF, Orta Doğu'daki savaştan dolayı bu yıla ilişkin küresel ekonomik büyüme tahminini düşürdü",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Uluslararası Para Fonu (IMF), Orta Doğu'daki çatışmanın yol açtığı aksaklıkların etkisiyle küresel ekonomik büyüme tahminini bu yıl için yüzde 3,3'ten yüzde 3,1'e düşürdü.",
+      "ilgili_hisseler": [
+        "AKSA"
+      ]
+    },
+    {
+      "baslik": "AB'de jet yakıtı tedariki endişesi",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Avrupa Birliği (AB) Komisyonu Sözcüsü Anna-Kaisa Itkonen, yakın zamanda jet yakıtı tedarik zincirinde aksaklıklar yaşanabileceğini ve bu durumun endişe verici olduğunu söyledi.",
+      "ilgili_hisseler": [
+        "AKSA"
+      ]
+    },
+    {
+      "baslik": "Bakan Kacır: Tech Visa Programı sayesinde 5 bine yakın teknoloji geliştiricisi Türkiye'ye taşındı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır, Türkiye Tech Visa Programı sayesinde şimdiye kadar 5 bine yakın teknoloji geliştiricisinin Türkiye'ye taşındığını ve çalışmalarını Türkiye'de sürdürdüğünü söyledi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ABD'de üretici enflasyonu martta beklentilerin altında gerçekleşti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "ABD'de Üretici Fiyat Endeksi (ÜFE), martta aylık bazda yüzde 0,5, yıllık bazda yüzde 4 artarak beklentilerin altında gerçekleşti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bitcoin küresel risk iştahıyla 74 bin doların üzerine çıktı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "ABD ve İran arasındaki müzakerelerin yeniden başlayabileceğine dair beklentiler piyasalarda risk iştahını artırırken, bitcoin mart ortasından bu yana en yüksek seviyesini gördü.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Avrupa hava yolu şirketleri jet yakıtı krizine önlem talep etti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Avrupa'daki hava yolu şirketlerini temsil eden Airlines for Europe (A4E), Avrupa Birliği'nden (AB) jet yakıtı arzına ilişkin riskler ve artan maliyetler karşısında önlemler alınmasını talep etti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türkiye'de geçen yıl 207 bin 371 balıkçılık denetimi yapıldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Denetimlerde, 550 ton su ürününe, 2 bin 394 av aracına ve 84 balıkçı gemisine el konuldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Rekabet Kurumu, dijital pazarların mevcut yapısı ve işleyişini kapsamlı şekilde analiz edecek",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Çalışma sonucunda, Türkiye dinamiklerine uygun yeni rekabet kuralları ve dijital pazarlar için özelleştirilmiş müdahale araçlarının belirlenmesi hedefleniyor.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Palamudun üzdüğü Karadenizli balıkçıları hamsi mutlu etti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Sezona 1 Eylül 2025'te \"Vira Bismillah\" diyerek başlayan Karadenizli balıkçılar, palamutta gerçekleşmeyen avı hamside buldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "IEA: Küresel petrol arzı martta günlük 10,1 milyon varille \"tarihteki en büyük\" düşüşü yaşadı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Küresel petrol arzı, ABD/İsrail-İran Savaşı'nın etkisiyle martta önceki aya göre günlük 10 milyon 120 bin varil azalarak tarihteki en büyük düşüşü yaşadı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bursa'da banttan indirilen her iki otomobilden biri yurt dışına satıldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "OYAK Renault ve TOFAŞ'ın fabrikalarının bulunduğu Bursa'da, yılın ilk çeyreğinde üretilen otomobillerin yarısı yurt dışına gönderildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Çin'in dış ticaret fazlası son 13 ayın en düşük seviyesine indi",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 14 Apr 2026",
+      "ozet": "Çin'de dış ticaret fazlası, ihracatın beklentilerin üzerinde azalmasıyla mart ayında 51,1 milyar dolara inerek son 13 ayın en düşük seviyesine geriledi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Yüzde 30 getiri vaat etti: Yakışıklı 'finfluencer'a 6 yıl hapis",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "ABD&#039;da gayrimenkul yatırımı vaadiyle milyonlarca dolar toplayan finfluencer Tyler Bossetti, yatırımcıları dolandırdığı gerekçesiyle 6 yıl hapis cezasına çarptırıldı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Hizmet sektöründe toparlanma sinyali: Şubatta yıllık artış yüzde 2,3",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "TÜİK verilerine göre hizmet üretim endeksi Şubat 2026’da yıllık yüzde 2,3, aylık bazda ise yüzde 1,2 artış gösterdi. Özellikle bilgi ve iletişim sektöründeki güçlü yükseliş dikkat çekerken, gayrimenkul ve ulaştırma tarafında zayıf performans gözlemlendi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Tarımda üretici enflasyonu martta sert yükseldi: Sebze fiyatlarında artış yüzde 20'yi aştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Türkiye İstatistik Kurumu (TÜİK) tarım ürünleri üretici fiyat endeksi (Tarım-ÜFE) verilerini açıkladı. Son verilere göre, Tarım-ÜFE yıllık bazda yüzde 36,09, aylık bazda ise yüzde 3,85 artış kaydetti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "TÜİK açıkladı: İnşaat üretiminde yıllık artış!",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Türkiye İstatistik Kurumu (TÜİK), 2026&#039;nın şubat ayına ilişkin inşaat üretim endeksi verilerini açıkladı. Buna göre şubatta inşaat üretimi yıllık yüzde 5,9 artış gerçekleştirirken aylık ise yüzde 1,3 azaldı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "İstanbul Kuzey Demir Yolu Geçişi’nde kritik adım: Türkiye ile Dünya Bankası finansman anlaşmasını imzaladı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Hazine ve Maliye Bakanı Mehmet Şimşek, İstanbul Kuzey Demir Yolu Geçişi Projesi (İstanbul North Rail Crossing Project-INRAIL) kapsamında Dünya Bankası&#039;ndan temin edilen 1,67 milyar euroluk finansmana yönelik anlaşmaya imza attı. Bakan Şimşek, &quot;Bu, Dünya Bankasının tüm tarihinde onaylanan e",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Jet Luck’ta final: En iyi fikirler Halkbank’ta yarıştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Halkbank’ın girişimcilere yönelik olarak düzenlediği Jet Luck yarışmasının finali İstanbul Finans Merkezi Halkbank Kuleleri’nde gerçekleştirildi. Türkiye’nin farklı şehirlerinden gelen girişimciler, iş fikirlerini yalnızca 50 saniyelik bir “asansör konuşması” ile jüriye anlattı. Ödül töreninde konuş",
+      "ilgili_hisseler": [
+        "HALKB"
+      ]
+    },
+    {
+      "baslik": "Scooterlerde yeni dönem başlıyor: Yerli belgesi nasıl alınacak?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Sanayi ve Teknoloji Bakanlığı’nın yayımladığı yeni tebliğle, Türkiye’de elektrikli scooter üretiminde uygulanacak yerlilik kriterleri ve TSE belgelendirme esasları yürürlüğe girdi. 1 Temmuz’dan itibaren U-Net sistemine kaydedilecek scooterlerin belirlenen yerli parça şartlarını karşılaması gerekecek",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Kolombiya yüzde 100 gümrük vergisinden vazgeçti",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Kolombiya Cumhurbaşkanı Gustavo Petro, Ekvador&#039;un gümrük vergisini yüzde 100&#039;e çıkarma kararına aynı şekilde karşılık vermeyeceklerini açıkladı. Petro, ticari gerilimin tırmandırılmasına karşı olduklarını belirtirken, sınır güvenliği konusunda Ekvador yönetimini sert sözlerle eleştirdi. İk",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ABD’den İran’a deniz ablukası: Ticaret 36 saatte durdu",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "ABD Merkez Kuvvetler Komutanlığı, İran limanlarına yönelik başlatılan ablukanın kısa sürede etkisini gösterdiğini açıkladı. CENTCOM’a göre, deniz ticaretine dayalı İran ekonomisinde giriş-çıkışlar 36 saat içinde tamamen kesildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Nakit sıkışıklığı piyasayı değiştirdi: Ev ve otomobilde takas dönemi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Türkiye’de krediye erişimin zorlaşması ve nakit sıkışıklığının derinleşmesi, gayrimenkul ve otomotiv piyasasında takas işlemlerini öne çıkardı. İlanlarda “takas olur” ifadesi artarken, bazı işlemlerde lüks otomobiller konut alımında ödeme aracı gibi kullanılmaya başlandı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Gezginlerin odağı değişti, talep patladı: Seyahat ve turizmde zirve yılı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Seyahat ve turizm sektörü 2025&#039;te küresel ekonomiyi sollarken, dünya genelinde 11,6 trilyon dolarlık katkı ve 366 milyon istihdamla tarihinin en güçlü performansını sergiledi. Sektör, büyüme hızında dünya ekonomisini de geride bırakırken Asya-Pasifik küresel olarak en hızlı büyüyen bölge oldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Yüzde 1.5 hissesi için 200 milyon dolar ödeyecek",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Almanya merkezli Deutsche Börse, kripto borsası Kraken’a yaptığı yatırımla kurumsal ilginin arttığını bir kez daha gösterdi. Yüzde 1.5 hisse için 200 milyon dolar ödenecek.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ECB Başkanı Lagarde: Petrol kaynaklı enflasyon şokunun kalıcılığı için erken",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Avrupa Merkez Bankası (ECB) Başkanı Christine Lagarde, petrol fiyatlarındaki yükselişin tetiklediği enflasyon baskısının geçici mi kalıcı mı olduğunun henüz netleşmediğini söyledi. Lagarde, bu aşamada faiz artışının gerekip gerekmediğine ilişkin bir değerlendirme yapmanın erken olacağını vurguladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Ticaret Bakanlığı'ndan 50 milyon TL'lik denetim! 15 hesap kapatıldı!",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Ticaret Bakanlığı Reklam Kurulu, aldatıcı reklam ve haksız ticari uygulamalara yönelik denetimlerde önemli yaptırımlara imza attı. 132 dosyanın incelendiği toplantıda 117&#039;si mevzuata aykırı bulunurken, toplam 49,8 milyon TL idari para cezası kesildi. Ayrıca yasa dışı bahis ve kumar reklamlarıyl",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Savaşın faturası ağırlaşıyor: Dünya Bankası’ndan 100 milyar dolarlık destek planı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Orta Doğu’daki savaşın küresel ekonomiye etkileri büyürken Dünya Bankası 15 ayda 100 milyar dolara kadar finansman hazırlığında. IMF ise enerji fiyat şoklarının büyümeyi aşağı çektiğini belirterek, çatışmaların uzaması halinde daha derin ve kalıcı hasar uyarısı yaptı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Petrol fiyatlarında 3 kritik senaryo güçleniyor",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Enerji piyasalarında savaşla patlak veren kriz küresel ekonomiyi tehdit etmeye devam ediyor. Uluslararası Para Fonu (IMF) ve Uluslararası Enerji Ajansı&#039;nın (IEA) son raporları, petrol fiyatlarının hızla yükselip talebin sert düşebileceği bir döneme girildiğini gösteriyor. IMF, petrol fiyatları",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bakır yeniden güç kazandı: Savaş öncesi seviyeyi aştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Orta Doğu&#039;daki çatışmaların ardından sert dalgalanan bakır fiyatları, son dönemde yeniden yükselişe geçti. Barış görüşmelerine yönelik beklentiler ve elektrifikasyon projelerinden gelen talep, fiyatları destekledi. Londra piyasasında bakırın ton fiyatı yüzde 0,8 artarak 13.343,50 doların üzerin",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Petrolde düşüş sürüyor: Diplomasi umudu fiyatları baskılıyor",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Orta Doğu’daki çatışmada diplomatik çözüm ihtimalinin güçlenmesi petrol fiyatlarında düşüşü hızlandırdı. ABD-İran görüşmelerine yönelik beklentiler artarken, Uluslararası Enerji Ajansı Hürmüz Boğazı’ndaki akışın yeniden başlamasının küresel arz ve fiyatlar açısından kritik olduğunu vurguladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türkiye genelinde sıcaklıklar 6 derece artacak: Toz taşınımı uyarısı yapıldı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Meteoroloji’nin son tahminlerine göre Türkiye genelinde hava sıcaklıkları 4 ila 6 derece artacak. Batı bölgelerinde toz taşınımı etkili olurken, Doğu Karadeniz ve Doğu Anadolu’da çığ riski ile birlikte buzlanma etkili olabilir.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ABD Başkanı Trump: Savaş bitmeye çok yakın",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "ABD Başkanı Donald Trump, İran ile savaşın sona ermesine çok yaklaşıldığını söyledi. Trump, Tahran yönetiminin anlaşma yapmayı “canıgönülden istediğini” savunurken, ikinci tur görüşmelerin önümüzdeki iki gün içinde gerçekleşebileceğini belirtti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türkiye’de motorin fiyatı gece zamlandı, yarın indirim bekleniyor",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Döviz kuru ve petrol fiyatlarındaki hareketlilik ile vergilere yapılan zamlar akaryakıt fiyatlarını da etkilemeye devam ediyor. Motorine gece yarısı 3,33 TL zam gelirken, perşembe gece yarısından itibaren 4,04 TL indirim bekleniyor. 15 Nisan 2026 benzin, motorin (mazot) fiyatları ne kadar, güncel ak",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Dolar kaç TL oldu, Euro ne kadar? (15 Nisan Çarşamba Döviz Kurları)",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "15 NİSAN DÖVİZ KURU: Döviz kurlarında hareketlilik devam ediyor. Yeni günde Dolar 43,85 liradan, euro 51,72 TL seviyelerinden işlem görüyor. İşte güncel döviz kurları ve piyasalardaki son durum…",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ALTINDA SON DURUM: Gram ve çeyrek altın kaç TL oldu? Altın fiyatları ne kadar? (15 Nisan 2026)",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Altın ve döviz kurlarında iç ve dış piyasalarda yaşanan hareketlilik yakından izlenirken, vatandaşlar günün ilk saatlerinden itibaren “Gram altın, çeyrek altın ve ons altın bugün kaç lira?” sorularına yanıt arıyor. Gram altın yeni güne 6 bin 935 TL, ons altın da 4 bin 820 dolar seviyesinde başladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Mersin merkezli 9 ilde FETÖ operasyonu: 43 gözaltı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "Mersin merkezli 9 ilde FETÖ terör örgütüne yönelik düzenlenen eş zamanlı operasyonlarda 43 şüpheli gözaltına alındı. Şüphelilerin ‘Signal’ ile haberleşme sağladıkları ve &quot;muavenet&quot; adı altında para topladığı ve bu paraları örgüt ile bağlantılı hesaplar üzerinden dağıttığı tespit edildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Atletico Madrid ile PSG, Şampiyonlar Ligi'nde yarı finale yükseldi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Wed, 15 Apr 2026",
+      "ozet": "UEFA Şampiyonlar Ligi çeyrek final rövanş maçlarında Atletico Madrid, Barcelona&#039;yı; PSG de Liverpool&#039;u eleyerek yarı finale yükseldi.",
+      "ilgili_hisseler": []
+    }
+  ]
+}

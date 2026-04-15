@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-15T07:25:00.763230",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 5,
+    "breadth_skoru": 22.6,
+    "adl_oran": 2.8,
+    "rsi_asiri_yuksel_sayi": 23,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 5,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.59,
+    "bist_degisim_10g": 9.01,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 44.74879837036133,
+    "usdtry_aylik_pct": 0.97,
+    "tur_etf_degisim": 7.74,
+    "altin_degisim": 1.16,
+    "vix": 18.4
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 45,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 14227.3798828125,
+      "ort20": 13241,
+      "ort50": 13448,
+      "rsi": 82.0,
+      "macd_histo": 163.0,
+      "ay1_pct": 8.5,
+      "ay3_pct": 11.8,
+      "ay6_pct": 30.0,
+      "bb_pozisyon": 96.9,
+      "ust_band": 14293,
+      "alt_band": 12189
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini gösteriyor. Yükselen hisse sayısı (14) düşen hisse sayısından (5) fazla, ancak toplam hisse sayısına göre düşük bir oranda.\n\n2. Yakın vadede düzeltme bekleniyor. Düzelme riski skoru 45/100 olarak hesaplandı ve \"DÜZELTME RİSKİ YÜKSEK\" olarak sınıflandırıldı. RSI değeri (82.0) aşırı alım bölgesinde, bu da fiyatların kısa vadede düzeltme yaşayabileceğini gösteriyor. Tetikleyici olarak, aşırı alım bölgesindeki RSI değerinin geri çekilmesi veya makroekonomik faktörlerin değişmesi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, özellikle aşırı alım bölgesindeki hisseler için stop-loss seviyelerini güncellemelidir.\n * Pozisyonlarını azaltın: Yatırımcılar, özellikle yüksek riskli hisselerde pozisyonlarını azaltabilir ve daha güvenli yatırım araçlarına yönelebilir.\n * Kısa vadeli alım-satım stratejilerini gözden geçirin: Yatırımcılar, kısa vadeli alım-satım stratejilerini gözden geçirerek, aşırı alım bölgesindeki hisselerden uzaklaşabilir ve daha düşük riskli yatırım araçlarına yönelebilir."
+  },
+  "risk_skoru": 45,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
