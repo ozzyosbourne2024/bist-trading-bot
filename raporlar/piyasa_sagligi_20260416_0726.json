@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-16T07:26:26.699155",
+  "genisl": {
+    "yukselenler": 50,
+    "dusenler": 0,
+    "breadth_skoru": 80.6,
+    "adl_oran": 50.0,
+    "rsi_asiri_yuksel_sayi": 31,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 17,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.46,
+    "bist_degisim_10g": 11.38,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.763099670410156,
+    "usdtry_aylik_pct": 1.04,
+    "tur_etf_degisim": 9.99,
+    "altin_degisim": 4.25,
+    "vix": 18.2
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 30,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14408.3095703125,
+      "ort20": 13307,
+      "ort50": 13459,
+      "rsi": 84.3,
+      "macd_histo": 167.0,
+      "ay1_pct": 10.4,
+      "ay3_pct": 12.1,
+      "ay6_pct": 32.8,
+      "bb_pozisyon": 96.8,
+      "ust_band": 14483,
+      "alt_band": 12131
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. GENIŞLIK verisi, yükselen 50 hisse ve düşen 0 hisse olduğunu gösteriyor. Breadth skoru %80.6 ile oldukça yüksek, bu da endeksin geniş bir tabana sahip olduğunu ve birçok hissenin yükseldiğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. DÜZELTMERİSK SKORU 30/100 ile \"TEMKİNLİ TREND\" olarak belirlenmiştir. Ayrıca, RSI değeri 84.3 ile oldukça yüksek ve aşırı alım bölgesinde. Bu, bir düzeltme olasılığını artırabilir. Tetikleyici, VIX'in artması veya USDTRY kurunun değişimi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n* Stop-loss seviyelerini güncelleyin: Yükselen trendin devamı için stop-loss seviyelerini güncelleyin ve olası bir düzeltme durumunda kayıplarınızı sınırlayın.\n* Pozisyonlarını azaltın: Aşırı alım bölgesinde olan endeksten pozisyonlarını azaltarak risklerini yönetin.\n* Alternatif yatırım araçlarına yönelin: DÜZELTMERİSK SKORU'nun düşük olması nedeniyle, alternatif yatırım araçlarına yönelerek portföyünüzü çeşitlendirebilirsiniz."
+  },
+  "risk_skoru": 30,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
