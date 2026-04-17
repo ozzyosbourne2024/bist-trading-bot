@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-17T07:28:06.440459",
+  "genisl": {
+    "yukselenler": 22,
+    "dusenler": 5,
+    "breadth_skoru": 35.5,
+    "adl_oran": 4.4,
+    "rsi_asiri_yuksel_sayi": 27,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 3,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.63,
+    "bist_degisim_10g": 8.57,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.864898681640625,
+    "usdtry_aylik_pct": 1.29,
+    "tur_etf_degisim": 9.13,
+    "altin_degisim": 3.19,
+    "vix": 17.9
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 50,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 14235.5400390625,
+      "ort20": 13356,
+      "ort50": 13468,
+      "rsi": 84.2,
+      "macd_histo": 140.0,
+      "ay1_pct": 8.1,
+      "ay3_pct": 9.6,
+      "ay6_pct": 30.9,
+      "bb_pozisyon": 86.5,
+      "ust_band": 14561,
+      "alt_band": 12150
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %35.5 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini gösteriyor. Yükselen hisse sayısı (22) düşen hisse sayısından (5) daha fazla, ancak toplam hisse sayısına göre düşük bir oran. Bu, endeksin belirli bir grup hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 50/100 olarak hesaplandı ve yüksek bir düzeltme riski olduğunu gösteriyor. RSI değeri (84.2) aşırı alım bölgesinde, bu da fiyatların kısa vadede geri çekilebileceğini gösteriyor. BB%B değeri (86.5) de endeksin üst bantta olduğunu ve bir düzeltme olasılığını artırıyor. Tetikleyici, global piyasalardaki dalgalanmalar, ekonomik veriler veya siyasi gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, olası bir düzeltme durumunda kayıplarını sınırlamak için stop-loss seviyelerini güncellemelidir.\n * Pozisyonlarını azaltın: Yatırımcılar, yüksek riskli pozisyonlarını azaltarak olası bir düzeltme durumunda kayıplarını minimize edebilir.\n * Alternatif yatırım araçlarına yönelin: Yatırımcılar, alternatif yatırım araçlarına yönelerek portföylerini çeşitlendirebilir ve olası bir düzeltme durumunda risklerini dağıtabilir."
+  },
+  "risk_skoru": 50,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
