@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-20T07:59:50.427845",
+  "genisl": {
+    "yukselenler": 55,
+    "dusenler": 5,
+    "breadth_skoru": 88.7,
+    "adl_oran": 11.0,
+    "rsi_asiri_yuksel_sayi": 41,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 26,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.6,
+    "bist_degisim_10g": 11.25,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 44.87200164794922,
+    "usdtry_aylik_pct": 1.2,
+    "tur_etf_degisim": 13.0,
+    "altin_degisim": 4.31,
+    "vix": 17.5
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 30,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14587.900390625,
+      "ort20": 13373,
+      "ort50": 13475,
+      "rsi": 86.2,
+      "macd_histo": 162.0,
+      "ay1_pct": 10.8,
+      "ay3_pct": 12.3,
+      "ay6_pct": 34.2,
+      "bb_pozisyon": 97.9,
+      "ust_band": 14642,
+      "alt_band": 12105
+    },
+    "yorum": "Veriler ışığında analiz sonuçları:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %88.7 ile yüksek, yükselen hisse sayısı (55) düşen hisse sayısından (5) çok daha fazla. Bu, geniş bir tabanda yükseliş olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme bekleniyor. Düzelme riski skoru 30/100 ile \"TEMKİNLİ TREND\" olarak işaretleniyor. RSI değeri (86.2) yüksek, bu aşırı alım sinyali veriyor. VIX değeri (17.5) ve TUR ETF 20G (13.0%) nötr görünse de, BB%B değeri (97.9) endeksin üst bantta olduğunu gösteriyor. Bu, bir düzeltme için tetikleyici olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Stop-loss seviyelerini güncelleyin**: Yükselişin hızına rağmen, olası bir düzeltme için stop-loss seviyelerini güncelleyin.\n- **Aşırı alım sinyallerini izleyin**: RSI>70 olan hisseleri izleyin ve aşırı alım sinyallerine dikkat edin.\n- **Diversifikasyon uygulayın**: Portföyünüzü farklı sektörler ve varlık sınıfları arasında dağıtarak riski yönetin."
+  },
+  "risk_skoru": 30,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
