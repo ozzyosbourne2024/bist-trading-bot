@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-22T07:26:54.492169",
+  "genisl": {
+    "yukselenler": 39,
+    "dusenler": 4,
+    "breadth_skoru": 62.9,
+    "adl_oran": 9.75,
+    "rsi_asiri_yuksel_sayi": 17,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.98,
+    "bist_degisim_10g": 5.84,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 44.91960144042969,
+    "usdtry_aylik_pct": 1.27,
+    "tur_etf_degisim": 10.24,
+    "altin_degisim": -0.18,
+    "vix": 19.5
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 21,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14488.580078125,
+      "ort20": 13588,
+      "ort50": 13519,
+      "rsi": 77.6,
+      "macd_histo": 111.0,
+      "ay1_pct": 13.8,
+      "ay3_pct": 8.1,
+      "ay6_pct": 31.0,
+      "bb_pozisyon": 81.4,
+      "ust_band": 15024,
+      "alt_band": 12151
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %62.9 olarak hesaplandı ve yükselen hisse sayısı (39) düşen hisse sayısından (4) daha fazla. Bu, endeksin geniş tabanlı bir yükseliş içinde olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru 21/100 olarak hesaplandı ve bu skor \"sağlıklı trend\" olarak yorumlanıyor. Ayrıca, RSI değeri (77.6) yüksek olsa da, aşırı alım sinyali veren hisse sayısı (17) toplam hisse sayısına göre düşük değil. Ancak, VIX değeri (19.5) ve TUR ETF 20G değeri (10.24%) gibi makroekonomik göstergeler nötr olarak yorumlanıyor. Bir tetikleyici olarak, USDTRY kurundaki bir hareket veya global piyasalardaki bir dalgalanma endekste bir düzeltme yaşanmasına neden olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksin güçlü trendini dikkate alarak, uzun vadeli yatırım stratejilerini gözden geçirin ve güçlü hisselerde pozisyonlarınızı artırabilirsiniz.\n * RSI değeri yüksek olan hisselerde (özellikle aşırı alım sinyali veren 17 hisse) stop-loss seviyelerini güncelleyin ve olası bir düzeltme durumunda kayıplarınızı sınırlayın.\n * Makroekonomik göstergeleri yakından takip edin ve global piyasalardaki gelişmeleri izleyerek, olası bir tetikleyici durumunda hızlı bir şekilde pozisyonlarınızı ayarlayabilirsiniz."
+  },
+  "risk_skoru": 21,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
