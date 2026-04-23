@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-23T07:29:58.391666",
+  "genisl": {
+    "yukselenler": 9,
+    "dusenler": 41,
+    "breadth_skoru": 14.5,
+    "adl_oran": 0.22,
+    "rsi_asiri_yuksel_sayi": 10,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.63,
+    "bist_degisim_10g": 4.72,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 44.91790008544922,
+    "usdtry_aylik_pct": 1.04,
+    "tur_etf_degisim": 10.19,
+    "altin_degisim": -0.66,
+    "vix": 18.9
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14335.5,
+      "ort20": 13580,
+      "ort50": 13516,
+      "rsi": 75.3,
+      "macd_histo": 102.0,
+      "ay1_pct": 12.6,
+      "ay3_pct": 6.9,
+      "ay6_pct": 29.6,
+      "bb_pozisyon": 76.6,
+      "ust_band": 14998,
+      "alt_band": 12162
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %14.5 ve yükselen hisse sayısı 9, düşen hisse sayısı 41 olarak görünüyor. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğu anlamına geliyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 36/100 olarak belirlenmiş ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. Ayrıca, RSI değeri 75.3 ve BB%B değeri 76.6 olarak görünüyor. Bu, endeksin aşırı alım bölgesinde olduğunu ve bir düzeltme beklenabileceğini gösteriyor. Tetikleyici, global piyasalardaki dalgalanmalar veya makroekonomik verilerdeki olumsuz gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, portföylerinde bulunan hisselerin stop-loss seviyelerini güncellemeli ve olası bir düzeltme durumunda kayıplarını sınırlamaya çalışmalıdır.\n * Pozisyonlarını azaltın: Yatırımcılar, pozisyonlarını azaltarak risklerini yönetmeye çalışabilirler. Bu, özellikle aşırı alım bölgesinde olan hisseler için geçerli olabilir.\n * Alternatif yatırım araçlarına yönelin: Yatırımcılar, alternatif yatırım araçlarına yönelerek risklerini dağıtabilirler. Bu, özellikle düşük riskli yatırım araçları gibi tahviller veya bonolar olabilir."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
