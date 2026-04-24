@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-24T07:55:59.329961",
+  "genisl": {
+    "yukselenler": 11,
+    "dusenler": 31,
+    "breadth_skoru": 17.7,
+    "adl_oran": 0.35,
+    "rsi_asiri_yuksel_sayi": 11,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.72,
+    "bist_degisim_10g": 1.34,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.02009963989258,
+    "usdtry_aylik_pct": 1.29,
+    "tur_etf_degisim": 12.0,
+    "altin_degisim": -0.81,
+    "vix": 19.0
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14264.9404296875,
+      "ort20": 13657,
+      "ort50": 13525,
+      "rsi": 76.7,
+      "macd_histo": 73.0,
+      "ay1_pct": 12.3,
+      "ay3_pct": 3.1,
+      "ay6_pct": 30.7,
+      "bb_pozisyon": 71.9,
+      "ust_band": 15046,
+      "alt_band": 12268
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %17.7 olarak hesaplandı, bu da endeksin sadece bir kısmının yükseldiğini ve genel olarak piyasanın genişliğinin dar olduğunu gösteriyor. Ayrıca, yükselen hisse sayısı (11) düşen hisse sayısından (31) daha az, bu da piyasanın genel olarak zayıf olduğunu destekler.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 33/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Bu, piyasanın aşırı alım bölgesinde olduğunu (RSI=76.7) ve bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, aşırı alım bölgesinde olan hisse sayısının (11) yüksek olması ve piyasanın genel olarak zayıf olması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasanın aşırı alım bölgesinde olduğunu dikkate alarak, uzun pozisyonlarını azaltabilir veya stop-loss seviyelerini güncelleyebilir.\n * Daralan piyasa genişliği nedeniyle, seçici bir yatırım yaklaşımı benimseyerek, güçlü temel göstergeleri olan hisseleri tercih edebilir.\n * Düzelme riski skorunun yüksek olması nedeniyle, kısa vadeli yatırım stratejilerini gözden geçirebilir ve daha uzun vadeli bir perspektife odaklanabilir."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
