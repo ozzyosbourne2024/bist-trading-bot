@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-27T08:13:50.615338",
+  "genisl": {
+    "yukselenler": 29,
+    "dusenler": 5,
+    "breadth_skoru": 46.8,
+    "adl_oran": 5.8,
+    "rsi_asiri_yuksel_sayi": 11,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 10
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.7,
+    "bist_degisim_10g": 3.3,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.0276985168457,
+    "usdtry_aylik_pct": 1.25,
+    "tur_etf_degisim": 13.27,
+    "altin_degisim": -2.06,
+    "vix": 19.1
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 26,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14521.41015625,
+      "ort20": 13755,
+      "ort50": 13535,
+      "rsi": 79.0,
+      "macd_histo": 71.0,
+      "ay1_pct": 15.0,
+      "ay3_pct": 4.9,
+      "ay6_pct": 32.4,
+      "bb_pozisyon": 77.8,
+      "ust_band": 15132,
+      "alt_band": 12379
+    },
+    "yorum": "Veriler ışığında:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünmüyor. Breadth skoru %46.8 ve yükselen hisse sayısı (29) düşen hisse sayısından (5) daha fazla. Bu, endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımakta olmadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor gibi görünüyor. Düzeltme skoru 26/100 olarak belirlenmiş ve \"sağlıklı trend\" olarak yorumlanıyor. RSI değeri (79.0) aşırı alım bölgesinde olsa da, diğer göstergeler (VIX, TUR ETF 20G) nötr ve endeksin aşırı bir hareket içinde olmadığını gösteriyor. Tetikleyici olarak, global ekonomik gelişmeler, faiz oranları veya jeopolitik olaylar gibi dış faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Endeks takip etmeyi sürdür**: Sağlıklı trend devam ediyor, bu nedenle endeksin genel yönünü takip etmek ve uzun vadeli yatırım stratejilerini gözden geçirmek önemlidir.\n- **Hisse seçimi dikkatli yapılmalı**: Aşırı alım bölgesinde olan 11 hisseyi dikkatle izlemek ve aşırı değerlenmeden kaynaklı olası düzeltmeleri göz önünde bulundurmak önemlidir.\n- **Risk yönetimi**: Yatırım portföyünüzü düzenli olarak gözden geçirin ve riskinizi yönetmek için necessary adımları atın. Özellikle global ekonomik belirsizliklerin arttığı dönemlerde, portföyünüzü çeşitlendirmek ve stop-loss seviyelerini belirlemek önemlidir."
+  },
+  "risk_skoru": 26,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
