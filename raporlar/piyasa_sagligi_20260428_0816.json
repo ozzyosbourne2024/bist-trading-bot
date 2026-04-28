@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-28T08:16:03.217397",
+  "genisl": {
+    "yukselenler": 12,
+    "dusenler": 34,
+    "breadth_skoru": 19.4,
+    "adl_oran": 0.35,
+    "rsi_asiri_yuksel_sayi": 21,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.68,
+    "bist_degisim_10g": 2.43,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.04899978637695,
+    "usdtry_aylik_pct": 1.34,
+    "tur_etf_degisim": 15.31,
+    "altin_degisim": -3.5,
+    "vix": 18.3
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 41,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14546.0400390625,
+      "ort20": 13855,
+      "ort50": 13544,
+      "rsi": 84.4,
+      "macd_histo": 61.0,
+      "ay1_pct": 13.7,
+      "ay3_pct": 6.8,
+      "ay6_pct": 31.4,
+      "bb_pozisyon": 76.2,
+      "ust_band": 15174,
+      "alt_band": 12536
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %19.4 olarak hesaplandı, bu da endeksin yalnızca az sayıda hisse tarafından taşınmakta olduğunu gösteriyor. Yükselen hisse sayısı 12, düşen hisse sayısı 34 olarak kaydedildi.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 41/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. RSI değeri 84.4 olarak yüksek seviyede ve BB%B değeri 76.2 olarak endeksin aşırı alım bölgesinde olduğunu gösteriyor. Bu durum, bir düzeltme olasılığını artırabilir. Tetikleyici, VIX endeksinin artması veya USDTRY kurunun dalgalanması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Stop-loss seviyelerini güncelleyin**: Yatırımcılar, portföylerini korumak için stop-loss seviyelerini güncellemelidir.\n- **Aşırı alım bölgesindeki hisselerden uzak durun**: RSI değeri 70'in üzerinde olan hisselerden uzak durmak, yatırımcıların aşırı alım riskini azaltabilir.\n- **Diversifikasyon yapın**: Yatırımcılar, portföylerini farklı varlık sınıflarına dağıtarak risklerini dağıtabilir ve olası düzeltmelere karşı korunabilir."
+  },
+  "risk_skoru": 41,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
