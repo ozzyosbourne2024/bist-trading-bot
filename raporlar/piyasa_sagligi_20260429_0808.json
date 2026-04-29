@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-29T08:08:45.227537",
+  "genisl": {
+    "yukselenler": 26,
+    "dusenler": 7,
+    "breadth_skoru": 41.9,
+    "adl_oran": 3.71,
+    "rsi_asiri_yuksel_sayi": 11,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 3,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 10
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": 1.37,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.068199157714844,
+    "usdtry_aylik_pct": 1.31,
+    "tur_etf_degisim": 9.52,
+    "altin_degisim": -4.24,
+    "vix": 18.0
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 19,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14449.1904296875,
+      "ort20": 13927,
+      "ort50": 13542,
+      "rsi": 71.9,
+      "macd_histo": 33.0,
+      "ay1_pct": 11.7,
+      "ay3_pct": 4.1,
+      "ay6_pct": 32.3,
+      "bb_pozisyon": 71.3,
+      "ust_band": 15152,
+      "alt_band": 12702
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %41.9 olarak hesaplandı ve yükselen hisse sayısı (26) düşen hisse sayısından (7) daha fazla, ancak toplam hisse sayısına göre düşük bir oranda. Bu, endeksin birkaç güçlü hisse tarafından taşınabileceğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzelme İskor Skoru 19/100 olarak hesaplandı ve bu skor \"sağlıklı trend\" olarak yorumlanıyor. Ancak, RSI değeri 71.9 olarak yüksek ve aşırı alım bölgesinde. Bu, kısa vadede bir düzeltme olasılığını artırabilir. Tetikleyici, aşırı alımın sona ermesi ve yatırımcıların kar realizasyonu yapması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, özellikle RSI değeri yüksek olan hisselerde stop-loss seviyelerini güncellemelidir.\n * Kar realizasyonu yapın: Aşırı alım bölgesinde olan hisselerde kar realizasyonu yapmak, olası bir düzeltme durumunda kayıpları azaltabilir.\n * Diversifikasyon yapın: Yatırımcılar, portföylerini diversify ederek risklerini azaltabilirler. Bu, farklı sektörlerdeki hisseleri ve diğer varlık sınıflarını eklemeyi içerebilir."
+  },
+  "risk_skoru": 19,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
