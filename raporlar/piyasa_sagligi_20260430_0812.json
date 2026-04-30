@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-04-30T08:12:52.422922",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 25,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.56,
+    "rsi_asiri_yuksel_sayi": 10,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.74,
+    "bist_degisim_10g": 0.77,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.180198669433594,
+    "usdtry_aylik_pct": 1.4,
+    "tur_etf_degisim": 8.58,
+    "altin_degisim": -5.01,
+    "vix": 18.6
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 25,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14312.51953125,
+      "ort20": 13989,
+      "ort50": 13540,
+      "rsi": 67.1,
+      "macd_histo": 5.0,
+      "ay1_pct": 9.7,
+      "ay3_pct": 3.0,
+      "ay6_pct": 32.7,
+      "bb_pozisyon": 64.3,
+      "ust_band": 15122,
+      "alt_band": 12855
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak düşük bir seviyede ve yükselen hisse sayısı (14) düşen hisse sayısından (25) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmektedir. RSI değeri (67.1) yüksek, ancak aşırı alım bölgesine (70) çok yakın değil. BB%B değeri (64.3) de yüksek, bu da endeksin üst bantta olduğunu gösteriyor. Düzelme skoru (25/100) da düşük, bu da trendin sağlıklı olmadığını ve düzeltme ihtimalini artırıyor. Tetikleyici olarak, global piyasalardaki dalgalanmalar, makroekonomik veriler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, özellikle yüksek RSI değerlerine sahip hisselerde stop-loss seviyelerini güncellemelidir.\n * Pozisyonlarını azaltın: Yatırımcılar, özellikle endeksin üst bantta olduğu ve düzeltme ihtimalinin yüksek olduğu durumlarda pozisyonlarını azaltabilir.\n * Alternatif yatırım araçlarına yönelin: Yatırımcılar, özellikle düşük riskli yatırım araçlarına yönelerek portföylerini çeşitlendirebilir ve risklerini azaltabilir."
+  },
+  "risk_skoru": 25,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
