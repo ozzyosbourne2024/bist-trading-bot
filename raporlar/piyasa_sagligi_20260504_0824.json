@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-04T08:24:53.033328",
+  "genisl": {
+    "yukselenler": 11,
+    "dusenler": 39,
+    "breadth_skoru": 17.7,
+    "adl_oran": 0.28,
+    "rsi_asiri_yuksel_sayi": 6,
+    "rsi_asiri_dusuk_sayi": 3,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.69,
+    "bist_degisim_10g": -1.26,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.194000244140625,
+    "usdtry_aylik_pct": 1.32,
+    "tur_etf_degisim": 8.81,
+    "altin_degisim": -2.29,
+    "vix": 17.6
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 25,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14404.26953125,
+      "ort20": 14063,
+      "ort50": 13546,
+      "rsi": 60.3,
+      "macd_histo": 1.0,
+      "ay1_pct": 11.3,
+      "ay3_pct": 6.0,
+      "ay6_pct": 36.2,
+      "bb_pozisyon": 66.0,
+      "ust_band": 15128,
+      "alt_band": 12998
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %17.7 olarak düşük bir seviyede ve yükselen hisse sayısı (11) düşen hisse sayısından (39) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru 25/100 olarak düşük bir seviyede ve endeksin RSI değeri (60.3) aşırı alım bölgesine ulaşmış değil. Ancak, VIX değeri (17.6) ve TUR ETF 20G değeri (8.81%) gibi makro ekonomik göstergeler nötr bir seviyede. Bir tetikleyici olarak, USDTRY kurundaki bir hareket veya global piyasalardaki bir dalgalanma endeksi üzerinde etkili olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksin güçlü hisselerine odaklanın. Breadth skoru düşük olduğu için, birkaç güçlü hisse endeksi taşıyor. Bu hisseleri takip edin ve olası fırsatları değerlendirmeye çalışın.\n * Stop-loss seviyelerini güncelleyin. Endeksin RSI değeri yüksek, ancak aşırı alım bölgesine ulaşmış değil. Ancak, olası bir düzeltme durumunda stop-loss seviyelerini güncelleyerek kayıpları sınırlayabilirsiniz.\n * Makro ekonomik göstergeleri takip edin. VIX ve TUR ETF 20G gibi göstergeler nötr bir seviyede. Ancak, global piyasalardaki bir dalgalanma veya USDTRY kurundaki bir hareket endeksi üzerinde etkili olabilir. Bu nedenle, makro ekonomik göstergeleri yakından takip edin ve olası değişikliklere karşı hazırlıklı olun."
+  },
+  "risk_skoru": 25,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
