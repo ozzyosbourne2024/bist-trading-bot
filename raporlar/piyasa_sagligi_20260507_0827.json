@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-07T08:27:16.315246",
+  "genisl": {
+    "yukselenler": 37,
+    "dusenler": 8,
+    "breadth_skoru": 59.7,
+    "adl_oran": 4.62,
+    "rsi_asiri_yuksel_sayi": 18,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 8,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.6,
+    "bist_degisim_10g": 4.3,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.23870086669922,
+    "usdtry_aylik_pct": 1.35,
+    "tur_etf_degisim": 5.45,
+    "altin_degisim": 0.6,
+    "vix": 17.5
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 17,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14951.509765625,
+      "ort20": 14331,
+      "ort50": 13597,
+      "rsi": 67.3,
+      "macd_histo": 29.0,
+      "ay1_pct": 10.5,
+      "ay3_pct": 8.4,
+      "ay6_pct": 41.5,
+      "bb_pozisyon": 96.0,
+      "ust_band": 15005,
+      "alt_band": 13657
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %59.7 olarak hesaplandı ve yükselen hisse sayısı (37) düşen hisse sayısından (8) daha fazla. Bu, endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımakta olmadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru 17/100 olarak hesaplandı ve bu değer düşük bir düzeltme riskini gösteriyor. Ayrıca, RSI değeri (67.3) aşırı alım bölgesine yaklaştı, ancak henüz aşırı alım sinyali vermedi. VIX değeri (17.5) de düşük bir volatiliteyi gösteriyor. Ancak, BB%B değeri (96.0) yüksek bir seviyede ve bu, bir düzeltme tetikleyicisi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksdeki geniş taban ve düşük düzeltme riski nedeniyle, mevcut trendi takip etmek ve uzun pozisyonlarda kalınabilir.\n * Aşırı alım bölgesine yaklaştığı için, RSI değerini yakından izlemek ve olası bir düzeltme sinyali verilmesi durumunda pozisyonları gözden geçirmek önemlidir.\n * BB%B değeri yüksek bir seviyede olduğu için, bir düzeltme tetikleyicisi olarak görülebilir. Bu nedenle, yatırımcılar olası bir düzeltme durumunda stop-loss seviyelerini güncellemeli ve pozisyonlarını korumalıdır."
+  },
+  "risk_skoru": 17,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
