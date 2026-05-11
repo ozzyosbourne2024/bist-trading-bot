@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-11T09:31:55.257502",
+  "genisl": {
+    "yukselenler": 37,
+    "dusenler": 12,
+    "breadth_skoru": 59.7,
+    "adl_oran": 3.08,
+    "rsi_asiri_yuksel_sayi": 19,
+    "rsi_asiri_dusuk_sayi": 7,
+    "ust_20_gun_sayi": 7,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.72,
+    "bist_degisim_10g": 3.58,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.37620162963867,
+    "usdtry_aylik_pct": 1.51,
+    "tur_etf_degisim": 3.15,
+    "altin_degisim": 1.77,
+    "vix": 18.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 17,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 15113.7998046875,
+      "ort20": 14483,
+      "ort50": 13645,
+      "rsi": 65.1,
+      "macd_histo": 46.0,
+      "ay1_pct": 7.4,
+      "ay3_pct": 6.6,
+      "ay6_pct": 40.9,
+      "bb_pozisyon": 99.6,
+      "ust_band": 15119,
+      "alt_band": 13847
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %59.7 olarak hesaplandı ve yükselen hisse sayısı (37) düşen hisse sayısından (12) daha fazla. Bu, endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru 17/100 olarak hesaplandı ve bu skor düşük bir düzeltme riskini gösteriyor. Ayrıca, RSI değeri 65.1 olarak hesaplandı ve bu değer aşırı alım bölgesine yaklaşıyor, ancak henüz aşırı alım bölgesine girmedi. Tetikleyici olarak, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks RSI değeri 65.1 olarak hesaplandığından, yatırımcılar aşırı alım bölgesine girilmesi durumunda satış yapmayı düşünebilirler.\n * Breadth skoru yüksek olduğundan, yatırımcılar endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımadığını dikkate almalı ve daha geniş bir hisse yelpazesine yatırım yapmayı düşünebilirler.\n * Düzeltme riski skoru düşük olduğundan, yatırımcılar uzun vadeli yatırım stratejilerini gözden geçirmeli ve endeksin trendini takip ederek pozisyonlarını ayarlayabilirler."
+  },
+  "risk_skoru": 17,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
