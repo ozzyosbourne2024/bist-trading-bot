@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-12T08:33:26.228202",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 35,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.4,
+    "rsi_asiri_yuksel_sayi": 16,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": 5.03,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 45.39500045776367,
+    "usdtry_aylik_pct": 1.48,
+    "tur_etf_degisim": 2.99,
+    "altin_degisim": 3.65,
+    "vix": 18.8
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 42,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 15050.1298828125,
+      "ort20": 14533,
+      "ort50": 13668,
+      "rsi": 66.2,
+      "macd_histo": 39.0,
+      "ay1_pct": 7.1,
+      "ay3_pct": 6.1,
+      "ay6_pct": 38.0,
+      "bb_pozisyon": 89.4,
+      "ust_band": 15190,
+      "alt_band": 13875
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak hesaplandı, bu da endeksin sadece %22.6'sının yükseldiğini gösteriyor. Ayrıca, yükselen hisse sayısı (14) düşen hisse sayısından (35) daha az. Bu, endeksin birkaç ağır hisse tarafından taşınmakta olabileceğini ve genel piyasa sağlığının iyi olmadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 42/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 66.2 olarak hesaplandı, bu da endeksin aşırı alım bölgesine yaklaştığını gösteriyor. Tetikleyici olarak, VIX endeksinin artması veya USDTRY kurunun değişimi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endekslerin aşırı alım bölgesine yaklaştığından, yatırımcılar pozisyonlarını gözden geçirmeli ve karlarını realizasyon için uygun fırsatları beklemelidir.\n * Piyasa sağlığı iyi olmadığından, yatırımcılar endeks yerine daha güçlü hisseleri tercih edebilir.\n * Düzelme riski yüksek olduğundan, yatırımcılar stop-loss emirleri kullanabilir veya pozisyonlarını azaltabilir."
+  },
+  "risk_skoru": 42,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
