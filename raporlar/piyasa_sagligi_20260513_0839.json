@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-13T08:39:44.287915",
+  "genisl": {
+    "yukselenler": 12,
+    "dusenler": 31,
+    "breadth_skoru": 19.4,
+    "adl_oran": 0.39,
+    "rsi_asiri_yuksel_sayi": 14,
+    "rsi_asiri_dusuk_sayi": 8,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.55,
+    "bist_degisim_10g": 2.56,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.416099548339844,
+    "usdtry_aylik_pct": 1.54,
+    "tur_etf_degisim": 0.68,
+    "altin_degisim": 1.93,
+    "vix": 17.9
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14677.990234375,
+      "ort20": 14550,
+      "ort50": 13682,
+      "rsi": 57.5,
+      "macd_histo": -5.0,
+      "ay1_pct": 3.4,
+      "ay3_pct": 2.4,
+      "ay6_pct": 33.7,
+      "bb_pozisyon": 60.9,
+      "ust_band": 15137,
+      "alt_band": 13963
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %19.4 olarak düşük bir seviyede ve yükselen hisse sayısı (12) düşen hisse sayısından (31) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 28/100 olarak düşük bir seviyede değil, ancak RSI (57.5) ve BB%B (60.9) değerleri endeksin aşırı alım bölgesine yaklaştığını gösteriyor. Tetikleyici olarak, VIX'in artması veya USDTRY kurunun dalgalanması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksdeki aşırı alım bölgesine yaklaştığı için, yatırımcılar kar realizasyonu yapmayı düşünebilir.\n * Breadth skorunun düşük olması nedeniyle, yatırımcılar endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu dikkate almalı ve portföylerini diversify etmeyi düşünebilir.\n * Düzelme riski skoru düşük olsa da, yatırımcılar stop-loss seviyelerini güncellemeli ve olası bir düzeltme durumunda kayıplarını sınırlamaya çalışmalı."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
