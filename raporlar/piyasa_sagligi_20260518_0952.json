@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-18T09:52:58.769622",
+  "genisl": {
+    "yukselenler": 2,
+    "dusenler": 53,
+    "breadth_skoru": 3.2,
+    "adl_oran": 0.04,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 6,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.79,
+    "bist_degisim_10g": -2.62,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.573699951171875,
+    "usdtry_aylik_pct": 1.53,
+    "tur_etf_degisim": -4.25,
+    "altin_degisim": -0.24,
+    "vix": 19.0
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14115.5400390625,
+      "ort20": 14570,
+      "ort50": 13759,
+      "rsi": 39.9,
+      "macd_histo": -97.0,
+      "ay1_pct": -3.2,
+      "ay3_pct": 2.3,
+      "ay6_pct": 30.0,
+      "bb_pozisyon": 9.8,
+      "ust_band": 15134,
+      "alt_band": 14005
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. GENIŞLIK verilerine göre, yükselen hisse sayısı sadece 2, düşen hisse sayısı ise 53. Breadth skoru %3.2 ile çok düşük seviyede. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? DÜZELTMERİSK SKORU 28/100 ile \"sağlıklı trend\" olarak değerlendiriliyor. Ancak, RSI=39.9 ve BB%B=9.8 gibi göstergeler, endeksin biraz oversold durumda olduğunu gösteriyor. Bu, kısa vadeli bir toparlanma olasılığını artırabilir. Tetikleyici, makroekonomik veriler veya global piyasalardaki gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks ve hisse seçimleri yapılırken, güçlü temel göstergelere sahip hisseleri tercih edin.\n * Kısa vadeli toparlanma olasılığına karşı, pozisyonlarınıza stop-loss seviyeleri belirleyin.\n * Global piyasalardaki gelişmeleri ve makroekonomik verileri yakından takip edin, çünkü bunlar endeks üzerinde etkili olabilir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
