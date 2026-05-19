@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-19T09:34:48.770452",
+  "genisl": {
+    "yukselenler": 2,
+    "dusenler": 51,
+    "breadth_skoru": 3.2,
+    "adl_oran": 0.04,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": -3.22,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.57170104980469,
+    "usdtry_aylik_pct": 1.45,
+    "tur_etf_degisim": -4.23,
+    "altin_degisim": -2.84,
+    "vix": 18.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14029.5,
+      "ort20": 14565,
+      "ort50": 13757,
+      "rsi": 38.5,
+      "macd_histo": -102.0,
+      "ay1_pct": -3.8,
+      "ay3_pct": 1.6,
+      "ay6_pct": 29.2,
+      "bb_pozisyon": 3.8,
+      "ust_band": 15146,
+      "alt_band": 13985
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. GENIŞLIK verilerine göre, yükselen hisse sayısı sadece 2, düşen hisse sayısı ise 51. Breadth skoru da %3.2 ile çok düşük seviyede. Bu, endeksin birkaç hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. DÜZELTMERİSK SKORU 28/100 ile düşük seviyede ve endeks RSI=38.5 ile oversold bölgesine yaklaşıyor. Ayrıca, TUR ETF 20G -4.23% ile negatif performans gösteriyor. Bu, endeksin kısa vadede bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, global piyasalardaki dalgalanmalar veya makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks oversold bölgesine yaklaştığı için, kısa vadede bir düzeltme yaşayabilir. Bu nedenle, yatırımcılar endeksi takip etmeli ve olası bir düzeltme fırsatını değerlendirebilir.\n * Az sayıda hisse endeksi taşıdığı için, yatırımcılar endeksin performansını etkileyen hisselere dikkat etmeli ve portföylerini bu hisselere göre ayarlamalıdır.\n * Global piyasalardaki dalgalanmalar ve makroekonomik gelişmeler, endeksin performansını etkileyebilir. Bu nedenle, yatırımcılar global piyasaları takip etmeli ve olası riskleri değerlendirmelidir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
