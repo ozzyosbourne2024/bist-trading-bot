@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-20T09:00:32.616220",
+  "genisl": {
+    "yukselenler": 24,
+    "dusenler": 19,
+    "breadth_skoru": 38.7,
+    "adl_oran": 1.26,
+    "rsi_asiri_yuksel_sayi": 5,
+    "rsi_asiri_dusuk_sayi": 4,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.81,
+    "bist_degisim_10g": -5.76,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.592498779296875,
+    "usdtry_aylik_pct": 1.5,
+    "tur_etf_degisim": -5.65,
+    "altin_degisim": -4.57,
+    "vix": 18.0
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14059.169921875,
+      "ort20": 14539,
+      "ort50": 13777,
+      "rsi": 43.9,
+      "macd_histo": -123.0,
+      "ay1_pct": -2.9,
+      "ay3_pct": 0.9,
+      "ay6_pct": 28.8,
+      "bb_pozisyon": 11.5,
+      "ust_band": 15162,
+      "alt_band": 13916
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %38.7 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini gösteriyor. Ayrıca, yükselen hisse sayısı (24) düşen hisse sayısından (19) sadece biraz daha fazla. Bu, endeksin genel olarak güçlü olmadığını ve birkaç hissenin endeksi taşıdığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 36/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Bu, endeksin yakın vadede bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, RSI'nin 43.9 seviyesinde olması ve son 1 ayda %2.9'luk bir düşüş olabilir. Ayrıca, VIX'in 18.0 seviyesinde olması ve TUR ETF'nin 20 günlük hareketinin %5.65'luk bir düşüş göstermesi de bir düzeltme olasılığını artırabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks ve hisse seçimleri yapılırken dikkatli olunmalıdır. Az sayıda hissenin endeksi taşıdığı bir ortamda, doğru hisse seçimlerinin yapılması önemlidir.\n * Kısa vadeli pozisyonlarda risk yönetimi yapılmalıdır. Düzelme riski skorunun yüksek olması, yatırımcıların pozisyonlarını güvence altına almaları gerektiğini gösteriyor.\n * Uzun vadeli yatırımcılar, kısa vadeli dalgalanmalardan etkilenmemek için sabırlı olmalı ve temel analizlerine dayanarak yatırım kararları almalıdır."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
