@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-21T09:31:03.380598",
+  "genisl": {
+    "yukselenler": 6,
+    "dusenler": 35,
+    "breadth_skoru": 9.7,
+    "adl_oran": 0.17,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 6,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.86,
+    "bist_degisim_10g": -7.41,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 45.529998779296875,
+    "usdtry_aylik_pct": 1.23,
+    "tur_etf_degisim": -4.19,
+    "altin_degisim": -3.78,
+    "vix": 17.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13924.6796875,
+      "ort20": 14509,
+      "ort50": 13798,
+      "rsi": 41.5,
+      "macd_histo": -143.0,
+      "ay1_pct": -3.1,
+      "ay3_pct": -1.0,
+      "ay6_pct": 27.2,
+      "bb_pozisyon": 7.5,
+      "ust_band": 15196,
+      "alt_band": 13821
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %9.7 olarak düşük bir seviyede ve yükselen hisse sayısı 6, düşen hisse sayısı 35 olarak belirgin bir şekilde azınlıkta. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 28/100 olarak düşük bir seviyede ve endeksin RSI değeri 41.5 olarak nötr bir seviyede. Ancak, VIX değeri 17.2 olarak nispeten düşük ve TUR ETF 20G değeri -4.19% olarak negatif. Bu, piyasada bir miktar belirsizlik ve güvensizlik olduğunu gösteriyor. Tetikleyici, global ekonomik gelişmeler, siyasi olaylar veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Portföyünüzü çeşitlendirin: Az sayıda hisse endeksi taşıyor, bu nedenle farklı sektörlerde ve hisse senetlerinde yatırım yaparak riskinizi dağıtmaya çalışın.\n * Kısa vadeli pozisyonlardan kaçının: Yakın vadede düzeltme bekleniyor, bu nedenle kısa vadeli pozisyonlardan kaçınarak riskinizi minimize etmeye çalışın.\n * Teknik analizleri takip edin: Endeksin RSI değeri ve diğer teknik göstergeleri takip ederek, potansiyel alım veya satım fırsatlarını belirlemeye çalışın."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
