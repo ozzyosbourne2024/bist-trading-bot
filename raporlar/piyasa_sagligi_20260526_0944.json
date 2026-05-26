@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-26T09:44:22.584703",
+  "genisl": {
+    "yukselenler": 18,
+    "dusenler": 30,
+    "breadth_skoru": 29.0,
+    "adl_oran": 0.6,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 3,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 1.11,
+    "bist_degisim_10g": -7.1,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.898101806640625,
+    "usdtry_aylik_pct": 1.86,
+    "tur_etf_degisim": -8.66,
+    "altin_degisim": -3.35,
+    "vix": 16.8
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13729.8798828125,
+      "ort20": 14386,
+      "ort50": 13830,
+      "rsi": 39.3,
+      "macd_histo": -155.0,
+      "ay1_pct": -5.9,
+      "ay3_pct": -1.1,
+      "ay6_pct": 23.4,
+      "bb_pozisyon": 17.5,
+      "ust_band": 15395,
+      "alt_band": 13377
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %29.0 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini ve çoğunluğunun düştüğünü gösteriyor. Ayrıca, yükselen hisse sayısı (18) düşen hisse sayısından (30) daha az. Bu, endeksin genel olarak zayıf olduğunu ve birkaç hissenin endeksi taşıdığını doğruluyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 36/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Bu, endeksin bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici olarak, RSI değeri (39.3) hala aşırı satım bölgesinde değil, ancak endeksin son 1 aydaki performansı (-5.9%) ve VIX değerinin (16.8) nispeten yüksek olması, bir düzeltme olasılığını artırabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks genel olarak zayıf olduğu için, yatırımcılar daha seçici olmalı ve güçlü temel göstergeleri olan hisseleri tercih etmelidir.\n * RSI değeri henüz aşırı satım bölgesinde değil, ancak endeksin son performansı zayıf olduğu için, yatırımcılar olası bir düzeltme için hazırlıklı olmalıdır ve stop-loss emirleri kullanabilirler.\n * Yabancı yatırımcıların tutumu nötr olduğu için, yatırımcılar makroekonomik gelişmeleri ve VIX değerini yakından takip etmelidir. Bir düzeltme olasılığına karşı, yatırımcılar portföylerini çeşitlendirmeli ve risklerini yönetmelidir."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
