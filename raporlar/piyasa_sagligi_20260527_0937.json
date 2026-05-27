@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-27T09:37:23.125267",
+  "genisl": {
+    "yukselenler": 17,
+    "dusenler": 36,
+    "breadth_skoru": 27.4,
+    "adl_oran": 0.47,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 1.03,
+    "bist_degisim_10g": -7.56,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.90079879760742,
+    "usdtry_aylik_pct": 1.63,
+    "tur_etf_degisim": -9.45,
+    "altin_degisim": -3.75,
+    "vix": 17.0
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13662.7998046875,
+      "ort20": 14383,
+      "ort50": 13829,
+      "rsi": 38.6,
+      "macd_histo": -160.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": -1.6,
+      "ay6_pct": 22.8,
+      "bb_pozisyon": 14.6,
+      "ust_band": 15401,
+      "alt_band": 13365
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %27.4 olarak düşük bir seviyede ve yükselen hisse sayısı (17) düşen hisse sayısından (36) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmektedir. Düzelme riski skoru 36/100 olarak orta seviyede ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. RSI değeri (38.6) aşırı satım bölgesine yaklaşıyor, bu da bir düzeltme olasılığını artırıyor. Tetikleyici, makroekonomik gelişmeler, siyasi olaylar veya global piyasalardaki dalgalanmalar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * **Risk yönetimi**: Portföyünüzü gözden geçirin ve riskli varlıklarınızı azaltın. Düzelme riski yüksek olduğundan, pozisyonlarınızı küçültmeyi veya stop-loss emirleri kullanmayı düşünün.\n * **Endeks dışı fırsatlar**: Breadth skoru düşük olduğundan, endeksin dışında güçlü performans gösteren hisseleri arayabilirsiniz. Bu hisseler, genel piyasa trendine rağmen iyi bir performans gösterebilir.\n * **RSI bazlı alım**: RSI değeri (38.6) aşırı satım bölgesine yaklaşıyor. Bu, bir alım fırsatı olabileceğini gösteriyor. RSI bazlı alım stratejilerini kullanarak, aşırı satım bölgesinde olan hisseleri takip edebilirsiniz."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
