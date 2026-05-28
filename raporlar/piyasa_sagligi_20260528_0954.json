@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-28T09:54:36.590924",
+  "genisl": {
+    "yukselenler": 17,
+    "dusenler": 36,
+    "breadth_skoru": 27.4,
+    "adl_oran": 0.47,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.79,
+    "bist_degisim_10g": -7.56,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.900001525878906,
+    "usdtry_aylik_pct": 1.68,
+    "tur_etf_degisim": -9.12,
+    "altin_degisim": -5.49,
+    "vix": 16.7
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13662.7998046875,
+      "ort20": 14383,
+      "ort50": 13829,
+      "rsi": 38.6,
+      "macd_histo": -160.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": -1.6,
+      "ay6_pct": 22.8,
+      "bb_pozisyon": 14.6,
+      "ust_band": 15401,
+      "alt_band": 13365
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %27.4 olarak düşük bir seviyede ve yükselen hisse sayısı (17) düşen hisse sayısından (36) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme bekleniyor. Düzelme riski skoru 36/100 olarak \"temkinli trend\" seviyesinde. RSI değeri (38.6) aşırı satım bölgesine yaklaşıyor, ancak henüz aşırı satım seviyesine ulaşmadı. VIX değeri (16.7) nötr bir seviyede. USDTRY kurunda son 10 günde %0.79'luk bir artış görüldü, bu da Türk Lirası'nın değer kaybettiğini gösteriyor. Bu faktörler birlikte düşünüldüğünde, yakın vadede bir düzeltme beklenilebilir. Tetikleyici, küresel ekonomideki gelişmeler, faiz oranlarındaki değişiklikler veya siyasi olaylar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Risk yönetimi**: Portföyünüzü gözden geçirin ve riskli varlıklarınızı azaltın. Düzelme riski yüksek olduğundan, portföyünüzü daha güvenli varlıklarla dengeleyin.\n- **Endeks dışı fırsatlar**: Breadth skoru düşük olduğundan, endeksin dışında güçlü performans gösteren hisseleri araştırmaya odaklanın. Bu hisseler, genel piyasa trendine rağmen iyi bir performans gösterebilir.\n- **Stop-loss seviyeleri**: Varlıklarınız için stop-loss seviyeleri belirleyin. Düzelme riski yüksek olduğundan, kayıplarınızı sınırlamak için stop-loss seviyeleri ayarlayın."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
