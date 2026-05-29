@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-05-29T09:43:52.557805",
+  "genisl": {
+    "yukselenler": 0,
+    "dusenler": 0,
+    "breadth_skoru": 0.0,
+    "adl_oran": 0.0,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 18,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.85,
+    "bist_degisim_10g": -7.56,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.87860107421875,
+    "usdtry_aylik_pct": 1.53,
+    "tur_etf_degisim": -9.37,
+    "altin_degisim": -0.0,
+    "vix": 15.8
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13662.7998046875,
+      "ort20": 14383,
+      "ort50": 13829,
+      "rsi": 38.6,
+      "macd_histo": -160.0,
+      "ay1_pct": -6.4,
+      "ay3_pct": -1.6,
+      "ay6_pct": 22.8,
+      "bb_pozisyon": 14.6,
+      "ust_band": 15401,
+      "alt_band": 13365
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor mu?\nCevap: Evet, \"Ağır hisse taşıyor mu: False\" ve \"Yükselen 0 / Düşen 0 hisse\" verileri, az sayıda hissenin endeksi taşıdığını gösteriyor. Bu durum, endeksin genel olarak zayıf olduğunu ve birkaç hissenin performansına bağlı olduğunu işaret ediyor.\n\n2. Yakın vadede düzeltme beklenir mi? Tetikleyici ne olabilir?\nCevap: Evet, yakın vadede düzeltme beklenmektedir. \"DÜZELTMERİSK SKORU: 36/100 → TEMKİNLİ TREND\" ve \"RSI=38.6\" verileri, endeksin aşırı satım bölgesinde olduğunu gösteriyor. Ayrıca, \"TUR ETF 20G: -9.37%\" ve \"VIX: 15.8\" verileri, yatırımcıların riskten kaçındığını ve endişeli olduğunu işaret ediyor. Tetikleyici, global ekonomideki gelişmeler, faiz oranlarındaki değişiklikler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Risk yönetimi**: Yatırımcılar, portföylerini gözden geçirmeli ve risklerini yönetmelidir. Bu, pozisyonlarını azaltmak veya hedge yapmak anlamına gelebilir.\n- **Endeks dışı fırsatlar**: Yatırımcılar, endeksin dışında kalan hisselere odaklanabilir. Bu hisseler, endeksin genel performansından bağımsız olarak iyi bir performans gösterebilir.\n- **Bekle ve gör**: Yatırımcılar, piyasada bir düzeltme bekleniyorsa, beklemeli ve piyasayı izlemelidir. Bu, doğru zamanda doğru kararı verme fırsatı sunabilir."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
