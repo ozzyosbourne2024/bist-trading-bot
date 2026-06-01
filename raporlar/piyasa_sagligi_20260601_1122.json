@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-01T11:22:06.779019",
+  "genisl": {
+    "yukselenler": 49,
+    "dusenler": 7,
+    "breadth_skoru": 79.0,
+    "adl_oran": 7.0,
+    "rsi_asiri_yuksel_sayi": 0,
+    "rsi_asiri_dusuk_sayi": 16,
+    "ust_20_gun_sayi": 2,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.56,
+    "bist_degisim_10g": -5.23,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 45.90140151977539,
+    "usdtry_aylik_pct": 1.52,
+    "tur_etf_degisim": -10.31,
+    "altin_degisim": -0.41,
+    "vix": 15.8
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 23,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13835.169921875,
+      "ort20": 14345,
+      "ort50": 13840,
+      "rsi": 34.1,
+      "macd_histo": -138.0,
+      "ay1_pct": -3.4,
+      "ay3_pct": 0.9,
+      "ay6_pct": 25.4,
+      "bb_pozisyon": 25.5,
+      "ust_band": 15386,
+      "alt_band": 13303
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %79.0 olarak hesaplandı ve yükselen hisse sayısı (49) düşen hisse sayısından (7) oldukça fazla. Bu, endeksin geniş tabanlı bir şekilde yükseldiğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzelme riski skoru 23/100 olarak hesaplandı ve bu skor \"sağlıklı trend\" olarak yorumlanıyor. Ayrıca, RSI değeri 34.1 olarak hesaplandı ve bu değer aşırı satım bölgesinde değil. Ancak, makro ekonomik veriler (VIX ve TUR ETF 20G) temkinli bir yaklaşımı destekleyebilir. Tetikleyici olarak, makro ekonomik verilerdeki bir bozulma veya global piyasalardaki bir dalgalanma düzeltme için bir neden olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksdeki geniş tabanlı yükselişi dikkate alarak, güçlü performans gösteren hisseleri takip edin ve portföyünüzü güncelleyin.\n * Makro ekonomik verilerdeki gelişmeleri yakından takip edin ve olası bir bozulmaya karşı pozisyonlarınızı güncelleyin.\n * RSI değeri 34.1 olan endeksin, kısa vadede bir toparlanma yaşayabileceğini dikkate alın ve olası bir alım fırsatını değerlendirin."
+  },
+  "risk_skoru": 23,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
