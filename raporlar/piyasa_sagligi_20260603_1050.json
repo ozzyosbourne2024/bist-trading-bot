@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-03T10:50:34.244521",
+  "genisl": {
+    "yukselenler": 8,
+    "dusenler": 25,
+    "breadth_skoru": 12.9,
+    "adl_oran": 0.32,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.8,
+    "bist_degisim_10g": -1.7,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 45.95240020751953,
+    "usdtry_aylik_pct": 1.6,
+    "tur_etf_degisim": -5.49,
+    "altin_degisim": -0.96,
+    "vix": 16.0
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14122.2998046875,
+      "ort20": 14322,
+      "ort50": 13883,
+      "rsi": 37.3,
+      "macd_histo": -70.0,
+      "ay1_pct": -2.2,
+      "ay3_pct": 9.2,
+      "ay6_pct": 28.3,
+      "bb_pozisyon": 40.6,
+      "ust_band": 15385,
+      "alt_band": 13260
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %12.9 olarak hesaplandı, bu da endeksin sadece küçük bir kısmının yükseldiğini gösteriyor. Yükselen hisse sayısı (8) düşen hisse sayısından (25) daha az, bu da endeksin genel olarak zayıf olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 36/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. RSI değeri 37.3, bu da endeksin aşırı satım bölgesinde olduğunu gösteriyor. Ayrıca, 1 aylık performans -2.2% olarak hesaplandı, bu da endeksin yakın zamanda düşüş trendinde olduğunu gösteriyor. Tetikleyici olarak, makroekonomik gelişmeler, siyasi olaylar veya global piyasalardaki dalgalanmalar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks aşırı satım bölgesinde olduğu için, kısa vadeli alım fırsatları olabilir. Ancak, genel trendi dikkate alarak, alım kararları dikkatli bir şekilde verilmelidir.\n * Portföy çeşitlendirmesi yapılabilir. Yükselen hisse sayısı az olduğu için, farklı sektörlerdeki hisselerin dahil edilmesi portföyü daha dengeli hale getirebilir.\n * Stop-loss seviyeleri belirlenmelidir. Endeks düşüş trendinde olduğu için, yatırımcılar olası kayıpları sınırlamak için stop-loss seviyelerini belirlemelidir."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
