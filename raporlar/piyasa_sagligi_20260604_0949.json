@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-04T09:49:57.028440",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 31,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.45,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 7,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.56,
+    "bist_degisim_10g": -1.33,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 45.96870040893555,
+    "usdtry_aylik_pct": 1.65,
+    "tur_etf_degisim": -10.1,
+    "altin_degisim": -0.99,
+    "vix": 16.4
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 43,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13842.3798828125,
+      "ort20": 14284,
+      "ort50": 13892,
+      "rsi": 33.5,
+      "macd_histo": -71.0,
+      "ay1_pct": -3.7,
+      "ay3_pct": 6.9,
+      "ay6_pct": 23.7,
+      "bb_pozisyon": 29.7,
+      "ust_band": 15374,
+      "alt_band": 13195
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak düşük bir seviyede ve yükselen hisse sayısı (14) düşen hisse sayısından (31) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 43/100 olarak orta seviyede ve trend temkinli olarak belirlenmiştir. RSI değeri (33.5) aşırı satım bölgesine yaklaştığından, bir düzeltme hareketi tetiklenebilir. Tetikleyici, makro ekonomik gelişmeler, siyasi olaylar veya global piyasalardaki dalgalanmalar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks ve hisse seçiminde dikkatli olunmalıdır. Güçlü temel göstergeleri olan hisseler tercih edilmelidir.\n * Portföylerde risk yönetimi yapılmalıdır. Stop-loss seviyeleri belirlenmeli ve olası kayıplar sınırlandırılmalıdır.\n * Kısa vadeli dalgalanmalardan kaçınmak için uzun vadeli yatırım stratejileri tercih edilmelidir. Bu, piyasadaki dalgalanmalardan daha az etkilenmeyi sağlar."
+  },
+  "risk_skoru": 43,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
