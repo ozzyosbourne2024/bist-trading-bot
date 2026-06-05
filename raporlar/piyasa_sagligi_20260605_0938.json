@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-05T09:38:44.893577",
+  "genisl": {
+    "yukselenler": 11,
+    "dusenler": 35,
+    "breadth_skoru": 17.7,
+    "adl_oran": 0.31,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.77,
+    "bist_degisim_10g": -1.78,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 46.08190155029297,
+    "usdtry_aylik_pct": 1.61,
+    "tur_etf_degisim": -9.45,
+    "altin_degisim": -0.64,
+    "vix": 15.7
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13764.0302734375,
+      "ort20": 14256,
+      "ort50": 13906,
+      "rsi": 36.0,
+      "macd_histo": -66.0,
+      "ay1_pct": -5.0,
+      "ay3_pct": 5.2,
+      "ay6_pct": 22.5,
+      "bb_pozisyon": 27.9,
+      "ust_band": 15366,
+      "alt_band": 13145
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %17.7 olarak düşük bir seviyede ve yükselen hisse sayısı (11) düşen hisse sayısından (35) çok daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 36/100 olarak orta seviyede ve \"TEMKİNLİ TREND\" olarak işaretlenmiş durumda. Ayrıca, RSI değeri 36.0 olarak düşük bir seviyede ve endeksin 1 aylık performansı -5.0% olarak negatif. Bu veriler, endeksin yakın vadede bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici olarak, makroekonomik gelişmeler, global piyasalardaki dalgalanmalar veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * **Risk yönetimine dikkat edin**: Düzelme riski skoru orta seviyede olduğu için, yatırımcılar pozisyonlarını gözden geçirmeli ve risklerini yönetmelidir.\n * **Endeks dışı fırsatları araştırmaya devam edin**: Breadth skoru düşük olduğu için, endeksin dışında güçlü performans gösteren hisseleri araştırmaya devam edin.\n * **Stop-loss seviyelerini güncelleyin**: Endeksin yakın vadede bir düzeltme yaşayabileceği düşünülürse, yatırımcılar stop-loss seviyelerini güncellemeli ve olası kayıpları sınırlamalıdır."
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
