@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-08T10:26:44.928555",
+  "genisl": {
+    "yukselenler": 15,
+    "dusenler": 36,
+    "breadth_skoru": 24.2,
+    "adl_oran": 0.42,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.43,
+    "bist_degisim_10g": 3.9,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 46.096099853515625,
+    "usdtry_aylik_pct": 1.57,
+    "tur_etf_degisim": -12.56,
+    "altin_degisim": -4.06,
+    "vix": 19.6
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 43,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13676.080078125,
+      "ort20": 14211,
+      "ort50": 13917,
+      "rsi": 37.0,
+      "macd_histo": -69.0,
+      "ay1_pct": -8.3,
+      "ay3_pct": 6.9,
+      "ay6_pct": 22.2,
+      "bb_pozisyon": 26.5,
+      "ust_band": 15351,
+      "alt_band": 13072
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %24.2 olarak düşük bir seviyede ve yükselen hisse sayısı (15) düşen hisse sayısından (36) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 43/100 olarak orta seviyede ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. Ayrıca, RSI değeri 37.0 olarak düşük bir seviyede ve endeksin 1 aylık performansı -8.3% olarak negatif. Tetikleyici olarak, VIX endeksinin 19.6 seviyesinde olması ve TUR ETF'nin 20 günlük performansı -12.56% olarak negatif olması, yatırımcıların riskten kaçınmaya başladığını gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n * Kısa vadeli alım-satım işlemlerinden kaçınmak ve uzun vadeli yatırım stratejilerine odaklanmak.\n * Portföyünüzü çeşitlendirmek ve riskli varlıkların oranını azaltmak.\n * Teknik analiz göstergelerini ve makroekonomik verileri yakından takip etmek ve piyasa koşullarına göre yatırım kararlarınızı güncellemek."
+  },
+  "risk_skoru": 43,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
