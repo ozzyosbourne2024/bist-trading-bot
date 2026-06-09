@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-09T09:32:57.083272",
+  "genisl": {
+    "yukselenler": 30,
+    "dusenler": 15,
+    "breadth_skoru": 48.4,
+    "adl_oran": 2.0,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 10
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.47,
+    "bist_degisim_10g": 0.71,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 15,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 46.11766815185547,
+    "usdtry_aylik_pct": 1.58,
+    "tur_etf_degisim": -11.82,
+    "altin_degisim": -1.99,
+    "vix": 18.1
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13906.4296875,
+      "ort20": 14170,
+      "ort50": 13935,
+      "rsi": 40.0,
+      "macd_histo": -42.0,
+      "ay1_pct": -7.5,
+      "ay3_pct": 9.5,
+      "ay6_pct": 23.8,
+      "bb_pozisyon": 37.8,
+      "ust_band": 15252,
+      "alt_band": 13087
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %48.4 ve yükselen hisse sayısı (30) düşen hisse sayısından (15) daha fazla, ancak bu oran çok yüksek değil. Bu, endeksin birkaç güçlü hisse tarafından taşınabileceğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 33/100 olarak belirlenmiş ve \"TEMKİNLİ TREND\" olarak işaretlenmiş. Ayrıca, RSI değeri 40.0 ve son 1 ayda endeks %7.5 oranında düşmüştür. Bu veriler, endeksin bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, VIX'in 18.1 seviyesinde olması ve TUR ETF'nin 20 günlük hareketinin -11.82% olması olabilir. Bu, yatırımcıların riskten kaçınmaya başladığını ve piyasanın bir düzeltme yaşayabileceğini gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n * **Risk yönetimi**: Yatırımcılar, portföylerini gözden geçirerek risklerini yönetmelidir. Bu, bazı hisselerden çıkış yaparak veya hedge işlemleri yaparak yapılabilir.\n * **Endeks takibi**: Yatırımcılar, endeksin hareketlerini yakından takip etmelidir. Endeksin bir düzeltme yaşaması durumunda, bazı hisselerde alım fırsatları oluşabilir.\n * **Temkinli yaklaşım**: Yatırımcılar, temkinli bir yaklaşım benimsemelidir. Piyasanın bir düzeltme yaşayabileceğini göz önünde bulundurarak, yeni alım kararları verirken dikkatli olmalıdır."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
