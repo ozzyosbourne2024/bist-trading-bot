@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-10T09:47:05.167985",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 32,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.41,
+    "rsi_asiri_yuksel_sayi": 10,
+    "rsi_asiri_dusuk_sayi": 0,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.52,
+    "bist_degisim_10g": -0.83,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 46.132598876953125,
+    "usdtry_aylik_pct": 1.55,
+    "tur_etf_degisim": NaN,
+    "altin_degisim": -6.73,
+    "vix": 21.0
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13693.25,
+      "ort20": 14159,
+      "ort50": 13931,
+      "rsi": 37.5,
+      "macd_histo": -55.0,
+      "ay1_pct": -9.0,
+      "ay3_pct": 7.8,
+      "ay6_pct": 21.9,
+      "bb_pozisyon": 28.8,
+      "ust_band": 15257,
+      "alt_band": 13062
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak hesaplandı ve yükselen hisse sayısı (13) düşen hisse sayısından (32) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 33/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. RSI değeri 37.5 olarak hesaplandı, bu da endeksin aşırı satım bölgesine yaklaştığını gösteriyor. Tetikleyici olarak, VIX endeksinin 21.0 seviyesinde olması ve USDTRY kurunun 10 günlük değişiminin %0.52 olması gibi makroekonomik faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endekslerin aşırı satım bölgesine yaklaştığını dikkate alarak, kısa vadeli alım fırsatları arayabilirsiniz.\n * Portföyünüzü çeşitlendirmek için farklı sektörlerdeki hisselere yatırım yapmayı düşünün, böylece riskinizi dağıtabilirsiniz.\n * RSI>70 olan aşırı alım bölgesindeki hisselerden uzak durun, çünkü bunlar düzeltme riski taşıyabilirler."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
