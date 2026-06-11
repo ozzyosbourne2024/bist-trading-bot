@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-11T10:15:26.549586",
+  "genisl": {
+    "yukselenler": 13,
+    "dusenler": 21,
+    "breadth_skoru": 21.0,
+    "adl_oran": 0.62,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 7,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.57,
+    "bist_degisim_10g": 0.53,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 13,
+    "gorunum": "TEMKİNLİ",
+    "usdtry": 46.15169906616211,
+    "usdtry_aylik_pct": 1.34,
+    "tur_etf_degisim": -8.99,
+    "altin_degisim": -9.83,
+    "vix": 20.6
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 41,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13735.1298828125,
+      "ort20": 14031,
+      "ort50": 13964,
+      "rsi": 45.3,
+      "macd_histo": -40.0,
+      "ay1_pct": -9.2,
+      "ay3_pct": 4.1,
+      "ay6_pct": 19.9,
+      "bb_pozisyon": 34.1,
+      "ust_band": 14960,
+      "alt_band": 13101
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %21.0 olarak hesaplandı ve yükselen hisse sayısı (13) düşen hisse sayısından (21) daha az. Bu, endeksin bir kaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 41/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 45.3 olarak hesaplandı ki bu bir düzeltme sinyali olabilir. Tetikleyici olarak, VIX endeksinin 20.6 seviyesinde olması ve TUR ETF'nin 20 günlük değişiminin -8.99% olması gibi makroekonomik faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Temkinli bir yaklaşım benimseyin ve portföyünüzü dengeli tutun.\n * RSI değeri yüksek olan hisselerden (aşırı alım durumunda olan 4 hisse) uzak durun veya pozisyonlarınızı azaltın.\n * Makroekonomik gelişmeleri yakından takip edin ve olası düzeltme fırsatlarını değerlendirmek için hazır olun."
+  },
+  "risk_skoru": 41,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
