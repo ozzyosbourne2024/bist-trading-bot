@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-12T10:02:57.865944",
+  "genisl": {
+    "yukselenler": 53,
+    "dusenler": 4,
+    "breadth_skoru": 85.5,
+    "adl_oran": 13.25,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 6,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.78,
+    "bist_degisim_10g": 3.0,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 46.254798889160156,
+    "usdtry_aylik_pct": 1.68,
+    "tur_etf_degisim": -7.23,
+    "altin_degisim": -5.16,
+    "vix": 18.5
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 16,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14117.009765625,
+      "ort20": 13980,
+      "ort50": 13992,
+      "rsi": 51.5,
+      "macd_histo": -8.0,
+      "ay1_pct": -4.5,
+      "ay3_pct": 6.3,
+      "ay6_pct": 24.4,
+      "bb_pozisyon": 58.9,
+      "ust_band": 14754,
+      "alt_band": 13207
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %85,5 ile yüksek seviyede ve yükselen hisse sayısı (53) düşen hisse sayısından (4) çok daha fazla. Bu, endeksin geniş tabanlı bir yükseliş içinde olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme riski skoru 16/100 ile düşük seviyede ve endeksin RSI değeri (51,5) aşırı alım bölgesinde değil. Ancak, VIX değeri (18,5) ve TUR ETF 20G'nin -7,23% olması gibi bazı makroekonomik göstergeler dikkat çekiyor. Tetikleyici olarak, global ekonomideki gelişmeler, faiz oranlarındaki değişiklikler veya jeopolitik gerilimler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksin güçlü trendini takip edin ve uzun vadeli yatırım stratejilerinizi gözden geçirin.\n * RSI>70 olan 4 hisseyi yakın takip edin ve aşırı alım bölgesine girerse satış fırsatı olarak değerlendirebilirsiniz.\n * Makroekonomik göstergeleri yakından takip edin ve global ekonomideki gelişmeleri izleyin. Jeopolitik gerilimler veya faiz oranlarındaki değişiklikler gibi tetikleyicilere karşı hazırlıklı olun."
+  },
+  "risk_skoru": 16,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
