@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-16T11:02:08.167607",
+  "genisl": {
+    "yukselenler": 47,
+    "dusenler": 8,
+    "breadth_skoru": 75.8,
+    "adl_oran": 5.88,
+    "rsi_asiri_yuksel_sayi": 17,
+    "rsi_asiri_dusuk_sayi": 1,
+    "ust_20_gun_sayi": 8,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 5
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": 2.4,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.29570007324219,
+    "usdtry_aylik_pct": 1.56,
+    "tur_etf_degisim": NaN,
+    "altin_degisim": -1.52,
+    "vix": 16.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 21,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14541.9697265625,
+      "ort20": 13959,
+      "ort50": 14025,
+      "rsi": 72.3,
+      "macd_histo": 33.0,
+      "ay1_pct": -0.4,
+      "ay3_pct": 11.1,
+      "ay6_pct": 28.8,
+      "bb_pozisyon": 90.2,
+      "ust_band": 14684,
+      "alt_band": 13235
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %75,8 ile yüksek seviyede ve yükselen hisse sayısı (47) düşen hisse sayısından (8) önemli ölçüde fazla. Bu, endeksin geniş bir tabana sahip olduğunu ve birkaç hissenin endeksi taşımadığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. RSI değeri (72,3) aşırı alım bölgesinde ve BB%B değeri (90,2) de yüksek seviyede. Bu, endeksin kısa vadeli olarak aşırı alım konumunda olduğunu ve bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici, VIX endeksinin artması veya makroekonomik gelişmelerin negatif yönde değişmesi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, olası bir düzeltme durumunda kayıplarını sınırlamak için stop-loss seviyelerini güncellemelidir.\n * Pozisyonlarını azaltın: Yatırımcılar, aşırı alım bölgesinde olan endeksten pozisyonlarını azaltabilir ve daha güvenli yatırım araçlarına yönelebilir.\n * Alternatif yatırım araçlarına yönelin: Yatırımcılar, daha düşük riskli yatırım araçlarına yönelebilir, örneğin tahvil veya bono gibi sabit getirili yatırım araçlarına yönelebilir."
+  },
+  "risk_skoru": 21,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
