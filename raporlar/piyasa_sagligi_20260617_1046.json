@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-17T10:46:08.306578",
+  "genisl": {
+    "yukselenler": 18,
+    "dusenler": 24,
+    "breadth_skoru": 29.0,
+    "adl_oran": 0.75,
+    "rsi_asiri_yuksel_sayi": 13,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 2,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.74,
+    "bist_degisim_10g": 4.45,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.31243133544922,
+    "usdtry_aylik_pct": 1.58,
+    "tur_etf_degisim": 1.76,
+    "altin_degisim": -2.87,
+    "vix": 16.4
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 32,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14491.3203125,
+      "ort20": 13942,
+      "ort50": 14094,
+      "rsi": 63.0,
+      "macd_histo": 75.0,
+      "ay1_pct": 0.9,
+      "ay3_pct": 9.6,
+      "ay6_pct": 27.8,
+      "bb_pozisyon": 91.6,
+      "ust_band": 14602,
+      "alt_band": 13281
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştım:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %29.0 ile düşük seviyede ve yükselen hisse sayısı (18) düşen hisse sayısından (24) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 32/100 ile orta seviyede ve RSI değeri 63.0 ile yüksek seviyede. Ayrıca, BB%B değeri 91.6 ile üst bantta yer alıyor. Bu, endeksin aşırı alım bölgesinde olduğunu ve düzeltme ihtimalinin yüksek olduğunu gösteriyor. Tetikleyici olarak, VIX'in artması veya USDTRY kurunun değişimi olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Stop-loss seviyelerini güncelleyin: Yatırımcılar, özellikle yüksek RSI değerlerine sahip hisselerde stop-loss seviyelerini güncellemelidir.\n * Pozisyonlarını azaltın: Yatırımcılar, özellikle aşırı alım bölgesinde olan hisselerde pozisyonlarını azaltabilir.\n * Alternatif yatırım araçlarına yönelin: Yatırımcılar, özellikle düşük volatiliteye sahip yatırım araçlarına yönelerek risklerini dağıtabilir."
+  },
+  "risk_skoru": 32,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
