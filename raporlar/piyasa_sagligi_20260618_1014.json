@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-18T10:14:17.809513",
+  "genisl": {
+    "yukselenler": 46,
+    "dusenler": 7,
+    "breadth_skoru": 74.2,
+    "adl_oran": 6.57,
+    "rsi_asiri_yuksel_sayi": 13,
+    "rsi_asiri_dusuk_sayi": 2,
+    "ust_20_gun_sayi": 2,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.82,
+    "bist_degisim_10g": 6.86,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.439918518066406,
+    "usdtry_aylik_pct": 1.59,
+    "tur_etf_degisim": 0.03,
+    "altin_degisim": -1.18,
+    "vix": 17.0
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 16,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14633.0703125,
+      "ort20": 13951,
+      "ort50": 14127,
+      "rsi": 70.5,
+      "macd_histo": 89.0,
+      "ay1_pct": 4.3,
+      "ay3_pct": 11.6,
+      "ay6_pct": 29.4,
+      "bb_pozisyon": 99.0,
+      "ust_band": 14646,
+      "alt_band": 13256
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanmıyor. Breadth skoru %74.2 ile yüksek ve yükselen hisse sayısı (46) düşen hisse sayısından (7) çok daha fazla. Bu, geniş bir tabanda yükseliş olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmiyor. Düzeltme skoru 16/100 ile düşük ve \"sağlıklı trend\" olarak değerlendiriliyor. Ancak, RSI değeri (70.5) aşırı alım bölgesinde ve BB%B değeri (99.0) üst bantta. Bu, bir düzeltme tetikleyicisi olabilir, ancak diğer makro ve yabancı veriler nötr olduğu için büyük bir düzeltme beklenmiyor.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Düzeltme skoru düşük ve trend sağlıklı görünüyor, bu nedenle mevcut trendi takip etmek ve pozisyonlarınızı korumanız önerilir.\n- **Aşırı alım bölgelerini izleyin**: RSI değeri yüksek, bu nedenle aşırı alım bölgelerini izleyin ve olası bir düzeltme için hazırlıklı olun.\n- **Diversifikasyon yapın**: Yatırımlarınızı çeşitli sektörler ve hisseler arasında dağıtmak, olası bir düzeltme durumunda riskinizi azaltabilir."
+  },
+  "risk_skoru": 16,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
