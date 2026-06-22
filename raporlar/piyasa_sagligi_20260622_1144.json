@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-22T11:44:02.569564",
+  "genisl": {
+    "yukselenler": 23,
+    "dusenler": 16,
+    "breadth_skoru": 37.1,
+    "adl_oran": 1.44,
+    "rsi_asiri_yuksel_sayi": 9,
+    "rsi_asiri_dusuk_sayi": 7,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": 7.71,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.45589828491211,
+    "usdtry_aylik_pct": 1.22,
+    "tur_etf_degisim": 12.95,
+    "altin_degisim": -2.57,
+    "vix": 17.4
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 32,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14800.8896484375,
+      "ort20": 14036,
+      "ort50": 14202,
+      "rsi": 63.8,
+      "macd_histo": 113.0,
+      "ay1_pct": 12.4,
+      "ay3_pct": 12.4,
+      "ay6_pct": 30.5,
+      "bb_pozisyon": 92.9,
+      "ust_band": 14928,
+      "alt_band": 13144
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %37.1 olarak hesaplandı ve yükselen hisse sayısı (23) düşen hisse sayısından (16) daha fazla, ancak bu fark çok büyük değil. Bu durum, endeksin birkaç güçlü hisse tarafından taşınabileceğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 32/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 63.8 olarak hesaplandı, bu da endeksin biraz aşırı alımda olduğunu gösteriyor. Tetikleyici olarak, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeksdeki aşırı alım durumuna dikkat ederek, pozisyonlarını gözden geçirmeli ve gerektiğinde stop-loss emirleri vermeli.\n * Yükselen hisse sayısının düşük olması nedeniyle, endeksin birkaç güçlü hisse tarafından taşınabileceği düşünülerek, bu hisselerin performansını yakından izlemeli.\n * Düzelme riski skorunun yüksek olması nedeniyle, yatırımcılar portföylerini çeşitlendirmeli ve risklerini yönetmek için farklı yatırım araçlarına yönelmelidir."
+  },
+  "risk_skoru": 32,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
