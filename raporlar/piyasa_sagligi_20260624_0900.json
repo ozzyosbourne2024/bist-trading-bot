@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-24T09:00:01.273464",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 21,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.67,
+    "rsi_asiri_yuksel_sayi": 7,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.74,
+    "bist_degisim_10g": 5.02,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.493900299072266,
+    "usdtry_aylik_pct": 1.31,
+    "tur_etf_degisim": 5.67,
+    "altin_degisim": -0.3,
+    "vix": 19.2
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 25,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14434.650390625,
+      "ort20": 14132,
+      "ort50": 14259,
+      "rsi": 63.5,
+      "macd_histo": 66.0,
+      "ay1_pct": 3.9,
+      "ay3_pct": 11.3,
+      "ay6_pct": 29.4,
+      "bb_pozisyon": 68.7,
+      "ust_band": 14939,
+      "alt_band": 13326
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak düşük bir seviyede ve yükselen hisse sayısı (14) düşen hisse sayısından (21) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel. Düzelme riski skoru 25/100 olarak düşük bir seviyede değil, ancak RSI (63.5) ve BB%B (68.7) değerleri endeksin aşırı alım bölgesinde olduğunu gösteriyor. VIX (19.2) ve TUR ETF 20G (5.67%) değerleri de nötr bir seviyede. Tetikleyici olarak, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin kar açıklamaları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Endeks hisse dağılımını gözden geçirin**: Portföyünüzdeki hisse dağılımını gözden geçirerek, aşırı alım bölgesindeki hisselerin ağırlığını azaltabilirsiniz.\n- **Stop-loss seviyelerini güncelleyin**: Portföyünüzdeki hisselerin stop-loss seviyelerini güncelleyerek, olası bir düzeltme durumunda kayıplarınızı sınırlayabilirsiniz.\n- **Nakit oranınızı artırın**: Portföyünüzdeki nakit oranını artırarak, olası bir düzeltme durumunda yeni fırsatları değerlendirebilirsiniz."
+  },
+  "risk_skoru": 25,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
