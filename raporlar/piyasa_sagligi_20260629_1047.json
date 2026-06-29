@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-29T10:47:09.992283",
+  "genisl": {
+    "yukselenler": 20,
+    "dusenler": 24,
+    "breadth_skoru": 32.3,
+    "adl_oran": 0.83,
+    "rsi_asiri_yuksel_sayi": 6,
+    "rsi_asiri_dusuk_sayi": 4,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": -1.85,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.63869857788086,
+    "usdtry_aylik_pct": 1.55,
+    "tur_etf_degisim": 3.88,
+    "altin_degisim": -6.41,
+    "vix": 18.4
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14225.669921875,
+      "ort20": 14202,
+      "ort50": 14286,
+      "rsi": 63.0,
+      "macd_histo": -3.0,
+      "ay1_pct": 0.2,
+      "ay3_pct": 12.7,
+      "ay6_pct": 23.7,
+      "bb_pozisyon": 51.6,
+      "ust_band": 14931,
+      "alt_band": 13473
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %32.3 olarak hesaplandı ve yükselen hisse sayısı (20) düşen hisse sayısından (24) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzeltme İskor Skoru 28/100 olarak hesaplandı ve bu skor \"sağlıklı trend\" olarak yorumlanıyor. Ancak, RSI değeri 63.0 ve BB%B değeri 51.6 olarak hesaplandı. Bu değerler, endeksin biraz overbought bölgesinde olduğunu gösteriyor. Dolayısıyla, kısa vadeli bir düzeltme beklenilebilir. Tetikleyici, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin kar açıklamaları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- Endeks overbought bölgesinde olduğu için, yatırımcılar pozisyonlarını kısmen azaltabilir veya stop-loss seviyelerini güncelleyebilir.\n- Yükselen hisse sayısının az olması nedeniyle, yatırımcılar güçlü hisse senetlerine odaklanabilir ve portföylerini bu hisselerle zenginleştirebilir.\n- Düzeltme beklentisi nedeniyle, yatırımcılar kısa vadeli pozisyonlarına dikkat etmeli ve uzun vadeli yatırım stratejilerini gözden geçirmelidir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
