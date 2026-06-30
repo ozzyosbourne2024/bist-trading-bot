@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-06-30T09:24:58.873007",
+  "genisl": {
+    "yukselenler": 17,
+    "dusenler": 22,
+    "breadth_skoru": 27.4,
+    "adl_oran": 0.77,
+    "rsi_asiri_yuksel_sayi": 7,
+    "rsi_asiri_dusuk_sayi": 5,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": -1.68,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.65848922729492,
+    "usdtry_aylik_pct": 1.55,
+    "tur_etf_degisim": 1.62,
+    "altin_degisim": -6.89,
+    "vix": 17.6
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14180.16015625,
+      "ort20": 14199,
+      "ort50": 14288,
+      "rsi": 61.4,
+      "macd_histo": -18.0,
+      "ay1_pct": 1.5,
+      "ay3_pct": 10.9,
+      "ay6_pct": 21.2,
+      "bb_pozisyon": 48.7,
+      "ust_band": 14928,
+      "alt_band": 13470
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %27.4 olarak düşük bir seviyede ve yükselen hisse sayısı (17) düşen hisse sayısından (22) az. Bu, endeksin belirli hisse senetlerine bağlı olarak hareket ettiğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzeltme İskoru 28/100 olarak düşük bir seviyede ve endeks sağlıklı bir trend içinde görünüyor. Ancak, RSI değeri 61.4 olarak orta seviyede ve BB%B değeri 48.7 olarak dengeli bir konumda. Bu, endeksin kısa vadede bir düzeltme yaşayabileceğini ancak büyük bir düşüş olmayacağını gösteriyor. Tetikleyici olarak, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Endeks içindeki dağılımı dikkate alın**: Yatırımcılar, endeksin belirli hisse senetlerine bağlı olarak hareket ettiğini dikkate alarak, portföylerini çeşitlendirmelidir.\n- **Kısa vadeli dalgalanmalara karşı hazırlıklı olun**: Yatırımcılar, kısa vadeli dalgalanmalara karşı hazırlıklı olmalı ve stop-loss emirleri gibi risk yönetimi araçlarını kullanmalıdır.\n- **Makroekonomik gelişmeleri takip edin**: Yatırımcılar, global piyasalardaki gelişmeleri, makroekonomik verileri ve şirketlerin mali sonuçlarını takip ederek, yatırım kararlarını bilgiye dayalı olarak vermelidir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
