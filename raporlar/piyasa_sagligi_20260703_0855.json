@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-03T08:55:16.278834",
+  "genisl": {
+    "yukselenler": 21,
+    "dusenler": 22,
+    "breadth_skoru": 33.9,
+    "adl_oran": 0.95,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 10,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": -2.03,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.80139923095703,
+    "usdtry_aylik_pct": 1.54,
+    "tur_etf_degisim": 1.67,
+    "altin_degisim": 0.36,
+    "vix": 15.9
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14431.4697265625,
+      "ort20": 14281,
+      "ort50": 14298,
+      "rsi": 49.5,
+      "macd_histo": -3.0,
+      "ay1_pct": 4.1,
+      "ay3_pct": 11.6,
+      "ay6_pct": 19.4,
+      "bb_pozisyon": 61.2,
+      "ust_band": 14950,
+      "alt_band": 13613
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %33.9 olarak hesaplandı, bu da endeksin dar bir hisse grubu tarafından taşınabileceğini gösteriyor. Yükselen hisse sayısı (21) düşen hisse sayısından (22) daha az, bu da piyasanın genişlik açısından zayıf olduğunu işaret ediyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzeltme İskor'u 28/100 olarak hesaplandı ve bu skor \"sağlıklı trend\" olarak yorumlanıyor. Bu, piyasanın şu an için sağlıklı bir trend içinde olduğunu ve önemli bir düzeltme beklentisi olmadığını gösteriyor. Ancak, RSI değeri (49.5) ve BB%B değeri (61.2) gibi göstergeler, piyasanın biraz aşırı alım bölgesine yaklaştığını gösteriyor. Bu nedenle, küçük bir düzeltme veya konsolidasyon beklenilebilir. Tetikleyici olarak, global piyasalardaki gelişmeler, makroekonomik veriler veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Stratejik olarak diversifikasyon**: Portföyünüzü farklı sektörlerdeki hisselerle diversify ederek riskinizi dağıtabilirsiniz.\n- **Trendi takip edin**: Sağlıklı trend içinde olan hisseleri takip edin ve trendin devam ettiği sürece pozisyonlarınızı koruyun.\n- **Stop-loss seviyeleri belirleyin**: Pozisyonlarınızı korumak için stop-loss seviyeleri belirleyin ve piyasa koşullarına göre bunları güncelleyin."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
