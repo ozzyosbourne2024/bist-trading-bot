@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-06T10:06:05.362457",
+  "genisl": {
+    "yukselenler": 26,
+    "dusenler": 15,
+    "breadth_skoru": 41.9,
+    "adl_oran": 1.73,
+    "rsi_asiri_yuksel_sayi": 5,
+    "rsi_asiri_dusuk_sayi": 10,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": true,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.57,
+    "bist_degisim_10g": 0.03,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.80609893798828,
+    "usdtry_aylik_pct": 1.52,
+    "tur_etf_degisim": 1.67,
+    "altin_degisim": -0.64,
+    "vix": 16.4
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 30,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14541.7802734375,
+      "ort20": 14315,
+      "ort50": 14297,
+      "rsi": 51.4,
+      "macd_histo": 6.0,
+      "ay1_pct": 5.8,
+      "ay3_pct": 10.9,
+      "ay6_pct": 19.2,
+      "bb_pozisyon": 67.6,
+      "ust_band": 14961,
+      "alt_band": 13668
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %41.9 olarak hesaplandı ve 26 hisse yükselirken, 15 hisse düştü. Bu, endeksin belirli bir aantal hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 30/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. RSI değeri 51.4 olarak hesaplandı, bu da aşırı alım veya satım seviyelerine ulaşılmadığını gösteriyor. Ancak, BB%B değeri 67.6 olarak hesaplandı, bu da endeksin üst bantta olduğunu ve bir düzeltme olasılığını artırıyor. Tetikleyici, global piyasalardaki dalgalanmalar veya yerel makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Endeks trendi takip ederek, yükselen hisselerde pozisyon alınabilir. Ancak, stop-loss seviyeleri belirleyerek riskleri yönetmek önemlidir.\n- **Düzeltme fırsatları değerlendirin**: Endeksin bir düzeltme yaşaması durumunda, güçlü fundamentallere sahip hisselerde alım fırsatları değerlendirilebilir.\n- **Risk yönetimi uygulayın**: Yatırımcılar, portföylerini çeşitlendirmeli ve risklerini yönetmek için stop-loss seviyeleri belirlemelidir. Ayrıca, global piyasalardaki gelişmeleri ve yerel makroekonomik verileri yakından takip etmek önemlidir."
+  },
+  "risk_skoru": 30,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
