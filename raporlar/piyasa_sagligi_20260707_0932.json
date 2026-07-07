@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-07T09:32:02.415300",
+  "genisl": {
+    "yukselenler": 15,
+    "dusenler": 18,
+    "breadth_skoru": 24.2,
+    "adl_oran": 0.83,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 9,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.61,
+    "bist_degisim_10g": 0.77,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.83509826660156,
+    "usdtry_aylik_pct": 1.55,
+    "tur_etf_degisim": 4.84,
+    "altin_degisim": 0.18,
+    "vix": 15.9
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 25,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14442.4404296875,
+      "ort20": 14344,
+      "ort50": 14294,
+      "rsi": 50.7,
+      "macd_histo": 1.0,
+      "ay1_pct": 5.1,
+      "ay3_pct": 11.8,
+      "ay6_pct": 17.9,
+      "bb_pozisyon": 58.4,
+      "ust_band": 14928,
+      "alt_band": 13760
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %24.2 ve yükselen hisse sayısı düşen hisse sayısından daha az (%24.2 / %45.6). Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğu izlenimini veriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 25/100 ile düşük olsa da, RSI değeri 50.7 ve BB%B değeri 58.4, endeksin biraz overbought durumda olduğunu gösteriyor. Tetikleyici olarak, VIX endeksinin artması veya USDTRY kurunun dalgalanması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- Endeksdeki overbought durumu nedeniyle kısa vadeli pozisyonlardan kâr alınması düşünülebilir.\n- RSI>70 olan 3 hisseye dikkat edilmeli ve aşırı alım durumunda olası düzeltme beklenmelidir.\n- Makro ekonomik göstergelerin (VIX, TUR ETF 20G) yakından takip edilmesi ve olası değişimlere karşı pozisyonların ayarlanması önerilir."
+  },
+  "risk_skoru": 25,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
