@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-08T08:16:42.340302",
+  "genisl": {
+    "yukselenler": 16,
+    "dusenler": 31,
+    "breadth_skoru": 25.8,
+    "adl_oran": 0.52,
+    "rsi_asiri_yuksel_sayi": 3,
+    "rsi_asiri_dusuk_sayi": 12,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.72,
+    "bist_degisim_10g": 1.19,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 46.851898193359375,
+    "usdtry_aylik_pct": 1.52,
+    "tur_etf_degisim": 3.09,
+    "altin_degisim": 3.52,
+    "vix": 16.5
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 30,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14428.41015625,
+      "ort20": 14381,
+      "ort50": 14296,
+      "rsi": 34.1,
+      "macd_histo": 2.0,
+      "ay1_pct": 5.0,
+      "ay3_pct": 6.6,
+      "ay6_pct": 16.5,
+      "bb_pozisyon": 54.6,
+      "ust_band": 14894,
+      "alt_band": 13867
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %25.8 olarak hesaplandı, bu da endeksin sadece bir kısmının yükseldiğini ve genel olarak piyasanın genişliğinin dar olduğunu gösteriyor. Ayrıca, yükselen hisse sayısı (16) düşen hisse sayısından (31) daha az, bu da piyasanın genel olarak zayıf olduğunu işaret ediyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 30/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak işaretlendi. Bu, piyasanın bir düzeltme yaşayabileceğini gösteriyor. Tetikleyici olarak, RSI (34.1) ve BB%B (54.6) değerleri endeksin aşırı satım bölgesine yaklaştığını gösteriyor, ancak masih bir düzeltme için yeterli değil. Ancak, VIX (16.5) ve TUR ETF 20G (3.09%) değerleri piyasanın masih riskli olduğunu gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n * Piyasanın zayıf olduğu dönemde, seçici olun ve güçlü temel göstergeleri olan hisseleri tercih edin.\n * Endeksin aşırı satım bölgesine yaklaştığı dönemde, bir düzeltme için hazırlıklı olun ve uzun vadeli yatırım fırsatları için bekleyin.\n * Risk yönetimi için, portföyünüzü çeşitlendirin ve stop-loss emirleri kullanın, böylece olası bir düzeltme durumunda kayıplarınızı sınırlayabilirsiniz."
+  },
+  "risk_skoru": 30,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
