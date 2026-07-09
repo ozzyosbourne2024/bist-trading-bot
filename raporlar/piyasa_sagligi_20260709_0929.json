@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-09T09:29:13.385112",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 17,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.82,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 26,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.63,
+    "bist_degisim_10g": -0.75,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.78499984741211,
+    "usdtry_aylik_pct": 1.18,
+    "tur_etf_degisim": 1.91,
+    "altin_degisim": 2.23,
+    "vix": 16.8
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14168.099609375,
+      "ort20": 14390,
+      "ort50": 14288,
+      "rsi": 30.1,
+      "macd_histo": -25.0,
+      "ay1_pct": 1.6,
+      "ay3_pct": 3.5,
+      "ay6_pct": 14.5,
+      "bb_pozisyon": 24.8,
+      "ust_band": 14831,
+      "alt_band": 13949
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak düşük bir seviyede ve yükselen hisse sayısı (14) düşen hisse sayısından (17) az. Bu, endeksin birkaç güçlü hisse tarafından taşındığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. RSI değeri (30.1) masih düşük bir seviyede ve BB%B (24.8) değerinin de düşük olması, endeksin masih satış baskısı altında olduğunu gösteriyor. Tetikleyici olarak, VIX endeksinin (16.8) masih nötr bir seviyede olması ve TUR ETF 20G'nin (1.91%) düşük olması, yatırımcıların masih temkinli olduğunu gösteriyor. Bir tetikleyici olarak, dış etkenler (örneğin, küresel ekonomik gelişmeler) veya iç etkenler (örneğin, siyasi gelişmeler) endeksi etkileyebilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks masih satış baskısı altında olduğu için, yatırımcılar satış pozisyonlarına devam edebilir veya yeni satış pozisyonları açabilir.\n * RSI değeri düşük olduğu için, bazı hisselerde alım fırsatı olabilir. Yatırımcılar, teknik analiz ve fundamentalleri dikkate alarak alım pozisyonları açabilir.\n * Portföy diversifikasyonu için, yatırımcılar farklı varlık sınıflarına (örneğin, tahvil, altın) yatırım yaparak risklerini dağıtabilirler."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
