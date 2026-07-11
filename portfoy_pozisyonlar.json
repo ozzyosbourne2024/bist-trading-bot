@@ -1,5 +1,5 @@
 {
-  "tarih": "2026-03-21T15:05:02.049880",
+  "tarih": "2026-05-16T17:52:03.097343",
   "pozisyonlar": {
     "KRDMD": {
       "agirlik_pct": 5,
@@ -41,9 +41,11 @@
       "guncel_fiyat": 28.4,
       "adet": 176.06,
       "tutar_tl": 5000.0,
-      "hedef": 38.4,
-      "stop": 26.7,
-      "tarih": "2026-03-14"
+      "hedef": 45.06,
+      "stop": 39.5,
+      "tarih": "2026-03-14",
+      "_hedef_notu": "↑ Konsensüs (agirlikli_konsensus)",
+      "_stop_notu": "↑ Trailing stop (kâr>%30)"
     },
     "GLYHO": {
       "agirlik_pct": 18,
@@ -71,9 +73,11 @@
       "guncel_fiyat": 85.0,
       "adet": 58.82,
       "tutar_tl": 5000.0,
-      "hedef": 119.0,
-      "stop": 77.9,
-      "tarih": "2026-03-15"
+      "hedef": 177.63,
+      "stop": 147.71,
+      "tarih": "2026-03-15",
+      "_hedef_notu": "↑ Konsensüs (agirlikli_konsensus)",
+      "_stop_notu": "↑ Trailing stop (kâr>%30)"
     },
     "HALKB": {
       "agirlik_pct": 18,
@@ -101,21 +105,11 @@
       "guncel_fiyat": 6.01,
       "adet": 831.95,
       "tutar_tl": 5000.0,
-      "hedef": 6.77,
-      "stop": 5.72,
-      "tarih": "2026-03-16"
-    },
-    "PETKM": {
-      "agirlik_pct": 4.9,
-      "giris_fiyati": 20.24,
-      "guncel_fiyat": 20.24,
-      "adet": 242.09,
-      "tutar_tl": 4900.0,
-      "hedef": 22.89,
-      "stop": 17.29,
-      "bilsik_skor": 39.3,
-      "kural_puan": 74.4,
-      "tarih": "2026-03-19"
+      "hedef": 8.83,
+      "stop": 7.51,
+      "tarih": "2026-03-16",
+      "_hedef_notu": "↑ Konsensüs (agirlikli_konsensus)",
+      "_stop_notu": "↑ Trailing stop (kâr>%30)"
     },
     "EKGYO": {
       "agirlik_pct": 4.9,
@@ -136,34 +130,11 @@
       "adet": 223.64,
       "tutar_tl": 9800.0,
       "hedef": 58.54,
-      "stop": 40.4,
+      "stop": 49.61,
       "bilsik_skor": 51.5,
       "kural_puan": 71.8,
-      "tarih": "2026-03-19"
-    },
-    "ENKAI": {
-      "agirlik_pct": 8.2,
-      "giris_fiyati": 92.95,
-      "guncel_fiyat": 92.95,
-      "adet": 88.22,
-      "tutar_tl": 8200.0,
-      "hedef": 118.89,
-      "stop": 89.6,
-      "bilsik_skor": 59.8,
-      "kural_puan": 73.6,
-      "tarih": "2026-03-19"
-    },
-    "CCOLA": {
-      "agirlik_pct": 8.2,
-      "giris_fiyati": 71.5,
-      "guncel_fiyat": 71.5,
-      "adet": 114.69,
-      "tutar_tl": 8200.0,
-      "hedef": 93.4,
-      "stop": 65.8,
-      "bilsik_skor": 66.2,
-      "kural_puan": 70.6,
-      "tarih": "2026-03-19"
+      "tarih": "2026-03-19",
+      "_stop_notu": "↑ Trailing stop (kâr>%15)"
     },
     "ASELS": {
       "agirlik_pct": 18,
@@ -171,23 +142,13 @@
       "guncel_fiyat": 338.75,
       "adet": 53.14,
       "tutar_tl": 18000.0,
-      "hedef": 383.5,
-      "stop": 299.95,
+      "hedef": 468.99,
+      "stop": 403.93,
       "bilsik_skor": 62.2,
       "kural_puan": 79.0,
-      "tarih": "2026-03-21"
-    },
-    "BIMAS": {
-      "agirlik_pct": 18,
-      "giris_fiyati": 692.0,
-      "guncel_fiyat": 692.0,
-      "adet": 26.01,
-      "tutar_tl": 18000.0,
-      "hedef": 766.59,
-      "stop": 621.0,
-      "bilsik_skor": 56.3,
-      "kural_puan": 82.0,
-      "tarih": "2026-03-21"
+      "tarih": "2026-03-21",
+      "_hedef_notu": "↑ Konsensüs (agirlikli_konsensus)",
+      "_stop_notu": "↑ Trailing stop (kâr>%15)"
     },
     "CWENE": {
       "agirlik_pct": 18,
@@ -215,15 +176,123 @@
     },
     "SKBNK": {
       "agirlik_pct": 18,
-      "giris_fiyati": 10.64,
-      "guncel_fiyat": 10.64,
-      "adet": 1691.73,
+      "giris_fiyati": 13.86,
+      "guncel_fiyat": 13.86,
+      "adet": 1298.7,
       "tutar_tl": 18000.0,
-      "hedef": 13.84,
-      "stop": 10.26,
-      "bilsik_skor": 67.5,
+      "hedef": 15.29,
+      "stop": 12.14,
+      "bilsik_skor": 65.4,
+      "kural_puan": 90.5,
+      "tarih": "2026-05-12"
+    },
+    "ISCTR": {
+      "agirlik_pct": 12,
+      "giris_fiyati": 14.75,
+      "guncel_fiyat": 14.75,
+      "adet": 813.56,
+      "tutar_tl": 12000.0,
+      "hedef": 18.77,
+      "stop": 13.98,
+      "bilsik_skor": 63.1,
+      "kural_puan": 81.5,
+      "tarih": "2026-05-12"
+    },
+    "CCOLA": {
+      "agirlik_pct": 15.3,
+      "giris_fiyati": 82.95,
+      "guncel_fiyat": 82.95,
+      "adet": 184.45,
+      "tutar_tl": 15300.0,
+      "hedef": 93.3,
+      "stop": 79.63,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 92.0,
+      "tarih": "2026-05-16"
+    },
+    "PETKM": {
+      "agirlik_pct": 15.3,
+      "giris_fiyati": 26.0,
+      "guncel_fiyat": 26.0,
+      "adet": 588.46,
+      "tutar_tl": 15300.0,
+      "hedef": 29.53,
+      "stop": 24.51,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 84.4,
+      "tarih": "2026-05-16"
+    },
+    "BIMAS": {
+      "agirlik_pct": 15.3,
+      "giris_fiyati": 405.25,
+      "guncel_fiyat": 405.25,
+      "adet": 37.75,
+      "tutar_tl": 15300.0,
+      "hedef": 442.7,
+      "stop": 393.55,
+      "hedef_yontem": "agirlikli_konsensus",
       "kural_puan": 81.0,
-      "tarih": "2026-03-21"
+      "tarih": "2026-05-16"
+    },
+    "MGROS": {
+      "agirlik_pct": 15.3,
+      "giris_fiyati": 682.5,
+      "guncel_fiyat": 682.5,
+      "adet": 22.42,
+      "tutar_tl": 15300.0,
+      "hedef": 792.48,
+      "stop": 650.11,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 79.8,
+      "tarih": "2026-05-16"
+    },
+    "TURSG": {
+      "agirlik_pct": 4.2,
+      "giris_fiyati": 13.71,
+      "guncel_fiyat": 13.71,
+      "adet": 306.35,
+      "tutar_tl": 4200.0,
+      "hedef": 16.76,
+      "stop": 13.02,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 82.6,
+      "tarih": "2026-05-16"
+    },
+    "YKBNK": {
+      "agirlik_pct": 10.2,
+      "giris_fiyati": 36.82,
+      "guncel_fiyat": 36.82,
+      "adet": 277.02,
+      "tutar_tl": 10200.0,
+      "hedef": 46.65,
+      "stop": 34.88,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 77.0,
+      "tarih": "2026-05-16"
+    },
+    "AKSA": {
+      "agirlik_pct": 4.2,
+      "giris_fiyati": 11.07,
+      "guncel_fiyat": 11.07,
+      "adet": 379.4,
+      "tutar_tl": 4200.0,
+      "hedef": 12.8,
+      "stop": 10.92,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 78.2,
+      "tarih": "2026-05-16"
+    },
+    "ENKAI": {
+      "agirlik_pct": 10.2,
+      "giris_fiyati": 101.7,
+      "guncel_fiyat": 101.7,
+      "adet": 100.29,
+      "tutar_tl": 10200.0,
+      "hedef": 115.06,
+      "stop": 96.14,
+      "hedef_yontem": "agirlikli_konsensus",
+      "kural_puan": 74.0,
+      "tarih": "2026-05-16"
     }
   }
 }
