@@ -371,7 +371,7 @@ def _dxy_cek() -> Optional[float]:
         if uup is not None and len(uup) >= 2:
             # UUP ~= DXY / 4.3 (ampirik oran)
             uup_son = float(uup["Close"].iloc[-1])
-            return round(uup_son * 3.85, 1)
+            return round(uup_son * 3.49, 1)
     except:
         pass
 
@@ -404,9 +404,9 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
             if uup is not None and len(uup) >= 20:
                 # UUP → DXY dönüşüm (ampirik: DXY ≈ UUP × 3.85)
                 dxy = uup.copy()
-                dxy["Close"] = dxy["Close"] * 3.85
-                dxy["High"]  = dxy["High"]  * 3.85
-                dxy["Low"]   = dxy["Low"]   * 3.85
+                dxy["Close"] = dxy["Close"] * 3.49
+                dxy["High"]  = dxy["High"]  * 3.49
+                dxy["Low"]   = dxy["Low"]   * 3.49
         except:
             pass
 
