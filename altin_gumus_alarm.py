@@ -437,18 +437,18 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
 
             if dxy_kisa < -1.5 and dxy_uzun < -2.0:
                 puan += 3
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — güçlü düşüş %{dxy_kisa:.1f}✓✓✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü düşüş %{dxy_kisa:.1f}✓✓✓{kor_yorum}")
             elif dxy_kisa < -1.0:
                 puan += 2
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — zayıflıyor %{dxy_kisa:.1f}✓✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — zayıflıyor %{dxy_kisa:.1f}✓✓{kor_yorum}")
             elif dxy_kisa < 0:
                 puan += 1
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — hafif zayıf %{dxy_kisa:.1f}✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif zayıf %{dxy_kisa:.1f}✓{kor_yorum}")
             elif dxy_kisa > 1.5:
                 puan -= 1
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — güçlü yükseliş %{dxy_kisa:.1f}✗✗{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü yükseliş %{dxy_kisa:.1f}✗✗{kor_yorum}")
             else:
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.1f} — hafif yükseliş %{dxy_kisa:.1f}✗{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif yükseliş %{dxy_kisa:.1f}✗{kor_yorum}")
         except:
             notlar.append("DXY:?")
     elif dxy_anlık:
