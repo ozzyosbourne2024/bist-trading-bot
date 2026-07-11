@@ -336,45 +336,51 @@ def s4_macd_kesimi(df_1h: pd.DataFrame) -> Tuple[bool, str]:
 
 
 def _dxy_cek() -> Optional[float]:
-    """
-    DXY değerini çeşitli kaynaklardan çekmeyi dene.
-    1. exchangerate-api (USD basket)
-    2. yfinance UUP ETF (DXY proxy)
-    3. Stooq fallback
-    """
-    # Yöntem 1: exchangerate-api — EUR/USD üzerinden DXY tahmini
-    # DXY = %57.6 EUR + %13.6 JPY + %11.9 GBP + %9.1 CAD + %4.2 SEK + %3.6 CHF
+    """DXY değerini Yahoo Finance API'den direkt çek (DX-Y.NYB)."""
     try:
         r = requests.get(
-            "https://open.er-api.com/v6/latest/USD",
-            timeout=6
+            "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=5d",
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=8
         )
         if r.status_code == 200:
-            data = r.json()
-            rates = data.get("rates", {})
-            eur = rates.get("EUR", 0)
-            jpy = rates.get("JPY", 0)
-            gbp = rates.get("GBP", 0)
-            cad = rates.get("CAD", 0)
-            if eur and jpy and gbp and cad:
-                # DXY proxy hesapla (basitleştirilmiş)
-                # Güçlü dolar = EUR düşük, JPY yüksek
-                # EUR/USD referans: 0.92 = DXY ~100
-                dxy_proxy = round((0.92 / eur) * 100, 1)
-                return dxy_proxy
+            sonuclar = r.json()["chart"]["result"][0]["indicators"]["quote"][0]["close"]
+            temiz = [v for v in sonuclar if v is not None]
+            if temiz:
+                return round(temiz[-1], 3)
     except:
         pass
-
-    # Yöntem 2: yfinance UUP ETF (DXY ETF proxy)
     try:
-        uup = _indir("UUP", interval="1d", period="5d")
-        if uup is not None and len(uup) >= 2:
-            # UUP ~= DXY / 4.3 (ampirik oran)
-            uup_son = float(uup["Close"].iloc[-1])
-            return round(uup_son * 3.49, 1)
+        r = requests.get("https://open.er-api.com/v6/latest/USD", timeout=6)
+        if r.status_code == 200:
+            eur = r.json().get("rates", {}).get("EUR", 0)
+            if eur:
+                return round((0.897 / eur) * 100, 1)
     except:
         pass
+    return None
 
+
+def _dxy_gecmis_cek(gun: int = 30) -> Optional[pd.DataFrame]:
+    """DXY geçmiş veriyi Yahoo Finance API'den çek."""
+    try:
+        r = requests.get(
+            "https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=3mo",
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=8
+        )
+        if r.status_code == 200:
+            sonuc = r.json()["chart"]["result"][0]
+            timestamps = sonuc["timestamp"]
+            kapanislar = sonuc["indicators"]["quote"][0]["close"]
+            df = pd.DataFrame({
+                "Date":  pd.to_datetime(timestamps, unit="s"),
+                "Close": kapanislar,
+            }).dropna().tail(gun)
+            df.index = pd.DatetimeIndex(df["Date"])
+            return df
+    except:
+        pass
     return None
 
 
@@ -397,18 +403,9 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
         except:
             continue
 
-    # Stooq çalışmadıysa UUP ETF'den geçmiş veri al
+    # Stooq çalışmadıysa Yahoo Finance API'den gerçek DXY verisi çek
     if dxy is None:
-        try:
-            uup = _indir("UUP", interval="1d", period="3mo")
-            if uup is not None and len(uup) >= 20:
-                # UUP → DXY dönüşüm (ampirik: DXY ≈ UUP × 3.85)
-                dxy = uup.copy()
-                dxy["Close"] = dxy["Close"] * 3.49
-                dxy["High"]  = dxy["High"]  * 3.49
-                dxy["Low"]   = dxy["Low"]   * 3.49
-        except:
-            pass
+        dxy = _dxy_gecmis_cek(gun=30)
 
     # Hâlâ yoksa anlık değer al
     dxy_anlık = None
@@ -508,11 +505,11 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
 
     futures_sym = cfg["futures"]
 
-    # Stooq: temiz spot günlük veri — S1 için
-    df_stooq = _stooq_gunluk(cfg["stooq"], gun=60)
+    # yfinance futures: günlük veri — S1 + S2 hacim + S3/S4 RSI/MACD + S5 makro
+    df_gun = _indir(futures_sym, interval="1d", period="3mo")
 
-    # yfinance futures: S2 hacim + S3/S4 RSI/MACD + S5 makro
-    df_gun   = _indir(futures_sym, interval="1d", period="3mo")
+    # Stooq yerine yfinance günlük — S1 momentum için
+    df_stooq = df_gun  # artık yfinance kullanıyoruz
 
     # 4H: 30 dakikadan OHLCV resample
     df_30m_fut = _indir(futures_sym, interval="30m", period="60d")
@@ -531,8 +528,8 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     df_anlik = _indir(futures_sym, interval="1m", period="1d")
     anlik_fiyat = float(df_anlik["Close"].iloc[-1]) if df_anlik is not None and not df_anlik.empty else None
 
-    # Stooq günlük CSV — SADECE S1 momentum referansı (dün kapanış)
-    s1_ref = float(df_stooq["Close"].iloc[-1]) if df_stooq is not None else None
+    # S1 referans — dünkü kapanış (yfinance günlük)
+    s1_ref = float(df_gun["Close"].iloc[-2]) if df_gun is not None and len(df_gun) >= 2 else None
     fut_fiyat = float(df_gun["Close"].iloc[-1]) if df_gun is not None else None
 
     # Anlık gösterim: gold-api öncelikli
@@ -543,8 +540,7 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
     if anlik_fiyat:
         print(f"  Futures : {anlik_fiyat:.2f} $/oz ({futures_sym} yfinance 1m)")
     if s1_ref:
-        s1_tarih = df_stooq.index[-1].strftime("%Y-%m-%d") if df_stooq is not None else "?"
-        print(f"  S1 ref  : {s1_ref:.2f} (stooq kapanış: {s1_tarih})")
+        print(f"  S1 ref  : {s1_ref:.2f} (yfinance dün kapanış)")
 
     # 5 Sinyal
     s1, d1 = s1_momentum_kirilmasi(df_stooq, s1_ref)
@@ -600,10 +596,9 @@ def enstruman_analiz(isim: str, cfg: dict) -> dict:
 
     # ── Destek / Direnç Seviyeleri ─────────────────────────────
     destek1 = destek2 = direnc1 = direnc2 = None
-    if df_stooq is not None and len(df_stooq) >= 20:
-        kapanislar = df_stooq["Close"].iloc[-20:]
-        dusukler   = df_stooq["Low"].iloc[-20:]
-        yuksekler  = df_stooq["High"].iloc[-20:]
+    if df_gun is not None and len(df_gun) >= 20:
+        dusukler   = df_gun["Low"].iloc[-20:]
+        yuksekler  = df_gun["High"].iloc[-20:]
 
         son20_dusuk  = float(dusukler.min())
         son20_yuksek = float(yuksekler.max())
