@@ -347,7 +347,7 @@ def _dxy_cek() -> Optional[float]:
             sonuclar = r.json()["chart"]["result"][0]["indicators"]["quote"][0]["close"]
             temiz = [v for v in sonuclar if v is not None]
             if temiz:
-                return round(temiz[-1], 3)
+                return round(temiz[-1], 2)
     except:
         pass
     try:
@@ -415,9 +415,10 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
     if dxy is not None and len(dxy) >= 20:
         try:
             dxy_son    = float(dxy["Close"].iloc[-1])
+            dxy_dun    = float(dxy["Close"].iloc[-2])   # dünkü kapanış
             dxy_10g    = float(dxy["Close"].iloc[-10])
             dxy_30g    = float(dxy["Close"].iloc[-22]) if len(dxy) >= 22 else float(dxy["Close"].iloc[0])
-            dxy_kisa   = (dxy_son / dxy_10g  - 1) * 100
+            dxy_kisa   = (dxy_son / dxy_dun  - 1) * 100   # dünkü kapanışa göre günlük değişim
             dxy_uzun   = (dxy_son / dxy_30g  - 1) * 100
 
             kor_yorum = ""
@@ -437,18 +438,18 @@ def s5_makro_dolar(df_gunluk: pd.DataFrame) -> Tuple[bool, str]:
 
             if dxy_kisa < -1.5 and dxy_uzun < -2.0:
                 puan += 3
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü düşüş %{dxy_kisa:.1f}✓✓✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü düşüş %{dxy_kisa:.2f}✓✓✓{kor_yorum}")
             elif dxy_kisa < -1.0:
                 puan += 2
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — zayıflıyor %{dxy_kisa:.1f}✓✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — zayıflıyor %{dxy_kisa:.2f}✓✓{kor_yorum}")
             elif dxy_kisa < 0:
                 puan += 1
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif zayıf %{dxy_kisa:.1f}✓{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif zayıf %{dxy_kisa:.2f}✓{kor_yorum}")
             elif dxy_kisa > 1.5:
                 puan -= 1
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü yükseliş %{dxy_kisa:.1f}✗✗{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — güçlü yükseliş %{dxy_kisa:.2f}✗✗{kor_yorum}")
             else:
-                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif yükseliş %{dxy_kisa:.1f}✗{kor_yorum}")
+                notlar.append(f"Dolar endeksi(DXY):{dxy_son:.3f} — hafif yükseliş %{dxy_kisa:.2f}✗{kor_yorum}")
         except:
             notlar.append("DXY:?")
     elif dxy_anlık:
