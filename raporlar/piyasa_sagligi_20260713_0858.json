@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-13T08:58:58.605972",
+  "genisl": {
+    "yukselenler": 9,
+    "dusenler": 36,
+    "breadth_skoru": 14.5,
+    "adl_oran": 0.25,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 19,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": -0.04,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 46.996700286865234,
+    "usdtry_aylik_pct": 1.54,
+    "tur_etf_degisim": 0.71,
+    "altin_degisim": 1.49,
+    "vix": 16.3
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14115.650390625,
+      "ort20": 14390,
+      "ort50": 14275,
+      "rsi": 37.6,
+      "macd_histo": -34.0,
+      "ay1_pct": -2.6,
+      "ay3_pct": 0.4,
+      "ay6_pct": 11.4,
+      "bb_pozisyon": 17.2,
+      "ust_band": 14807,
+      "alt_band": 13972
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %14.5 ve yükselen hisse sayısı 9, düşen hisse sayısı 36 olarak belirtilmiş. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzelme skoru 28/100 olarak belirlenmiş ve \"sağlıklı trend\" olarak yorumlanıyor. RSI değeri 37.6 ve BB%B değeri 17.2, aşırı satım bölgesine yakın ancak henüz aşırı satım sinyali vermiyor. Bu nedenle, yakın vadede büyük bir düzeltme beklenmeyebilir. Ancak, VIX endeksinin 16.3 seviyesinde olması ve TUR ETF 20G'nin 0.71% seviyesinde olması, piyasada bir miktar belirsizlik olduğunu gösteriyor. Tetikleyici, dış etkenler veya makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Stratejik olarak diversifikasyon**: Portföyünüzü farklı sektörlerdeki hisselerle diversify ederek riskinizi azaltabilirsiniz.\n- **Endeks takip**: BIST100 endeksini yakından takip edin ve olası bir düzeltme durumunda alım fırsatlarını değerlendirebilirsiniz.\n- **Teknik analiz**: Hisse senetlerinin teknik analizlerini yaparak, güçlü ve zayıf hisseleri belirleyerek yatırım kararlarınızı daha doğru bir şekilde verebilirsiniz."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
