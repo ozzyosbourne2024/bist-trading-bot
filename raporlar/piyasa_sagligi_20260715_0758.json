@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-15T07:58:27.932113",
+  "genisl": {
+    "yukselenler": 12,
+    "dusenler": 36,
+    "breadth_skoru": 19.4,
+    "adl_oran": 0.33,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 18,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": -0.21,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.029449462890625,
+    "usdtry_aylik_pct": 1.27,
+    "tur_etf_degisim": NaN,
+    "altin_degisim": -0.93,
+    "vix": 16.3
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14092.0,
+      "ort20": 14388,
+      "ort50": 14275,
+      "rsi": 37.1,
+      "macd_histo": -35.0,
+      "ay1_pct": -2.8,
+      "ay3_pct": 0.2,
+      "ay6_pct": 11.2,
+      "bb_pozisyon": 14.8,
+      "ust_band": 14809,
+      "alt_band": 13968
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %19.4 olarak düşük bir seviyede ve yükselen hisse sayısı (12) düşen hisse sayısından (36) daha az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 28/100 olarak düşük bir seviyede ve endeksin RSI değeri (37.1) aşırı satım bölgesine yaklaşıyor. Tetikleyici, global piyasalardaki dalgalanmalar veya yerel makroekonomik gelişmeler olabilir. Özellikle VIX endeksinin 16.3 seviyesinde olması, global piyasalarda hala bir miktar belirsizlik olduğunu gösteriyor.\n\n3. Yatırımcı için somut 3 öneri:\n- **Endeks dışı hisseleri takip edin**: Breadth skoru düşük olduğundan, endeksin dışında kalan hisseleri takip etmek ve potansiyel fırsatları değerlendirmek önemlidir.\n- **RSI değerlerini izleyin**: Aşırı satım bölgesine yaklaşan hisseleri takip edin ve olası bir geri dönüş için pozisyon alın.\n- **Risk yönetimi uygulayın**: Düzelme riski düşük olsa da, global piyasalardaki belirsizlikler nedeniyle risk yönetimi uygulamak önemlidir. Pozisyonların büyüklüğünü ayarlamak ve stop-loss seviyelerini belirlemek yatırımcılar için faydalı olabilir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
