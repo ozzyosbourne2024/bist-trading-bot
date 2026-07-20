@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-20T08:49:03.745826",
+  "genisl": {
+    "yukselenler": 27,
+    "dusenler": 17,
+    "breadth_skoru": 43.5,
+    "adl_oran": 1.59,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 9,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": true,
+    "risk_katki": 25
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.77,
+    "bist_degisim_10g": -2.94,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.18132019042969,
+    "usdtry_aylik_pct": 1.54,
+    "tur_etf_degisim": -4.96,
+    "altin_degisim": -2.81,
+    "vix": 18.5
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14001.0703125,
+      "ort20": 14280,
+      "ort50": 14252,
+      "rsi": 45.0,
+      "macd_histo": -46.0,
+      "ay1_pct": -4.9,
+      "ay3_pct": -4.0,
+      "ay6_pct": 8.9,
+      "bb_pozisyon": 14.0,
+      "ust_band": 14668,
+      "alt_band": 13893
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %43.5 ve yükselen hisse sayısı (27) düşen hisse sayısından (17) daha fazla, ancak bu fark çok büyük değil. Ayrıca, \"Ağır hisse taşıyor mu\" parametresinin \"True\" olması, birkaç büyük hissenin endeksi taşıdığına işaret ediyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 33/100 ile \"TEMKİNLİ TREND\" olarak belirlenmiştir. RSI değeri (45.0) aşırı alım veya aşırı satım bölgesinde değil, ancak son 1 ayda endeksin %4.9 luk bir düşüş göstermesi ve Bollinger Bantlarının %B değerinin (14.0) düşük olması, bir düzeltme olasılığını güçlendirebilir. Tetikleyici olarak, VIX endeksinin (18.5) nispeten yüksek olması ve TUR ETF 20G'nin (-4.96%) negatif performansı, yatırımcıların riskten kaçınmasına neden olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Risk yönetimi**: Portföyünüzü gözden geçirin ve aşırı riskli pozisyonlardan uzaklaşın. VIX endeksinin yüksek olması, riskten kaçınmanın önemli olduğunu gösteriyor.\n- **Hisse seçimi**: Ağır hisse taşıyan şirketlerin performansını yakından takip edin. Bu şirketlerin zayıf performans göstermesi, endeksi olumsuz etkileyebilir.\n- **Stratejik pozisyon alma**: Düzelme riski skorunun yüksek olması, bazı hisselerde alım fırsatları yaratabilir. RSI değeri düşük olan ve temel olarak güçlü olan hisseleri takip edin ve uygun fiyatlandırmada alım yapmayı düşünün."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
