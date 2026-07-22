@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-22T08:16:40.343973",
+  "genisl": {
+    "yukselenler": 14,
+    "dusenler": 33,
+    "breadth_skoru": 22.6,
+    "adl_oran": 0.42,
+    "rsi_asiri_yuksel_sayi": 5,
+    "rsi_asiri_dusuk_sayi": 8,
+    "ust_20_gun_sayi": 6,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.73,
+    "bist_degisim_10g": -1.52,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.212501525878906,
+    "usdtry_aylik_pct": 1.52,
+    "tur_etf_degisim": -1.25,
+    "altin_degisim": -0.27,
+    "vix": 17.6
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13973.16015625,
+      "ort20": 14218,
+      "ort50": 14224,
+      "rsi": 38.9,
+      "macd_histo": -44.0,
+      "ay1_pct": -2.5,
+      "ay3_pct": -2.8,
+      "ay6_pct": 6.0,
+      "bb_pozisyon": 13.0,
+      "ust_band": 14549,
+      "alt_band": 13887
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %22.6 olarak düşük bir seviyede ve yükselen hisse sayısı (14) düşen hisse sayısından (33) az. Bu, endeksin birkaç güçlü hisse tarafından taşındığını gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 28/100 olarak düşük bir seviyede ve RSI (38.9) aşırı satım bölgesine yaklaşıyor. Tetikleyici, VIX'in (17.6) nispeten düşük bir seviyede olması ve USDTRY'nin (0.73%) 10 günlük değişiminin sınırlı olması olabilir. Ancak, makroekonomik koşulların değişmesi veya global piyasalardaki gelişmeler, düzeltme için tetikleyici olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Stratejik olarak seçilen hisselere odaklanın**: Az sayıda hissenin endeksi taşıdığı bir piyasada, güçlü fundamentallere sahip hisseleri seçmek önemlidir.\n- **Stop-loss seviyelerini güncelleyin**: Düzeltme riski yüksek bir piyasada, yatırımcıların stop-loss seviyelerini güncellemeleri ve olası kayıpları sınırlamaları önemlidir.\n- **Liqidite yüksek hisselerden uzak durun**: Aşırı alım (RSI>70) olan 5 hisse, liqidite yüksek hisselerden uzak durulması gerektiğini gösteriyor. Bu hisselerin aşırı alım seviyelerine ulaşması, düzeltme riskini artırabilir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
