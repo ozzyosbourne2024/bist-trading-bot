@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-23T08:21:15.124402",
+  "genisl": {
+    "yukselenler": 29,
+    "dusenler": 13,
+    "breadth_skoru": 46.8,
+    "adl_oran": 2.23,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 10,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 10
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.6,
+    "bist_degisim_10g": 0.43,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.23030090332031,
+    "usdtry_aylik_pct": 1.4,
+    "tur_etf_degisim": 0.53,
+    "altin_degisim": -0.15,
+    "vix": 17.8
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 18,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 14165.240234375,
+      "ort20": 14218,
+      "ort50": 14210,
+      "rsi": 41.9,
+      "macd_histo": -23.0,
+      "ay1_pct": -0.7,
+      "ay3_pct": -1.2,
+      "ay6_pct": 8.1,
+      "bb_pozisyon": 41.5,
+      "ust_band": 14528,
+      "alt_band": 13908
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %46.8 ve yükselen hisse sayısı (29) düşen hisse sayısından (13) daha fazla, ancak bu oran endeksin genel performansını taşıyan hisse sayısının sınırlı olduğunu gösteriyor. Ağır hisse taşıyor mu sorusuna \"False\" cevabı da bu hipotezi doğruluyor.\n\n2. Yakın vadede düzeltme beklenir mi? Düzeltme İsk Skoru 18/100 ile \"sağlıklı trend\" olarak değerlendiriliyor. RSI değeri (41.9) aşırı satım bölgesine yakın ancak henüz aşırı satım sinyali vermiyor. VIX değeri (17.8) ve TUR ETF 20G (0.53%) değişimi de önemli bir endişe yaratmıyor. Ancak, USDTRY kurundaki 0.6%'lik artış ve yabancı yatırımcıların nötr tutumu, gelecekteki olası dalgalanmalara karşı dikkatli olunmasını gerektiriyor. Tetikleyici, dış etkenler veya makroekonomik gelişmeler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Düzeltme İsk Skoru düşük olduğundan, genel trendi takip etmek ve uzun vadeli yatırım stratejilerine odaklanmak daha uygun olabilir.\n- **Risk yönetimi**: Potansiyel dalgalanmalara karşı portföyünüzü çeşitlendirin ve risk yönetim stratejilerinizi gözden geçirin.\n- **Teknik analiz**: RSI, BB%B ve diğer teknik göstergeleri izleyerek olası alım veya satım sinyallerini takip edin ve yatırım kararlarınızı bu analizlere göre şekillendirin."
+  },
+  "risk_skoru": 18,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
