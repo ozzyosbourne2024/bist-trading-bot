@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-28T08:24:52.051396",
+  "genisl": {
+    "yukselenler": 21,
+    "dusenler": 34,
+    "breadth_skoru": 33.9,
+    "adl_oran": 0.62,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 14,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.74,
+    "bist_degisim_10g": -2.16,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.375099182128906,
+    "usdtry_aylik_pct": 1.54,
+    "tur_etf_degisim": -0.82,
+    "altin_degisim": -0.0,
+    "vix": 19.1
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 28,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13776.2197265625,
+      "ort20": 14152,
+      "ort50": 14139,
+      "rsi": 32.0,
+      "macd_histo": -48.0,
+      "ay1_pct": -2.4,
+      "ay3_pct": -3.9,
+      "ay6_pct": -0.4,
+      "bb_pozisyon": 5.5,
+      "ust_band": 14575,
+      "alt_band": 13730
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %33.9 olarak hesaplandı ve yükselen hisse sayısı (21) düşen hisse sayısından (34) daha az. Bu, endeksin belirli hisse senetlerine bağlı olarak hareket ettiğini gösteriyor.\n\n2. Yakın vadede düzeltme beklenmesi muhtemel görünüyor. Düzelme riski skoru 28/100 olarak hesaplandı ve bu skor düşük bir düzeltme riskini gösteriyor. Ancak, RSI değeri 32.0 olarak hesaplandı ve bu değer endeksin aşırı satım bölgesinde olduğunu gösteriyor. Bu durum, bir düzeltme hareketinin tetikleyicisi olabilir. Tetikleyici, makroekonomik veriler, global piyasalardaki gelişmeler veya şirketlerin mali sonuçları olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- Endeks aşırı satım bölgesinde olduğu için, kısa vadeli bir ralli beklenebilir. Bu nedenle, yatırımcılar belirli hisse senetlerine odaklanarak kısa vadeli alım fırsatları arayabilirler.\n- Düzelme riski skoru düşük olsa da, yatırımcılar portföylerini çeşitlendirmeli ve risklerini yönetmelidir. Bu, farklı sektörlerde ve varlık sınıflarında yatırım yaparak sağlanabilir.\n- Yatırımcılar, şirketlerin mali sonuçlarını ve makroekonomik verileri yakından takip etmelidir. Bu, piyasa trendini ve yatırımların performansını daha iyi anlamalarına yardımcı olabilir."
+  },
+  "risk_skoru": 28,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
