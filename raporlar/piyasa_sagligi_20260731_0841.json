@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-07-31T08:41:07.887999",
+  "genisl": {
+    "yukselenler": 21,
+    "dusenler": 21,
+    "breadth_skoru": 33.9,
+    "adl_oran": 1.0,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 19,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": true,
+    "risk_katki": 35
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.81,
+    "bist_degisim_10g": -5.57,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.52449035644531,
+    "usdtry_aylik_pct": 1.53,
+    "tur_etf_degisim": -4.12,
+    "altin_degisim": 2.64,
+    "vix": 16.8
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 43,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13285.1796875,
+      "ort20": 14005,
+      "ort50": 14066,
+      "rsi": 22.6,
+      "macd_histo": -93.0,
+      "ay1_pct": -7.9,
+      "ay3_pct": -7.5,
+      "ay6_pct": -4.4,
+      "bb_pozisyon": -2.1,
+      "ust_band": 14697,
+      "alt_band": 13314
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki sonuçlara ulaştık:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %33.9 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini gösteriyor. Ayrıca, \"Ağır hisse taşıyor mu\" sorusuna \"True\" cevabı verildi, bu da birkaç ağır hissenin endeksi taşıdığı anlamına geliyor.\n\n2. Yakın vadede düzeltme bekleniyor. \"Düzeltme İskor Skoru\" 43/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Ayrıca, RSI değeri 22.6 olarak hesaplandı, bu da endeksin aşırı satım bölgesinde olduğunu gösteriyor. Bu durum, bir düzeltme veya geri çekilme olasılığını artırıyor. Tetikleyici, VIX endeksinin artması veya USDTRY kurunun dalgalanması olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks aşırı satım bölgesinde olduğundan, kısa vadeli bir geri çekilme olasılığına karşı pozisyonlarını gözden geçirmelidir.\n * Ağır hisse taşıyan şirketlerin performansını yakından izlemeli ve gerekli durumlarda pozisyonlarını ayarlamalıdır.\n * RSI>70 olan hisseyi (aşırı alım bölgesinde olan) yakından izlemeli ve olası bir geri çekilme durumunda pozisyonlarını gözden geçirmelidir."
+  },
+  "risk_skoru": 43,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
