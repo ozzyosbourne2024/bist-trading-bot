@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-08-03T09:33:08.480611",
+  "genisl": {
+    "yukselenler": 33,
+    "dusenler": 15,
+    "breadth_skoru": 53.2,
+    "adl_oran": 2.2,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 8,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 0
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": -3.49,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 0,
+    "gorunum": "NÖTR",
+    "usdtry": 47.532901763916016,
+    "usdtry_aylik_pct": 1.53,
+    "tur_etf_degisim": -3.52,
+    "altin_degisim": 0.97,
+    "vix": 16.0
+  },
+  "rejim": {
+    "rejim": "💚 GÜÇLÜ TREND / FIRSAT",
+    "risk_skoru": 8,
+    "tavsiye": "Pozisyon artırma fırsatı değerlendirilebilir.",
+    "endeks": {
+      "son": 13487.419921875,
+      "ort20": 13968,
+      "ort50": 14059,
+      "rsi": 33.6,
+      "macd_histo": -72.0,
+      "ay1_pct": -6.5,
+      "ay3_pct": -7.0,
+      "ay6_pct": -0.7,
+      "bb_pozisyon": 14.1,
+      "ust_band": 14636,
+      "alt_band": 13299
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor mu?\n   - GENIŞLIK verilerine göre, yükselen 33 hisse varken düşen 15 hisse var. Breadth skoru %53.2 olarak hesaplandı. Bu, endeksin genel olarak pozitif bir eğilim içinde olduğunu gösteriyor. Ancak, \"az sayıda hisse endeksi taşıyor\" ifadesi genellikle birkaç hissenin genel endeksi taşıdığı durumları tanımlar. Verilerde \"Ağır hisse taşıyor mu: False\" ifadesi bu hipotezi doğrulamıyor gibi görünse de, daha derin bir analiz için daha fazla veri gerekebilir.\n\n2. Yakın vadede düzeltme beklenir mi? Tetikleyici ne olabilir?\n   - DÜZELTMERİSK SKORU 8/100 olarak hesaplandı ve \"GÜÇLÜ TREND / FIRSAT\" olarak yorumlandı. Bu, yakın vadede önemli bir düzeltme beklentisi olmadığını gösteriyor. RSI=33.6 değeri, endeksin aşırı satım bölgesinde olduğunu gösteriyor ki bu bir düzeltme veya toparlanma için fırsat oluşturabilir. Tetikleyici olarak, makroekonomik koşullardaki değişimler, global piyasalardaki gelişmeler veya şirketlerin mali sonuçları gibi faktörler olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n   - **Endeks RSI'si düşük olduğundan, seçilmiş hisselere yönelik alım fırsatları değerlendirebilirsiniz.** Özellikle aşırı satım bölgesinde olan hisseleri takip edin.\n   - **Diversifikasyon önemlidir.** Portföyünüzü farklı sektörlerdeki hisselerle dağıtmaya çalışın. Bu, riskinizi dağıtmaya yardımcı olabilir.\n   - **Makroekonomik gelişmeleri yakından takip edin.** VIX gibi volatilite göstergeleri ve USDTRY gibi döviz kurlarındaki değişimler, piyasalardaki beklentileri etkileyebilir. Bu gelişmeleri izleyerek, pozisyonlarınızı güncelleyebilirsiniz."
+  },
+  "risk_skoru": 8,
+  "rejim_adi": "💚 GÜÇLÜ TREND / FIRSAT",
+  "tavsiye": "Pozisyon artırma fırsatı değerlendirilebilir."
+}
