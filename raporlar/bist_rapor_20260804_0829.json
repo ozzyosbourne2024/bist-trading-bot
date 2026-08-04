@@ -1,0 +1,5446 @@
+{
+  "tarih": "2026-08-04T08:29:11.385933",
+  "versiyon": "4.1",
+  "bist_ozet": "BIST100 Özet (100 hisse tarandı):\n- Pozitif 3Ay: 30/100 (%30)\n- Ort 3Ay getiri: %-6.3\n- Manipülasyon şüphesi: 0\n- Balon şüphesi: 0\n- Derin analize: 35",
+  "kural_motoru": [
+    {
+      "ticker": "AGHOL",
+      "teknik_puan": 68.0,
+      "temel_puan": 45.0,
+      "toplam_puan": 58.8,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 12.06,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:12 zayıf/yok trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ MACD: sinyal üstünde",
+        "⚠️ Stoch:81 aşırı alım",
+        "❌ OBV negatif ıraksama (tepe sinyali)",
+        "❌ OBV: para çıkışı var",
+        "❌ D/E:46.52 yüksek borç",
+        "✅ FCF:6,878M pozitif",
+        "❌ Sharpe:-0.90 negatif"
+      ]
+    },
+    {
+      "ticker": "ALARK",
+      "teknik_puan": 65.0,
+      "temel_puan": 32.0,
+      "toplam_puan": 50.1,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 23.14,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ICINDE",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:23 zayıf/yok trend",
+        "⚠️ Ichimoku: bulut içinde (kararsız)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:56.59 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "✅ RSI pozitif ıraksama",
+        "❌ OBV: para çıkışı var",
+        "❌ D/E:32.30 yüksek borç",
+        "❌ FCF negatif",
+        "✅ YoY büyüme:26.3%",
+        "❌ Sharpe:-1.35 negatif"
+      ]
+    },
+    {
+      "ticker": "DOHOL",
+      "teknik_puan": 83.0,
+      "temel_puan": 47.0,
+      "toplam_puan": 68.6,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 16.23,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "DOJI(KARARSIZ)"
+      ],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:16 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:44.06 alım fırsatı bölgesi",
+        "✅ MACD: sinyal üstünde",
+        "✅ Stoch:13 aşırı satım",
+        "⚠️ Mum: DOJI(KARARSIZ)",
+        "✅ OBV: para girişi var",
+        "✅ F/K:19.0 makul",
+        "❌ D/E:39.49 yüksek borç",
+        "✅ FCF:5,292M pozitif",
+        "❌ Gelir düşüyor:-1.8%",
+        "❌ Sharpe:-0.97 negatif"
+      ]
+    },
+    {
+      "ticker": "KCHOL",
+      "teknik_puan": 30.0,
+      "temel_puan": 45.0,
+      "toplam_puan": 36.8,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 21.34,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:21 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:54.55 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "❌ OBV negatif ıraksama (tepe sinyali)",
+        "❌ OBV: para çıkışı var",
+        "❌ D/E:121.02 yüksek borç",
+        "✅ FCF:200,369M pozitif",
+        "❌ Sharpe:-1.28 negatif"
+      ]
+    },
+    {
+      "ticker": "SAHOL",
+      "teknik_puan": 53.0,
+      "temel_puan": 45.0,
+      "toplam_puan": 49.4,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 60.78,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "HAMMER(AL)"
+      ],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:61 çok güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:37.82 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ RSI pozitif ıraksama",
+        "✅ Mum: HAMMER(AL)",
+        "❌ OBV: para çıkışı var",
+        "❌ Sharpe:-1.97 negatif"
+      ]
+    },
+    {
+      "ticker": "ARCLK",
+      "teknik_puan": 67.0,
+      "temel_puan": 4.0,
+      "toplam_puan": 41.8,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 19.33,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:19 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:40.5 alım fırsatı bölgesi",
+        "✅ MACD: sinyal üstünde",
+        "✅ Stoch:16 aşırı satım",
+        "✅ RSI pozitif ıraksama",
+        "✅ MACD pozitif ıraksama",
+        "✅✅ Çoklu pozitif ıraksama — güçlü dip onayı",
+        "❌ OBV: para çıkışı var",
+        "❌ ROE:-3.5% zararda",
+        "❌ D/E:318.33 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-11.9%",
+        "❌ Sharpe:-2.60 negatif"
+      ]
+    },
+    {
+      "ticker": "ASELS",
+      "teknik_puan": 34.0,
+      "temel_puan": 40.0,
+      "toplam_puan": 35.8,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 11.73,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:12 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:39.3 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ ROE:14.8% iyi karlılık",
+        "❌ D/E:18.78 yüksek borç",
+        "❌ FCF negatif",
+        "✅ YoY büyüme:15.0%",
+        "❌ Sharpe:-0.02 negatif"
+      ]
+    },
+    {
+      "ticker": "PETKM",
+      "teknik_puan": 60.0,
+      "temel_puan": 17.0,
+      "toplam_puan": 51.4,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 46.65,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:47 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:50.94 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "✅ Stoch:14 aşırı satım",
+        "✅ OBV: para girişi var",
+        "❌ ROE:-10.3% zararda",
+        "❌ D/E:76.70 yüksek borç",
+        "❌ FCF negatif",
+        "✅ YoY büyüme:16.7%",
+        "❌ Sharpe:-0.34 negatif"
+      ]
+    },
+    {
+      "ticker": "PGSUS",
+      "teknik_puan": 40.0,
+      "temel_puan": 75.0,
+      "toplam_puan": 54.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 40.32,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:40 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:29.58 aşırı satım (dip fırsatı)",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:9.0 değer hissesi",
+        "❌ D/E:206.37 yüksek borç",
+        "✅ FCF:28,141M pozitif",
+        "✅ YoY büyüme:38.9%",
+        "❌ Sharpe:-2.80 negatif"
+      ]
+    },
+    {
+      "ticker": "TAVHL",
+      "teknik_puan": 49.0,
+      "temel_puan": 37.0,
+      "toplam_puan": 44.2,
+      "golden_cross": "DEATH_CROSS(20/50)",
+      "adx": 24.05,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "NEG_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:24 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:56.22 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "⚠️ Stoch:94 aşırı alım",
+        "❌ MACD negatif ıraksama (tepe sinyali)",
+        "✅ OBV: para girişi var",
+        "⚠️ BB%:0.92 üst band (satım bölgesi)",
+        "✅ F/K:16.9 makul",
+        "❌ D/E:134.27 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Sharpe:-1.89 negatif"
+      ]
+    },
+    {
+      "ticker": "THYAO",
+      "teknik_puan": 46.0,
+      "temel_puan": 58.0,
+      "toplam_puan": 50.8,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 19.65,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ICINDE",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:20 zayıf/yok trend",
+        "⚠️ Ichimoku: bulut içinde (kararsız)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:30.48 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ ROE:15.6% iyi karlılık",
+        "❌ D/E:83.90 yüksek borç",
+        "✅ FCF:1,210M pozitif",
+        "✅ YoY büyüme:21.1%",
+        "❌ Sharpe:-1.10 negatif"
+      ]
+    },
+    {
+      "ticker": "TCELL",
+      "teknik_puan": 39.0,
+      "temel_puan": 55.0,
+      "toplam_puan": 45.4,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 20.3,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:20 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:47.73 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ RSI pozitif ıraksama",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:12.5 makul",
+        "❌ D/E:70.93 yüksek borç",
+        "✅ FCF:2,612M pozitif",
+        "❌ Sharpe:-1.72 negatif"
+      ]
+    },
+    {
+      "ticker": "BIMAS",
+      "teknik_puan": 52.0,
+      "temel_puan": 58.0,
+      "toplam_puan": 54.4,
+      "golden_cross": "GOLDEN_CROSS(20/50)",
+      "adx": 35.92,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:36 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:55.13 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "✅ OBV: para girişi var",
+        "✅ ROE:13.4% iyi karlılık",
+        "❌ D/E:30.44 yüksek borç",
+        "✅ FCF:8,909M pozitif",
+        "✅ YoY büyüme:10.1%",
+        "❌ Sharpe:-0.43 negatif"
+      ]
+    },
+    {
+      "ticker": "MGROS",
+      "teknik_puan": 66.0,
+      "temel_puan": 55.0,
+      "toplam_puan": 61.6,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 37.37,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "✅ ADX:37 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:46.47 alım fırsatı bölgesi",
+        "✅ MACD: sinyal üstünde",
+        "✅ RSI pozitif ıraksama",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:15.2 makul",
+        "❌ D/E:40.97 yüksek borç",
+        "✅ FCF:7,187M pozitif",
+        "❌ Sharpe:-1.55 negatif"
+      ]
+    },
+    {
+      "ticker": "EKGYO",
+      "teknik_puan": 54.0,
+      "temel_puan": 4.0,
+      "toplam_puan": 44.0,
+      "golden_cross": "DEATH_CROSS(20/50)",
+      "adx": 41.03,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "HAMMER(AL)"
+      ],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:41 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:26.64 aşırı satım (dip fırsatı)",
+        "❌ MACD: sinyal altında",
+        "✅ Stoch:15 aşırı satım",
+        "✅ Mum: HAMMER(AL)",
+        "❌ OBV: para çıkışı var",
+        "❌ F/K:227.5 pahalı",
+        "❌ D/E:46.02 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-29.2%",
+        "❌ Sharpe:-2.25 negatif"
+      ]
+    },
+    {
+      "ticker": "ENKAI",
+      "teknik_puan": 34.0,
+      "temel_puan": 78.0,
+      "toplam_puan": 42.8,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 19.11,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:19 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:38.72 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:13.7 makul",
+        "✅ ROE:11.0% iyi karlılık",
+        "✅ FCF:14,558M pozitif",
+        "✅ YoY büyüme:20.0%",
+        "❌ Sharpe:-1.54 negatif"
+      ]
+    },
+    {
+      "ticker": "TKFEN",
+      "teknik_puan": 72.0,
+      "temel_puan": 35.0,
+      "toplam_puan": 64.6,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 23.77,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:24 zayıf/yok trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "⚠️ RSI:91.57 aşırı alım",
+        "✅ MACD: sinyal üstünde",
+        "⚠️ Stoch:93 aşırı alım",
+        "✅ OBV: para girişi var",
+        "⚠️ BB%:1.13 üst band (satım bölgesi)",
+        "❌ ROE:-15.5% zararda",
+        "❌ D/E:42.77 yüksek borç",
+        "✅ FCF:3,831M pozitif",
+        "❌ Gelir düşüyor:-16.9%",
+        "✅ Sharpe:1.78 iyi risk-getiri"
+      ]
+    },
+    {
+      "ticker": "SISE",
+      "teknik_puan": 34.0,
+      "temel_puan": 39.0,
+      "toplam_puan": 36.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 15.1,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:15 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:41.81 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:11.1 değer hissesi",
+        "❌ D/E:59.68 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-3.4%",
+        "❌ Sharpe:-1.22 negatif"
+      ]
+    },
+    {
+      "ticker": "EREGL",
+      "teknik_puan": 79.0,
+      "temel_puan": 40.0,
+      "toplam_puan": 71.2,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 40.42,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:40 güçlü trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:53.12 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "✅ OBV: para girişi var",
+        "❌ F/K:589.7 pahalı",
+        "❌ D/E:51.05 yüksek borç",
+        "✅ FCF:33,617M pozitif",
+        "✅ YoY büyüme:11.5%"
+      ]
+    },
+    {
+      "ticker": "ISMEN",
+      "teknik_puan": 61.0,
+      "temel_puan": 75.0,
+      "toplam_puan": 67.3,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 25.85,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:26 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:45.89 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ Stoch:11 aşırı satım",
+        "✅ RSI pozitif ıraksama",
+        "✅ MACD pozitif ıraksama",
+        "✅✅ Çoklu pozitif ıraksama — güçlü dip onayı",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:7.6 değer hissesi",
+        "✅ ROE:22.8% yüksek karlılık",
+        "❌ D/E:62.52 yüksek borç",
+        "✅ YoY büyüme:13.5%",
+        "❌ Sharpe:-2.77 negatif"
+      ]
+    },
+    {
+      "ticker": "GESAN",
+      "teknik_puan": 61.0,
+      "temel_puan": 42.0,
+      "toplam_puan": 53.4,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 43.15,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "THREE_WHITE_SOLDIERS(GUCLU_AL)"
+      ],
+      "ichimoku_durum": "BULUT_ICINDE",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:43 güçlü trend",
+        "⚠️ Ichimoku: bulut içinde (kararsız)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:45.35 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ Mum: THREE_WHITE_SOLDIERS(GUCLU_AL)",
+        "❌ OBV: para çıkışı var",
+        "❌ D/E:24.19 yüksek borç",
+        "❌ FCF negatif",
+        "✅ YoY büyüme:31.5%"
+      ]
+    },
+    {
+      "ticker": "CCOLA",
+      "teknik_puan": 56.0,
+      "temel_puan": 75.0,
+      "toplam_puan": 63.6,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 27.04,
+      "rsi_iraksama": "NEG_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:27 güçlü trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:54.95 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "❌ RSI negatif ıraksama (tepe sinyali)",
+        "❌ OBV negatif ıraksama (tepe sinyali)",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:13.8 makul",
+        "✅ ROE:22.0% yüksek karlılık",
+        "❌ D/E:54.13 yüksek borç",
+        "✅ FCF:13,056M pozitif",
+        "✅ YoY büyüme:10.7%",
+        "❌ Sharpe:-0.04 negatif"
+      ]
+    },
+    {
+      "ticker": "BRYAT",
+      "teknik_puan": 43.0,
+      "temel_puan": 93.0,
+      "toplam_puan": 63.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 44.54,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:45 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:36.57 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ RSI pozitif ıraksama",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:10.5 değer hissesi",
+        "✅ ROE:14.2% iyi karlılık",
+        "✅ FCF:1,192M pozitif",
+        "✅ YoY büyüme:107.9%",
+        "❌ Sharpe:-2.03 negatif"
+      ]
+    },
+    {
+      "ticker": "DOAS",
+      "teknik_puan": 64.0,
+      "temel_puan": 29.0,
+      "toplam_puan": 50.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 30.77,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:31 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:50.5 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "✅ RSI pozitif ıraksama",
+        "✅ MACD pozitif ıraksama",
+        "✅✅ Çoklu pozitif ıraksama — güçlü dip onayı",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:13.8 makul",
+        "❌ D/E:47.63 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-9.8%",
+        "❌ Sharpe:-1.90 negatif"
+      ]
+    },
+    {
+      "ticker": "AKSA",
+      "teknik_puan": 87.0,
+      "temel_puan": 83.0,
+      "toplam_puan": 85.4,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 21.75,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "NEG_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:22 zayıf/yok trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:62.54 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "⚠️ Stoch:86 aşırı alım",
+        "❌ MACD negatif ıraksama (tepe sinyali)",
+        "✅ OBV: para girişi var",
+        "✅ F/K:11.2 değer hissesi",
+        "✅ ROE:13.5% iyi karlılık",
+        "❌ D/E:83.74 yüksek borç",
+        "✅ FCF:412M pozitif",
+        "✅ YoY büyüme:18.6%"
+      ]
+    },
+    {
+      "ticker": "TTKOM",
+      "teknik_puan": 38.0,
+      "temel_puan": 55.0,
+      "toplam_puan": 44.8,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 49.08,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:49 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:32.25 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:7.0 değer hissesi",
+        "✅ ROE:13.1% iyi karlılık",
+        "❌ D/E:58.28 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Sharpe:-2.44 negatif"
+      ]
+    },
+    {
+      "ticker": "AEFES",
+      "teknik_puan": 80.0,
+      "temel_puan": 55.0,
+      "toplam_puan": 70.0,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 23.45,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:23 zayıf/yok trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:61.06 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "❌ OBV negatif ıraksama (tepe sinyali)",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:14.8 makul",
+        "❌ D/E:40.96 yüksek borç",
+        "✅ FCF:10,905M pozitif",
+        "❌ Sharpe:-0.40 negatif"
+      ]
+    },
+    {
+      "ticker": "CIMSA",
+      "teknik_puan": 57.0,
+      "temel_puan": 37.0,
+      "toplam_puan": 49.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 18.91,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "THREE_BLACK_CROWS(GUCLU_SAT)"
+      ],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "⚠️ ADX:19 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:44.89 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "✅ Stoch:5 aşırı satım",
+        "✅ RSI pozitif ıraksama",
+        "✅ MACD pozitif ıraksama",
+        "✅✅ Çoklu pozitif ıraksama — güçlü dip onayı",
+        "❌ Mum: THREE_BLACK_CROWS(GUCLU_SAT)",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:12.8 makul",
+        "✅ ROE:10.5% iyi karlılık",
+        "❌ D/E:63.10 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-0.2%",
+        "❌ Sharpe:-1.58 negatif"
+      ]
+    },
+    {
+      "ticker": "AKBNK",
+      "teknik_puan": 42.0,
+      "temel_puan": 90.0,
+      "toplam_puan": 66.0,
+      "golden_cross": "DEATH_CROSS(20/50)",
+      "adx": 51.41,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:51 çok güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:43.66 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:5.5 değer hissesi",
+        "✅ ROE:22.9% yüksek karlılık",
+        "✅ YoY büyüme:42.0%",
+        "❌ Sharpe:-1.57 negatif"
+      ]
+    },
+    {
+      "ticker": "GARAN",
+      "teknik_puan": 59.0,
+      "temel_puan": 85.0,
+      "toplam_puan": 72.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 47.19,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [
+        "HAMMER(AL)"
+      ],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:47 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:47.64 alım fırsatı bölgesi",
+        "✅ MACD: sinyal üstünde",
+        "✅ RSI pozitif ıraksama",
+        "✅ Mum: HAMMER(AL)",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:4.5 değer hissesi",
+        "✅ ROE:28.1% yüksek karlılık",
+        "✅ YoY büyüme:24.5%",
+        "❌ Sharpe:-1.87 negatif"
+      ]
+    },
+    {
+      "ticker": "YKBNK",
+      "teknik_puan": 41.0,
+      "temel_puan": 85.0,
+      "toplam_puan": 63.0,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 75.08,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:75 çok güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:43.28 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "⚠️ Stoch:81 aşırı alım",
+        "✅ RSI pozitif ıraksama",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:5.2 değer hissesi",
+        "✅ ROE:21.8% yüksek karlılık",
+        "✅ YoY büyüme:29.4%",
+        "❌ Sharpe:-1.24 negatif"
+      ]
+    },
+    {
+      "ticker": "OYAKC",
+      "teknik_puan": 91.0,
+      "temel_puan": 47.0,
+      "toplam_puan": 73.4,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 24.85,
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "POZ_IRAKSAMA",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "YUKARI",
+      "aciklamalar": [
+        "⚠️ ADX:25 zayıf/yok trend",
+        "❌ Ichimoku: bulut altında",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "✅ Parabolic SAR: yükseliş",
+        "✅ RSI:53.23 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "✅ RSI pozitif ıraksama",
+        "✅ MACD pozitif ıraksama",
+        "✅ OBV pozitif ıraksama",
+        "✅✅ Çoklu pozitif ıraksama — güçlü dip onayı",
+        "✅ OBV: para girişi var",
+        "✅ F/K:11.4 değer hissesi",
+        "✅ ROE:13.1% iyi karlılık",
+        "❌ D/E:4.20 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-21.0%",
+        "❌ Sharpe:-2.76 negatif"
+      ]
+    },
+    {
+      "ticker": "TOASO",
+      "teknik_puan": 38.0,
+      "temel_puan": 67.0,
+      "toplam_puan": 49.6,
+      "golden_cross": "SMA20_ALTINDA",
+      "adx": 49.11,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_ALTI",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:49 güçlü trend",
+        "❌ Ichimoku: bulut altında",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:31.32 alım fırsatı bölgesi",
+        "❌ MACD: sinyal altında",
+        "❌ OBV: para çıkışı var",
+        "✅ F/K:10.7 değer hissesi",
+        "✅ ROE:22.0% yüksek karlılık",
+        "❌ D/E:107.03 yüksek borç",
+        "❌ FCF negatif",
+        "✅ YoY büyüme:11.0%",
+        "❌ Sharpe:-1.47 negatif"
+      ]
+    },
+    {
+      "ticker": "AKSEN",
+      "teknik_puan": 91.0,
+      "temel_puan": 34.0,
+      "toplam_puan": 79.6,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 61.95,
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:62 çok güçlü trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:52.47 momentum pozitif",
+        "❌ MACD: sinyal altında",
+        "✅ Stoch:14 aşırı satım",
+        "✅ OBV: para girişi var",
+        "✅ F/K:15.8 makul",
+        "❌ D/E:81.84 yüksek borç",
+        "❌ FCF negatif",
+        "❌ Gelir düşüyor:-21.0%"
+      ]
+    },
+    {
+      "ticker": "TRMET",
+      "teknik_puan": 84.0,
+      "temel_puan": 83.0,
+      "toplam_puan": 83.8,
+      "golden_cross": "SMA20_USTUNDE",
+      "adx": 49.32,
+      "rsi_iraksama": "NEG_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlar": [],
+      "ichimoku_durum": "BULUT_USTU",
+      "sar_yon": "ASAGI",
+      "aciklamalar": [
+        "✅ ADX:49 güçlü trend",
+        "✅ Ichimoku: bulut üstünde (YUKARI)",
+        "✅ Tenkan > Kijun (kısa vade pozitif)",
+        "❌ Parabolic SAR: düşüş",
+        "✅ RSI:51.9 momentum pozitif",
+        "✅ MACD: sinyal üstünde",
+        "❌ RSI negatif ıraksama (tepe sinyali)",
+        "✅ OBV: para girişi var",
+        "✅ ROE:10.8% iyi karlılık",
+        "✅ D/E:0.24 düşük borç",
+        "✅ FCF:3,088M pozitif",
+        "✅ YoY büyüme:55.9%",
+        "❌ Sharpe:-0.72 negatif"
+      ]
+    }
+  ],
+  "hisseler": [
+    {
+      "ticker": "AGHOL",
+      "isim": "AG Anadolu Grubu Holding A.S.",
+      "sektor": "Industrials",
+      "fiyat": 35.38,
+      "degisim_1g": -0.23,
+      "degisim_1h": 3.57,
+      "degisim_6ay": 1.03,
+      "rsi_14": 66.67,
+      "stoch_k": 80.59,
+      "stoch_d": 82.76,
+      "macd": 0.459,
+      "macd_sinyal": 0.3106,
+      "macd_hist": 0.1484,
+      "sma_50": 33.93,
+      "sma_200": 33.66,
+      "bb_ust": 35.97,
+      "bb_orta": 33.93,
+      "bb_alt": 31.89,
+      "bb_pct": 0.855,
+      "atr": 1.1329,
+      "volatilite": 37.01,
+      "yillik_getiri": 8.86,
+      "obv_trend": "-2377325",
+      "hacim_ort": 4712671,
+      "destek": 31.98,
+      "direnc": 35.46,
+      "fib": {
+        "0.0": 31.98,
+        "0.236": 33.12,
+        "0.382": 33.82,
+        "0.5": 34.39,
+        "0.618": 34.96,
+        "1.0": 36.8,
+        "1.272": 38.11,
+        "1.618": 39.78
+      },
+      "adx": 12.06,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 35.52,
+        "kijun": 34.36,
+        "senkou_a": 33.92,
+        "senkou_b": 33.51,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 33.92,
+        "bulut_alt": 33.51
+      },
+      "sar_deger": 33.58,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlari": [],
+      "fk_orani": null,
+      "pd_dd": 0.681328,
+      "temettü_verimi": 197.0,
+      "piyasa_degeri_m": 86163.0,
+      "roe": 6.7,
+      "roa": 3.8,
+      "borc_ozsermaye": 46.52,
+      "fcf_m": 6878.0,
+      "gelir_buyume_yoy": 6.2,
+      "sharpe": -0.9,
+      "max_drawdown": -25.65,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 40.17,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 38.11,
+            "agirlik_pct": 20,
+            "upside_pct": 7.7
+          },
+          "fib162": {
+            "fiyat": 39.78,
+            "agirlik_pct": 10,
+            "upside_pct": 12.4
+          },
+          "direnc": {
+            "fiyat": 35.46,
+            "agirlik_pct": 20,
+            "upside_pct": 0.2
+          },
+          "atr_rr3": {
+            "fiyat": 40.48,
+            "agirlik_pct": 15,
+            "upside_pct": 14.4
+          },
+          "bollinger": {
+            "fiyat": 35.97,
+            "agirlik_pct": 10,
+            "upside_pct": 1.7
+          },
+          "analist": {
+            "fiyat": 47.25,
+            "agirlik_pct": 25,
+            "upside_pct": 33.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "ALARK",
+      "isim": "Alarko Holding A.S.",
+      "sektor": "Industrials",
+      "fiyat": 103.7,
+      "degisim_1g": 2.78,
+      "degisim_1h": 0.48,
+      "degisim_6ay": -5.9,
+      "rsi_14": 56.59,
+      "stoch_k": 46.72,
+      "stoch_d": 34.8,
+      "macd": 0.22,
+      "macd_sinyal": 0.651,
+      "macd_hist": -0.431,
+      "sma_50": 103.46,
+      "sma_200": 102.51,
+      "bb_ust": 110.42,
+      "bb_orta": 103.46,
+      "bb_alt": 96.5,
+      "bb_pct": 0.517,
+      "atr": 3.85,
+      "volatilite": 35.77,
+      "yillik_getiri": -6.23,
+      "obv_trend": "-5691872",
+      "hacim_ort": 4940193,
+      "destek": 98.35,
+      "direnc": 110.5,
+      "fib": {
+        "0.0": 90.7,
+        "0.236": 95.37,
+        "0.382": 98.26,
+        "0.5": 100.6,
+        "0.618": 102.94,
+        "1.0": 110.5,
+        "1.272": 115.89,
+        "1.618": 122.74
+      },
+      "adx": 23.14,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 107.25,
+        "kijun": 105.15,
+        "senkou_a": 105.45,
+        "senkou_b": 101.55,
+        "durum": "BULUT_ICINDE",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 105.45,
+        "bulut_alt": 101.55
+      },
+      "sar_deger": 99.45,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 24.749403,
+      "pd_dd": 0.5190268,
+      "temettü_verimi": 315.0,
+      "piyasa_degeri_m": 45060.0,
+      "roe": 1.8,
+      "roa": -1.3,
+      "borc_ozsermaye": 32.3,
+      "fcf_m": -19338.0,
+      "gelir_buyume_yoy": 26.3,
+      "sharpe": -1.35,
+      "max_drawdown": -24.91,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 126.77,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 115.89,
+            "agirlik_pct": 20,
+            "upside_pct": 11.8
+          },
+          "fib162": {
+            "fiyat": 122.74,
+            "agirlik_pct": 10,
+            "upside_pct": 18.4
+          },
+          "direnc": {
+            "fiyat": 110.5,
+            "agirlik_pct": 20,
+            "upside_pct": 6.6
+          },
+          "atr_rr3": {
+            "fiyat": 121.02,
+            "agirlik_pct": 15,
+            "upside_pct": 16.7
+          },
+          "bollinger": {
+            "fiyat": 110.42,
+            "agirlik_pct": 10,
+            "upside_pct": 6.5
+          },
+          "analist": {
+            "fiyat": 160.1,
+            "agirlik_pct": 25,
+            "upside_pct": 54.4
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "DOHOL",
+      "isim": "Dogan Sirketler Grubu Holding A.S.",
+      "sektor": "Industrials",
+      "fiyat": 20.7,
+      "degisim_1g": -2.63,
+      "degisim_1h": -1.62,
+      "degisim_6ay": -3.36,
+      "rsi_14": 44.06,
+      "stoch_k": 12.94,
+      "stoch_d": 42.35,
+      "macd": -0.1025,
+      "macd_sinyal": -0.1307,
+      "macd_hist": 0.0282,
+      "sma_50": 21.03,
+      "sma_200": 21.66,
+      "bb_ust": 21.84,
+      "bb_orta": 21.03,
+      "bb_alt": 20.22,
+      "bb_pct": 0.297,
+      "atr": 0.74,
+      "volatilite": 41.57,
+      "yillik_getiri": 1.48,
+      "obv_trend": "41139236",
+      "hacim_ort": 11141138,
+      "destek": 20.32,
+      "direnc": 21.68,
+      "fib": {
+        "0.0": 20.32,
+        "0.236": 21.31,
+        "0.382": 21.92,
+        "0.5": 22.42,
+        "0.618": 22.92,
+        "1.0": 24.52,
+        "1.272": 25.66,
+        "1.618": 27.12
+      },
+      "adx": 16.23,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 21.47,
+        "kijun": 21.31,
+        "senkou_a": 22.33,
+        "senkou_b": 23.01,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 23.01,
+        "bulut_alt": 22.33
+      },
+      "sar_deger": 20.51,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "DOJI(KARARSIZ)"
+      ],
+      "fk_orani": 18.990826,
+      "pd_dd": 0.5881184,
+      "temettü_verimi": 146.0,
+      "piyasa_degeri_m": 53254.0,
+      "roe": 3.4,
+      "roa": 2.1,
+      "borc_ozsermaye": 39.49,
+      "fcf_m": 5292.0,
+      "gelir_buyume_yoy": -1.8,
+      "sharpe": -0.97,
+      "max_drawdown": -17.53,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 25.86,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 25.66,
+            "agirlik_pct": 20,
+            "upside_pct": 24.0
+          },
+          "fib162": {
+            "fiyat": 27.12,
+            "agirlik_pct": 10,
+            "upside_pct": 31.0
+          },
+          "direnc": {
+            "fiyat": 21.68,
+            "agirlik_pct": 20,
+            "upside_pct": 4.7
+          },
+          "atr_rr3": {
+            "fiyat": 24.03,
+            "agirlik_pct": 15,
+            "upside_pct": 16.1
+          },
+          "bollinger": {
+            "fiyat": 21.84,
+            "agirlik_pct": 10,
+            "upside_pct": 5.5
+          },
+          "analist": {
+            "fiyat": 31.56,
+            "agirlik_pct": 25,
+            "upside_pct": 52.5
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "KCHOL",
+      "isim": "Koç Holding A.S.",
+      "sektor": "Industrials",
+      "fiyat": 195.7,
+      "degisim_1g": 2.19,
+      "degisim_1h": -0.51,
+      "degisim_6ay": -2.4,
+      "rsi_14": 54.55,
+      "stoch_k": 39.76,
+      "stoch_d": 40.29,
+      "macd": 0.5581,
+      "macd_sinyal": 0.8436,
+      "macd_hist": -0.2855,
+      "sma_50": 193.96,
+      "sma_200": 192.79,
+      "bb_ust": 204.58,
+      "bb_orta": 193.96,
+      "bb_alt": 183.34,
+      "bb_pct": 0.582,
+      "atr": 5.1643,
+      "volatilite": 32.59,
+      "yillik_getiri": 0.24,
+      "obv_trend": "-18510982",
+      "hacim_ort": 19303325,
+      "destek": 184.0,
+      "direnc": 204.3,
+      "fib": {
+        "0.0": 183.3,
+        "0.236": 190.31,
+        "0.382": 194.65,
+        "0.5": 198.15,
+        "0.618": 201.65,
+        "1.0": 213.0,
+        "1.272": 221.08,
+        "1.618": 231.35
+      },
+      "adx": 21.34,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 200.9,
+        "kijun": 195.6,
+        "senkou_a": 195.95,
+        "senkou_b": 201.1,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 201.1,
+        "bulut_alt": 195.95
+      },
+      "sar_deger": 204.84,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlari": [],
+      "fk_orani": 20.364204,
+      "pd_dd": 0.69426453,
+      "temettü_verimi": 347.0,
+      "piyasa_degeri_m": 496101.0,
+      "roe": 3.9,
+      "roa": 1.4,
+      "borc_ozsermaye": 121.02,
+      "fcf_m": 200369.0,
+      "gelir_buyume_yoy": 4.8,
+      "sharpe": -1.28,
+      "max_drawdown": -16.43,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 237.67,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 221.08,
+            "agirlik_pct": 20,
+            "upside_pct": 13.0
+          },
+          "fib162": {
+            "fiyat": 231.35,
+            "agirlik_pct": 10,
+            "upside_pct": 18.2
+          },
+          "direnc": {
+            "fiyat": 204.3,
+            "agirlik_pct": 20,
+            "upside_pct": 4.4
+          },
+          "atr_rr3": {
+            "fiyat": 218.94,
+            "agirlik_pct": 15,
+            "upside_pct": 11.9
+          },
+          "bollinger": {
+            "fiyat": 204.58,
+            "agirlik_pct": 10,
+            "upside_pct": 4.5
+          },
+          "analist": {
+            "fiyat": 304.64,
+            "agirlik_pct": 25,
+            "upside_pct": 55.7
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "SAHOL",
+      "isim": "Haci Ömer Sabanci Holding A.S.",
+      "sektor": "Financial Services",
+      "fiyat": 86.25,
+      "degisim_1g": 4.8,
+      "degisim_1h": -0.98,
+      "degisim_6ay": -18.02,
+      "rsi_14": 37.82,
+      "stoch_k": 48.82,
+      "stoch_d": 19.26,
+      "macd": -2.5307,
+      "macd_sinyal": -2.1804,
+      "macd_hist": -0.3503,
+      "sma_50": 88.86,
+      "sma_200": 92.64,
+      "bb_ust": 94.53,
+      "bb_orta": 88.86,
+      "bb_alt": 83.2,
+      "bb_pct": 0.269,
+      "atr": 2.175,
+      "volatilite": 38.45,
+      "yillik_getiri": -33.74,
+      "obv_trend": "-122560752",
+      "hacim_ort": 32029982,
+      "destek": 82.3,
+      "direnc": 94.5,
+      "fib": {
+        "0.0": 82.3,
+        "0.236": 87.07,
+        "0.382": 90.02,
+        "0.5": 92.4,
+        "0.618": 94.78,
+        "1.0": 102.5,
+        "1.272": 107.99,
+        "1.618": 114.98
+      },
+      "adx": 60.78,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 87.53,
+        "kijun": 93.28,
+        "senkou_a": 98.35,
+        "senkou_b": 98.08,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 98.35,
+        "bulut_alt": 98.08
+      },
+      "sar_deger": 88.63,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "HAMMER(AL)"
+      ],
+      "fk_orani": 22.286823,
+      "pd_dd": 0.46708727,
+      "temettü_verimi": 167.0,
+      "piyasa_degeri_m": 178351.0,
+      "roe": 2.4,
+      "roa": 0.4,
+      "borc_ozsermaye": null,
+      "fcf_m": null,
+      "gelir_buyume_yoy": 7.4,
+      "sharpe": -1.97,
+      "max_drawdown": -25.74,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 116.31,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 107.99,
+            "agirlik_pct": 20,
+            "upside_pct": 25.2
+          },
+          "fib162": {
+            "fiyat": 114.98,
+            "agirlik_pct": 10,
+            "upside_pct": 33.3
+          },
+          "direnc": {
+            "fiyat": 94.5,
+            "agirlik_pct": 20,
+            "upside_pct": 9.6
+          },
+          "atr_rr3": {
+            "fiyat": 96.04,
+            "agirlik_pct": 15,
+            "upside_pct": 11.4
+          },
+          "bollinger": {
+            "fiyat": 94.53,
+            "agirlik_pct": 10,
+            "upside_pct": 9.6
+          },
+          "analist": {
+            "fiyat": 161.81,
+            "agirlik_pct": 25,
+            "upside_pct": 87.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "ARCLK",
+      "isim": "Arçelik Anonim Sirketi",
+      "sektor": "Consumer Cyclical",
+      "fiyat": 97.0,
+      "degisim_1g": 0.1,
+      "degisim_1h": -2.32,
+      "degisim_6ay": -19.5,
+      "rsi_14": 40.5,
+      "stoch_k": 15.79,
+      "stoch_d": 23.45,
+      "macd": -1.1221,
+      "macd_sinyal": -1.2423,
+      "macd_hist": 0.1202,
+      "sma_50": 98.27,
+      "sma_200": 101.2,
+      "bb_ust": 100.29,
+      "bb_orta": 98.27,
+      "bb_alt": 96.25,
+      "bb_pct": 0.186,
+      "atr": 2.1464,
+      "volatilite": 31.48,
+      "yillik_getiri": -39.88,
+      "obv_trend": "-1082000",
+      "hacim_ort": 1870057,
+      "destek": 96.5,
+      "direnc": 100.2,
+      "fib": {
+        "0.0": 96.5,
+        "0.236": 101.2,
+        "0.382": 104.1,
+        "0.5": 106.45,
+        "0.618": 108.8,
+        "1.0": 116.4,
+        "1.272": 121.81,
+        "1.618": 128.7
+      },
+      "adx": 19.33,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 99.53,
+        "kijun": 100.98,
+        "senkou_a": 104.77,
+        "senkou_b": 111.3,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 111.3,
+        "bulut_alt": 104.77
+      },
+      "sar_deger": 101.7,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": null,
+      "pd_dd": 0.8430897,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 63647.0,
+      "roe": -3.5,
+      "roa": 0.2,
+      "borc_ozsermaye": 318.33,
+      "fcf_m": -34927.0,
+      "gelir_buyume_yoy": -11.9,
+      "sharpe": -2.6,
+      "max_drawdown": -28.68,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 122.37,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 121.81,
+            "agirlik_pct": 20,
+            "upside_pct": 25.6
+          },
+          "fib162": {
+            "fiyat": 128.7,
+            "agirlik_pct": 10,
+            "upside_pct": 32.7
+          },
+          "direnc": {
+            "fiyat": 100.2,
+            "agirlik_pct": 20,
+            "upside_pct": 3.3
+          },
+          "atr_rr3": {
+            "fiyat": 106.66,
+            "agirlik_pct": 15,
+            "upside_pct": 10.0
+          },
+          "bollinger": {
+            "fiyat": 100.29,
+            "agirlik_pct": 10,
+            "upside_pct": 3.4
+          },
+          "analist": {
+            "fiyat": 156.29,
+            "agirlik_pct": 25,
+            "upside_pct": 61.1
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "ASELS",
+      "isim": "ASELSAN Elektronik Sanayi ve Ticaret Anonim Sirketi",
+      "sektor": "Industrials",
+      "fiyat": 347.0,
+      "degisim_1g": 2.81,
+      "degisim_1h": -3.74,
+      "degisim_6ay": 14.71,
+      "rsi_14": 39.3,
+      "stoch_k": 20.63,
+      "stoch_d": 15.2,
+      "macd": -7.027,
+      "macd_sinyal": -5.6107,
+      "macd_hist": -1.4164,
+      "sma_50": 364.68,
+      "sma_200": 374.07,
+      "bb_ust": 399.06,
+      "bb_orta": 364.68,
+      "bb_alt": 330.29,
+      "bb_pct": 0.243,
+      "atr": 13.875,
+      "volatilite": 50.31,
+      "yillik_getiri": 40.85,
+      "obv_trend": "-17342317",
+      "hacim_ort": 30657585,
+      "destek": 337.5,
+      "direnc": 401.75,
+      "fib": {
+        "0.0": 337.5,
+        "0.236": 359.74,
+        "0.382": 373.5,
+        "0.5": 384.62,
+        "0.618": 395.75,
+        "1.0": 431.75,
+        "1.272": 457.39,
+        "1.618": 490.0
+      },
+      "adx": 11.73,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 369.62,
+        "kijun": 379.62,
+        "senkou_a": 394.06,
+        "senkou_b": 408.88,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 408.88,
+        "bulut_alt": 394.06
+      },
+      "sar_deger": 390.14,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 48.735954,
+      "pd_dd": 5.629553,
+      "temettü_verimi": 12.0,
+      "piyasa_degeri_m": 1582320.0,
+      "roe": 14.8,
+      "roa": 7.1,
+      "borc_ozsermaye": 18.78,
+      "fcf_m": -49089.0,
+      "gelir_buyume_yoy": 15.0,
+      "sharpe": -0.02,
+      "max_drawdown": -22.24,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 422.66,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 457.39,
+            "agirlik_pct": 20,
+            "upside_pct": 31.8
+          },
+          "fib162": {
+            "fiyat": 490.0,
+            "agirlik_pct": 10,
+            "upside_pct": 41.2
+          },
+          "direnc": {
+            "fiyat": 401.75,
+            "agirlik_pct": 20,
+            "upside_pct": 15.8
+          },
+          "atr_rr3": {
+            "fiyat": 409.44,
+            "agirlik_pct": 15,
+            "upside_pct": 18.0
+          },
+          "bollinger": {
+            "fiyat": 399.06,
+            "agirlik_pct": 10,
+            "upside_pct": 15.0
+          },
+          "analist": {
+            "fiyat": 402.05,
+            "agirlik_pct": 25,
+            "upside_pct": 15.9
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "PETKM",
+      "isim": "Petkim Petrokimya Holding Anonim Sirketi",
+      "sektor": "Basic Materials",
+      "fiyat": 19.54,
+      "degisim_1g": 2.79,
+      "degisim_1h": -3.08,
+      "degisim_6ay": 6.43,
+      "rsi_14": 50.94,
+      "stoch_k": 13.68,
+      "stoch_d": 12.49,
+      "macd": -0.0636,
+      "macd_sinyal": 0.0739,
+      "macd_hist": -0.1375,
+      "sma_50": 20.26,
+      "sma_200": 20.51,
+      "bb_ust": 22.82,
+      "bb_orta": 20.26,
+      "bb_alt": 17.7,
+      "bb_pct": 0.359,
+      "atr": 1.01,
+      "volatilite": 49.79,
+      "yillik_getiri": 25.15,
+      "obv_trend": "341169020",
+      "hacim_ort": 75813567,
+      "destek": 18.84,
+      "direnc": 22.7,
+      "fib": {
+        "0.0": 18.84,
+        "0.236": 20.8,
+        "0.382": 22.01,
+        "0.5": 22.99,
+        "0.618": 23.97,
+        "1.0": 27.14,
+        "1.272": 29.4,
+        "1.618": 32.27
+      },
+      "adx": 46.65,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 21.37,
+        "kijun": 21.11,
+        "senkou_a": 21.3,
+        "senkou_b": 23.82,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 23.82,
+        "bulut_alt": 21.3
+      },
+      "sar_deger": 22.63,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": null,
+      "pd_dd": 0.7291317,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 49522.0,
+      "roe": -10.3,
+      "roa": -5.6,
+      "borc_ozsermaye": 76.7,
+      "fcf_m": -3243.0,
+      "gelir_buyume_yoy": 16.7,
+      "sharpe": -0.34,
+      "max_drawdown": -30.58,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 26.05,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 29.4,
+            "agirlik_pct": 20,
+            "upside_pct": 50.5
+          },
+          "fib162": {
+            "fiyat": 32.27,
+            "agirlik_pct": 10,
+            "upside_pct": 65.1
+          },
+          "direnc": {
+            "fiyat": 22.7,
+            "agirlik_pct": 20,
+            "upside_pct": 16.2
+          },
+          "atr_rr3": {
+            "fiyat": 24.08,
+            "agirlik_pct": 15,
+            "upside_pct": 23.2
+          },
+          "bollinger": {
+            "fiyat": 22.82,
+            "agirlik_pct": 10,
+            "upside_pct": 16.8
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "PGSUS",
+      "isim": "Pegasus Hava Tasimaciligi Anonim Sirketi",
+      "sektor": "Industrials",
+      "fiyat": 155.7,
+      "degisim_1g": 4.71,
+      "degisim_1h": -3.65,
+      "degisim_6ay": -24.96,
+      "rsi_14": 29.58,
+      "stoch_k": 34.76,
+      "stoch_d": 12.04,
+      "macd": -5.1935,
+      "macd_sinyal": -4.0564,
+      "macd_hist": -1.1371,
+      "sma_50": 164.22,
+      "sma_200": 170.34,
+      "bb_ust": 177.64,
+      "bb_orta": 164.22,
+      "bb_alt": 150.8,
+      "bb_pct": 0.182,
+      "atr": 4.4429,
+      "volatilite": 34.13,
+      "yillik_getiri": -53.49,
+      "obv_trend": "-55913922",
+      "hacim_ort": 11367511,
+      "destek": 148.7,
+      "direnc": 174.8,
+      "fib": {
+        "0.0": 148.7,
+        "0.236": 157.86,
+        "0.382": 163.52,
+        "0.5": 168.1,
+        "0.618": 172.68,
+        "1.0": 187.5,
+        "1.272": 198.05,
+        "1.618": 211.48
+      },
+      "adx": 40.32,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 160.5,
+        "kijun": 168.65,
+        "senkou_a": 179.15,
+        "senkou_b": 182.9,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 182.9,
+        "bulut_alt": 179.15
+      },
+      "sar_deger": 165.38,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 9.0313225,
+      "pd_dd": 0.6725818,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 77850.0,
+      "roe": 8.8,
+      "roa": 2.9,
+      "borc_ozsermaye": 206.37,
+      "fcf_m": 28141.0,
+      "gelir_buyume_yoy": 38.9,
+      "sharpe": -2.8,
+      "max_drawdown": -33.62,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 202.35,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 198.05,
+            "agirlik_pct": 20,
+            "upside_pct": 27.2
+          },
+          "fib162": {
+            "fiyat": 211.48,
+            "agirlik_pct": 10,
+            "upside_pct": 35.8
+          },
+          "direnc": {
+            "fiyat": 174.8,
+            "agirlik_pct": 20,
+            "upside_pct": 12.3
+          },
+          "atr_rr3": {
+            "fiyat": 175.69,
+            "agirlik_pct": 15,
+            "upside_pct": 12.8
+          },
+          "bollinger": {
+            "fiyat": 177.64,
+            "agirlik_pct": 10,
+            "upside_pct": 14.1
+          },
+          "analist": {
+            "fiyat": 246.44,
+            "agirlik_pct": 25,
+            "upside_pct": 58.3
+          },
+          "fk_deger": {
+            "fiyat": 206.88,
+            "agirlik_pct": 20,
+            "upside_pct": 32.9
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TAVHL",
+      "isim": "TAV Havalimanlari Holding A.S.",
+      "sektor": "Industrials",
+      "fiyat": 276.75,
+      "degisim_1g": 3.36,
+      "degisim_1h": 5.53,
+      "degisim_6ay": -21.74,
+      "rsi_14": 56.22,
+      "stoch_k": 94.1,
+      "stoch_d": 76.2,
+      "macd": -0.9903,
+      "macd_sinyal": -2.129,
+      "macd_hist": 1.1387,
+      "sma_50": 266.65,
+      "sma_200": 269.26,
+      "bb_ust": 278.69,
+      "bb_orta": 266.65,
+      "bb_alt": 254.61,
+      "bb_pct": 0.92,
+      "atr": 9.8165,
+      "volatilite": 43.9,
+      "yillik_getiri": -41.08,
+      "obv_trend": "4276218",
+      "hacim_ort": 3794129,
+      "destek": 256.79,
+      "direnc": 276.75,
+      "fib": {
+        "0.0": 243.18,
+        "0.236": 257.17,
+        "0.382": 265.83,
+        "0.5": 272.83,
+        "0.618": 279.83,
+        "1.0": 302.48,
+        "1.272": 318.61,
+        "1.618": 339.13
+      },
+      "adx": 24.05,
+      "golden_cross_durum": "DEATH_CROSS(20/50)",
+      "ichimoku": {
+        "tenkan": 270.12,
+        "kijun": 274.3,
+        "senkou_a": 285.84,
+        "senkou_b": 298.63,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 298.63,
+        "bulut_alt": 285.84
+      },
+      "sar_deger": 256.25,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "NEG_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 16.947336,
+      "pd_dd": 1.3036166,
+      "temettü_verimi": 133.0,
+      "piyasa_degeri_m": 100538.0,
+      "roe": 8.7,
+      "roa": 4.1,
+      "borc_ozsermaye": 134.27,
+      "fcf_m": -110.0,
+      "gelir_buyume_yoy": null,
+      "sharpe": -1.89,
+      "max_drawdown": -33.25,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 350.99,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 318.61,
+            "agirlik_pct": 20,
+            "upside_pct": 15.1
+          },
+          "fib162": {
+            "fiyat": 339.13,
+            "agirlik_pct": 10,
+            "upside_pct": 22.5
+          },
+          "atr_rr3": {
+            "fiyat": 320.92,
+            "agirlik_pct": 15,
+            "upside_pct": 16.0
+          },
+          "bollinger": {
+            "fiyat": 278.69,
+            "agirlik_pct": 10,
+            "upside_pct": 0.7
+          },
+          "analist": {
+            "fiyat": 428.61,
+            "agirlik_pct": 25,
+            "upside_pct": 54.9
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "THYAO",
+      "isim": "Türk Hava Yollari Anonim Ortakligi",
+      "sektor": "Industrials",
+      "fiyat": 316.0,
+      "degisim_1g": 2.51,
+      "degisim_1h": -0.63,
+      "degisim_6ay": -1.4,
+      "rsi_14": 30.48,
+      "stoch_k": 30.94,
+      "stoch_d": 15.63,
+      "macd": -2.7062,
+      "macd_sinyal": -0.3482,
+      "macd_hist": -2.358,
+      "sma_50": 326.44,
+      "sma_200": 317.14,
+      "bb_ust": 350.6,
+      "bb_orta": 326.44,
+      "bb_alt": 302.28,
+      "bb_pct": 0.284,
+      "atr": 9.6786,
+      "volatilite": 35.32,
+      "yillik_getiri": 3.24,
+      "obv_trend": "-63746097",
+      "hacim_ort": 47511815,
+      "destek": 308.25,
+      "direnc": 348.25,
+      "fib": {
+        "0.0": 274.0,
+        "0.236": 291.52,
+        "0.382": 302.36,
+        "0.5": 311.12,
+        "0.618": 319.89,
+        "1.0": 348.25,
+        "1.272": 368.45,
+        "1.618": 394.14
+      },
+      "adx": 19.65,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 322.88,
+        "kijun": 335.5,
+        "senkou_a": 316.94,
+        "senkou_b": 312.62,
+        "durum": "BULUT_ICINDE",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 316.94,
+        "bulut_alt": 312.62
+      },
+      "sar_deger": 327.5,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 31.536924,
+      "pd_dd": 19.98988,
+      "temettü_verimi": 219.0,
+      "piyasa_degeri_m": 433642.0,
+      "roe": 15.6,
+      "roa": 2.7,
+      "borc_ozsermaye": 83.9,
+      "fcf_m": 1210.0,
+      "gelir_buyume_yoy": 21.1,
+      "sharpe": -1.1,
+      "max_drawdown": -21.21,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 385.84,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 368.45,
+            "agirlik_pct": 20,
+            "upside_pct": 16.6
+          },
+          "fib162": {
+            "fiyat": 394.14,
+            "agirlik_pct": 10,
+            "upside_pct": 24.7
+          },
+          "direnc": {
+            "fiyat": 348.25,
+            "agirlik_pct": 20,
+            "upside_pct": 10.2
+          },
+          "atr_rr3": {
+            "fiyat": 359.55,
+            "agirlik_pct": 15,
+            "upside_pct": 13.8
+          },
+          "bollinger": {
+            "fiyat": 350.6,
+            "agirlik_pct": 10,
+            "upside_pct": 10.9
+          },
+          "analist": {
+            "fiyat": 456.38,
+            "agirlik_pct": 25,
+            "upside_pct": 44.4
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TCELL",
+      "isim": "Turkcell Iletisim Hizmetleri A.S.",
+      "sektor": "Communication Services",
+      "fiyat": 105.8,
+      "degisim_1g": 4.24,
+      "degisim_1h": 3.42,
+      "degisim_6ay": -10.57,
+      "rsi_14": 47.73,
+      "stoch_k": 50.93,
+      "stoch_d": 25.29,
+      "macd": -1.6462,
+      "macd_sinyal": -1.1252,
+      "macd_hist": -0.5211,
+      "sma_50": 106.73,
+      "sma_200": 107.57,
+      "bb_ust": 113.61,
+      "bb_orta": 106.73,
+      "bb_alt": 99.86,
+      "bb_pct": 0.432,
+      "atr": 3.3464,
+      "volatilite": 34.34,
+      "yillik_getiri": -17.21,
+      "obv_trend": "-38737876",
+      "hacim_ort": 23476723,
+      "destek": 101.4,
+      "direnc": 112.2,
+      "fib": {
+        "0.0": 101.0,
+        "0.236": 105.93,
+        "0.382": 108.98,
+        "0.5": 111.45,
+        "0.618": 113.92,
+        "1.0": 121.9,
+        "1.272": 127.58,
+        "1.618": 134.82
+      },
+      "adx": 20.3,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 107.25,
+        "kijun": 107.65,
+        "senkou_a": 111.25,
+        "senkou_b": 112.2,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 112.2,
+        "bulut_alt": 111.25
+      },
+      "sar_deger": 108.25,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 12.520711,
+      "pd_dd": 0.79130614,
+      "temettü_verimi": 400.0,
+      "piyasa_degeri_m": 230268.0,
+      "roe": 7.3,
+      "roa": 4.8,
+      "borc_ozsermaye": 70.93,
+      "fcf_m": 2612.0,
+      "gelir_buyume_yoy": 8.9,
+      "sharpe": -1.72,
+      "max_drawdown": -20.78,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 133.37,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 127.58,
+            "agirlik_pct": 20,
+            "upside_pct": 20.6
+          },
+          "fib162": {
+            "fiyat": 134.82,
+            "agirlik_pct": 10,
+            "upside_pct": 27.4
+          },
+          "direnc": {
+            "fiyat": 112.2,
+            "agirlik_pct": 20,
+            "upside_pct": 6.0
+          },
+          "atr_rr3": {
+            "fiyat": 120.86,
+            "agirlik_pct": 15,
+            "upside_pct": 14.2
+          },
+          "bollinger": {
+            "fiyat": 113.61,
+            "agirlik_pct": 10,
+            "upside_pct": 7.4
+          },
+          "analist": {
+            "fiyat": 154.79,
+            "agirlik_pct": 25,
+            "upside_pct": 46.3
+          },
+          "fk_deger": {
+            "fiyat": 152.1,
+            "agirlik_pct": 20,
+            "upside_pct": 43.8
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "BIMAS",
+      "isim": "BIM Birlesik Magazalar A.S.",
+      "sektor": "Consumer Defensive",
+      "fiyat": 382.5,
+      "degisim_1g": -0.13,
+      "degisim_1h": -0.2,
+      "degisim_6ay": 11.69,
+      "rsi_14": 55.13,
+      "stoch_k": 33.55,
+      "stoch_d": 42.34,
+      "macd": 2.5143,
+      "macd_sinyal": 2.9606,
+      "macd_hist": -0.4463,
+      "sma_50": 382.24,
+      "sma_200": 378.79,
+      "bb_ust": 404.82,
+      "bb_orta": 382.24,
+      "bb_alt": 359.65,
+      "bb_pct": 0.506,
+      "atr": 11.4643,
+      "volatilite": 32.86,
+      "yillik_getiri": 27.8,
+      "obv_trend": "54814276",
+      "hacim_ort": 10348333,
+      "destek": 357.0,
+      "direnc": 400.0,
+      "fib": {
+        "0.0": 357.0,
+        "0.236": 369.95,
+        "0.382": 377.95,
+        "0.5": 384.43,
+        "0.618": 390.9,
+        "1.0": 411.85,
+        "1.272": 426.78,
+        "1.618": 445.76
+      },
+      "adx": 35.92,
+      "golden_cross_durum": "GOLDEN_CROSS(20/50)",
+      "ichimoku": {
+        "tenkan": 396.12,
+        "kijun": 386.12,
+        "senkou_a": 387.25,
+        "senkou_b": 395.19,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 395.19,
+        "bulut_alt": 387.25
+      },
+      "sar_deger": 403.37,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 21.30919,
+      "pd_dd": 2.4000902,
+      "temettü_verimi": 243.0,
+      "piyasa_degeri_m": 453561.0,
+      "roe": 13.4,
+      "roa": 3.8,
+      "borc_ozsermaye": 30.44,
+      "fcf_m": 8909.0,
+      "gelir_buyume_yoy": 10.1,
+      "sharpe": -0.43,
+      "max_drawdown": -13.32,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 437.89,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 426.78,
+            "agirlik_pct": 20,
+            "upside_pct": 11.6
+          },
+          "fib162": {
+            "fiyat": 445.76,
+            "agirlik_pct": 10,
+            "upside_pct": 16.5
+          },
+          "direnc": {
+            "fiyat": 400.0,
+            "agirlik_pct": 20,
+            "upside_pct": 4.6
+          },
+          "atr_rr3": {
+            "fiyat": 434.09,
+            "agirlik_pct": 15,
+            "upside_pct": 13.5
+          },
+          "bollinger": {
+            "fiyat": 404.82,
+            "agirlik_pct": 10,
+            "upside_pct": 5.8
+          },
+          "analist": {
+            "fiyat": 489.45,
+            "agirlik_pct": 25,
+            "upside_pct": 28.0
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "MGROS",
+      "isim": "Migros Ticaret A.S.",
+      "sektor": "Consumer Defensive",
+      "fiyat": 617.0,
+      "degisim_1g": -0.96,
+      "degisim_1h": -1.28,
+      "degisim_6ay": -6.38,
+      "rsi_14": 46.47,
+      "stoch_k": 33.05,
+      "stoch_d": 42.94,
+      "macd": -9.6466,
+      "macd_sinyal": -9.7084,
+      "macd_hist": 0.0617,
+      "sma_50": 630.65,
+      "sma_200": 656.95,
+      "bb_ust": 650.62,
+      "bb_orta": 630.65,
+      "bb_alt": 610.68,
+      "bb_pct": 0.158,
+      "atr": 19.75,
+      "volatilite": 32.54,
+      "yillik_getiri": -8.36,
+      "obv_trend": "-2965204",
+      "hacim_ort": 2277856,
+      "destek": 608.0,
+      "direnc": 649.5,
+      "fib": {
+        "0.0": 608.0,
+        "0.236": 635.38,
+        "0.382": 652.31,
+        "0.5": 666.0,
+        "0.618": 679.69,
+        "1.0": 724.0,
+        "1.272": 755.55,
+        "1.618": 795.69
+      },
+      "adx": 37.37,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 637.25,
+        "kijun": 666.0,
+        "senkou_a": 688.0,
+        "senkou_b": 674.89,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 688.0,
+        "bulut_alt": 674.89
+      },
+      "sar_deger": 607.31,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 15.223291,
+      "pd_dd": 1.2645075,
+      "temettü_verimi": 241.0,
+      "piyasa_degeri_m": 109883.0,
+      "roe": 9.2,
+      "roa": 3.4,
+      "borc_ozsermaye": 40.97,
+      "fcf_m": 7187.0,
+      "gelir_buyume_yoy": 6.4,
+      "sharpe": -1.55,
+      "max_drawdown": -17.84,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 760.01,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 755.55,
+            "agirlik_pct": 20,
+            "upside_pct": 22.5
+          },
+          "fib162": {
+            "fiyat": 795.69,
+            "agirlik_pct": 10,
+            "upside_pct": 29.0
+          },
+          "direnc": {
+            "fiyat": 649.5,
+            "agirlik_pct": 20,
+            "upside_pct": 5.3
+          },
+          "atr_rr3": {
+            "fiyat": 705.88,
+            "agirlik_pct": 15,
+            "upside_pct": 14.4
+          },
+          "bollinger": {
+            "fiyat": 650.62,
+            "agirlik_pct": 10,
+            "upside_pct": 5.4
+          },
+          "analist": {
+            "fiyat": 913.94,
+            "agirlik_pct": 25,
+            "upside_pct": 48.1
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "EKGYO",
+      "isim": "Emlak Konut Gayrimenkul Yatirim Ortakligi A.S.",
+      "sektor": "Real Estate",
+      "fiyat": 18.2,
+      "degisim_1g": 2.65,
+      "degisim_1h": -3.75,
+      "degisim_6ay": -25.94,
+      "rsi_14": 26.64,
+      "stoch_k": 14.91,
+      "stoch_d": 6.37,
+      "macd": -0.6263,
+      "macd_sinyal": -0.3558,
+      "macd_hist": -0.2704,
+      "sma_50": 19.75,
+      "sma_200": 19.84,
+      "bb_ust": 21.95,
+      "bb_orta": 19.75,
+      "bb_alt": 17.54,
+      "bb_pct": 0.15,
+      "atr": 0.6443,
+      "volatilite": 42.21,
+      "yillik_getiri": -53.12,
+      "obv_trend": "-1312698612",
+      "hacim_ort": 117023539,
+      "destek": 17.73,
+      "direnc": 21.02,
+      "fib": {
+        "0.0": 17.73,
+        "0.236": 18.74,
+        "0.382": 19.36,
+        "0.5": 19.86,
+        "0.618": 20.37,
+        "1.0": 22.0,
+        "1.272": 23.16,
+        "1.618": 24.64
+      },
+      "adx": 41.03,
+      "golden_cross_durum": "DEATH_CROSS(20/50)",
+      "ichimoku": {
+        "tenkan": 19.31,
+        "kijun": 20.09,
+        "senkou_a": 20.44,
+        "senkou_b": 20.29,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 20.44,
+        "bulut_alt": 20.29
+      },
+      "sar_deger": 19.8,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "HAMMER(AL)"
+      ],
+      "fk_orani": 227.50002,
+      "pd_dd": 0.47969216,
+      "temettü_verimi": 335.0,
+      "piyasa_degeri_m": 66632.0,
+      "roe": 2.4,
+      "roa": 5.7,
+      "borc_ozsermaye": 46.02,
+      "fcf_m": -84335.0,
+      "gelir_buyume_yoy": -29.2,
+      "sharpe": -2.25,
+      "max_drawdown": -30.44,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 25.0,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 23.16,
+            "agirlik_pct": 20,
+            "upside_pct": 27.3
+          },
+          "fib162": {
+            "fiyat": 24.64,
+            "agirlik_pct": 10,
+            "upside_pct": 35.4
+          },
+          "direnc": {
+            "fiyat": 21.02,
+            "agirlik_pct": 20,
+            "upside_pct": 15.5
+          },
+          "atr_rr3": {
+            "fiyat": 21.1,
+            "agirlik_pct": 15,
+            "upside_pct": 15.9
+          },
+          "bollinger": {
+            "fiyat": 21.95,
+            "agirlik_pct": 10,
+            "upside_pct": 20.6
+          },
+          "analist": {
+            "fiyat": 33.35,
+            "agirlik_pct": 25,
+            "upside_pct": 83.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "ENKAI",
+      "isim": "Enka Insaat ve Sanayi A.S.",
+      "sektor": "Industrials",
+      "fiyat": 86.95,
+      "degisim_1g": 1.99,
+      "degisim_1h": -1.92,
+      "degisim_6ay": -9.14,
+      "rsi_14": 38.72,
+      "stoch_k": 24.46,
+      "stoch_d": 11.09,
+      "macd": -1.5773,
+      "macd_sinyal": -1.357,
+      "macd_hist": -0.2203,
+      "sma_50": 89.72,
+      "sma_200": 92.78,
+      "bb_ust": 93.49,
+      "bb_orta": 89.72,
+      "bb_alt": 85.95,
+      "bb_pct": 0.132,
+      "atr": 2.1679,
+      "volatilite": 35.98,
+      "yillik_getiri": -13.41,
+      "obv_trend": "-86175930",
+      "hacim_ort": 11300766,
+      "destek": 85.25,
+      "direnc": 93.7,
+      "fib": {
+        "0.0": 85.25,
+        "0.236": 91.42,
+        "0.382": 95.24,
+        "0.5": 98.33,
+        "0.618": 101.41,
+        "1.0": 111.4,
+        "1.272": 118.51,
+        "1.618": 127.56
+      },
+      "adx": 19.11,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 89.67,
+        "kijun": 91.27,
+        "senkou_a": 94.85,
+        "senkou_b": 102.38,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 102.38,
+        "bulut_alt": 94.85
+      },
+      "sar_deger": 91.09,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 13.7361765,
+      "pd_dd": 1.318463,
+      "temettü_verimi": 694.0,
+      "piyasa_degeri_m": 509766.0,
+      "roe": 11.0,
+      "roa": 4.1,
+      "borc_ozsermaye": 1.78,
+      "fcf_m": 14558.0,
+      "gelir_buyume_yoy": 20.0,
+      "sharpe": -1.54,
+      "max_drawdown": -23.47,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 107.8,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 118.51,
+            "agirlik_pct": 20,
+            "upside_pct": 36.3
+          },
+          "fib162": {
+            "fiyat": 127.56,
+            "agirlik_pct": 10,
+            "upside_pct": 46.7
+          },
+          "direnc": {
+            "fiyat": 93.7,
+            "agirlik_pct": 20,
+            "upside_pct": 7.8
+          },
+          "atr_rr3": {
+            "fiyat": 96.71,
+            "agirlik_pct": 15,
+            "upside_pct": 11.2
+          },
+          "bollinger": {
+            "fiyat": 93.49,
+            "agirlik_pct": 10,
+            "upside_pct": 7.5
+          },
+          "analist": {
+            "fiyat": 114.98,
+            "agirlik_pct": 25,
+            "upside_pct": 32.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TKFEN",
+      "isim": "Tekfen Holding Anonim Sirketi",
+      "sektor": "Basic Materials",
+      "fiyat": 164.9,
+      "degisim_1g": 7.99,
+      "degisim_1h": 10.37,
+      "degisim_6ay": 89.43,
+      "rsi_14": 91.57,
+      "stoch_k": 93.43,
+      "stoch_d": 91.8,
+      "macd": 4.7813,
+      "macd_sinyal": 3.0636,
+      "macd_hist": 1.7177,
+      "sma_50": 143.9,
+      "sma_200": 141.06,
+      "bb_ust": 160.55,
+      "bb_orta": 143.9,
+      "bb_alt": 127.26,
+      "bb_pct": 1.131,
+      "atr": 5.7214,
+      "volatilite": 61.1,
+      "yillik_getiri": 150.69,
+      "obv_trend": "12885947",
+      "hacim_ort": 5456366,
+      "destek": 130.0,
+      "direnc": 164.9,
+      "fib": {
+        "0.0": 118.4,
+        "0.236": 129.37,
+        "0.382": 136.16,
+        "0.5": 141.65,
+        "0.618": 147.14,
+        "1.0": 164.9,
+        "1.272": 177.55,
+        "1.618": 193.64
+      },
+      "adx": 23.77,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 157.2,
+        "kijun": 149.8,
+        "senkou_a": 139.8,
+        "senkou_b": 134.1,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 139.8,
+        "bulut_alt": 134.1
+      },
+      "sar_deger": 139.7,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": null,
+      "pd_dd": 1.6773131,
+      "temettü_verimi": 21.0,
+      "piyasa_degeri_m": 60842.0,
+      "roe": -15.5,
+      "roa": -1.5,
+      "borc_ozsermaye": 42.77,
+      "fcf_m": 3831.0,
+      "gelir_buyume_yoy": -16.9,
+      "sharpe": 1.78,
+      "max_drawdown": -24.59,
+      "kelly_f": 0.25,
+      "hedef_analiz": {
+        "hedef": 185.49,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 177.55,
+            "agirlik_pct": 20,
+            "upside_pct": 7.7
+          },
+          "fib162": {
+            "fiyat": 193.64,
+            "agirlik_pct": 10,
+            "upside_pct": 17.4
+          },
+          "atr_rr3": {
+            "fiyat": 190.65,
+            "agirlik_pct": 15,
+            "upside_pct": 15.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 20.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "SISE",
+      "isim": "Türkiye Sise Ve Cam Fabrikalari A.S.",
+      "sektor": "Industrials",
+      "fiyat": 42.1,
+      "degisim_1g": 1.84,
+      "degisim_1h": -2.0,
+      "degisim_6ay": -7.97,
+      "rsi_14": 41.81,
+      "stoch_k": 22.64,
+      "stoch_d": 10.9,
+      "macd": -0.6935,
+      "macd_sinyal": -0.5538,
+      "macd_hist": -0.1397,
+      "sma_50": 43.17,
+      "sma_200": 44.44,
+      "bb_ust": 45.14,
+      "bb_orta": 43.17,
+      "bb_alt": 41.2,
+      "bb_pct": 0.229,
+      "atr": 1.1257,
+      "volatilite": 41.48,
+      "yillik_getiri": -8.68,
+      "obv_trend": "-111376768",
+      "hacim_ort": 56896616,
+      "destek": 41.34,
+      "direnc": 45.0,
+      "fib": {
+        "0.0": 41.34,
+        "0.236": 43.78,
+        "0.382": 45.29,
+        "0.5": 46.51,
+        "0.618": 47.73,
+        "1.0": 51.68,
+        "1.272": 54.49,
+        "1.618": 58.07
+      },
+      "adx": 15.1,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 43.45,
+        "kijun": 43.92,
+        "senkou_a": 46.61,
+        "senkou_b": 49.02,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 49.02,
+        "bulut_alt": 46.61
+      },
+      "sar_deger": 44.93,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 11.137566,
+      "pd_dd": 0.31131914,
+      "temettü_verimi": 141.0,
+      "piyasa_degeri_m": 125982.0,
+      "roe": 3.6,
+      "roa": 0.2,
+      "borc_ozsermaye": 59.68,
+      "fcf_m": -46927.0,
+      "gelir_buyume_yoy": -3.4,
+      "sharpe": -1.22,
+      "max_drawdown": -20.47,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 51.62,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 54.49,
+            "agirlik_pct": 20,
+            "upside_pct": 29.4
+          },
+          "fib162": {
+            "fiyat": 58.07,
+            "agirlik_pct": 10,
+            "upside_pct": 37.9
+          },
+          "direnc": {
+            "fiyat": 45.0,
+            "agirlik_pct": 20,
+            "upside_pct": 6.9
+          },
+          "atr_rr3": {
+            "fiyat": 47.17,
+            "agirlik_pct": 15,
+            "upside_pct": 12.0
+          },
+          "bollinger": {
+            "fiyat": 45.14,
+            "agirlik_pct": 10,
+            "upside_pct": 7.2
+          },
+          "analist": {
+            "fiyat": 57.32,
+            "agirlik_pct": 25,
+            "upside_pct": 36.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "EREGL",
+      "isim": "Eregli Demir ve Çelik Fabrikalari T.A.S.",
+      "sektor": "Basic Materials",
+      "fiyat": 41.28,
+      "degisim_1g": -2.64,
+      "degisim_1h": -4.58,
+      "degisim_6ay": 45.18,
+      "rsi_14": 53.12,
+      "stoch_k": 29.0,
+      "stoch_d": 48.93,
+      "macd": 0.6893,
+      "macd_sinyal": 0.8665,
+      "macd_hist": -0.1772,
+      "sma_50": 42.1,
+      "sma_200": 40.65,
+      "bb_ust": 44.88,
+      "bb_orta": 42.1,
+      "bb_alt": 39.32,
+      "bb_pct": 0.352,
+      "atr": 1.7257,
+      "volatilite": 42.34,
+      "yillik_getiri": 85.99,
+      "obv_trend": "84831042",
+      "hacim_ort": 147324880,
+      "destek": 39.94,
+      "direnc": 44.2,
+      "fib": {
+        "0.0": 34.71,
+        "0.236": 36.95,
+        "0.382": 38.33,
+        "0.5": 39.45,
+        "0.618": 40.57,
+        "1.0": 44.2,
+        "1.272": 46.78,
+        "1.618": 50.07
+      },
+      "adx": 40.42,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 43.27,
+        "kijun": 42.82,
+        "senkou_a": 40.08,
+        "senkou_b": 36.72,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 40.08,
+        "bulut_alt": 36.72
+      },
+      "sar_deger": 45.1,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 589.7143,
+      "pd_dd": 0.9391209,
+      "temettü_verimi": 129.0,
+      "piyasa_degeri_m": 277479.0,
+      "roe": 0.2,
+      "roa": 1.1,
+      "borc_ozsermaye": 51.05,
+      "fcf_m": 33617.0,
+      "gelir_buyume_yoy": 11.5,
+      "sharpe": 1.04,
+      "max_drawdown": -17.64,
+      "kelly_f": 0.25,
+      "hedef_analiz": {
+        "hedef": 46.73,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 46.78,
+            "agirlik_pct": 20,
+            "upside_pct": 13.3
+          },
+          "fib162": {
+            "fiyat": 50.07,
+            "agirlik_pct": 10,
+            "upside_pct": 21.3
+          },
+          "direnc": {
+            "fiyat": 44.2,
+            "agirlik_pct": 20,
+            "upside_pct": 7.1
+          },
+          "atr_rr3": {
+            "fiyat": 49.05,
+            "agirlik_pct": 15,
+            "upside_pct": 18.8
+          },
+          "bollinger": {
+            "fiyat": 44.88,
+            "agirlik_pct": 10,
+            "upside_pct": 8.7
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "ISMEN",
+      "isim": "Is Yatirim Menkul Degerler Anonim Sirketi",
+      "sektor": "Financial Services",
+      "fiyat": 34.34,
+      "degisim_1g": 0.18,
+      "degisim_1h": -4.66,
+      "degisim_6ay": -22.18,
+      "rsi_14": 45.89,
+      "stoch_k": 11.49,
+      "stoch_d": 8.91,
+      "macd": -0.5112,
+      "macd_sinyal": -0.3991,
+      "macd_hist": -0.112,
+      "sma_50": 35.64,
+      "sma_200": 36.57,
+      "bb_ust": 37.37,
+      "bb_orta": 35.64,
+      "bb_alt": 33.9,
+      "bb_pct": 0.127,
+      "atr": 0.9186,
+      "volatilite": 31.98,
+      "yillik_getiri": -46.69,
+      "obv_trend": "-25454942",
+      "hacim_ort": 7440903,
+      "destek": 34.28,
+      "direnc": 37.18,
+      "fib": {
+        "0.0": 34.28,
+        "0.236": 36.38,
+        "0.382": 37.68,
+        "0.5": 38.73,
+        "0.618": 39.78,
+        "1.0": 43.18,
+        "1.272": 45.6,
+        "1.618": 48.68
+      },
+      "adx": 25.85,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 35.98,
+        "kijun": 36.13,
+        "senkou_a": 37.6,
+        "senkou_b": 40.91,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 40.91,
+        "bulut_alt": 37.6
+      },
+      "sar_deger": 37.23,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 7.5638766,
+      "pd_dd": 1.6393756,
+      "temettü_verimi": 917.0,
+      "piyasa_degeri_m": 51510.0,
+      "roe": 22.8,
+      "roa": 5.5,
+      "borc_ozsermaye": 62.52,
+      "fcf_m": null,
+      "gelir_buyume_yoy": 13.5,
+      "sharpe": -2.77,
+      "max_drawdown": -30.2,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 47.52,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 45.6,
+            "agirlik_pct": 20,
+            "upside_pct": 32.8
+          },
+          "fib162": {
+            "fiyat": 48.68,
+            "agirlik_pct": 10,
+            "upside_pct": 41.8
+          },
+          "direnc": {
+            "fiyat": 37.18,
+            "agirlik_pct": 20,
+            "upside_pct": 8.3
+          },
+          "atr_rr3": {
+            "fiyat": 38.47,
+            "agirlik_pct": 15,
+            "upside_pct": 12.0
+          },
+          "bollinger": {
+            "fiyat": 37.37,
+            "agirlik_pct": 10,
+            "upside_pct": 8.8
+          },
+          "analist": {
+            "fiyat": 68.06,
+            "agirlik_pct": 25,
+            "upside_pct": 98.2
+          },
+          "fk_deger": {
+            "fiyat": 45.4,
+            "agirlik_pct": 20,
+            "upside_pct": 32.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "GESAN",
+      "isim": "Girisim Elektrik Sanayi Taahhüt ve Ticaret A.S.",
+      "sektor": "Industrials",
+      "fiyat": 77.35,
+      "degisim_1g": 2.59,
+      "degisim_1h": -4.45,
+      "degisim_6ay": 34.06,
+      "rsi_14": 45.35,
+      "stoch_k": 27.83,
+      "stoch_d": 18.64,
+      "macd": 0.2067,
+      "macd_sinyal": 1.2413,
+      "macd_hist": -1.0346,
+      "sma_50": 80.07,
+      "sma_200": 78.33,
+      "bb_ust": 87.46,
+      "bb_orta": 80.07,
+      "bb_alt": 72.67,
+      "bb_pct": 0.316,
+      "atr": 4.1179,
+      "volatilite": 66.93,
+      "yillik_getiri": 82.74,
+      "obv_trend": "-80661530",
+      "hacim_ort": 18676768,
+      "destek": 73.7,
+      "direnc": 88.3,
+      "fib": {
+        "0.0": 58.0,
+        "0.236": 65.47,
+        "0.382": 70.09,
+        "0.5": 73.83,
+        "0.618": 77.56,
+        "1.0": 89.65,
+        "1.272": 98.26,
+        "1.618": 109.21
+      },
+      "adx": 43.15,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 83.58,
+        "kijun": 81.0,
+        "senkou_a": 80.74,
+        "senkou_b": 70.2,
+        "durum": "BULUT_ICINDE",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 80.74,
+        "bulut_alt": 70.2
+      },
+      "sar_deger": 87.38,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "THREE_WHITE_SOLDIERS(GUCLU_AL)"
+      ],
+      "fk_orani": 33.34052,
+      "pd_dd": 2.319688,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 35581.0,
+      "roe": 3.7,
+      "roa": 8.1,
+      "borc_ozsermaye": 24.19,
+      "fcf_m": -6036.0,
+      "gelir_buyume_yoy": 31.5,
+      "sharpe": 0.61,
+      "max_drawdown": -27.7,
+      "kelly_f": 0.25,
+      "hedef_analiz": {
+        "hedef": 95.15,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 98.26,
+            "agirlik_pct": 20,
+            "upside_pct": 27.0
+          },
+          "fib162": {
+            "fiyat": 109.21,
+            "agirlik_pct": 10,
+            "upside_pct": 41.2
+          },
+          "direnc": {
+            "fiyat": 88.3,
+            "agirlik_pct": 20,
+            "upside_pct": 14.2
+          },
+          "atr_rr3": {
+            "fiyat": 95.88,
+            "agirlik_pct": 15,
+            "upside_pct": 24.0
+          },
+          "bollinger": {
+            "fiyat": 87.46,
+            "agirlik_pct": 10,
+            "upside_pct": 13.1
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "CCOLA",
+      "isim": "Coca-Cola Içecek Anonim Sirketi",
+      "sektor": "Consumer Defensive",
+      "fiyat": 87.2,
+      "degisim_1g": -3.65,
+      "degisim_1h": -2.13,
+      "degisim_6ay": 17.18,
+      "rsi_14": 54.95,
+      "stoch_k": 47.06,
+      "stoch_d": 68.44,
+      "macd": 2.2179,
+      "macd_sinyal": 2.4146,
+      "macd_hist": -0.1966,
+      "sma_50": 87.8,
+      "sma_200": 83.36,
+      "bb_ust": 95.07,
+      "bb_orta": 87.8,
+      "bb_alt": 80.53,
+      "bb_pct": 0.459,
+      "atr": 3.3286,
+      "volatilite": 39.76,
+      "yillik_getiri": 40.53,
+      "obv_trend": "-13015474",
+      "hacim_ort": 6383408,
+      "destek": 82.4,
+      "direnc": 92.35,
+      "fib": {
+        "0.0": 76.95,
+        "0.236": 80.58,
+        "0.382": 82.83,
+        "0.5": 84.65,
+        "0.618": 86.47,
+        "1.0": 92.35,
+        "1.272": 96.54,
+        "1.618": 101.87
+      },
+      "adx": 27.04,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 90.53,
+        "kijun": 86.58,
+        "senkou_a": 81.68,
+        "senkou_b": 79.36,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 81.68,
+        "bulut_alt": 79.36
+      },
+      "sar_deger": 93.5,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "NEG_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlari": [],
+      "fk_orani": 13.841269,
+      "pd_dd": 2.924212,
+      "temettü_verimi": 157.0,
+      "piyasa_degeri_m": 243992.0,
+      "roe": 22.0,
+      "roa": 9.2,
+      "borc_ozsermaye": 54.13,
+      "fcf_m": 13056.0,
+      "gelir_buyume_yoy": 10.7,
+      "sharpe": -0.04,
+      "max_drawdown": -17.83,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 99.65,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 96.54,
+            "agirlik_pct": 20,
+            "upside_pct": 10.7
+          },
+          "fib162": {
+            "fiyat": 101.87,
+            "agirlik_pct": 10,
+            "upside_pct": 16.8
+          },
+          "direnc": {
+            "fiyat": 92.35,
+            "agirlik_pct": 20,
+            "upside_pct": 5.9
+          },
+          "atr_rr3": {
+            "fiyat": 102.18,
+            "agirlik_pct": 15,
+            "upside_pct": 17.2
+          },
+          "bollinger": {
+            "fiyat": 95.07,
+            "agirlik_pct": 10,
+            "upside_pct": 9.0
+          },
+          "analist": {
+            "fiyat": 107.4,
+            "agirlik_pct": 25,
+            "upside_pct": 23.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "BRYAT",
+      "isim": "Borusan Yatirim ve Pazarlama A.S.",
+      "sektor": "Basic Materials",
+      "fiyat": 1724.0,
+      "degisim_1g": 3.79,
+      "degisim_1h": -3.58,
+      "degisim_6ay": -19.53,
+      "rsi_14": 36.57,
+      "stoch_k": 33.17,
+      "stoch_d": 11.98,
+      "macd": -52.1882,
+      "macd_sinyal": -44.4021,
+      "macd_hist": -7.7862,
+      "sma_50": 1804.15,
+      "sma_200": 1895.94,
+      "bb_ust": 1921.36,
+      "bb_orta": 1804.15,
+      "bb_alt": 1686.94,
+      "bb_pct": 0.158,
+      "atr": 51.9286,
+      "volatilite": 39.08,
+      "yillik_getiri": -37.28,
+      "obv_trend": "-233358",
+      "hacim_ort": 69562,
+      "destek": 1661.0,
+      "direnc": 1910.0,
+      "fib": {
+        "0.0": 1661.0,
+        "0.236": 1791.04,
+        "0.382": 1871.48,
+        "0.5": 1936.5,
+        "0.618": 2001.52,
+        "1.0": 2212.0,
+        "1.272": 2361.87,
+        "1.618": 2552.52
+      },
+      "adx": 44.54,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 1777.0,
+        "kijun": 1834.0,
+        "senkou_a": 2008.0,
+        "senkou_b": 2106.0,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 2106.0,
+        "bulut_alt": 2008.0
+      },
+      "sar_deger": 1829.99,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 10.453553,
+      "pd_dd": 1.3583285,
+      "temettü_verimi": 972.0,
+      "piyasa_degeri_m": 47474.0,
+      "roe": 14.2,
+      "roa": 7.8,
+      "borc_ozsermaye": null,
+      "fcf_m": 1192.0,
+      "gelir_buyume_yoy": 107.9,
+      "sharpe": -2.03,
+      "max_drawdown": -30.84,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 2127.22,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 2361.87,
+            "agirlik_pct": 20,
+            "upside_pct": 37.0
+          },
+          "fib162": {
+            "fiyat": 2552.52,
+            "agirlik_pct": 10,
+            "upside_pct": 48.1
+          },
+          "direnc": {
+            "fiyat": 1910.0,
+            "agirlik_pct": 20,
+            "upside_pct": 10.8
+          },
+          "atr_rr3": {
+            "fiyat": 1957.68,
+            "agirlik_pct": 15,
+            "upside_pct": 13.6
+          },
+          "bollinger": {
+            "fiyat": 1921.36,
+            "agirlik_pct": 10,
+            "upside_pct": 11.4
+          }
+        }
+      },
+      "manipulasyon_skoru": 20.0,
+      "balon_skoru": 30.0
+    },
+    {
+      "ticker": "DOAS",
+      "isim": "Dogus Otomotiv Servis ve Ticaret A.S.",
+      "sektor": "Consumer Cyclical",
+      "fiyat": 186.2,
+      "degisim_1g": 2.59,
+      "degisim_1h": -0.27,
+      "degisim_6ay": -11.19,
+      "rsi_14": 50.5,
+      "stoch_k": 39.84,
+      "stoch_d": 16.65,
+      "macd": -0.8422,
+      "macd_sinyal": -0.8569,
+      "macd_hist": 0.0147,
+      "sma_50": 184.76,
+      "sma_200": 187.55,
+      "bb_ust": 188.32,
+      "bb_orta": 184.76,
+      "bb_alt": 181.21,
+      "bb_pct": 0.702,
+      "atr": 3.65,
+      "volatilite": 32.22,
+      "yillik_getiri": -19.36,
+      "obv_trend": "-3553565",
+      "hacim_ort": 1335070,
+      "destek": 181.5,
+      "direnc": 187.0,
+      "fib": {
+        "0.0": 176.3,
+        "0.236": 183.17,
+        "0.382": 187.42,
+        "0.5": 190.85,
+        "0.618": 194.28,
+        "1.0": 205.4,
+        "1.272": 213.32,
+        "1.618": 223.38
+      },
+      "adx": 30.77,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 188.9,
+        "kijun": 188.65,
+        "senkou_a": 197.58,
+        "senkou_b": 194.85,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 197.58,
+        "bulut_alt": 194.85
+      },
+      "sar_deger": 192.7,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 13.833581,
+      "pd_dd": 0.6041159,
+      "temettü_verimi": 1576.0,
+      "piyasa_degeri_m": 40964.0,
+      "roe": 4.6,
+      "roa": 5.1,
+      "borc_ozsermaye": 47.63,
+      "fcf_m": -14831.0,
+      "gelir_buyume_yoy": -9.8,
+      "sharpe": -1.9,
+      "max_drawdown": -21.76,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 214.51,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 213.32,
+            "agirlik_pct": 20,
+            "upside_pct": 14.6
+          },
+          "fib162": {
+            "fiyat": 223.38,
+            "agirlik_pct": 10,
+            "upside_pct": 20.0
+          },
+          "direnc": {
+            "fiyat": 187.0,
+            "agirlik_pct": 20,
+            "upside_pct": 0.4
+          },
+          "atr_rr3": {
+            "fiyat": 202.62,
+            "agirlik_pct": 15,
+            "upside_pct": 8.8
+          },
+          "bollinger": {
+            "fiyat": 188.32,
+            "agirlik_pct": 10,
+            "upside_pct": 1.1
+          },
+          "analist": {
+            "fiyat": 251.54,
+            "agirlik_pct": 25,
+            "upside_pct": 35.1
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "AKSA",
+      "isim": "Aksa Akrilik Kimya Sanayii A.S.",
+      "sektor": "Consumer Cyclical",
+      "fiyat": 12.49,
+      "degisim_1g": 1.38,
+      "degisim_1h": 0.4,
+      "degisim_6ay": 21.1,
+      "rsi_14": 62.54,
+      "stoch_k": 85.96,
+      "stoch_d": 74.02,
+      "macd": 0.2017,
+      "macd_sinyal": 0.1914,
+      "macd_hist": 0.0103,
+      "sma_50": 12.06,
+      "sma_200": 11.6,
+      "bb_ust": 12.7,
+      "bb_orta": 12.06,
+      "bb_alt": 11.42,
+      "bb_pct": 0.835,
+      "atr": 0.3664,
+      "volatilite": 40.32,
+      "yillik_getiri": 47.63,
+      "obv_trend": "117784709",
+      "hacim_ort": 27593218,
+      "destek": 11.4,
+      "direnc": 12.59,
+      "fib": {
+        "0.0": 10.2,
+        "0.236": 10.76,
+        "0.382": 11.11,
+        "0.5": 11.39,
+        "0.618": 11.68,
+        "1.0": 12.59,
+        "1.272": 13.24,
+        "1.618": 14.07
+      },
+      "adx": 21.75,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 12.4,
+        "kijun": 12.2,
+        "senkou_a": 11.8,
+        "senkou_b": 11.55,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 11.8,
+        "bulut_alt": 11.55
+      },
+      "sar_deger": 11.83,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "NEG_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 11.151786,
+      "pd_dd": 1.4419303,
+      "temettü_verimi": 446.0,
+      "piyasa_degeri_m": 48524.0,
+      "roe": 13.5,
+      "roa": 2.9,
+      "borc_ozsermaye": 83.74,
+      "fcf_m": 412.0,
+      "gelir_buyume_yoy": 18.6,
+      "sharpe": 0.14,
+      "max_drawdown": -13.53,
+      "kelly_f": 0.173,
+      "hedef_analiz": {
+        "hedef": 14.25,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 13.24,
+            "agirlik_pct": 20,
+            "upside_pct": 6.0
+          },
+          "fib162": {
+            "fiyat": 14.07,
+            "agirlik_pct": 10,
+            "upside_pct": 12.7
+          },
+          "direnc": {
+            "fiyat": 12.59,
+            "agirlik_pct": 20,
+            "upside_pct": 0.8
+          },
+          "atr_rr3": {
+            "fiyat": 14.14,
+            "agirlik_pct": 15,
+            "upside_pct": 13.2
+          },
+          "bollinger": {
+            "fiyat": 12.7,
+            "agirlik_pct": 10,
+            "upside_pct": 1.7
+          },
+          "analist": {
+            "fiyat": 17.15,
+            "agirlik_pct": 25,
+            "upside_pct": 37.3
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TTKOM",
+      "isim": "Türk Telekomünikasyon Anonim Sirketi",
+      "sektor": "Communication Services",
+      "fiyat": 53.1,
+      "degisim_1g": 4.73,
+      "degisim_1h": 0.66,
+      "degisim_6ay": -22.59,
+      "rsi_14": 32.25,
+      "stoch_k": 29.59,
+      "stoch_d": 13.02,
+      "macd": -2.3903,
+      "macd_sinyal": -1.8787,
+      "macd_hist": -0.5117,
+      "sma_50": 56.54,
+      "sma_200": 59.92,
+      "bb_ust": 62.82,
+      "bb_orta": 56.54,
+      "bb_alt": 50.26,
+      "bb_pct": 0.226,
+      "atr": 1.8714,
+      "volatilite": 36.15,
+      "yillik_getiri": -46.35,
+      "obv_trend": "-372961300",
+      "hacim_ort": 30948228,
+      "destek": 50.7,
+      "direnc": 61.2,
+      "fib": {
+        "0.0": 50.7,
+        "0.236": 54.51,
+        "0.382": 56.87,
+        "0.5": 58.77,
+        "0.618": 60.68,
+        "1.0": 66.85,
+        "1.272": 71.24,
+        "1.618": 76.83
+      },
+      "adx": 49.08,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 55.88,
+        "kijun": 57.48,
+        "senkou_a": 63.52,
+        "senkou_b": 64.48,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 64.48,
+        "bulut_alt": 63.52
+      },
+      "sar_deger": 56.93,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 6.9593706,
+      "pd_dd": 0.76283234,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 185850.0,
+      "roe": 13.1,
+      "roa": 7.4,
+      "borc_ozsermaye": 58.28,
+      "fcf_m": -9175.0,
+      "gelir_buyume_yoy": 8.7,
+      "sharpe": -2.44,
+      "max_drawdown": -30.45,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 81.29,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 71.24,
+            "agirlik_pct": 20,
+            "upside_pct": 34.2
+          },
+          "fib162": {
+            "fiyat": 76.83,
+            "agirlik_pct": 10,
+            "upside_pct": 44.7
+          },
+          "direnc": {
+            "fiyat": 61.2,
+            "agirlik_pct": 20,
+            "upside_pct": 15.3
+          },
+          "atr_rr3": {
+            "fiyat": 61.52,
+            "agirlik_pct": 15,
+            "upside_pct": 15.9
+          },
+          "bollinger": {
+            "fiyat": 62.82,
+            "agirlik_pct": 10,
+            "upside_pct": 18.3
+          },
+          "analist": {
+            "fiyat": 81.6,
+            "agirlik_pct": 25,
+            "upside_pct": 53.7
+          },
+          "fk_deger": {
+            "fiyat": 137.34,
+            "agirlik_pct": 20,
+            "upside_pct": 158.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "AEFES",
+      "isim": "Anadolu Efes Biracilik ve Malt Sanayii Anonim Sirketi",
+      "sektor": "Consumer Defensive",
+      "fiyat": 21.8,
+      "degisim_1g": -1.27,
+      "degisim_1h": 4.21,
+      "degisim_6ay": 8.93,
+      "rsi_14": 61.06,
+      "stoch_k": 74.63,
+      "stoch_d": 75.92,
+      "macd": 0.3434,
+      "macd_sinyal": 0.2672,
+      "macd_hist": 0.0762,
+      "sma_50": 20.97,
+      "sma_200": 20.63,
+      "bb_ust": 22.52,
+      "bb_orta": 20.97,
+      "bb_alt": 19.41,
+      "bb_pct": 0.769,
+      "atr": 0.715,
+      "volatilite": 40.51,
+      "yillik_getiri": 25.83,
+      "obv_trend": "-47233033",
+      "hacim_ort": 37165813,
+      "destek": 19.71,
+      "direnc": 22.24,
+      "fib": {
+        "0.0": 18.58,
+        "0.236": 19.44,
+        "0.382": 19.98,
+        "0.5": 20.41,
+        "0.618": 20.84,
+        "1.0": 22.24,
+        "1.272": 23.24,
+        "1.618": 24.5
+      },
+      "adx": 23.45,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 21.93,
+        "kijun": 21.35,
+        "senkou_a": 20.84,
+        "senkou_b": 19.66,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 20.84,
+        "bulut_alt": 19.66
+      },
+      "sar_deger": 20.93,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "NEG_IRAKSAMA",
+      "mum_formasyonlari": [],
+      "fk_orani": 14.829931,
+      "pd_dd": 1.0817784,
+      "temettü_verimi": 155.0,
+      "piyasa_degeri_m": 129079.0,
+      "roe": 8.1,
+      "roa": 4.5,
+      "borc_ozsermaye": 40.96,
+      "fcf_m": 10905.0,
+      "gelir_buyume_yoy": 7.6,
+      "sharpe": -0.4,
+      "max_drawdown": -26.16,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 24.08,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 23.24,
+            "agirlik_pct": 20,
+            "upside_pct": 6.6
+          },
+          "fib162": {
+            "fiyat": 24.5,
+            "agirlik_pct": 10,
+            "upside_pct": 12.4
+          },
+          "direnc": {
+            "fiyat": 22.24,
+            "agirlik_pct": 20,
+            "upside_pct": 2.0
+          },
+          "atr_rr3": {
+            "fiyat": 25.02,
+            "agirlik_pct": 15,
+            "upside_pct": 14.8
+          },
+          "bollinger": {
+            "fiyat": 22.52,
+            "agirlik_pct": 10,
+            "upside_pct": 3.3
+          },
+          "analist": {
+            "fiyat": 26.12,
+            "agirlik_pct": 25,
+            "upside_pct": 19.8
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "CIMSA",
+      "isim": "Çimsa Çimento Sanayi ve Ticaret A.S.",
+      "sektor": "Basic Materials",
+      "fiyat": 45.8,
+      "degisim_1g": -0.91,
+      "degisim_1h": -3.94,
+      "degisim_6ay": -9.52,
+      "rsi_14": 44.89,
+      "stoch_k": 4.93,
+      "stoch_d": 16.01,
+      "macd": -0.6008,
+      "macd_sinyal": -0.4116,
+      "macd_hist": -0.1892,
+      "sma_50": 47.96,
+      "sma_200": 49.23,
+      "bb_ust": 51.21,
+      "bb_orta": 47.96,
+      "bb_alt": 44.7,
+      "bb_pct": 0.168,
+      "atr": 1.4164,
+      "volatilite": 35.63,
+      "yillik_getiri": -14.38,
+      "obv_trend": "-35273425",
+      "hacim_ort": 6527645,
+      "destek": 45.8,
+      "direnc": 50.65,
+      "fib": {
+        "0.0": 45.8,
+        "0.236": 48.92,
+        "0.382": 50.84,
+        "0.5": 52.4,
+        "0.618": 53.96,
+        "1.0": 59.0,
+        "1.272": 62.59,
+        "1.618": 67.16
+      },
+      "adx": 18.91,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 48.92,
+        "kijun": 48.85,
+        "senkou_a": 51.62,
+        "senkou_b": 54.99,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 54.99,
+        "bulut_alt": 51.62
+      },
+      "sar_deger": 50.49,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "THREE_BLACK_CROWS(GUCLU_SAT)"
+      ],
+      "fk_orani": 12.793296,
+      "pd_dd": 1.2458855,
+      "temettü_verimi": 165.0,
+      "piyasa_degeri_m": 43308.0,
+      "roe": 10.5,
+      "roa": 3.3,
+      "borc_ozsermaye": 63.1,
+      "fcf_m": -1891.0,
+      "gelir_buyume_yoy": -0.2,
+      "sharpe": -1.58,
+      "max_drawdown": -22.37,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 60.36,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 62.59,
+            "agirlik_pct": 20,
+            "upside_pct": 36.7
+          },
+          "fib162": {
+            "fiyat": 67.16,
+            "agirlik_pct": 10,
+            "upside_pct": 46.6
+          },
+          "direnc": {
+            "fiyat": 50.65,
+            "agirlik_pct": 20,
+            "upside_pct": 10.6
+          },
+          "atr_rr3": {
+            "fiyat": 52.17,
+            "agirlik_pct": 15,
+            "upside_pct": 13.9
+          },
+          "bollinger": {
+            "fiyat": 51.21,
+            "agirlik_pct": 10,
+            "upside_pct": 11.8
+          },
+          "analist": {
+            "fiyat": 72.2,
+            "agirlik_pct": 25,
+            "upside_pct": 57.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "AKBNK",
+      "isim": "Akbank T.A.S.",
+      "sektor": "Financial Services",
+      "fiyat": 66.5,
+      "degisim_1g": 7.95,
+      "degisim_1h": 0.08,
+      "degisim_6ay": -19.87,
+      "rsi_14": 43.66,
+      "stoch_k": 61.54,
+      "stoch_d": 23.08,
+      "macd": -2.2951,
+      "macd_sinyal": -1.9459,
+      "macd_hist": -0.3492,
+      "sma_50": 68.03,
+      "sma_200": 70.28,
+      "bb_ust": 74.36,
+      "bb_orta": 68.03,
+      "bb_alt": 61.71,
+      "bb_pct": 0.379,
+      "atr": 2.1964,
+      "volatilite": 48.46,
+      "yillik_getiri": -34.12,
+      "obv_trend": "-1216996234",
+      "hacim_ort": 140485784,
+      "destek": 61.6,
+      "direnc": 73.75,
+      "fib": {
+        "0.0": 61.6,
+        "0.236": 66.41,
+        "0.382": 69.39,
+        "0.5": 71.8,
+        "0.618": 74.21,
+        "1.0": 82.0,
+        "1.272": 87.55,
+        "1.618": 94.61
+      },
+      "adx": 51.41,
+      "golden_cross_durum": "DEATH_CROSS(20/50)",
+      "ichimoku": {
+        "tenkan": 66.6,
+        "kijun": 73.27,
+        "senkou_a": 75.65,
+        "senkou_b": 73.92,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 75.65,
+        "bulut_alt": 73.92
+      },
+      "sar_deger": 68.9,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 5.518672,
+      "pd_dd": 1.1427491,
+      "temettü_verimi": 347.0,
+      "piyasa_degeri_m": 345800.0,
+      "roe": 22.9,
+      "roa": 1.9,
+      "borc_ozsermaye": null,
+      "fcf_m": null,
+      "gelir_buyume_yoy": 42.0,
+      "sharpe": -1.57,
+      "max_drawdown": -30.67,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 89.17,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 87.55,
+            "agirlik_pct": 20,
+            "upside_pct": 31.7
+          },
+          "fib162": {
+            "fiyat": 94.61,
+            "agirlik_pct": 10,
+            "upside_pct": 42.3
+          },
+          "direnc": {
+            "fiyat": 73.75,
+            "agirlik_pct": 20,
+            "upside_pct": 10.9
+          },
+          "atr_rr3": {
+            "fiyat": 76.38,
+            "agirlik_pct": 15,
+            "upside_pct": 14.9
+          },
+          "bollinger": {
+            "fiyat": 74.36,
+            "agirlik_pct": 10,
+            "upside_pct": 11.8
+          },
+          "fk_deger": {
+            "fiyat": 120.5,
+            "agirlik_pct": 20,
+            "upside_pct": 81.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "GARAN",
+      "isim": "Turkiye Garanti Bankasi A.S.",
+      "sektor": "Financial Services",
+      "fiyat": 127.9,
+      "degisim_1g": 3.9,
+      "degisim_1h": 0.63,
+      "degisim_6ay": -17.66,
+      "rsi_14": 47.64,
+      "stoch_k": 76.56,
+      "stoch_d": 35.23,
+      "macd": -2.1238,
+      "macd_sinyal": -2.1461,
+      "macd_hist": 0.0222,
+      "sma_50": 127.97,
+      "sma_200": 130.93,
+      "bb_ust": 134.34,
+      "bb_orta": 127.97,
+      "bb_alt": 121.6,
+      "bb_pct": 0.495,
+      "atr": 3.2,
+      "volatilite": 39.75,
+      "yillik_getiri": -32.25,
+      "obv_trend": "-125769961",
+      "hacim_ort": 31092100,
+      "destek": 123.1,
+      "direnc": 134.4,
+      "fib": {
+        "0.0": 120.0,
+        "0.236": 125.66,
+        "0.382": 129.17,
+        "0.5": 132.0,
+        "0.618": 134.83,
+        "1.0": 144.0,
+        "1.272": 150.53,
+        "1.618": 158.83
+      },
+      "adx": 47.19,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 127.65,
+        "kijun": 135.0,
+        "senkou_a": 137.9,
+        "senkou_b": 135.3,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 137.9,
+        "bulut_alt": 135.3
+      },
+      "sar_deger": 129.27,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [
+        "HAMMER(AL)"
+      ],
+      "fk_orani": 4.461109,
+      "pd_dd": 1.1038138,
+      "temettü_verimi": 427.0,
+      "piyasa_degeri_m": 537180.0,
+      "roe": 28.1,
+      "roa": 2.7,
+      "borc_ozsermaye": null,
+      "fcf_m": null,
+      "gelir_buyume_yoy": 24.5,
+      "sharpe": -1.87,
+      "max_drawdown": -23.83,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 175.42,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 150.53,
+            "agirlik_pct": 20,
+            "upside_pct": 17.7
+          },
+          "fib162": {
+            "fiyat": 158.83,
+            "agirlik_pct": 10,
+            "upside_pct": 24.2
+          },
+          "direnc": {
+            "fiyat": 134.4,
+            "agirlik_pct": 20,
+            "upside_pct": 5.1
+          },
+          "atr_rr3": {
+            "fiyat": 142.3,
+            "agirlik_pct": 15,
+            "upside_pct": 11.3
+          },
+          "bollinger": {
+            "fiyat": 134.34,
+            "agirlik_pct": 10,
+            "upside_pct": 5.0
+          },
+          "analist": {
+            "fiyat": 182.06,
+            "agirlik_pct": 25,
+            "upside_pct": 42.3
+          },
+          "fk_deger": {
+            "fiyat": 286.7,
+            "agirlik_pct": 20,
+            "upside_pct": 124.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "YKBNK",
+      "isim": "Yapi ve Kredi Bankasi A.S.",
+      "sektor": "Financial Services",
+      "fiyat": 34.04,
+      "degisim_1g": 9.81,
+      "degisim_1h": 3.47,
+      "degisim_6ay": -13.82,
+      "rsi_14": 43.28,
+      "stoch_k": 81.41,
+      "stoch_d": 29.28,
+      "macd": -1.4362,
+      "macd_sinyal": -1.3818,
+      "macd_hist": -0.0544,
+      "sma_50": 34.16,
+      "sma_200": 36.24,
+      "bb_ust": 38.05,
+      "bb_orta": 34.16,
+      "bb_alt": 30.27,
+      "bb_pct": 0.485,
+      "atr": 1.1471,
+      "volatilite": 49.04,
+      "yillik_getiri": -18.83,
+      "obv_trend": "-2891593546",
+      "hacim_ort": 204841188,
+      "destek": 31.0,
+      "direnc": 38.02,
+      "fib": {
+        "0.0": 31.0,
+        "0.236": 34.03,
+        "0.382": 35.9,
+        "0.5": 37.42,
+        "0.618": 38.94,
+        "1.0": 43.84,
+        "1.272": 47.33,
+        "1.618": 51.78
+      },
+      "adx": 75.08,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 33.31,
+        "kijun": 37.86,
+        "senkou_a": 39.97,
+        "senkou_b": 38.68,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 39.97,
+        "bulut_alt": 38.68
+      },
+      "sar_deger": 34.23,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 5.1969466,
+      "pd_dd": 1.0053754,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 287538.0,
+      "roe": 21.8,
+      "roa": 1.6,
+      "borc_ozsermaye": null,
+      "fcf_m": null,
+      "gelir_buyume_yoy": 29.4,
+      "sharpe": -1.24,
+      "max_drawdown": -29.58,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 47.4,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 47.33,
+            "agirlik_pct": 20,
+            "upside_pct": 39.0
+          },
+          "fib162": {
+            "fiyat": 51.78,
+            "agirlik_pct": 10,
+            "upside_pct": 52.1
+          },
+          "direnc": {
+            "fiyat": 38.02,
+            "agirlik_pct": 20,
+            "upside_pct": 11.7
+          },
+          "atr_rr3": {
+            "fiyat": 39.2,
+            "agirlik_pct": 15,
+            "upside_pct": 15.2
+          },
+          "bollinger": {
+            "fiyat": 38.05,
+            "agirlik_pct": 10,
+            "upside_pct": 11.8
+          },
+          "fk_deger": {
+            "fiyat": 65.5,
+            "agirlik_pct": 20,
+            "upside_pct": 92.4
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "OYAKC",
+      "isim": "OYAK Çimento Fabrikalari A.S.",
+      "sektor": "Basic Materials",
+      "fiyat": 20.52,
+      "degisim_1g": -1.91,
+      "degisim_1h": 0.88,
+      "degisim_6ay": -23.32,
+      "rsi_14": 53.23,
+      "stoch_k": 44.55,
+      "stoch_d": 57.43,
+      "macd": -0.0435,
+      "macd_sinyal": -0.1102,
+      "macd_hist": 0.0667,
+      "sma_50": 20.54,
+      "sma_200": 20.83,
+      "bb_ust": 21.47,
+      "bb_orta": 20.54,
+      "bb_alt": 19.62,
+      "bb_pct": 0.487,
+      "atr": 0.6743,
+      "volatilite": 33.05,
+      "yillik_getiri": -49.36,
+      "obv_trend": "40395729",
+      "hacim_ort": 19124286,
+      "destek": 19.86,
+      "direnc": 21.3,
+      "fib": {
+        "0.0": 19.86,
+        "0.236": 21.07,
+        "0.382": 21.82,
+        "0.5": 22.43,
+        "0.618": 23.04,
+        "1.0": 25.0,
+        "1.272": 26.4,
+        "1.618": 28.18
+      },
+      "adx": 24.85,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 21.15,
+        "kijun": 20.77,
+        "senkou_a": 21.84,
+        "senkou_b": 23.57,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 23.57,
+        "bulut_alt": 21.84
+      },
+      "sar_deger": 20.21,
+      "sar_yon": "YUKARI",
+      "rsi_iraksama": "POZ_IRAKSAMA",
+      "macd_iraksama": "POZ_IRAKSAMA",
+      "obv_iraksama": "POZ_IRAKSAMA",
+      "mum_formasyonlari": [],
+      "fk_orani": 11.400001,
+      "pd_dd": 1.4375788,
+      "temettü_verimi": 493.0,
+      "piyasa_degeri_m": 99761.0,
+      "roe": 13.1,
+      "roa": 8.2,
+      "borc_ozsermaye": 4.2,
+      "fcf_m": -3717.0,
+      "gelir_buyume_yoy": -21.0,
+      "sharpe": -2.76,
+      "max_drawdown": -28.1,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 27.08,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 26.4,
+            "agirlik_pct": 20,
+            "upside_pct": 28.7
+          },
+          "fib162": {
+            "fiyat": 28.18,
+            "agirlik_pct": 10,
+            "upside_pct": 37.3
+          },
+          "direnc": {
+            "fiyat": 21.3,
+            "agirlik_pct": 20,
+            "upside_pct": 3.8
+          },
+          "atr_rr3": {
+            "fiyat": 23.55,
+            "agirlik_pct": 15,
+            "upside_pct": 14.8
+          },
+          "bollinger": {
+            "fiyat": 21.47,
+            "agirlik_pct": 10,
+            "upside_pct": 4.6
+          },
+          "analist": {
+            "fiyat": 36.16,
+            "agirlik_pct": 25,
+            "upside_pct": 76.2
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TOASO",
+      "isim": "Tofas Türk Otomobil Fabrikasi Anonim Sirketi",
+      "sektor": "Consumer Cyclical",
+      "fiyat": 268.75,
+      "degisim_1g": 3.17,
+      "degisim_1h": -1.38,
+      "degisim_6ay": -11.61,
+      "rsi_14": 31.32,
+      "stoch_k": 21.53,
+      "stoch_d": 16.71,
+      "macd": -10.8225,
+      "macd_sinyal": -7.3164,
+      "macd_hist": -3.5061,
+      "sma_50": 290.58,
+      "sma_200": 301.71,
+      "bb_ust": 320.69,
+      "bb_orta": 290.58,
+      "bb_alt": 260.46,
+      "bb_pct": 0.138,
+      "atr": 11.0714,
+      "volatilite": 40.46,
+      "yillik_getiri": -17.45,
+      "obv_trend": "-40772713",
+      "hacim_ort": 3555504,
+      "destek": 260.5,
+      "direnc": 307.75,
+      "fib": {
+        "0.0": 260.5,
+        "0.236": 280.44,
+        "0.382": 292.78,
+        "0.5": 302.75,
+        "0.618": 312.72,
+        "1.0": 345.0,
+        "1.272": 367.98,
+        "1.618": 397.22
+      },
+      "adx": 49.11,
+      "golden_cross_durum": "SMA20_ALTINDA",
+      "ichimoku": {
+        "tenkan": 287.25,
+        "kijun": 306.88,
+        "senkou_a": 327.0,
+        "senkou_b": 317.88,
+        "durum": "BULUT_ALTI",
+        "tenkan_kijun": "ASAGI",
+        "bulut_ust": 327.0,
+        "bulut_alt": 317.88
+      },
+      "sar_deger": 293.16,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 10.719984,
+      "pd_dd": 2.044006,
+      "temettü_verimi": 734.0,
+      "piyasa_degeri_m": 134375.0,
+      "roe": 22.0,
+      "roa": 1.9,
+      "borc_ozsermaye": 107.03,
+      "fcf_m": -42237.0,
+      "gelir_buyume_yoy": 11.0,
+      "sharpe": -1.47,
+      "max_drawdown": -24.49,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 355.22,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 367.98,
+            "agirlik_pct": 20,
+            "upside_pct": 36.9
+          },
+          "fib162": {
+            "fiyat": 397.22,
+            "agirlik_pct": 10,
+            "upside_pct": 47.8
+          },
+          "direnc": {
+            "fiyat": 307.75,
+            "agirlik_pct": 20,
+            "upside_pct": 14.5
+          },
+          "atr_rr3": {
+            "fiyat": 318.57,
+            "agirlik_pct": 15,
+            "upside_pct": 18.5
+          },
+          "bollinger": {
+            "fiyat": 320.69,
+            "agirlik_pct": 10,
+            "upside_pct": 19.3
+          },
+          "analist": {
+            "fiyat": 402.0,
+            "agirlik_pct": 25,
+            "upside_pct": 49.6
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "AKSEN",
+      "isim": "Aksa Enerji Üretim A.S.",
+      "sektor": "Utilities",
+      "fiyat": 94.6,
+      "degisim_1g": -2.47,
+      "degisim_1h": -11.09,
+      "degisim_6ay": 27.84,
+      "rsi_14": 52.47,
+      "stoch_k": 14.07,
+      "stoch_d": 25.01,
+      "macd": 3.9685,
+      "macd_sinyal": 5.3392,
+      "macd_hist": -1.3707,
+      "sma_50": 98.4,
+      "sma_200": 87.9,
+      "bb_ust": 117.15,
+      "bb_orta": 98.4,
+      "bb_alt": 79.65,
+      "bb_pct": 0.399,
+      "atr": 6.025,
+      "volatilite": 50.07,
+      "yillik_getiri": 63.17,
+      "obv_trend": "119318233",
+      "hacim_ort": 7824162,
+      "destek": 80.9,
+      "direnc": 116.0,
+      "fib": {
+        "0.0": 73.5,
+        "0.236": 83.53,
+        "0.382": 89.74,
+        "0.5": 94.75,
+        "0.618": 99.76,
+        "1.0": 116.0,
+        "1.272": 127.56,
+        "1.618": 142.26
+      },
+      "adx": 61.95,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 106.08,
+        "kijun": 99.8,
+        "senkou_a": 83.49,
+        "senkou_b": 84.18,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 84.18,
+        "bulut_alt": 83.49
+      },
+      "sar_deger": 114.56,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "YOK",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 15.819398,
+      "pd_dd": 1.808657,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 116012.0,
+      "roe": 7.4,
+      "roa": 4.7,
+      "borc_ozsermaye": 81.84,
+      "fcf_m": -12860.0,
+      "gelir_buyume_yoy": -21.0,
+      "sharpe": 0.42,
+      "max_drawdown": -18.45,
+      "kelly_f": 0.25,
+      "hedef_analiz": {
+        "hedef": 121.14,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 127.56,
+            "agirlik_pct": 20,
+            "upside_pct": 34.8
+          },
+          "fib162": {
+            "fiyat": 142.26,
+            "agirlik_pct": 10,
+            "upside_pct": 50.4
+          },
+          "direnc": {
+            "fiyat": 116.0,
+            "agirlik_pct": 20,
+            "upside_pct": 22.6
+          },
+          "atr_rr3": {
+            "fiyat": 121.71,
+            "agirlik_pct": 15,
+            "upside_pct": 28.7
+          },
+          "bollinger": {
+            "fiyat": 117.15,
+            "agirlik_pct": 10,
+            "upside_pct": 23.8
+          },
+          "analist": {
+            "fiyat": 112.94,
+            "agirlik_pct": 25,
+            "upside_pct": 19.4
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    },
+    {
+      "ticker": "TRMET",
+      "isim": "TR Anadolu Metal Madencilik Isletmeleri A.S.",
+      "sektor": "Basic Materials",
+      "fiyat": 127.8,
+      "degisim_1g": -0.31,
+      "degisim_1h": -4.48,
+      "degisim_6ay": -5.54,
+      "rsi_14": 51.9,
+      "stoch_k": 44.67,
+      "stoch_d": 41.92,
+      "macd": 3.6079,
+      "macd_sinyal": 3.1685,
+      "macd_hist": 0.4393,
+      "sma_50": 123.62,
+      "sma_200": 116.86,
+      "bb_ust": 136.3,
+      "bb_orta": 123.62,
+      "bb_alt": 110.94,
+      "bb_pct": 0.665,
+      "atr": 6.5429,
+      "volatilite": 54.47,
+      "yillik_getiri": 2.98,
+      "obv_trend": "21611702",
+      "hacim_ort": 5375242,
+      "destek": 115.5,
+      "direnc": 136.1,
+      "fib": {
+        "0.0": 101.3,
+        "0.236": 109.51,
+        "0.382": 114.59,
+        "0.5": 118.7,
+        "0.618": 122.81,
+        "1.0": 136.1,
+        "1.272": 145.57,
+        "1.618": 157.61
+      },
+      "adx": 49.32,
+      "golden_cross_durum": "SMA20_USTUNDE",
+      "ichimoku": {
+        "tenkan": 131.65,
+        "kijun": 127.2,
+        "senkou_a": 116.35,
+        "senkou_b": 125.25,
+        "durum": "BULUT_USTU",
+        "tenkan_kijun": "YUKARI",
+        "bulut_ust": 125.25,
+        "bulut_alt": 116.35
+      },
+      "sar_deger": 143.48,
+      "sar_yon": "ASAGI",
+      "rsi_iraksama": "NEG_IRAKSAMA",
+      "macd_iraksama": "YOK",
+      "obv_iraksama": "YOK",
+      "mum_formasyonlari": [],
+      "fk_orani": 22.619469,
+      "pd_dd": 1.7976453,
+      "temettü_verimi": null,
+      "piyasa_degeri_m": 49597.0,
+      "roe": 10.8,
+      "roa": 8.3,
+      "borc_ozsermaye": 0.24,
+      "fcf_m": 3088.0,
+      "gelir_buyume_yoy": 55.9,
+      "sharpe": -0.72,
+      "max_drawdown": -39.99,
+      "kelly_f": 0.02,
+      "hedef_analiz": {
+        "hedef": 160.58,
+        "yontem": "agirlikli_konsensus",
+        "detay": {
+          "fib127": {
+            "fiyat": 145.57,
+            "agirlik_pct": 20,
+            "upside_pct": 13.9
+          },
+          "fib162": {
+            "fiyat": 157.61,
+            "agirlik_pct": 10,
+            "upside_pct": 23.3
+          },
+          "direnc": {
+            "fiyat": 136.1,
+            "agirlik_pct": 20,
+            "upside_pct": 6.5
+          },
+          "atr_rr3": {
+            "fiyat": 157.24,
+            "agirlik_pct": 15,
+            "upside_pct": 23.0
+          },
+          "bollinger": {
+            "fiyat": 136.3,
+            "agirlik_pct": 10,
+            "upside_pct": 6.7
+          },
+          "analist": {
+            "fiyat": 205.07,
+            "agirlik_pct": 25,
+            "upside_pct": 60.5
+          }
+        }
+      },
+      "manipulasyon_skoru": 0.0,
+      "balon_skoru": 0.0
+    }
+  ],
+  "agent3": {
+    "piyasa_duyarliligi": "NOTR",
+    "kritik_gelismeler": [
+      "Başkentten 7 ayda 10,8 milyar dolarla rekor ihracat",
+      "Enerji şirketi bp'nin yılın ikinci çeyreğindeki karı yüzde 150 artışla 5,7 milyar dolar oldu",
+      "Ticaret Bakanlığının e-ihale sistemi yılın ilk yarısında 2,7 milyar lira gelir sağladı"
+    ],
+    "sektor_haberleri": {
+      "Bankacılık": "YKBNK, AKBNK, GARAN",
+      "Enerji": "bp, EREGL, AKSA",
+      "Holding": "TKYB, TOASO, AKSEN",
+      "Tarım": "Tarım emtia piyasasında geçen ay buğday rüzgarı esti",
+      "Ulaşım": "Türk boğazlarından yılın ilk yarısında 40 binden fazla gemi geçti",
+      "Havacılık": "THYAO"
+    },
+    "hisse_sentiment": {
+      "THYAO": {
+        "sentiment": "POZITIF",
+        "gerekce": "Türk havacılık sektörünün büyümesi",
+        "etki": "YUKSEK"
+      }
+    },
+    "makro_riskler": [
+      "Dünya ekonomisindeki belirsizlikler",
+      "Enerji fiyatlarının dalgalanması"
+    ],
+    "firsatlar": [
+      "İhracatın artmasıyla birlikte ekonomide büyüme",
+      "E-ihale sisteminin gelirinin artması"
+    ]
+  },
+  "agent1": "**BIST100 Genel Değerlendirme**\n\nBIST100 endeksinin son 3 aylık performansı %-6,3 olarak gerçekleşmiştir. Pozitif 3 aylık getiri gösteren hisselerin oranı %30'dur. Manipülasyon şüphesi ve balon şüphesi bulunan hisseler tespit edilmemiştir. Derin analize alınan hisselerin sayısı 35'dir.\n\n**Sektör ve Korelasyon Analizi**\n\nYüksek korelasyon (>0,8) gösteren hisseler arasında KCHOL-SAHOL, SAHOL-AKBNK, SAHOL-GARAN, SAHOL-YKBNK, PGSUS-THYAO, AKBNK-GARAN, AKBNK-YKBNK ve GARAN-YKBNK bulunmaktadır. Bu hisselerin birçoğu finansal hizmetler sektöründe faaliyet göstermektedir.\n\n**Elinen Hisseler**\n\nElinen hisseler arasında ANSGR, HALKB, TUKAS, DAPGM, FROTO, TURSG, MPARK, ISCTR, SKBNK ve ENERY bulunmaktadır.\n\n**Top 8 Hisse**\n\nTop 8 hisse arasında AKSA, TRMET, AKSEN, OYAKC, GARAN, EREGL, AEFES ve DOHOL bulunmaktadır. Bu hisselerin kural puanları ve teknik analiz göstergeleri aşağıdaki gibidir:\n\n* AKSA: KP: 85,4, F: 12,49, 6Ay: +21,1%, RSI: 62,54, ADX: 22, Ich: BULUT_USTU, SAR: YUKARI\n* TRMET: KP: 83,8, F: 127,80, 6Ay: -5,5%, RSI: 51,9, ADX: 49, Ich: BULUT_USTU, SAR: ASAGI\n* AKSEN: KP: 79,6, F: 94,60, 6Ay: +27,8%, RSI: 52,47, ADX: 62, Ich: BULUT_USTU, SAR: ASAGI\n* OYAKC: KP: 73,4, F: 20,52, 6Ay: -23,3%, RSI: 53,23, ADX: 25, Ich: BULUT_ALTI, SAR: YUKARI\n* GARAN: KP: 72,0, F: 127,90, 6Ay: -17,7%, RSI: 47,64, ADX: 47, Ich: BULUT_ALTI, SAR: ASAGI\n* EREGL: KP: 71,2, F: 41,28, 6Ay: +45,2%, RSI: 53,12, ADX: 40, Ich: BULUT_USTU, SAR: ASAGI\n* AEFES: KP: 70,0, F: 21,80, 6Ay: +8,9%, RSI: 61,06, ADX: 23, Ich: BULUT_USTU, SAR: YUKARI\n* DOHOL: KP: 68,6, F: 20,70, 6Ay: -3,4%, RSI: 44,06, ADX: 16, Ich: BULUT_ALTI, SAR: YUKARI\n\n**Kelly Ağırlıkları**\n\nKelly ağırlıkları AKSA, AKSEN, EREGL ve TKFEN hisseleri için 0,250 olarak hesaplanmıştır. Diğer hisselerin Kelly ağırlıkları 0,020 olarak hesaplanmıştır.\n\n**Piyasa Durumu**\n\nPiyasa durumunun genel olarak kritik olduğu söylenebilir. Yüksek korelasyon gösteren hisseler ve elinen hisseler dikkat çekmektedir. Top 8 hisse arasında teknik analiz göstergeleri olumlu olan hisseler bulunmaktadır. Ancak, piyasa durumunun kritik olması nedeniyle yatırımcıların dikkatli olması gerekmektedir.",
+  "agent2": {
+    "kararlar": [],
+    "strateji": "Parse hatası",
+    "nakit_orani_pct": 100
+  },
+  "elinen": [
+    {
+      "ticker": "ANSGR",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "HALKB",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TUKAS",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "DAPGM",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "FROTO",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TURSG",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "MPARK",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ISCTR",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "SKBNK",
+      "m": 10.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ENERY",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ODAS",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ULKER",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "CWENE",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TRENJ",
+      "m": 20.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TUPRS",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "REEDR",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "CANTE",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "OBAMS",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "BTCIM",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "GSRAY",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "BALSU",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "MAVI",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "GLRMK",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "GRTHO",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TSKB",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "VAKBN",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ENJSA",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "TUREX",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "YEOTK",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "SASA",
+      "m": 10.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "GUBRF",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "KONTR",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "QUAGR",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "GRSEL",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "FENER",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "IZENR",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "SOKM",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "GENIL",
+      "m": 0.0,
+      "b": 10.0
+    },
+    {
+      "ticker": "MIATK",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "HEKTS",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "KCAER",
+      "m": 0.0,
+      "b": 20.0
+    },
+    {
+      "ticker": "VESTL",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "ASTOR",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ZOREN",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "BSOKE",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "ECILC",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "TSPOR",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "TTRAK",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "TABGD",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "BRSAN",
+      "m": 10.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "KLRHO",
+      "m": 0.0,
+      "b": 10.0
+    },
+    {
+      "ticker": "EUPWR",
+      "m": 0.0,
+      "b": 10.0
+    },
+    {
+      "ticker": "TRALT",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "PATEK",
+      "m": 0.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "ALTNY",
+      "m": 0.0,
+      "b": 30.0
+    },
+    {
+      "ticker": "EGEEN",
+      "m": 20.0,
+      "b": 0.0
+    },
+    {
+      "ticker": "KUYAS",
+      "m": 0.0,
+      "b": 26.0
+    },
+    {
+      "ticker": "OTKAR",
+      "m": 0.0,
+      "b": 15.0
+    },
+    {
+      "ticker": "MAGEN",
+      "m": 0.0,
+      "b": 35.0
+    },
+    {
+      "ticker": "KRDMD",
+      "m": 0.0,
+      "b": 20.0
+    },
+    {
+      "ticker": "EFOR",
+      "m": 0.0,
+      "b": 30.0
+    },
+    {
+      "ticker": "RALYH",
+      "m": 0.0,
+      "b": 10.0
+    },
+    {
+      "ticker": "PASEU",
+      "m": 28.0,
+      "b": 55.0
+    },
+    {
+      "ticker": "DSTKF",
+      "m": 0.0,
+      "b": 55.0
+    },
+    {
+      "ticker": "KTLEV",
+      "m": 0.0,
+      "b": 18.0
+    }
+  ],
+  "haberler": [
+    {
+      "baslik": "Başkentten 7 ayda 10,8 milyar dolarla rekor ihracat",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Başkentin ihracatı, yılın 7 ayında geçen yılın aynı dönemine göre yüzde 23,4 artarak en yüksek ocak-temmuz dönemi rakamı olan 10 milyar 811 milyon doları buldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Enerji şirketi bp'nin yılın ikinci çeyreğindeki karı yüzde 150 artışla 5,7 milyar dolar oldu",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İngiliz enerji şirketi bp'nin yılın ikinci çeyreğindeki karı yıllık bazda yaklaşık yüzde 150 artarak 5,7 milyar dolara çıktı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Ticaret Bakanlığının e-ihale sistemi yılın ilk yarısında 2,7 milyar lira gelir sağladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Ticaret Bakanlığının, tasfiyelik hale gelen eşya ve araçların ekonomiye kazandırılması amacıyla yürüttüğü e-ihale sistemi üzerinden yılın ilk yarısında, 6 bin 826 ihale sonuçlandırıldı ve satışlardan 2,7 milyar liranın üzerinde gelir elde edildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Tarım emtia piyasasında geçen ay buğday rüzgarı esti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Emtia piyasasında, tarım grubunda El Nino hava olayı, küresel çaptaki kuraklık ve jeopolitik gerilimlerle geçen ay sert yükselişler görülürken, buğday fiyatlarındaki hareketler öne çıktı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "BTM girişimleri yılın ilk yarısında 11 milyon dolarlık yatırım çekti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İstanbul Ticaret Odası ve Bilgiyi Ticarileştirme Merkezi Başkanı Avdagiç, BTM'yi girişimcilikte dünyanın en iyi 3'üncü startup merkezi yapmayı başardıklarını belirterek, \"BTM'deki girişimler ilk altı ayda 11 milyon dolarlık yatırım çekti.\" dedi.",
+      "ilgili_hisseler": [
+        "ODAS"
+      ]
+    },
+    {
+      "baslik": "TKYB Genel Müdürü Öztop: Gelecek ikinci yarıda kaynak teminimizde herhangi bir sıkıntı görmüyoruz",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "TKYB Genel Müdürü İbrahim Öztop, yılın ilk 6 ayında 4 ayrı kuruluştan 1 milyar dolara yakın kaynak temini yaptıklarını belirterek, \"Gelecek ikinci yarıda da kaynak teminimizde herhangi bir sıkıntı görmüyoruz.\" dedi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Türk boğazlarından yılın ilk yarısında 40 binden fazla gemi geçti",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Karadeniz'de, Rusya-Ukrayna savaşı nedeniyle saldırılar artmasına rağmen, İstanbul ve Çanakkale boğazlarından, yılın ilk yarısında toplam 40 bin 218 gemi geçti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "İçme ve kullanma suyu havzalarının korunmasına ilişkin yönetmelikte değişiklik",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İçme ve kullanma suyu havzalarının korunmasına yönelik yönetmelikte düzenleme yapılarak, havzalara zarar verecek faaliyetlere ilişkin tedbirler artırıldı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Sakarya, ocak-temmuz döneminde yaklaşık 3,2 milyar dolarlık ihracat yaptı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Türkiye'nin otomotiv ihracatında başı çeken illerden Sakarya, yılın 7 aylık döneminde 3 milyar 209 milyon 705 bin dolarlık ihracat yaptı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Trakya'dan geçen ay 243 milyon dolar ihracat gerçekleştirildi",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Kırklareli, Edirne ve Tekirdağ'dan temmuz ayında 243 milyon 152 bin 700 dolarlık ihracat yapıldı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Egeli ihracatçılar haziranın ardından temmuzda da aylık ihracat rekoru kırdı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Ege İhracatçı Birlikleri (EİB) üyesi firmalar, temmuz ayında aylık bazda tarihinin en yüksek ihracat rakamına imza attı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Borsa güne düşüşle başladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Borsa İstanbul'da BIST 100 endeksi, güne yüzde 0,08 düşüşle 13.399,44 puandan başladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Otomobil ve hafif ticari araç pazarı ocak-temmuz döneminde yüzde 10,72 daraldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Türkiye'de otomobil ve hafif ticari araç satışları, ocak-temmuz döneminde yıllık bazda yüzde 10,72 azalarak 638 bin 965 oldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Tarım arazilerinin korunması ve kullanılmasına ilişkin yönetmelikte düzenleme yapıldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Tarım arazilerinde, tarımsal amaçlı yapı ve tarım dışı kullanım amaçlı başvurulara yönelik düzenlemeye gidildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Küresel piyasalarda Orta Doğu bilinmezliği risk iştahını sınırlıyor",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Küresel piyasalar, Orta Doğu'da devam eden barış müzakerelerine karşın, her an yeni bir çatışmanın patlak verebileceğine yönelik endişelerle karışık seyrediyor.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Visa, siber güvenlik şirketi BioCatch'i 2,4 milyar dolarlık anlaşmayla satın alacak",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "ABD'li finansal hizmetler şirketi Visa, davranış odaklı ve çoklu sinyale dayalı dolandırıcılık istihbaratı sağlayıcısı İsrail merkezli BioCatch'i 2,4 milyar dolar nakit karşılığında satın almak üzere anlaşmaya vardığını duyurdu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Borsa günü düşüşle tamamladı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Borsa İstanbul'da BIST 100 endeksi, günü yüzde 0,35 değer kaybederek 13.410,54 puandan tamamladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "60 saniyede ekonomide bugün (03 Ağustos 2026)",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Bir bakışta ekonomide günün gelişmeleri. Halkbank’ın katkılarıyla…",
+      "ilgili_hisseler": [
+        "HALKB"
+      ]
+    },
+    {
+      "baslik": "Doğu Karadeniz'den 7 ayda 124 ülkeye 1 milyar doları aşan ihracat yapıldı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Trabzon, Rize, Artvin ve Gümüşhane'den ocak-temmuz döneminde yapılan ihracattan geçen yılın aynı dönemine göre yüzde 18'lik artışla 1 milyar 92 milyon 760 bin 838 dolar kazanç elde edildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Rusya'da yeni otomobil satışları yüzde 10 arttı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Rusya'da yeni otomobil satışları, yılın 7 ayında geçen yılın aynı dönemine göre yüzde 10 artarak 815 bin 100'e ulaştı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Ren Nehri'nde su seviyesinin düşmesi Almanya ekonomisini tehdit ediyor",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Alman ekonomisi, aşırı sıcaklar ve kuraklık nedeniyle hayati önem taşıyan Ren Nehri’ndeki nakliye işlemlerinde ciddi zorluklarla karşı karşıya kalıyor.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "THY'den tüm zamanların yolcu ve uçuş rekoru",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Türk Hava Yolları (THY), ağustos ayının ilk iki gününde yolcu ve sefer sayılarında tüm zamanların en yüksek günlük rakamlarına ulaştı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Güneydoğu'nun temmuz ihracatı yüzde 19,3 arttı",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Güneydoğu Anadolu Bölgesi'nin temmuz ayı ihracatı, geçen yılın aynı ayına göre yüzde 19,3 artarak 1,2 milyar dolar oldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bakan Kacır: Türkiye, üretim ve ihracat odaklı kalkınma yolculuğunda kararlılıkla ilerliyor",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır, Türkiye'nin ihracatta güçlü performansının sürdüğünü belirtti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Savunma ve havacılık sanayisinden temmuzda 1,12 milyar dolarlık ihracat",
+      "kaynak": "AA Ekonomi",
+      "tarih": "Mon, 03 Aug 2026",
+      "ozet": "Cumhurbaşkanlığı Savunma Sanayii Başkanı Haluk Görgün, savunma ve havacılık sanayisi sektörünün temmuz ayında geçen yılın aynı ayına göre yüzde 14,4 artışla 1,12 milyar dolarlık ihracat gerçekleştirdiğini bildirdi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Beşiktaş Avrupa Ligi maçı ne zaman? Hradec Kralove BJK maçı ne zaman, saat kaçta, hangi kanalda?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "UEFA Avrupa Ligi 3. ön eleme turunda Beşiktaş, Çekya ekibi Hradec Kralove ile karşı karşıya gelecek. Kara Kartal ilk maçını deplasmanda oynayacak ve güzel bir skor alarak seyircisi önüne avantajlı çıkmak istiyor. Peki, Beşiktaş Avrupa Ligi maçı ne zaman?",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "HSBC kârını yüzde 23 artırdı: 1 milyar dolarlık geri alım açıkladı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "HSBC&#039;nin 2026&#039;nın ilk yarısındaki vergi öncesi kârı yüzde 23 artarak 19,5 milyar dolara çıktı. Banka, gelir ve faiz kazançlarındaki büyümenin ardından 1 milyar dolarlık hisse geri alımı ile hisse başına 10 sent temettü açıkladı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Bennu Gerede gözaltına alındı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Fotoğraf sanatçısı Bennu Gerede, bir YouTube programındaki açıklamaları nedeniyle Bakırköy Cumhuriyet Başsavcılığı tarafından başlatılan &quot;müstehcenlik&quot; soruşturması kapsamında gözaltına alındı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Dava gideri düştü, Bayer zarardan çıktı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Alman ilaç ve tarım şirketi Bayer, dava giderlerindeki sert düşüşün desteğiyle ikinci çeyrekte zarardan kâra geçti. Şirket satışlarını artırırken, serbest nakit akışındaki bozulmaya rağmen yıl sonu borç tahminini aşağı çekti.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Goldman Sachs'tan Türkiye için faiz uyarısı: İndirim beklentisi ötelenebilir",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Temmuz ayında enflasyon beklentilerin üzerinde gerilese de Goldman Sachs, Türkiye ekonomisine ilişkin temkinli duruşunu korudu. Bankaya göre enerji fiyatları ve kurdaki riskler nedeniyle faizlerin beklenenden daha uzun süre yüksek seviyelerde kalması gerekebilir.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "2026 YKS sonuç tarihi... Üniversite tercih sonuçları ne zaman açıklanacak?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "YKS tercih sonuç tarihi yoğun şekilde araştırılıyor. Ağustos ayı ilerlerken üniversite adaylarının heyecanı da tırmanıyor. Tam tarih konusunda bilgi almaya çalışanlar &quot;2026 YKS tercih sonuçları ne zaman açıklanacak&quot; sorusuna ağırlık vermiş durumda...",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "TÜİK: Güvenlik birimlerine gelen çocuk sayısı 610 bine yaklaştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Türkiye&#039;de, geçen yıl güvenlik birimlerine gelen veya getirilen çocukların karıştığı olay sayısı bir önceki yıla göre, yüzde 0,4 azalarak 609 bin 959 oldu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Avrupa hisseleri rekor seviyelere yaklaştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Avrupa borsaları, güçlü şirket bilançolarının desteğiyle haftaya yükselişle devam etti. HSBC ve Bayer&#039;in beklentileri aşan sonuçları yatırımcı güvenini artırırken, gözler küresel teknoloji şirketlerinden gelecek finansal sonuçlara çevrildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Tralleis'te 2 bin yıllık 300 kişilik antik havuz gün yüzüne çıkarıldı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Kültür ve Turizm Bakanı Mehmet Nuri Ersoy, Aydın&#039;daki Tralleis Antik Kenti&#039;nde yürütülen Geleceğe Miras Projesi kapsamında Hamam Gymnasium kompleksinde yer alan 2 bin yıllık, yaklaşık 300 kişilik ve 37 metre uzunluğundaki antik havuzun kazı ve restorasyon çalışmalarının tamamlandığını açık",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "ARD Grup’a (ARDYZ) 31,9 milyon TL’lik kamu siparişi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "ARD Grup Bilişim, adı açıklanmayan bir kamu kurumundan KDV hariç 31 milyon 956 bin 900 TL tutarında bilişim ürünü siparişi aldı. Şirket, teslimatların ciro ve kârlılığa olumlu katkı sağlamasını bekliyor; işin başlangıcı 3 Ağustos olarak bildirildi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "En düşük emekli aylığında farkların ödeneceği tarihi belli oldu",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "SGK, en düşük emekli aylığının temmuz ayından itibaren 23 bin 552 TL&#039;ye yükseltilmesi kapsamında oluşan fark ödemelerinin 7 Ağustos 2026 Cuma günü hak sahiplerinin hesaplarına yatırılacağını duyurdu.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Ukrayna'nın İHA saldırıları Rusya'da akaryakıt krizini derinleştirdi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Ukrayna&#039;nın Rus petrol rafinerilerine yönelik yoğunlaştırdığı İHA saldırılarının etkisi ülke genelinde hissedilmeye başladı. CNN&#039;in haberine göre 50&#039;den fazla bölgede yakıt tedarik sorunları yaşanırken, bazı noktalarda benzin satışına sınırlama getirildi, uzun kuyruklar oluştu ve Mosk",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Emekli maaş farkı yattı mı, ne zaman yatıyor? En düşük emekli maaş farkı hangi gün hesaplara yatacak?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "En düşük emekli maaşı alanlar maaş farkının yatacağı tarihi araştırıyor. 3 bin 552 TL&#039;lik fark için yüz binler SGK&#039;dan açıklama bekliyor. Tarih bilgisine ulaşmak isteyenlerin ortak sorusu &quot;Emekli maaş farkı yattı mı, ne zaman yatıyor&quot; oluyor.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Altı günlük grevin Lufthansa'ya faturası belli oldu",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Lufthansa Grubu&#039;nun düzeltilmiş faaliyet kârı, artan jet yakıtı maliyetleri ve altı gün süren pilot grevinin etkisiyle ikinci çeyrekte yüzde 56 azalarak 383 milyon Euro&#039;ya geriledi. Kârdaki sert düşüşe rağmen şirketin cirosu yüzde 8 artışla 11,1 milyar Euro&#039;ya ulaştı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "İran Cumhurbaşkanı Pezeşkiyan: Savaşı genişletmek istemiyoruz",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İran Cumhurbaşkanı Mesud Pezeşkiyan, ABD ile savaşın genişlemesini istemediklerini ancak İran&#039;ın toprak bütünlüğünü ve ulusal çıkarlarını savunmak için tüm gücüyle hareket edeceğini söyledi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Toyota’da net kâr sürprizi: Yıllık hedef yükseldi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Toyota’nın nisan-haziran döneminde net kârı yüzde 75,6 artarak 1,48 trilyon yene çıktı. Faaliyet kârındaki düşüşe rağmen zayıf yen, finansal gelirler ile hibrit ve elektrikli araç talebi şirketin yıllık kâr tahminlerini yukarı taşıdı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Savaş Aramco'ya yaradı: Petrol devi beklentileri aştı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Saudi Aramco&#039;nun düzeltilmiş net kârı, savaşın petrol fiyatlarını yükseltmesi ve ihracatın kesintisiz sürmesiyle ikinci çeyrekte yüzde 33 artarak 33,4 milyar dolara ulaştı. Böylece şirket, analistlerin 31,1 milyar dolarlık beklentisini geride bıraktı.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Fenerbahçe Şampiyonlar Ligi maçı ne zaman? FB - Sturm Graz maçı ne zaman, saat kaçta, hangi kanalda? Şifresiz mi?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Gornik Zabrze&#039;yi Şampiyonlar Ligi 2. ön eleme turunda eleyen Fenerbahçe&#039;nin rakibi 3. turda Sturm Graz oldu. Sarı Kanarya, Avusturya ekibini de geçerek play-offlara kalmayi hedefliyor. Mücadele yakın zamanda oynanacak ve &quot;Fenerbahçe Şampiyonlar Ligi maçı ne zaman&quot; sorusu hızlanıy",
+      "ilgili_hisseler": [
+        "FENER"
+      ]
+    },
+    {
+      "baslik": "Bakan Gürlek duyurdu: 687 kişinin vatandaşlığı iptal edilecek",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Adalet Bakanı Akın Gürlek, yabancı uyruklu kişilere sahte ekspertiz raporlarıyla düşük değerli taşınmazları yüksek bedelli göstererek Türk vatandaşlığı kazandırdığı öne sürülen suç örgütüne operasyon düzenlendiğini duyurdu. İstanbul merkezli yürütülen geniş çaplı soruşturmada 687 kişinin bu yöntemle",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "İspanya: Sebte ve Melilla'ya düzensiz giriş Avrupa'da serbest dolaşım hakkı sağlamıyor",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İspanya Dışişleri Bakanlığı, İspanya&#039;nın Kuzey Afrika&#039;daki toprağı olan Sebte (Ceuta) ve Melilla kentleri üzerinden ülkeye düzensiz giriş yapılmasının Avrupa&#039;da serbest dolaşım hakkı sağlamadığını bildirdi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Devletin e-ihalelerinden 2,7 milyar TL'lik gelir",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Ticaret Bakanlığı, tasfiyelik hale gelen araç ve eşyaların satıldığı e-ihale sisteminin 2026 yılı ilk yarı sonuçlarını açıkladı. Ocak-haziran döneminde 6 bin 826 ihale tamamlanırken 1477 araç ile 5 bin 349 eşya yeniden ekonomiye kazandırıldı. Satışlardan Hazine&#039;ye 2,7 milyar liranın üzerinde ge",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Otomotiv pazarında temmuz freni: Satışlar yüzde 25 geriledi",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Türkiye otomobil ve hafif ticari araç pazarı, temmuz ayında geçen yılın aynı dönemine göre yüzde 25 daralarak 80 bin 786 adede geriledi. Böylece pazar, 31 gün süren temmuz ayında, yalnızca 15 iş günü bulunan mayıs ayındaki satış performansının da gerisinde kaldı. Ocak-temmuz döneminde ise toplam sat",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Asgari ücrette görünmeyen kayıp",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Avrupa&#039;da asgari ücret rakamları yeniden hesaplanırken, asgari ücretin satın alma gücü de masaya yatırıldı. Ortaya çıkan tablo, birçok ülkenin sıralamasını değiştirirken Türkiye&#039;ye ilişkin dikkat çeken bir gerçeği de gözler önüne serdi.",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "İzmir'de Menderes Belediyesi'ne operasyon: Belediye Başkanı İlkay Çiçek gözaltına alındı",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "İzmir Cumhuriyet Başsavcılığı&#039;nın yürüttüğü soruşturma kapsamında Menderes Belediyesi&#039;ne sabah saatlerinde operasyon düzenlendi. Belediye Başkanı İlkay Çiçek&#039;in de aralarında bulunduğu 16 kişi hakkında gözaltı kararı verilirken, 13 şüpheli yakalandı. Belediye binasında ve bazı adresle",
+      "ilgili_hisseler": []
+    },
+    {
+      "baslik": "Apple Telegram’ı App Store’dan kaldırdı: Uygulama nasıl geri döndü?",
+      "kaynak": "Dünya Gazetesi",
+      "tarih": "Tue, 04 Aug 2026",
+      "ozet": "Apple, Telegram’ı yasaklı içerik nedeniyle kısa süreliğine App Store’dan kaldırdı. İçerik silinip hesap engellenince uygulama hızla yeniden erişime açıldı.",
+      "ilgili_hisseler": []
+    }
+  ]
+}
