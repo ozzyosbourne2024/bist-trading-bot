@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-08-10T07:20:30.173941",
+  "genisl": {
+    "yukselenler": 21,
+    "dusenler": 8,
+    "breadth_skoru": 33.9,
+    "adl_oran": 2.62,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 15,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.76,
+    "bist_degisim_10g": 0.85,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 47.7140007019043,
+    "usdtry_aylik_pct": 1.47,
+    "tur_etf_degisim": 1.41,
+    "altin_degisim": 9.36,
+    "vix": 14.9
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 30,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 13803.8896484375,
+      "ort20": 13825,
+      "ort50": 14062,
+      "rsi": 44.9,
+      "macd_histo": 19.0,
+      "ay1_pct": -2.0,
+      "ay3_pct": -6.6,
+      "ay6_pct": -2.7,
+      "bb_pozisyon": 48.0,
+      "ust_band": 14359,
+      "alt_band": 13292
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %33.9 olarak hesaplandı, bu da endeksin yalnızca bir kısmının yükseldiğini ve genel olarak piyasanın genişlemesinin sınırlı olduğunu gösteriyor. Ayrıca, yükselen hisse sayısı (21) düşen hisse sayısından (8) daha fazla, ancak bu fark çok büyük değil.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 30/100 olarak hesaplandı ve \"TEMKİNLİ TREND\" olarak sınıflandırıldı. Bu, piyasanın bir miktar risk altında olduğunu ve düzeltme olasılığının yüksek olduğunu gösteriyor. Tetikleyici olarak, RSI değeri (44.9) hala nötr bölgede, ancak BB%B değeri (48.0) endeksin üst bantta olduğunu gösteriyor. Bu, bir düzeltme hareketinin tetiklenebileceğini işaret ediyor.\n\n3. Yatırımcı için somut 3 öneri:\n * **Trendi takip edin**: Piyasanın genel trendini takip edin ve uzun vadeli yatırım stratejilerinizi buna göre ayarlayın.\n * **Stop-loss seviyeleri belirleyin**: Yatırım yapılan hisseler için stop-loss seviyeleri belirleyin ve olası düzeltme hareketine karşı korunma sağlayın.\n * **Piyasa haberlerini takip edin**: Makroekonomik haberleri ve piyasa gelişmelerini yakından takip edin ve yatırım kararlarınızı buna göre güncelleyin."
+  },
+  "risk_skoru": 30,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
