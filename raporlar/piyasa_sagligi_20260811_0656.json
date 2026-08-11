@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-08-11T06:56:51.417064",
+  "genisl": {
+    "yukselenler": 25,
+    "dusenler": 22,
+    "breadth_skoru": 40.3,
+    "adl_oran": 1.14,
+    "rsi_asiri_yuksel_sayi": 1,
+    "rsi_asiri_dusuk_sayi": 15,
+    "ust_20_gun_sayi": 3,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 10
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.74,
+    "bist_degisim_10g": 0.9,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 47.735801696777344,
+    "usdtry_aylik_pct": 1.51,
+    "tur_etf_degisim": 0.31,
+    "altin_degisim": 9.63,
+    "vix": 15.5
+  },
+  "rejim": {
+    "rejim": "🟢 SAĞLIKLI TREND",
+    "risk_skoru": 20,
+    "tavsiye": "Normal portföy işlemleri yapılabilir.",
+    "endeks": {
+      "son": 13811.599609375,
+      "ort20": 13826,
+      "ort50": 14062,
+      "rsi": 45.1,
+      "macd_histo": 19.0,
+      "ay1_pct": -2.0,
+      "ay3_pct": -6.6,
+      "ay6_pct": -2.6,
+      "bb_pozisyon": 48.7,
+      "ust_band": 14360,
+      "alt_band": 13292
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor gibi görünüyor. Breadth skoru %40.3 ve yükselen hisse sayısı (25) düşen hisse sayısına (22) çok yakın. Bu, endeksin birkaç güçlü hisse tarafından taşınabileceğini gösteriyor.\n\n2. Düzeltme skoru 20/100 ile \"sağlıklı trend\" olarak değerlendiriliyor. RSI değeri (45.1) aşırı satım bölgesine girmediği için yakın vadede büyük bir düzeltme beklenmiyor. Ancak, VIX endeksinin 15.5 seviyesinde olması ve TUR ETF 20G'nin 0.31% olması, piyasanın biraz tedirgin olabileceğini gösteriyor. Tetikleyici olarak, global ekonomik gelişmeler, faiz oranları veya jeopolitik olaylar olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n * Endeks içindeki güçlü hisseleri takip edin ve portföyünüzü güncelleyin.\n * RSI değeri 45.1 olan endeksin, kısa vadede bir miktar toparlanma gösterebileceğini dikkate alın.\n * Piyasa koşullarını yakından takip edin ve olası bir düzeltme durumunda, portföyünüzü yeniden düzenlemek için hazırlıklı olun."
+  },
+  "risk_skoru": 20,
+  "rejim_adi": "🟢 SAĞLIKLI TREND",
+  "tavsiye": "Normal portföy işlemleri yapılabilir."
+}
