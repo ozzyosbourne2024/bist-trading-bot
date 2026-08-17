@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-08-17T06:41:49.915034",
+  "genisl": {
+    "yukselenler": 22,
+    "dusenler": 24,
+    "breadth_skoru": 35.5,
+    "adl_oran": 0.92,
+    "rsi_asiri_yuksel_sayi": 4,
+    "rsi_asiri_dusuk_sayi": 6,
+    "ust_20_gun_sayi": 1,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.75,
+    "bist_degisim_10g": 5.68,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 47.89789962768555,
+    "usdtry_aylik_pct": 1.52,
+    "tur_etf_degisim": 0.43,
+    "altin_degisim": 8.73,
+    "vix": 14.2
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 33,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 14172.2998046875,
+      "ort20": 13812,
+      "ort50": 14070,
+      "rsi": 61.6,
+      "macd_histo": 75.0,
+      "ay1_pct": 0.7,
+      "ay3_pct": 1.0,
+      "ay6_pct": -0.6,
+      "bb_pozisyon": 84.2,
+      "ust_band": 14338,
+      "alt_band": 13285
+    },
+    "yorum": "Verileri analiz ettikten sonra aşağıdaki yorumları yapabiliriz:\n\n1. \"Az sayıda hisse endeksi taşıyor\" hipotezi doğrulanıyor. Breadth skoru %35,5 ile düşük seviyede ve yükselen hisse sayısı (22) düşen hisse sayısından (24) az. Bu, endeksin birkaç güçlü hisse tarafından taşınmakta olduğunu gösteriyor.\n\n2. Yakın vadede düzeltme beklenir. Düzelme riski skoru 33/100 ile \"temkinli trend\" olarak belirlenmiştir. RSI (61,6) masih orta seviyede ancak BB%B (84,2) yüksek seviyede, bu da endeksin aşırı alım bölgesine yaklaştığını gösteriyor. VIX (14,2) düşük seviyede, ancak bu durum kısa vadeli bir düzeltme için tetikleyici olabilir.\n\n3. Yatırımcı için somut 3 öneri:\n- **Trendi takip edin**: Endeksin genel trendini takip edin ve güçlü hisselere odaklanın.\n- **Stop-loss kullanın**: Hisse senedi portföyünüzde stop-loss seviyeleri belirleyin ve olası bir düzeltme durumunda kayıplarınızı sınırlayın.\n- **Diversifikasyon yapın**: Portföyünüzü farklı sektörlerdeki hisselerle diversifikasyon yaparak riskinizi dağıtın ve olası bir düzeltme durumunda daha az etkilenin."
+  },
+  "risk_skoru": 33,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
