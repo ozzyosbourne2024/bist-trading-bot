@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-08-20T06:36:23.003519",
+  "genisl": {
+    "yukselenler": 18,
+    "dusenler": 25,
+    "breadth_skoru": 29.0,
+    "adl_oran": 0.72,
+    "rsi_asiri_yuksel_sayi": 5,
+    "rsi_asiri_dusuk_sayi": 9,
+    "ust_20_gun_sayi": 3,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.61,
+    "bist_degisim_10g": 4.78,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 5,
+    "gorunum": "NÖTR",
+    "usdtry": 47.951499938964844,
+    "usdtry_aylik_pct": 1.34,
+    "tur_etf_degisim": 3.07,
+    "altin_degisim": 4.84,
+    "vix": 14.9
+  },
+  "rejim": {
+    "rejim": "🟡 DÜZELTME RİSKİ YÜKSEK",
+    "risk_skoru": 45,
+    "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut.",
+    "endeks": {
+      "son": 14459.0,
+      "ort20": 13838,
+      "ort50": 14098,
+      "rsi": 86.4,
+      "macd_histo": 90.0,
+      "ay1_pct": 2.7,
+      "ay3_pct": 4.7,
+      "ay6_pct": 2.8,
+      "bb_pozisyon": 101.5,
+      "ust_band": 14441,
+      "alt_band": 13236
+    },
+    "yorum": "LLM hatası: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  "risk_skoru": 45,
+  "rejim_adi": "🟡 DÜZELTME RİSKİ YÜKSEK",
+  "tavsiye": "Nakit oranını artır (%25+). Yeni alımları küçük tut."
+}
