@@ -1,0 +1,55 @@
+{
+  "tarih": "2026-09-24T10:56:43.366384",
+  "genisl": {
+    "yukselenler": 3,
+    "dusenler": 49,
+    "breadth_skoru": 4.8,
+    "adl_oran": 0.06,
+    "rsi_asiri_yuksel_sayi": 2,
+    "rsi_asiri_dusuk_sayi": 13,
+    "ust_20_gun_sayi": 0,
+    "agir_hisse_tasiyor": false,
+    "risk_katki": 20
+  },
+  "yabanci": {
+    "veri_var": true,
+    "net_pozisyon": null,
+    "trend": "NÖTR",
+    "risk_katki": 5,
+    "kaynak": "yfinance proxy (USDTRY + XU100)",
+    "usd_degisim_10g": 0.53,
+    "bist_degisim_10g": -9.84,
+    "usdtry_bist_kor": null
+  },
+  "makro": {
+    "risk_katki": 8,
+    "gorunum": "NÖTR",
+    "usdtry": 48.85219955444336,
+    "usdtry_aylik_pct": 1.79,
+    "tur_etf_degisim": -7.0,
+    "altin_degisim": -2.61,
+    "vix": 16.2
+  },
+  "rejim": {
+    "rejim": "🟠 TEMKİNLİ TREND",
+    "risk_skoru": 36,
+    "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma.",
+    "endeks": {
+      "son": 12979.1904296875,
+      "ort20": 13966,
+      "ort50": 13980,
+      "rsi": 34.8,
+      "macd_histo": -135.0,
+      "ay1_pct": -11.0,
+      "ay3_pct": -9.6,
+      "ay6_pct": 1.5,
+      "bb_pozisyon": 3.5,
+      "ust_band": 15026,
+      "alt_band": 12906
+    },
+    "yorum": "LLM hatası: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"
+  },
+  "risk_skoru": 36,
+  "rejim_adi": "🟠 TEMKİNLİ TREND",
+  "tavsiye": "Mevcut pozisyonları koru, agresif alım yapma."
+}
